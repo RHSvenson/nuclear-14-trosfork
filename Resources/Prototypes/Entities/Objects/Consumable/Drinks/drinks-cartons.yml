@@ -17,6 +17,8 @@
         maxVol: 50
   - type: PressurizedSolution
     solution: drink
+  - type: ExaminableSolution
+    opaque: true
   - type: Shakeable
   - type: Sprite
     state: icon
@@ -195,16 +197,6 @@
     sprite: Objects/Consumable/Drinks/oatmilk.rsi
 
 - type: entity
-  parent: DrinkCartonBaseFull
-  id: DrinkCartonBaseSmallFull
-  abstract: true
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 25
-
-- type: entity
   parent: [DrinkCartonVisualsOpenable, DrinkCartonBaseFull]
   id: DrinkMilkCartonMini
   name: mini milk
@@ -218,8 +210,7 @@
         - ReagentId: Milk
           Quantity: 25
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/milkmini.rsi
-    state: icon
+    sprite: Objects/Consumable/Drinks/lemonjuice.rsi
 
 - type: entity
   parent: [DrinkCartonVisualsOpenable, DrinkCartonBaseFull]

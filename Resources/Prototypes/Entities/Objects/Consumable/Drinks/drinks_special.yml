@@ -34,12 +34,15 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 50
-  - type: EmitSoundOnPickup
-    sound: /Audio/SimpleStation14/Items/Handling/drinkglass_pickup.ogg
-  - type: EmitSoundOnDrop
-    sound: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
-  - type: EmitSoundOnLand
-    sound: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
+  - type: DnaSubstanceTrace
+  - type: ReactionMixer
+    mixOnInteract: false
+    reactionTypes:
+    - Shake
+  - type: ExaminableSolution
+    solution: drink
+    heldOnly: true
+    opaque: true
 
 - type: entity
   parent: DrinkGlassBase
