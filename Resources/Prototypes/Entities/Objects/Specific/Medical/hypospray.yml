@@ -17,7 +17,6 @@
     solution: hypospray
   - type: ExaminableSolution
     solution: hypospray
-    heldOnly: true
     exactVolume: true
   - type: Hypospray
     onlyAffectsMobs: false
@@ -50,7 +49,6 @@
     solution: hypospray
   - type: ExaminableSolution
     solution: hypospray
-    heldOnly: true
     exactVolume: true
   - type: Hypospray
     onlyAffectsMobs: false
@@ -76,7 +74,6 @@
     solution: hypospray
   - type: ExaminableSolution
     solution: hypospray
-    exactVolume: true
   - type: Hypospray
     onlyAffectsMobs: false
   - type: UseDelay
@@ -116,7 +113,6 @@
         maxVol: 15
   - type: ExaminableSolution
     solution: pen
-    heldOnly: true
     exactVolume: true
   - type: Hypospray
     solutionName: pen
