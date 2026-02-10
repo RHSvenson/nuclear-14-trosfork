@@ -122,6 +122,7 @@
     runningState: icon # change this
     staticRecipes: # Ammo related only.
     - Magazine556Rifle
+    - Magazine556Rifle30 # Forge-add
     - LongMagazine556Rifle
     - LMGMagazine556Rifle
     - MagazineBox556
@@ -174,6 +175,7 @@
     # Forge-Change-End
 
 - type: entity
+  categories: [ HideSpawnMenu ] # Forge-change
   parent: N14WorkbenchBase
   id: N14WorkbenchAmmobenchFrame
   description: A workbench with ammo working tools for crafting. This one is still being built!

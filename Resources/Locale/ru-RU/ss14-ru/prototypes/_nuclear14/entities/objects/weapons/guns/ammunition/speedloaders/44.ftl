@@ -1,4 +1,4 @@
-ent-N14BaseSpeedLoader44 = спидлоадер (.44 магнум)
-    .desc = { ent-BaseItem.desc }
-ent-SpeedLoader44 = спидлоадер (.44 магнум)
+ent-N14BaseSpeedLoader44 = спидлоадер револьверный (.44 Magnum)
+    .desc = Револьверный спидлоадер калибра .44 на 6 патронов.
+ent-SpeedLoader44 = { ent-N14BaseSpeedLoader44 }
     .desc = { ent-N14BaseSpeedLoader44.desc }
