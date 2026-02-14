@@ -1,7 +1,7 @@
 - type: job
   id: Raider
   setPreference: true
-  name: job-name-raider
+  name: Raider
   description: job-description-raider
   playTimeTracker: Raider
   requirements:

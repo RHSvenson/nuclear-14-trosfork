@@ -3,7 +3,7 @@
   setPreference: true
   overrideConsoleVisibility: true
   canBeAntag: false
-  name: job-name-ncr-prisoner
+  name: NCR Prisoner
   description: job-description-ncr-prisoner
   playTimeTracker: NCRPisoner
   requirements:

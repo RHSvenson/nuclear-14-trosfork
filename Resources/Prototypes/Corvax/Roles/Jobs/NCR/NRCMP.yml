@@ -3,7 +3,7 @@
   setPreference: true
   overrideConsoleVisibility: true
   canBeAntag: false
-  name: job-name-ncr-mp-investegator
+  name: NCR Military Police Investigator
   description: job-description-ncr-mp-investegator
   playTimeTracker: NCRMPinvestigator
   requirements:

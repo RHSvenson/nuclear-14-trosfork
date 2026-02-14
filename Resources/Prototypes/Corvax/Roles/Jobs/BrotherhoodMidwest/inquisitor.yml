@@ -3,7 +3,7 @@
   setPreference: true
   overrideConsoleVisibility: true
   canBeAntag: false
-  name: job-name-bos-mid-inquisitor
+  name: Midwest BoS Inquisitor
   description: job-description-bos-mid-inquisitor
   playTimeTracker: BoSMidInquisitor
   requirements:
