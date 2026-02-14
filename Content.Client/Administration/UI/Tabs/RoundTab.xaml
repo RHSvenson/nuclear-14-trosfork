@@ -5,9 +5,9 @@
     MinSize="50 50">
     <GridContainer
         Columns="3">
-        <cc:CommandButton Command="startround" Text="{Loc administration-ui-round-tab-start}" /> <!-- Corvax-Localization -->
-        <cc:CommandButton Command="endround" Text="{Loc administration-ui-round-tab-end}" /> <!-- Corvax-Localization -->
-        <cc:CommandButton Command="restartround" Text="{Loc administration-ui-round-tab-restart}" /> <!-- Corvax-Localization -->
-        <cc:CommandButton Command="restartroundnow" Text="{Loc administration-ui-round-tab-restart-round-now}" />
+        <cc:CommandButton Command="startround" Text="Start Round" />
+        <cc:CommandButton Command="endround" Text="End Round" />
+        <cc:CommandButton Command="restartround" Text="Restart Round" />
+        <cc:CommandButton Command="restartroundnow" Text="Restart NOW" />
     </GridContainer>
 </Control>
