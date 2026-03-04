@@ -5,7 +5,7 @@ const axios = require("axios");
 
 // Path to the changelog file. Allows overriding via environment variable but
 // defaults to the repository's Nuclear14 changelog.
-const CHANGELOG_PATH = process.env.CHANGELOG_DIR || "Resources/Changelog/Nuclear14.yml";
+const CHANGELOG_PATH = process.env.CHANGELOG_DIR || "Resources/Changelog/Changelog.yml";
 
 // Use GitHub token if available
 if (process.env.GITHUB_TOKEN) axios.defaults.headers.common["Authorization"] = `Bearer ${process.env.GITHUB_TOKEN}`;
