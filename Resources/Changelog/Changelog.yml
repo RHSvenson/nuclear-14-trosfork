@@ -66,3 +66,12 @@ Entries:
   id: 5607
   time: '2026-03-05T17:00:24.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/24
+- author: Cythisiax
+  changes:
+    - type: Tweak
+      message: >-
+        Found more RU, did more EN translation. Adjusted MOTD befitting
+        "Wendover", and set welcoming to "Misfits Nuclear Wasteland",
+  id: 5608
+  time: '2026-03-05T18:28:49.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/27
