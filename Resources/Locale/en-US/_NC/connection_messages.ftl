@@ -9,7 +9,7 @@ stalker-discord-auth-browser-btn = Discord Server
 
 stalker-discord-auth-dlink = Discord
 
-stalker-discord-auth-link = https://discord.com/invite/q7ybZ5BaXW
+stalker-discord-auth-link = https://discord.gg/wHudFdvpNQ
 
 stalker-discord-auth-quit-btn = Exit
 

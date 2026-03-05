@@ -9,3 +9,41 @@ Entries:
   id: 5605
   time: '2026-03-04T03:23:53.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/commit/74991fd1a0c05bb0acd78bc1eb45f1120b422a0c
+- author: Cythisiax
+  changes:
+    - type: Add
+      message: Ruleset adjustments
+    - type: Fix
+      message: Github actions python
+    - type: Tweak
+      message: Rulesets, same.
+  id: 2
+  time: '2026-03-04T18:02:32.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/18
+- author: Cythisiax
+  changes:
+    - type: Add
+      message: Fallout relevant tips, removed diarrhea.
+    - type: Fix
+      message: >-
+        Rulesets and their 94538 paths. Need consolidation on some of this
+        nonsense.
+  id: 3
+  time: '2026-03-04T18:17:41.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/19
+- author: Cythisiax
+  changes:
+    - type: Tweak
+      message: Just fixed ruleset path /Resource. Added _Misfits folder for future.
+  id: 4
+  time: '2026-03-04T18:30:35.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/20
+- author: Cythisiax
+  changes:
+    - type: Fix
+      message: >-
+        Going to be a lot of these changes as things go on. More RU > EN
+        translations.
+  id: 5
+  time: '2026-03-04T19:10:53.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/21

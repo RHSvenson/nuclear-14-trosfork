@@ -42,9 +42,9 @@ public sealed partial class DiscordAuthManager : IPostInjectInit
     {
         _sawmill = Logger.GetSawmill("discordAuth");
 
-        _cfg.OnValueChanged(CCCVars.DiscordAuthEnabled, v => _enabled = v, true);
-        _cfg.OnValueChanged(CCCVars.DiscordApiUrl, v => _apiUrl = v, true);
-        _cfg.OnValueChanged(CCCVars.ApiKey, v => _apiKey = v, true);
+        _cfg.OnValueChanged(CCCVars.DiscordAuthEnabled, v => _enabled = v, false);
+        _cfg.OnValueChanged(CCCVars.DiscordApiUrl, v => _apiUrl = v, false);
+        _cfg.OnValueChanged(CCCVars.ApiKey, v => _apiKey = v, false);
         _cfg.OnValueChanged(CCCVars.DiscordGuildID, v => _discordGuild = v, true);
 
         _netMgr.RegisterNetMessage<MsgDiscordAuthRequired>();
