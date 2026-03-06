@@ -949,6 +949,7 @@ namespace Content.Client.Lobby.UI
 
                 var jobs = department.Roles.Select(jobId => _prototypeManager.Index<JobPrototype>(jobId))
                     .Where(job => job.SetPreference)
+                    .Where(job => !job.HideWithoutWhitelist || _requirements.IsWhitelisted()) // #Misfits Change
                     .ToArray();
 
                 Array.Sort(jobs, JobUIComparer.Instance);
@@ -1081,6 +1082,7 @@ namespace Content.Client.Lobby.UI
 
                 var jobs = department.Roles.Select(jobId => _prototypeManager.Index(jobId))
                     .Where(job => job.SetPreference)
+                    .Where(job => !job.HideWithoutWhitelist || _requirements.IsWhitelisted()) // #Misfits Change
                     .ToArray();
                 Array.Sort(jobs, JobUIComparer.Instance);
 

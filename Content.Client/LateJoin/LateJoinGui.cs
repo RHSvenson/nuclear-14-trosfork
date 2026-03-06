@@ -186,7 +186,13 @@ namespace Content.Client.LateJoin
                         if (!stationAvailable.ContainsKey(jobId))
                             continue;
 
-                        jobsAvailable.Add(_prototypeManager.Index<JobPrototype>(jobId));
+                        var job = _prototypeManager.Index<JobPrototype>(jobId);
+
+                        // #Misfits Change - hide whitelist-gated jobs from non-whitelisted players
+                        if (job.HideWithoutWhitelist && !_jobRequirements.IsWhitelisted())
+                            continue;
+
+                        jobsAvailable.Add(job);
                     }
 
                     jobsAvailable.Sort(JobUIComparer.Instance);

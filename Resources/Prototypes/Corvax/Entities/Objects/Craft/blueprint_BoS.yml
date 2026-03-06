@@ -11,7 +11,7 @@
 - type: entity
   parent: N14BaseBlueprintPaper
   id: N14ClothingOuterMBoSInitiateArmorBlueprint
-  name: blueprint BoS Midwest initiate armor
+  name: Brotherhood of Steel Initiate Armor Blueprint
   suffix: Craft, BoS
   components:
     - type: STBlueprint
@@ -20,7 +20,7 @@
 - type: entity
   parent: N14BaseBlueprintPaper
   id: N14ClothingOuterMidwestArmorBlueprint
-  name: blueprint BoS Midwest combat armor
+  name: Brotherhood of Steel Combat Armor Blueprint
   suffix: Craft, BoS
   components:
     - type: STBlueprint
@@ -29,7 +29,7 @@
 - type: entity
   parent: N14BaseBlueprintPaper
   id: N14ClothingOuterMidwestArmorMK2Blueprint
-  name: blueprint BoS Midwest MK2 combat armor
+  name: Brotherhood of Steel MK2 Combat Armor Blueprint
   suffix: Craft, BoS
   components:
     - type: STBlueprint

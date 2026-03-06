@@ -2,7 +2,7 @@
   id: BoSMidSerf
   overrideConsoleVisibility: true
   canBeAntag: false
-  name: Midwest BoS Serf
+  name: Brotherhood of Steel Serf
   description: job-description-bos-mid-Serf
   playTimeTracker: BoSMidSerf
   requirements:

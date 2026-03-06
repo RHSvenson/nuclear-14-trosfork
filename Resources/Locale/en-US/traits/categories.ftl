@@ -9,3 +9,4 @@ trait-category-TraitsSpeechUncategorized = Uncategorized
 trait-category-TraitsSpeechAccents = Accents
 trait-category-TraitsSpeechLanguages = Languages
 trait-category-Visual = Visual
+trait-category-Language = Language

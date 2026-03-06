@@ -1,6 +1,3 @@
-# Main
-guide-entry-nuclear14 = Nuclear 14
-
 # Factions
 guide-entry-factions = Factions & Roles
 
@@ -15,7 +12,7 @@ guide-entry-bartending = Drinks & Other Liquids
 guide-entry-cooking = Cooking
 guide-entry-materials = Materials
 
-guide-entry-brotherhoodmidwest = Midwest Brotherhood of Steel (MWBS)
+guide-entry-brotherhoodmidwest = Brotherhood of Steel
 
 guide-entry-brotherhoodofsteel = Brotherhood of Steel (BoS)
 
@@ -24,8 +21,6 @@ guide-entry-brotherhoodwashington = Washington Brotherhood of Steel (WBS)
 guide-entry-caravancompany = Caravan Company
 
 guide-entry-childrenofatom = Children of Atom
-
-guide-entry-crafting-sys = Blueprints
 
 # Survival
 

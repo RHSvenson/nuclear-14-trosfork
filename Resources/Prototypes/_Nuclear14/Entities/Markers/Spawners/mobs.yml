@@ -939,7 +939,7 @@
       - N14MobNPCTownGuard
 
 - type: entity
-  name: Midwest Serf Spawner
+  name: Brotherhood of Steel Serf Spawner
   id: N14SpawnMobNPCMBoSSerf
   parent: MarkerBase
   components:
@@ -954,7 +954,7 @@
       - N14MobNPCMBoSSerf
 
 - type: entity
-  name: Midwest Knight Spawner
+  name: Brotherhood of Steel Knight Spawner
   id: N14SpawnMobNPCMBoSKnight
   parent: MarkerBase
   components:

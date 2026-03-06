@@ -645,8 +645,8 @@
 - type: entity
   parent: N14WorkbenchIDPrinter
   id: N14WorkbenchIDPrinterBrotherhoodMidwest
-  description: An ID printer for printing Midwest Brotherhood holotags.
-  suffix: Midwest BOS
+  description: An ID printer for printing Brotherhood holotags.
+  suffix: BOS
   components:
   - type: Lathe
     staticRecipes:

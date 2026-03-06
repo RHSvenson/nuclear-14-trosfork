@@ -1210,7 +1210,7 @@
 - type: entity
   parent: N14ClothingOuterCombatArmorMK2
   id: N14ClothingOuterCombatArmorBOSMK2
-  name: brotherhood combat armor mk2
+  name: Brotherhood of Steel Combat Armor MK2
   description: A suit of combat armor used by the Washington Brotherhood of Steel.
   components:
   - type: Sprite
@@ -1221,7 +1221,7 @@
 - type: entity
   parent: N14ClothingOuterCombatArmor
   id: N14ClothingOuterCombatArmorBOS
-  name: brotherhood combat armor
+  name: Brotherhood of Steel Combat Armor
   description: A suit of combat armor used by the low-ranking members of the Washington Brotherhood of Steel.
   components:
   - type: Sprite
@@ -1232,7 +1232,7 @@
 - type: entity
   parent: N14ClothingOuterCombatArmor
   id: N14ClothingOuterCombatArmorKnightBOS
-  name: knight combat armor
+  name: Knight Combat Armor
   description: A suit of combat armor used by the Knights in the Washington Brotherhood of Steel.
   components:
   - type: Sprite
@@ -1243,7 +1243,7 @@
 - type: entity
   parent: N14ClothingOuterCombatArmorMK2
   id: N14ClothingOuterCombatArmorSeniorBOS
-  name: senior knight combat armor
+  name: Senior Knight Combat Armor
   description: A suit of combat armor used by the Senior Knights in the Washington Brotherhood of Steel.
   components:
   - type: Sprite
@@ -1254,7 +1254,7 @@
 - type: entity
   parent: N14ClothingOuterCombatArmorMK2
   id: N14ClothingOuterCombatArmorCaptainBOS
-  name: captain combat armor
+  name: Captain Combat Armor
   description: A suit of combat armor used by the Captains in the Washington Brotherhood of Steel.
   components:
   - type: Sprite
@@ -1296,7 +1296,7 @@
 - type: entity
   parent: N14ClothingOuterCombatArmorMK2
   id: N14ClothingOuterCombatArmorMK3
-  name: brotherhood combat armor mk3
+  name: Brotherhood of Steel Combat Armor MK3
   description: Meticulously worked on by the Washington Scribes, its near unrecognisable from its original state.
   components:
   - type: Sprite
@@ -1319,7 +1319,7 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterWBoSInitiateArmor
-  name: initiate armor
+  name: Initiate Armor
   description: A set of light armor used by the Washington Brotherhood's Initiates. It's quite light on actual plating, but cheap to make.
   components:
   - type: Sprite
@@ -1343,7 +1343,7 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterWBoSSquireArmor
-  name: squire armor
+  name: Squire Armor
   description: A set of light armor used by the Washington Brotherhood's Squires. It's a bit light on actual plating, but insulates from the cold.
   components:
   - type: Sprite
@@ -1367,7 +1367,7 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterWBoSKnightArmor
-  name: knight armor
+  name: Knight Armor
   description: A suit of combat armor used by the Washington Brotherhood's Knights. Almost identical to pre-war sets issued to the military.
   components:
   - type: Sprite
@@ -1391,7 +1391,7 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterWBoSSeniorKArmor
-  name: senior knight armor
+  name: Senior Knight Armor
   description: A suit of combat armor used by the Washington Brotherhood's Senior Knights. It's slightly sturdier than the average rank & file troop's gear.
   components:
   - type: Sprite
@@ -1415,7 +1415,7 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterWBoSPaladinArmor
-  name: paladin armor
+  name: Paladin Armor
   description: A suit of sturdy armor used by the Washington Brotherhood's Paladins. Seems to cover almost every inch of one's torso.
   components:
   - type: Sprite
@@ -1452,7 +1452,7 @@
 - type: entity
   parent: N14ClothingOuterCombatArmor
   id: N14ClothingOuterMidwestArmor
-  name: midwest BoS combat armor
+  name: Brotherhood of Steel Combat Armor
   description: A suit of combat armor modified with multiple well-polished metal plates.
   components:
   - type: Sprite
@@ -1463,7 +1463,7 @@
 - type: entity
   parent: N14ClothingOuterCombatArmorMK2
   id: N14ClothingOuterMidwestArmorMK2
-  name: veteran midwest BoS combat armor
+  name: Veteran Brotherhood of Steel Combat Armor
   description: A suit of combat armor modified with multiple well-polished metal plates and vibrant orange lines, a more robust version.
   components:
   - type: Sprite
@@ -1474,8 +1474,8 @@
 - type: entity
   parent: N14ClothingOuterCombatArmor
   id: N14ClothingOuterMidwestReconArmor
-  name: midwest BoS recon armor
-  description: A suit of recon armor manufactured by the Midwest Brotherhood, reserved for only higher ranked members.
+  name: Brotherhood of Steel Recon Armor
+  description: A suit of recon armor manufactured by the Brotherhood of Steel, reserved for only higher ranked members.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutmidbosreconarmor.rsi
@@ -1500,8 +1500,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterMBoSInitiateArmor
-  name: initiate armor
-  description: A set of light armor used by the Midwestern Brotherhood's Initiates. It's quite light on actual plating, but cheap to make.
+  name: Initiate Armor
+  description: A set of light armor used by the Brotherhood's Initiates. It's quite light on actual plating, but cheap to make.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Midw/InitiateArmor.rsi
@@ -1524,8 +1524,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterMBoSSquireArmor
-  name: squire armor
-  description: A set of light armor used by the Midwestern Brotherhood's Squires. It's a bit light on actual plating, but insulates from the cold.
+  name: Squire Armor
+  description: A set of light armor used by the Brotherhood's Squires. It's a bit light on actual plating, but insulates from the cold.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Midw/SquireArmor.rsi
@@ -1548,8 +1548,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterMBoSKnightArmor
-  name: knight armor
-  description: A suit of combat armor used by the Midwestern Brotherhood's Knights. Almost identical to pre-war sets issued to the military.
+  name: Knight Armor
+  description: A suit of combat armor used by the Brotherhood's Knights. Almost identical to pre-war sets issued to the military.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Midw/KnightArmor.rsi
@@ -1572,8 +1572,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterMBoSSeniorKArmor
-  name: senior knight armor
-  description: A suit of combat armor used by the Midwestern Brotherhood's Senior Knights. It's slightly sturdier than the average rank & file troop's gear.
+  name: Senior Knight Armor
+  description: A suit of combat armor used by the Brotherhood's Senior Knights. It's slightly sturdier than the average rank & file troop's gear.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Midw/SeniorKArmor.rsi
@@ -1596,8 +1596,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterMBoSPaladinArmor
-  name: paladin armor
-  description: A suit of sturdy armor used by the Midwestern Brotherhood's Paladins. Seems to have been forged by artificers for WAR!
+  name: Paladin Armor
+  description: A suit of sturdy armor used by the Brotherhood's Paladins. Seems to have been forged by artificers for WAR!
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Midw/PaladinArmor.rsi

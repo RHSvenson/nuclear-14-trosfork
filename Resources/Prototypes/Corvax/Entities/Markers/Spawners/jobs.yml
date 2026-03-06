@@ -160,7 +160,7 @@
 - type: entity
   id: N14SpawnPointBoSMidInquisitor
   parent: N14SpawnPointBoSMidPaladin
-  name: BoS mid inquisitor
+  name: Brotherhood of Steel Inquisitor
   components:
   - type: SpawnPoint
     job_id: BoSMidInquisitor

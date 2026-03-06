@@ -542,10 +542,10 @@
 # Washington BoS kits
 
 - type: entity
-  name: washingtonbos-base kit
+  name: Washington Brotherhood of Steel Base Kit
   parent: KitBase
   id: KitBaseWashingtonBoS
-  description: "A set of Washington BoS equipment."
+  description: "A set of Washington Brotherhood of Steel equipment."
   components:
   - type: Sprite
     state: rifleman
@@ -565,10 +565,10 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: washingtonbos-wattz kit
+  name: Washington Brotherhood of Steel Wattz Kit
   parent: KitBase
   id: KitWattzWashingtonBoS
-  description: "A set of Washington BoS equipment."
+  description: "A set of Washington Brotherhood of Steel equipment."
   components:
   - type: Sprite
     state: marksman
@@ -588,10 +588,10 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: washingtonbos-auto kit
+  name: Washington Brotherhood of Steel Auto Kit
   parent: KitBase
   id: KitAutoWashingtonBoS
-  description: "A set of Washington BoS equipment."
+  description: "A set of Washington Brotherhood of Steel equipment."
   components:
   - type: Sprite
     state: rifleman
@@ -609,10 +609,10 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: washingtonbos-proto kit
+  name: Washington Brotherhood of Steel Proto Kit
   parent: KitBase
   id: KitProtoWashingtonBoS
-  description: "A set of Washington BoS equipment."
+  description: "A set of Washington Brotherhood of Steel equipment."
   components:
   - type: Sprite
     state: rifleman
@@ -632,10 +632,10 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: washingtonbos-command-base kit
+  name: Washington Brotherhood of Steel Command Base Kit
   parent: KitBase
   id: KitCommandBaseWashingtonBoS
-  description: "A set of Washington BoS equipment."
+  description: "A set of Washington Brotherhood of Steel equipment."
   components:
   - type: Sprite
     state: rifleman
@@ -655,10 +655,10 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: washingtonbos-command-multi kit
+  name: Washington Brotherhood of Steel Command Multi Kit
   parent: KitBase
   id: KitCommandMultiWashingtonBoS
-  description: "A set of Washington BoS equipment."
+  description: "A set of Washington Brotherhood of Steel equipment."
   components:
   - type: Sprite
     state: marksman
@@ -677,10 +677,10 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: washingtonbos-command-caster kit
+  name: Washington Brotherhood of Steel Command Caster Kit
   parent: KitBase
   id: KitCommandCasterWashingtonBoS
-  description: "A set of Washington BoS equipment."
+  description: "A set of Washington Brotherhood of Steel equipment."
   components:
   - type: Sprite
     state: rifleman
@@ -700,10 +700,10 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: washingtonbos-command-wattz kit
+  name: Washington Brotherhood of Steel Command Wattz Kit
   parent: KitBase
   id: KitCommandWattzWashingtonBoS
-  description: "A set of Washington BoS equipment."
+  description: "A set of Washington Brotherhood of Steel equipment."
   components:
   - type: Sprite
     state: marksman
@@ -723,10 +723,10 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: washingtonbos-command-gatling kit
+  name: Washington Brotherhood of Steel Command Gatling Kit
   parent: KitBase
   id: KitCommandGatlingWashingtonBoS
-  description: "A set of Washington BoS equipment."
+  description: "A set of Washington Brotherhood of Steel equipment."
   components:
   - type: Sprite
     state: rifleman
@@ -745,10 +745,10 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: washingtonbos-scribe-engineer kit
+  name: Washington Brotherhood of Steel Scribe Engineer Kit
   parent: KitBase
   id: KitScribeEngineerWashingtonBoS
-  description: "A set of Washington BoS equipment."
+  description: "A set of Washington Brotherhood of Steel equipment."
   components:
   - type: Sprite
     state: rifleman
@@ -773,10 +773,10 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: washingtonbos-scribe-medic kit
+  name: Washington Brotherhood of Steel Scribe Medic Kit
   parent: KitBase
   id: KitScribeMedicWashingtonBoS
-  description: "A set of Washington BoS equipment."
+  description: "A set of Washington Brotherhood of Steel equipment."
   components:
   - type: Sprite
     state: medic

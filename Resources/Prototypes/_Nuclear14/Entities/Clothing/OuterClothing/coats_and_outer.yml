@@ -478,7 +478,7 @@
 - type: entity
   parent: N14ClothingOuterCoatWinterArmored
   id: N14ClothingOuterBrotherhoodFieldScribeCoat
-  name: Brotherhood field Scribe coat
+  name: Brotherhood of Steel Field Scribe Coat
   description: A warm coat worn by Brotherhood field Scribes.
   components:
   - type: Sprite
@@ -595,8 +595,8 @@
 - type: entity
   parent: N14ClothingOuterBase
   id: N14ClothingOuterMidwestBoSCoat
-  name: scribe quilted armor
-  description: A piece of quilted cloth with Midwest Brotherhood marks and metal plates, it has some pouches for tools storage.
+  name: Scribe Quilted Armor
+  description: A piece of quilted cloth with Brotherhood of Steel marks and metal plates, it has some pouches for tools storage.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/midwestbosscribe.rsi
@@ -619,8 +619,8 @@
 - type: entity
   parent: N14ClothingOuterCoatWinterArmored
   id: N14ClothingOuterBrotherhoodMidwestFieldScribeCoat
-  name: Midwest Brotherhood field Scribe coat
-  description: A warm coat worn by Brotherhood field Scribes, a patch on each arm signifying membership of the Midwest chapter.
+  name: Brotherhood of Steel Field Scribe Coat
+  description: A warm coat worn by Brotherhood field Scribes, a patch on each arm signifying membership of the chapter.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/midwestbosfieldscribe.rsi
@@ -630,7 +630,7 @@
 - type: entity
   parent: N14ClothingOuterBase
   id: N14ClothingOuterBrotherhoodMidwestMedicalScribeRobes
-  name: Midwest Brotherhood medical Scribe coat
+  name: Brotherhood of Steel Medical Scribe Coat
   description: A finely made robe affixed with leather worn by medical Scribes, a symbol of the Brotherhood emblazoned across the chest and back.
   components:
   - type: Sprite
@@ -650,7 +650,7 @@
 - type: entity
   parent: N14ClothingOuterBattlecoatCoat
   id: N14ClothingOuterBrotherhoodWashingtonScribe
-  name: scribe clothes
+  name: Scribe Clothes
   description: An outfit traditionally worn by Brotherhood Scribes.
   components:
   - type: Sprite
@@ -680,7 +680,7 @@
 - type: entity
   parent: N14ClothingOuterBrotherhoodMidwestMedicalScribeRobes
   id: N14ClothingOuterBrotherhoodMedicalScribeRobes
-  name: Washington Brotherhood medical Scribe coat
+  name: Washington Brotherhood of Steel Medical Scribe Coat
   description: A finely made robe affixed with leather worn by medical Scribes, a symbol of the Brotherhood emblazoned across the chest and back.
   components:
   - type: Sprite
@@ -691,7 +691,7 @@
 - type: entity
   parent: N14ClothingOuterBattlecoatCoat
   id: N14ClothingOuterBrotherhoodWashingtonCoat
-  name: Washington Brotherhood Coat
+  name: Brotherhood of Steel Coat
   description: A finely made coat made with dark leather, a symbol of the Brotherhood emblazoned across the chest and back.
   components:
   - type: Sprite

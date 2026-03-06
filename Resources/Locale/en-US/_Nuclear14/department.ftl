@@ -1,5 +1,5 @@
 # Names
-department-BrotherhoodMidwest = Midwest Brotherhood of Steel
+department-BrotherhoodMidwest = Brotherhood of Steel
 department-BrotherhoodWashington = Washington Brotherhood of Steel
 department-CaravanCompany = Caravan Company
 department-NCR = New California Republic
@@ -13,7 +13,7 @@ department-Zetan = Zetan
 department-Rangers = Rangers
 
 # Descriptions
-department-BrotherhoodMidwest-description = Midwest branch of the Brotherhood of Steel
+department-BrotherhoodMidwest-description = The Brotherhood of Steel
 department-BrotherhoodWashington-description = Washington branch of the Brotherhood of Steel
 department-CaravanCompany-description = The local Caravan Company responsible for import and export of goods.
 department-NCR-description = A settler detachment sent by the New California Republic

@@ -31,7 +31,7 @@ doc-text-printer-report-on-elimination-of-violations =
      Measures taken to eliminate violations:
     
      =============================================
-doc-text-printer-report-department =
+doc-text-printer-report-department = Department
 
 doc-text-printer-appeal =
     =============================================

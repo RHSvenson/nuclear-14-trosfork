@@ -225,8 +225,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: NCClothingOuterBosReconArmor
-  name: bos armor
-  description: The armor of the brotherhood of steel is sturdy and reliable. "The steel is inside! The steel is outside!"
+  name: Brotherhood of Steel Armor
+  description: The armor of the Brotherhood of Steel is sturdy and reliable. "The steel is inside! The steel is outside!"
   components:
   - type: Sprite
     sprite: Corvax/Clothing/OuterClothing/Armor/bosReaconArmor.rsi
@@ -247,7 +247,7 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterKnightWesternArmor
-  name: armor of the knight of the western brotherhood
+  name: Western Brotherhood of Steel Knight Armor
   description: Excellent armor produced by the Western Brotherhood. It looks like the designer was based on a power
   components:
   - type: Sprite
@@ -267,7 +267,7 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterRecruitWesternArmor
-  name: armor of the squire of the western brotherhood
+  name: Western Brotherhood of Steel Squire Armor
   description: Lightweight, comfortable armor designed for protection and high mobility
   components:
   - type: Sprite

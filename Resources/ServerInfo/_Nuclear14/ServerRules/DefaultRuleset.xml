@@ -1,289 +1,628 @@
 <Document>
-  <ColorBox Color="#353535" OutlineColor="#555555" OutlineThickness="2" Margin="5">
+
+  <ColorBox Color="#0a0a0a" OutlineColor="#1a3a1a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Misfits: Nuclear Wasteland – Server Rules
+        +======================================+
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        VAULT-TEC NETWORK TERMINAL
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        ACCESS LEVEL: PUBLIC
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        +======================================+
       </Box>
       <Box Orientation="Vertical" Margin="10">
-        Misfits: Nuclear Wasteland is a Medium Roleplay Fallout server. The goal is not only engaging gameplay, but the creation of memorable stories shaped by player choice.
+        SYSTEM BOOT SEQUENCE INITIATED...
 
-        The Wasteland is harsh and consequences matter. Your survival depends on your actions, your alliances, and your judgment. Administrative intervention is rare and reserved for rule enforcement, not story rescue.
+        > Establishing network uplink...
+        > Synchronizing wasteland registry...
+        > Loading operational directives...
+        > Authenticating resident access...
+
+        STATUS: CONNECTION ESTABLISHED
       </Box>
     </Box>
   </ColorBox>
 
-  <ColorBox Color="#2f2f3a" OutlineColor="#4f4f5a" OutlineThickness="2" Margin="5">
+  <ColorBox Color="#0a0a0a" OutlineColor="#1a3a1a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
+      <Box Orientation="Vertical" Margin="10">
+        ======================================
+      </Box>
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 0: Conduct
+        WELCOME TO
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        MISFITS: NUCLEAR WASTELAND
       </Box>
       <Box Orientation="Vertical" Margin="10">
-        This is a collaborative environment. Toxicity, ego play, and behavior designed to ruin others’ enjoyment are not tolerated.
+        A Fallout themed Medium Roleplay environment
+        where every action has consequences.
 
-        <Box Orientation="Vertical" Margin="10">
-          Play to create story, not to “win” at any cost.
+        Survival depends on:
 
-          Respect administrators and developers. They are volunteers.
+        > Your alliances
+        > Your decisions
+        > Your ability to adapt
 
-          Cooperate during admin interactions. Do not disconnect during an active ticket without valid reason.
+        Administrative oversight is minimal.
+        The story belongs to the players.
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        ======================================
 
-          Report technical issues promptly.
+        NEXT STEP REQUIRED
 
-          Administration may intervene in situations not explicitly covered by the rules if behavior damages the community or the round.
-        </Box>
+        Review the operational directives below
+        before entering the wasteland network.
 
-        Punishments are issued at staff discretion based on severity, context, and history.
+        ======================================
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        VAULT-TEC NOTICE:
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        A BETTER COMMUNITY THROUGH ORDER.
       </Box>
     </Box>
   </ColorBox>
-
-  <ColorBox Color="#2f3a2f" OutlineColor="#4f5a4f" OutlineThickness="2" Margin="5">
+  <ColorBox Color="#0d0d0d" OutlineColor="#2a4a2a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 1: Griefing
+        +======================================+
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        VAULT-TEC RULES TERMINAL
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        QUICK DIRECTIVES
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        +======================================+
       </Box>
       <Box Orientation="Vertical" Margin="10">
-        Griefing is any action taken primarily to disrupt gameplay or degrade the experience of others without meaningful in-character reasoning.
+        VAULT-TEC OPERATING SYSTEM v3.11
+        TERMINAL NODE: MISFITS_NETWORK
 
-        This includes:
-        <Box Orientation="Vertical" Margin="10">
-          Deliberate destruction with no RP justification.
+        > LOADING COMMUNITY DIRECTIVES...
+        > VERIFYING RESIDENT ACCESS...
 
-          Trap placement intended only to frustrate.
+        STATUS: TERMINAL ACTIVE
+        ACCESS LEVEL: PUBLIC
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        ======================================
 
-          Causing large-scale disruption without narrative basis.
-        </Box>
+        1 - RESPECT THE COMMUNITY
+        Toxic behavior, harassment, or actions meant to ruin
+        the experience of others are not tolerated.
 
-        Lack of intent does not always excuse large-scale damage. If your actions severely impact the round without reasonable RP logic, they may be treated as griefing.
+        2 - PLAY FOR STORY
+        This is a Medium Roleplay environment.
+        Create story and interaction, not victory at any cost.
+
+        3 - NO METAGAMING
+        Out-of-character information from Discord, streams,
+        or ghosting may not influence in-character actions.
+
+        4 - NO GRIEFING
+        Actions intended only to disrupt gameplay without
+        roleplay reasoning are prohibited.
+
+        5 - STAY IN CHARACTER
+        Characters must fit the Fallout setting and maintain
+        immersion within the wasteland.
+
+        6 - FOLLOW ESCALATION
+        Dialogue should precede lethal force unless an
+        immediate threat exists.
+
+        7 - NO CHEATS OR EXPLOITS
+        Do not abuse bugs, tools, or mechanics.
+        Report issues through official channels.
+
+        8 - VALUE YOUR LIFE
+        FearRP applies when revived in captivity.
+        Escape attempts require admin approval via Ahelp.
+
+        ======================================
+
+        > FULL DIRECTIVES AVAILABLE BELOW
+        > SCROLL TO CONTINUE
+
+        ======================================
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        VAULT-TEC NOTICE:
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        A BETTER COMMUNITY THROUGH ORDER.
       </Box>
     </Box>
   </ColorBox>
-
-  <ColorBox Color="#3a2f2f" OutlineColor="#5a4f4f" OutlineThickness="2" Margin="5">
+  <ColorBox Color="#0a0a0a" OutlineColor="#1a3a1a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 2: Fair Play
+        +======================================+
       </Box>
-
-      <Box Orientation="Vertical" Margin="10">
-        2.1 Metagaming
-
-        Using out-of-character knowledge to influence in-character actions is prohibited.
-
-        <Box Orientation="Vertical" Margin="10">
-          Information from Discord, streams, OOC chat, or ghosting may not be used IC.
-
-          Coordinated external communication affecting the round is forbidden.
-
-          Streaming is allowed, but responsibility for information leaks lies with the streamer.
-        </Box>
-
-        Metagaming violations may result in removal.
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        VAULT-TEC NETWORK TERMINAL
       </Box>
-
-      <Box Orientation="Vertical" Margin="10">
-        2.2 Multiaccounting
-
-        <Box Orientation="Vertical" Margin="10">
-          Using multiple accounts in the same round is forbidden.
-
-          Ban evasion is strictly prohibited.
-
-          Creating alternate accounts to avoid punishment history is not allowed.
-        </Box>
-
-        Violations may result in permanent bans.
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        ACCESS LEVEL: PUBLIC
       </Box>
-
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        FILE: COMMUNITY_DIRECTIVES_A
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        +======================================+
+      </Box>
       <Box Orientation="Vertical" Margin="10">
-        2.3 Exploits
+        VAULT-TEC COMMUNITY DIRECTIVES
+        MISFITS: NUCLEAR WASTELAND
 
-        <Box Orientation="Vertical" Margin="10">
-          No cheats, scripts, macros, or third-party tools.
+        WELCOME, RESIDENT.
 
-          No intentional abuse of bugs.
+        MISFITS: NUCLEAR WASTELAND OPERATES AS A MEDIUM
+        ROLEPLAY FALLOUT ENVIRONMENT. THE GOAL IS NOT
+        ONLY ENGAGING GAMEPLAY, BUT THE CREATION OF
+        MEMORABLE STORIES SHAPED BY PLAYER CHOICE.
 
-          No deliberate server strain.
-        </Box>
+        THE WASTELAND IS HARSH AND CONSEQUENCES MATTER.
+        YOUR SURVIVAL DEPENDS ON YOUR ACTIONS,
+        YOUR ALLIANCES, AND YOUR JUDGMENT.
 
-        Report discovered bugs through official channels.
+        ADMINISTRATIVE INTERVENTION IS RARE AND RESERVED
+        FOR RULE ENFORCEMENT, NOT STORY RESCUE.
       </Box>
     </Box>
   </ColorBox>
-
-  <ColorBox Color="#2f3a3a" OutlineColor="#4f5a5a" OutlineThickness="2" Margin="5">
+  <ColorBox Color="#0d0d0d" OutlineColor="#2a4a2a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
-      <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 3: Roleplay Standards
-      </Box>
-
       <Box Orientation="Vertical" Margin="10">
-        Characters must fit the Fallout setting in tone, behavior, and naming.
+        ======================================
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        DIRECTIVE 0 - CONDUCT
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        THIS IS A COLLABORATIVE ENVIRONMENT.
 
-        3.1 Character Identity
+        TOXICITY, EGO PLAY, AND BEHAVIOR DESIGNED TO
+        RUIN OTHERS' ENJOYMENT ARE NOT TOLERATED.
+
         <Box Orientation="Vertical" Margin="10">
-          No meme names or obvious real-world references.
-
-          No reuse of deceased or permanently imprisoned characters without approval.
-
-          Administration may require name changes for immersion reasons.
+          > PLAY TO CREATE STORY, NOT TO "WIN"
+          > RESPECT ADMINISTRATORS AND DEVELOPERS
+          > COOPERATE DURING ADMIN INTERACTIONS
+          > DO NOT DISCONNECT DURING ACTIVE TICKETS
+          > REPORT TECHNICAL ISSUES PROMPTLY
         </Box>
 
-        3.2 Communication
-        <Box Orientation="Vertical" Margin="10">
-          Do not break immersion with mechanical terms or real-world memes.
+        ADMINISTRATION MAY INTERVENE IN SITUATIONS
+        NOT EXPLICITLY COVERED IF BEHAVIOR DAMAGES
+        THE COMMUNITY OR THE ROUND.
 
-          Keep OOC topics out of IC channels.
-
-          OOC channels must remain respectful and free of political or extremist discussion.
-        </Box>
-
-        3.3 Atmosphere
-        <Box Orientation="Vertical" Margin="10">
-          Avoid referencing game systems or “admins” in character.
-
-          Provide in-character explanations for absence when possible.
-
-          Do not create offensive or explicit material using in-game media.
-        </Box>
-
-        3.4 Knowledge Limits
-        <Box Orientation="Vertical" Margin="10">
-          Your character is not all-knowing.
-
-          Do not reference unresearched advanced technology.
-
-          Stay within the expertise of your chosen role.
-        </Box>
+        PUNISHMENTS ARE ISSUED AT STAFF DISCRETION
+        BASED ON SEVERITY, CONTEXT, AND HISTORY.
       </Box>
     </Box>
   </ColorBox>
-
-  <ColorBox Color="#3a2f3a" OutlineColor="#5a4f5a" OutlineThickness="2" Margin="5">
+  <ColorBox Color="#0a0a0a" OutlineColor="#1a3a1a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
+      <Box Orientation="Vertical" Margin="10">
+        ======================================
+      </Box>
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 4: Erotic Roleplay
+        DIRECTIVE 1 - GRIEFING
       </Box>
       <Box Orientation="Vertical" Margin="10">
-        Explicit ERP is prohibited in all forms, including written in-game material.
+        GRIEFING IS ANY ACTION TAKEN PRIMARILY TO
+        DISRUPT GAMEPLAY OR DEGRADE THE EXPERIENCE
+        OF OTHERS WITHOUT MEANINGFUL IN-CHARACTER
+        REASONING.
 
-        Light romantic interaction such as flirting, hugging, or kissing is allowed if non-explicit and consensual.
+        EXAMPLES INCLUDE:
 
-        If instructed by staff to stop behavior near the boundary, you must comply immediately.
+        <Box Orientation="Vertical" Margin="10">
+          > DELIBERATE DESTRUCTION WITH NO RP JUSTIFICATION
+          > TRAP PLACEMENT INTENDED ONLY TO FRUSTRATE
+          > LARGE-SCALE DISRUPTION WITHOUT NARRATIVE BASIS
+        </Box>
 
-        Violations may result in permanent removal.
+        LACK OF INTENT DOES NOT ALWAYS EXCUSE
+        LARGE-SCALE DAMAGE.
+
+        IF YOUR ACTIONS SEVERELY IMPACT THE ROUND
+        WITHOUT REASONABLE RP LOGIC THEY MAY BE
+        TREATED AS GRIEFING.
       </Box>
     </Box>
   </ColorBox>
-
-  <ColorBox Color="#2f3a3a" OutlineColor="#4f5a5a" OutlineThickness="2" Margin="5">
+  <ColorBox Color="#0d0d0d" OutlineColor="#2a4a2a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
-      <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 5: SSD Protection
-      </Box>
       <Box Orientation="Vertical" Margin="10">
-        Characters who disconnect (SSD) may not be directly harmed.
+        ======================================
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        DIRECTIVE 2 - FAIR PLAY
+      </Box>
 
-        They may be looted, but not killed or kidnapped.
+      <Box Orientation="Vertical" Margin="10">
+        2.1 METAGAMING
 
-        Disconnecting during active combat or escalation removes this protection.
+        USING OUT-OF-CHARACTER KNOWLEDGE TO
+        INFLUENCE IN-CHARACTER ACTIONS IS PROHIBITED.
 
-        SSD characters inside faction bases during active raids are not protected.
+        INFORMATION FROM:
+
+        <Box Orientation="Vertical" Margin="10">
+          > DISCORD
+          > STREAMS OR GHOSTING
+          > OOC CHAT
+          > EXTERNAL COMMUNICATION
+        </Box>
+
+        MAY NOT BE USED IN CHARACTER.
+
+        STREAMING IS ALLOWED, BUT RESPONSIBILITY
+        FOR INFORMATION LEAKS LIES WITH THE STREAMER.
+      </Box>
+
+      <Box Orientation="Vertical" Margin="10">
+        2.2 MULTIACCOUNTING
+
+        <Box Orientation="Vertical" Margin="10">
+          > MULTIPLE ACCOUNTS IN THE SAME ROUND
+            ARE FORBIDDEN
+          > BAN EVASION IS STRICTLY PROHIBITED
+          > ALTERNATE ACCOUNTS TO AVOID
+            PUNISHMENT HISTORY ARE NOT ALLOWED
+        </Box>
+
+        VIOLATIONS MAY RESULT IN PERMANENT BANS.
+      </Box>
+
+      <Box Orientation="Vertical" Margin="10">
+        2.3 EXPLOITS
+
+        <Box Orientation="Vertical" Margin="10">
+          > NO CHEATS, MACROS, OR THIRD-PARTY TOOLS
+          > NO INTENTIONAL BUG ABUSE
+          > NO DELIBERATE SERVER STRAIN
+        </Box>
+
+        REPORT DISCOVERED BUGS THROUGH
+        OFFICIAL CHANNELS.
       </Box>
     </Box>
   </ColorBox>
-
-  <ColorBox Color="#40282a" OutlineColor="#603c3f" OutlineThickness="2" Margin="5">
+  <ColorBox Color="#0a0a0a" OutlineColor="#1a3a1a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 6: Armed Conflict
+        +======================================+
       </Box>
-
-      <Box Orientation="Vertical" Margin="10">
-        6.1 Escalation
-
-        Dialogue must precede lethal force in most situations.
-
-        <Box Orientation="Vertical" Margin="10">
-          Escalation must be face-to-face.
-
-          A clear demand must be given.
-
-          A reasonable opportunity to respond must exist.
-        </Box>
-
-        Exceptions include active firefights, immediate threats, wildlife, faction wars, and designated high-risk zones.
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        VAULT-TEC NETWORK TERMINAL
       </Box>
-
-      <Box Orientation="Vertical" Margin="10">
-        6.2 Robbery
-
-        <Box Orientation="Vertical" Margin="10">
-          Do not strip victims of all survival means.
-
-          Non-resisting victims must be left alive.
-
-          Resistance shifts responsibility for outcome.
-        </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        ACCESS LEVEL: PUBLIC
       </Box>
-
-      <Box Orientation="Vertical" Margin="10">
-        6.3 Faction Warfare
-
-        <Box Orientation="Vertical" Margin="10">
-          Factions begin neutral.
-
-          Only recognized leaders may formally declare war.
-
-          War begins five minutes after a face-to-face declaration.
-
-          Killing diplomats or surrendered individuals is forbidden.
-        </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        FILE: COMMUNITY_DIRECTIVES_B
       </Box>
-
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        +======================================+
+      </Box>
       <Box Orientation="Vertical" Margin="10">
-        6.4 Early Raids
-
-        Faction bases may not be raided within the first 30 minutes of the round.
+        > CONTINUATION FILE LOADED
       </Box>
     </Box>
   </ColorBox>
-
-  <ColorBox Color="#3a3033" OutlineColor="#5a4a50" OutlineThickness="2" Margin="5">
+  <ColorBox Color="#0d0d0d" OutlineColor="#2a4a2a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
+      <Box Orientation="Vertical" Margin="10">
+        ======================================
+      </Box>
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 7: New Life Rule
+        DIRECTIVE 3 - ROLEPLAY STANDARDS
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        7.1 Within a Round
-        <Box Orientation="Vertical" Margin="10">
-          You may not rejoin on the same character to bypass death or punishment.
+        CHARACTERS MUST FIT THE FALLOUT SETTING
+        IN TONE, BEHAVIOR, AND NAMING.
 
-          Revived characters forget the circumstances of their death and the final moments preceding it.
+        3.1 CHARACTER IDENTITY
+
+        <Box Orientation="Vertical" Margin="10">
+          > NO MEME NAMES OR REAL-WORLD REFERENCES
+          > NO REUSE OF DEAD OR PERMANENTLY
+            IMPRISONED CHARACTERS WITHOUT APPROVAL
+          > ADMINISTRATION MAY REQUIRE NAME CHANGES
         </Box>
 
-        7.2 Between Rounds
-        <Box Orientation="Vertical" Margin="10">
-          Do not use knowledge from previous rounds for advantage.
+        3.2 COMMUNICATION
 
-          Characters do not remember contradictory past events.
+        <Box Orientation="Vertical" Margin="10">
+          > DO NOT BREAK IMMERSION WITH
+            MECHANICAL TERMS
+          > KEEP OOC TOPICS OUT OF IC CHANNELS
+          > OOC CHANNELS MUST REMAIN RESPECTFUL
         </Box>
+
+        3.3 ATMOSPHERE
+
+        <Box Orientation="Vertical" Margin="10">
+          > DO NOT REFERENCE ADMINS OR
+            GAME SYSTEMS IN CHARACTER
+          > PROVIDE IC REASONS FOR ABSENCE
+            WHEN POSSIBLE
+        </Box>
+
+        3.4 KNOWLEDGE LIMITS
+
+        YOUR CHARACTER IS NOT ALL-KNOWING.
+
+        DO NOT REFERENCE TECHNOLOGY OR
+        KNOWLEDGE YOUR CHARACTER WOULD
+        NOT REALISTICALLY POSSESS.
       </Box>
     </Box>
   </ColorBox>
-
-  <ColorBox Color="#353535" OutlineColor="#555555" OutlineThickness="2" Margin="5">
+  <ColorBox Color="#0a0a0a" OutlineColor="#1a3a1a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
+      <Box Orientation="Vertical" Margin="10">
+        ======================================
+      </Box>
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Administrative Authority
+        DIRECTIVE 4 - EROTIC ROLEPLAY
       </Box>
       <Box Orientation="Vertical" Margin="10">
-        Project leadership and senior moderation retain final authority in rule interpretation.
+        EXPLICIT ERP IS PROHIBITED IN ALL FORMS.
 
-        The server maintains a 16+ expectation.
+        LIGHT ROMANTIC INTERACTION SUCH AS
+        FLIRTING, HUGGING, OR KISSING IS
+        PERMITTED IF:
 
-        Rules may evolve as the project develops.
+        <Box Orientation="Vertical" Margin="10">
+          > NON-EXPLICIT
+          > CONSENSUAL
+        </Box>
+
+        IF STAFF INSTRUCT YOU TO STOP
+        BEHAVIOR NEAR THE BOUNDARY,
+        YOU MUST COMPLY IMMEDIATELY.
+
+        VIOLATIONS MAY RESULT IN REMOVAL.
+      </Box>
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0d0d0d" OutlineColor="#2a4a2a" OutlineThickness="2" Margin="5">
+    <Box Orientation="Vertical">
+      <Box Orientation="Vertical" Margin="10">
+        ======================================
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        DIRECTIVE 5 - SSD PROTECTION
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        CHARACTERS WHO DISCONNECT MAY NOT
+        BE DIRECTLY HARMED.
+
+        ALLOWED
+        <Box Orientation="Vertical" Margin="10">
+          > LOOTING SSD CHARACTERS
+        </Box>
+
+        PROHIBITED
+        <Box Orientation="Vertical" Margin="10">
+          > KILLING SSD CHARACTERS
+          > KIDNAPPING SSD CHARACTERS
+        </Box>
+
+        DISCONNECTING DURING ACTIVE COMBAT
+        REMOVES THIS PROTECTION.
+
+        SSD PLAYERS INSIDE FACTION BASES
+        DURING RAIDS ARE NOT PROTECTED.
+      </Box>
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0a0a0a" OutlineColor="#1a3a1a" OutlineThickness="2" Margin="5">
+    <Box Orientation="Vertical">
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        +======================================+
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        VAULT-TEC NETWORK TERMINAL
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        ACCESS LEVEL: PUBLIC
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        FILE: COMMUNITY_DIRECTIVES_C
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        +======================================+
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        > CONTINUATION FILE LOADED
+      </Box>
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0d0d0d" OutlineColor="#2a4a2a" OutlineThickness="2" Margin="5">
+    <Box Orientation="Vertical">
+      <Box Orientation="Vertical" Margin="10">
+        ======================================
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        DIRECTIVE 6 - ARMED CONFLICT
+      </Box>
+
+      <Box Orientation="Vertical" Margin="10">
+        6.1 ESCALATION
+
+        DIALOGUE MUST PRECEDE LETHAL FORCE.
+
+        REQUIREMENTS
+
+        <Box Orientation="Vertical" Margin="10">
+          > FACE-TO-FACE ESCALATION
+          > CLEAR DEMAND GIVEN
+          > TIME TO RESPOND
+        </Box>
+
+        EXCEPTIONS
+
+        <Box Orientation="Vertical" Margin="10">
+          > ACTIVE FIREFIGHTS
+          > IMMEDIATE THREATS
+          > WILDLIFE
+          > FACTION WARFARE
+        </Box>
+      </Box>
+
+      <Box Orientation="Vertical" Margin="10">
+        6.2 ROBBERY
+
+        <Box Orientation="Vertical" Margin="10">
+          > DO NOT REMOVE ALL SURVIVAL ITEMS
+          > NON-RESISTING VICTIMS MUST LIVE
+          > RESISTANCE SHIFTS RESPONSIBILITY
+        </Box>
+      </Box>
+
+      <Box Orientation="Vertical" Margin="10">
+        6.3 FACTION WARFARE
+
+        <Box Orientation="Vertical" Margin="10">
+          > FACTIONS BEGIN NEUTRAL
+          > ONLY LEADERS MAY DECLARE WAR
+          > WAR BEGINS FIVE MINUTES AFTER
+            FACE-TO-FACE DECLARATION
+        </Box>
+
+        KILLING DIPLOMATS OR SURRENDERED
+        INDIVIDUALS IS FORBIDDEN.
+      </Box>
+
+      <Box Orientation="Vertical" Margin="10">
+        6.4 EARLY RAIDS
+
+        FACTION BASES MAY NOT BE RAIDED
+        WITHIN THE FIRST 30 MINUTES.
+      </Box>
+
+      <Box Orientation="Vertical" Margin="10">
+        6.5 FACTION EQUIPMENT AND IMPERSONATION
+
+        ALL FACTIONS MAY BE LOOTED OF
+        ARMOR, UNIFORMS, WEAPONS, AND ITEMS.
+
+        ANY PERSON IMPERSONATING A FACTION
+        MAY BE ESCALATED UPON.
+
+        WEARING A FACTION'S ARMOR GIVES
+        THAT FACTION PERMISSION TO ESCALATE.
+      </Box>
+
+      <Box Orientation="Vertical" Margin="10">
+        6.6 FACTION RAIDS
+
+        ALL FACTION RAIDS MUST BE
+        AHELPED FOR APPROVAL BEFORE
+        COMMENCING.
+
+        IF DENIED OR NO RESPONSE IS GIVEN
+        THE ATTACKING PARTY MUST LEAVE.
+      </Box>
+
+      <Box Orientation="Vertical" Margin="10">
+        6.7 CONFLICT INTERVENTION
+
+        PLAYERS WHO CLEARLY SURRENDER
+        MAY NOT BE EXECUTED IF NO
+        CROSSFIRE EXISTS.
+
+        FACTION OR GANG MEMBERS WITH
+        IDENTICAL UNIFORMS MAY ASSIST
+        ALLIES IN ACTIVE CONFLICT.
+      </Box>
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0a0a0a" OutlineColor="#1a3a1a" OutlineThickness="2" Margin="5">
+    <Box Orientation="Vertical">
+      <Box Orientation="Vertical" Margin="10">
+        ======================================
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        DIRECTIVE 7 - NEW LIFE RULE
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        PLAYERS MAY NOT REJOIN ON THE
+        SAME CHARACTER TO BYPASS DEATH.
+
+        REVIVED CHARACTERS FORGET
+        THE CIRCUMSTANCES OF THEIR DEATH.
+
+        KNOWLEDGE FROM PREVIOUS ROUNDS
+        MAY NOT BE USED FOR ADVANTAGE.
+      </Box>
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0d0d0d" OutlineColor="#2a4a2a" OutlineThickness="2" Margin="5">
+    <Box Orientation="Vertical">
+      <Box Orientation="Vertical" Margin="10">
+        ======================================
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        DIRECTIVE 8 - FEAR ROLEPLAY
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        FEARRP APPLIES WHEN A PLAYER
+        IS REVIVED IN A SECURE LOCATION.
+
+        EXAMPLE:
+
+        LEGION KILLS A BOS PALADIN AND
+        REVIVES THEM AT THEIR CAMP.
+
+        THE PALADIN MUST NOW VALUE THEIR
+        LIFE AND FOLLOW FEARRP.
+
+        ESCAPE ATTEMPTS REQUIRE
+        ADMIN APPROVAL VIA AHELP.
+
+        FAILED ATTEMPTS REQUIRE
+        NEW APPROVAL.
+      </Box>
+    </Box>
+  </ColorBox>
+  <ColorBox Color="#0a0a0a" OutlineColor="#1a3a1a" OutlineThickness="2" Margin="5">
+    <Box Orientation="Vertical">
+      <Box Orientation="Vertical" Margin="10">
+        ======================================
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        VAULT-TEC ADMINISTRATIVE AUTHORITY
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        PROJECT LEADERSHIP RETAINS FINAL
+        AUTHORITY IN RULE INTERPRETATION.
+
+        SERVER EXPECTATION: 16+
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        ======================================
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        VAULT-TEC NOTICE:
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        A BETTER COMMUNITY THROUGH ORDER.
       </Box>
     </Box>
   </ColorBox>

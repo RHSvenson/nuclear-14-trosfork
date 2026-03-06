@@ -3,8 +3,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: N14ClothingNeckCloakBrotherhoodWashington
-  name: Washington Brotherhood cloak
-  description: A black cloak with a circular red Brotherhood logo.
+  name: Brotherhood of Steel Cloak
+  description: A black cloak with a circular red Brotherhood of Steel logo.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/WBoScloak.rsi

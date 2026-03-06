@@ -234,7 +234,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatBrotherhoodCap
-  name: brotherhood of steel cap
+  name: Brotherhood of Steel Cap
   description: A cap worn by members of the Brotherhood of Steel.
   components:
   - type: Sprite
@@ -247,7 +247,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatBrotherhoodBeret
-  name: brotherhood of steel beret
+  name: Brotherhood of Steel Beret
   description: A beret worn by members of the Brotherhood of Steel.
   components:
   - type: Sprite
@@ -260,8 +260,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatBrotherhoodFieldCap
-  name: brotherhood of steel field cap
-  description: A cap worn by Paladins of the Midwest Brotherhood during their field duties.
+  name: Brotherhood of Steel Field Cap
+  description: A cap worn by Paladins of the Brotherhood of Steel during their field duties.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodhat.rsi

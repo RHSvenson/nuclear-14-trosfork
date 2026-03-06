@@ -295,8 +295,8 @@
 - type: entity
   parent: N14ClothingOuterPowerArmorT45
   id: N14ClothingOuterPowerArmorMidwest
-  name: midwest power armor
-  description: A unknown model of power armor manufactured by the Midwest Brotherhood. It supports a lighter plating than the normal but is more ergonomic, allowing easier movement.
+  name: Brotherhood of Steel Power Armor
+  description: A unknown model of power armor manufactured by the Brotherhood of Steel. It supports a lighter plating than the normal but is more ergonomic, allowing easier movement.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/midwest.rsi
@@ -327,8 +327,8 @@
 - type: entity
   parent: N14ClothingOuterPowerArmorMidwest
   id: N14ClothingOuterPowerArmorMidwestCommander
-  name: midwest commander power armor
-  description: A unknown model of power armor manufactured by the Midwest Brotherhood. This modified version is commonly used by high-ranking Midwest Brotherhood of Steel Paladins.
+  name: Brotherhood of Steel Commander Power Armor
+  description: A unknown model of power armor manufactured by the Brotherhood of Steel. This modified version is commonly used by high-ranking Brotherhood of Steel Paladins.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/midwestcommander.rsi

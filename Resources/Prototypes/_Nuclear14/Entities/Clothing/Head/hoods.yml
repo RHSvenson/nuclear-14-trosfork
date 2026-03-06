@@ -73,7 +73,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatHoodScribeTabard
-  name: midwest Scribe tabard hood
+  name: Scribe Tabard Hood
   description: A hood attached to the tabard, affixed with an optical lens.
   components:
   - type: Sprite

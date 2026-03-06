@@ -207,7 +207,7 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMetal
   id: N14ClothingHeadHatBrotherhoodHelmet
-  name: Brotherhood of Steel helmet
+  name: Brotherhood of Steel Helmet
   description: A helmet worn by members of the Brotherhood of Steel.
   components:
   - type: Sprite
@@ -218,7 +218,7 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMetal
   id: N14ClothingHeadHatBrotherhoodHelmetKnight
-  name: Brotherhood of Steel knight helmet
+  name: Brotherhood of Steel Knight Helmet
   description: A helmet worn by Knights of the Brotherhood of Steel.
   components:
   - type: Sprite
@@ -229,7 +229,7 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMetal
   id: N14ClothingHeadHatBrotherhoodHelmetCaptain
-  name: Brotherhood of Steel captain helmet
+  name: Brotherhood of Steel Captain Helmet
   description: A helmet worn by Captains of the Brotherhood of Steel.
   components:
   - type: Sprite
@@ -240,7 +240,7 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatBrotherhoodHelmetPaladin
-  name: Brotherhood of Steel paladin helmet
+  name: Brotherhood of Steel Paladin Helmet
   description: A helmet worn by Paladins of the Brotherhood of Steel.
   components:
   - type: Sprite
@@ -251,7 +251,7 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMetal
   id: N14ClothingHeadHatBrotherhoodHelmetOutcast
-  name: Brotherhood of Steel outcast helmet
+  name: Brotherhood of Steel Outcast Helmet
   description: A helmet worn by Outcasts of the Brotherhood of Steel.
   components:
   - type: Sprite
@@ -262,7 +262,7 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatBrotherhoodHelmetMK2
-  name: Brotherhood of Steel helmet MK2
+  name: Brotherhood of Steel Helmet MK2
   description: An advanced Brotherhood of Steel combat helmet.
   components:
   - type: Sprite
@@ -515,8 +515,8 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMetal
   id: N14ClothingHeadHatBrotherhoodMidwestHelmet
-  name: midwest BoS helmet
-  description: A modified combat helmet to adapt to the Midwest Brotherhood's needs.
+  name: Brotherhood of Steel Helmet
+  description: A modified combat helmet to adapt to the Brotherhood's needs.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/midwest-brotherhood/boshelmet.rsi
@@ -526,7 +526,7 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatBrotherhoodMidwestHelmetVeteran
-  name: veteran midwest BoS helmet
+  name: Veteran Brotherhood of Steel Helmet
   description: A modified combat helmet with extra metal plates to cover the face.
   components:
   - type: Sprite
@@ -537,8 +537,8 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatBrotherhoodMidwestHelmetRecon
-  name: midwest BoS recon helmet
-  description: A helmet made by the Midwest Brotherhood, expertly designed for both protection and stealth.
+  name: Brotherhood of Steel Recon Helmet
+  description: A helmet made by the Brotherhood of Steel, expertly designed for both protection and stealth.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/midwest-brotherhood/bosreconhelmet.rsi
@@ -554,7 +554,7 @@
 - type: entity
   parent: ClothingHeadHatLightBase
   id: ClothingHeadBrotherhoodScribeHeadset
-  name: scribe headset
+  name: Scribe Headset
   description: A simple headset with a built-in flashlight.
   components:
   - type: Sprite
@@ -569,7 +569,7 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatBrotherhoodHelmetMK3
-  name: BoS helmet MK3
+  name: Brotherhood of Steel Helmet MK3
   description: A helmet continuosly upgraded by the Washington Brotherhood, any pre-war components barely remaining.
   components:
   - type: Sprite

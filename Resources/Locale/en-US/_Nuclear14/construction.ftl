@@ -1,6 +1,6 @@
 ﻿construction-category-medical = Medical
 
-lathe-category-ammo-box = Ammo box
+lathe-category-ammo-box = Ammunition Boxes
 lathe-category-ammo-magazines = Magazines
 lathe-category-armor = Armor
 lathe-category-containers = Containers

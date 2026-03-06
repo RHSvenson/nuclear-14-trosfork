@@ -49,7 +49,6 @@ chat-emote-name-meow = Meow
 chat-emote-name-mew = Mew
 chat-emote-name-purr = Purr
 chat-emote-name-hisses = Hiss
-chat-emote-name-growl = Growl
 
 # Message
 chat-emote-msg-scream = screams!

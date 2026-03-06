@@ -50,7 +50,7 @@
 
 - type: construction
   id: N14DecorationFlagBrotherhoodMidwest # MW Brotherhood
-  name: BoS Midwest Flag
+  name: Brotherhood of Steel Flag
   graph: DecorationFlagBrotherhoodMidwest
   startNode: start
   targetNode: FlagBrotherhoodMidwest

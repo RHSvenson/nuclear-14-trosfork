@@ -439,8 +439,8 @@
 - type: entity
   parent: N14ClothingHeadHelmetPowerArmorX01
   id: N14ClothingHeadHelmetPowerArmorMidwest
-  name: midwest power armor helmet
-  description: A unknown model of Power Armor helmet originating from the midwest region and adopted by the Midwest Brotherhood chapter.
+  name: Brotherhood of Steel Power Armor Helmet
+  description: A unknown model of Power Armor helmet adopted by the Brotherhood of Steel chapter.
   components:
   - type: Sprite
     netsync: false
@@ -467,8 +467,8 @@
 - type: entity
   parent: N14ClothingHeadHelmetPowerArmorX01
   id: N14ClothingHeadHelmetPowerArmorMidwestCommander
-  name: midwest commander power armor helmet
-  description: A unknown model of Power Armor helmet originating from the midwest region and adopted by the Midwest Brotherhood chapter. This modified version is commonly used by high-ranking Midwest Brotherhood Paladins.
+  name: Brotherhood of Steel Commander Power Armor Helmet
+  description: A unknown model of Power Armor helmet adopted by the Brotherhood of Steel chapter. This modified version is commonly used by high-ranking Brotherhood of Steel Paladins.
   components:
   - type: Sprite
     netsync: false

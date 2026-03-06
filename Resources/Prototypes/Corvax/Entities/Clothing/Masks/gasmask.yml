@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingMaskGas
   id: ClothingMaskGasBrootherWestern
-  name: brotherhoods combat gas mask
+  name: Brotherhood of Steel Combat Gas Mask
   description: A mask used in the Brotherhood of Steel's combat operations. Extremely effective during desert storms
   components:
   - type: Item

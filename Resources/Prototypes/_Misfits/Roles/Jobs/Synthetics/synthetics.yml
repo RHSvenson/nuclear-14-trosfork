@@ -11,6 +11,7 @@
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
+  hideWithoutWhitelist: true # #Misfits Change
   nameDataset: NamesAI
   spawnLoadout: false
   applyTraits: false
@@ -31,6 +32,7 @@
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
+  hideWithoutWhitelist: true # #Misfits Change
   nameDataset: NamesAI
   spawnLoadout: false
   applyTraits: false
@@ -51,6 +53,7 @@
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
+  hideWithoutWhitelist: true # #Misfits Change
   nameDataset: NamesAI
   spawnLoadout: false
   applyTraits: false
@@ -71,6 +74,7 @@
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
+  hideWithoutWhitelist: true # #Misfits Change
   nameDataset: NamesAI
   spawnLoadout: false
   applyTraits: false

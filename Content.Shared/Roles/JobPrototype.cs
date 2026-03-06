@@ -144,6 +144,13 @@ namespace Content.Shared.Roles
         [DataField]
         public bool Whitelisted;
 
+        /// <summary>
+        ///     If true, this job is completely hidden from the lobby UI
+        ///     unless the player is on the server whitelist.
+        /// </summary>
+        [DataField]
+        public bool HideWithoutWhitelist; // #Misfits Change
+
         [DataField]
         public bool SpawnLoadout = true;
 

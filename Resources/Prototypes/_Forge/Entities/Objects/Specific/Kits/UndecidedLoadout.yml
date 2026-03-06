@@ -2,7 +2,7 @@
 #MARK: Squire
 - type: entity
   id: N14BoSMidwestSquirekits
-  name: Undecided BoS Squire Midwest Kit
+  name: Undecided Brotherhood of Steel Squire Kit
   parent: NCRcadetloadoutkits
   components:
   - type: Sprite

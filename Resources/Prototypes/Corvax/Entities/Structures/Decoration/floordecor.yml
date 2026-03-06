@@ -581,7 +581,7 @@
 - type: entity
   parent: N14DecorationFlagFlammable
   id: N14DecorationFlagWesterBoS
-  name: WesterBoS flag
+  name: Western Brotherhood of Steel Flag
   description: A flag with a two Wester Brotherhood
   components:
   - type: Sprite
@@ -591,7 +591,7 @@
 - type: entity
   parent: N14DecorationFlagpoleNCR
   id: N14DecorationFlagpoleWesternBOS
-  name: Brotherhood flag pole
+  name: Western Brotherhood of Steel Flag Pole
   description: A Western Brotherhood flag on a wooden pole.
   components:
   - type: Sprite

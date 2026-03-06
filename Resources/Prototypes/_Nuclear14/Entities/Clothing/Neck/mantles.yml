@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: N14ClothingNeckMantleBrotherhoodWashington
-  name: Washington Brotherhood mantle
-  description: A red and black mantle, worn by high-ranking of the Washington Brotherhood of Steel. It represents a high status.
+  name: Brotherhood of Steel Mantle
+  description: A red and black mantle, worn by high-ranking of the Brotherhood of Steel. It represents a high status.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/WBoSmantle.rsi

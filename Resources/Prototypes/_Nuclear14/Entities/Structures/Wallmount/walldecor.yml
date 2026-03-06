@@ -96,8 +96,8 @@
 - type: entity
   parent: N14FlagWallUS
   id: N14FlagWallWesternBrotherhood
-  suffix: Midwestern BOS
-  description: A Midwestern Brotherhood of Steel flag.
+  suffix: BOS
+  description: A Brotherhood of Steel flag.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Wallmounts/walldecor2.rsi

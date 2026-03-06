@@ -271,7 +271,7 @@ trait-description-N14DermalArmor =
 
 trait-name-N14PhoenixArmor = Phoenix Armor
 trait-description-N14PhoenixArmor =
-    Because the Midwestern chapter captured Vault 0 you have access to many advanced technologies.
+    Because the Brotherhood chapter captured Vault 0 you have access to many advanced technologies.
     Among them is this set of energy dispersing subdermal lattice, which increases your resistance towards energy- and heat-based weapons.
 
 trait-name-N14ExtremeAugKnight = Extreme Augmentations

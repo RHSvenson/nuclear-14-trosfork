@@ -28,7 +28,7 @@
 - type: entity
   id: N14ControlTerminalButtonBos
   parent: N14ControlTerminalButton
-  name: brotherhood door terminal
+  name: Brotherhood of Steel Door Terminal
   suffix: Autolink, BoS
   components:
     - type: AutoLinkTransmitter

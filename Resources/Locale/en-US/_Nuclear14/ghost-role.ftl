@@ -6,7 +6,7 @@ ghost-role-information-n14pet-ant-name = Giant Ant Mule
 
 ghost-role-information-n14pet-eyebot-name = Eyebot Companion
 
-ghost-role-information-n14pet-eyebot-mbos-name = Midwestern Eyebot
+ghost-role-information-n14pet-eyebot-mbos-name = Brotherhood of Steel Eyebot
 
 ghost-role-information-n14pet-eyebot-wbos-name = Washington Eyebot
 

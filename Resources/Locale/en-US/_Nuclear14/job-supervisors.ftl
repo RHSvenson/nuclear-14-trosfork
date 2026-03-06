@@ -1,5 +1,5 @@
-﻿job-supervisors-bos-mid-initiate = anyone in the Midwestern chapter
-job-supervisors-bos-mid-knight = the Paladins of the Midwestern chapter
+﻿job-supervisors-bos-mid-initiate = anyone in the Brotherhood chapter
+job-supervisors-bos-mid-knight = the Paladins of the Brotherhood chapter
 job-supervisors-bos-mid = your bunker's commanding officer
 job-supervisors-bos-mid-commander = no one, but the Elder Council & your sense of duty
 job-supervisors-bos-wash-initiate = anyone in the Washington chapter

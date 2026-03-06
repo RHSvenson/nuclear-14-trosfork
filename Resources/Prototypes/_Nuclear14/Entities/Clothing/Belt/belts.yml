@@ -17,7 +17,7 @@
 - type: entity
   parent: N14ClothingBeltStorageBase
   id: ClothingBeltBoSWebbing
-  name: BoS carrier
+  name: Brotherhood of Steel Carrier
   description: A simple black carrier capable of holding all kind of ammo.
   components:
   - type: Sprite
@@ -29,7 +29,7 @@
 - type: entity
   parent: N14ClothingBeltStorageBase
   id: N14ClothingBeltBoSWebbing
-  name: BoS webbing
+  name: Brotherhood of Steel Webbing
   description: A simple black carrier, capable of holding all kind of ammo and medicine for field-use.
   components:
   - type: Sprite

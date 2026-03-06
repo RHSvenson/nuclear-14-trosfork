@@ -15,7 +15,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: NCClothingHeadHatBoSReaconHood
-  name: bos hood
+  name: Brotherhood of Steel Hood
   description: The hood of the Brotherhood Scout
   components:
   - type: Sprite

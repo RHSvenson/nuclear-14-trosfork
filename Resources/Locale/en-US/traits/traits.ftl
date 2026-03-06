@@ -394,10 +394,10 @@ trait-description-ValyrianStandard =
     Its speakers are those who wish to uphold the traditions and beliefs of ancient peoples from before the colonial era.
 
 trait-name-LowPotential = Low Psi-Potential
-trait-description-LowPotential =
+trait-description-LowPotential = Your innate psionic potential is weaker than most.
 
 trait-name-HighPotential = High Psi-Potential
-trait-description-HighPotential =
+trait-description-HighPotential = Your innate psionic potential is stronger than most.
 
 trait-name-LowAmplification = kα Deficiency
 trait-description-LowAmplification =
@@ -412,10 +412,10 @@ trait-description-PowerOverwhelming =
     WITNESS MY HATE MORTALS, COWER BEFORE MY PSIONIC MIGHT! REALITY IS AS I DEEM IT.
 
 trait-name-LowDampening = kδ Defect
-trait-description-LowDampening =
+trait-description-LowDampening = Your psionic dampening is weaker than average, making you more susceptible to psionic effects.
 
 trait-name-HighDampening = kδ Proficient
-trait-description-HighDampening =
+trait-description-HighDampening = Your psionic dampening is stronger than average, making you more resistant to psionic effects.
 
 trait-name-Azaziba = Sinta'Azaziba
 trait-description-Azaziba =

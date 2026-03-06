@@ -1,8 +1,8 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyBrotherhoodMidwest
-  name: Midwest BOS encryption key
-  description: An encryption key used by the Midwest Brotherhood of Steel.
+  name: Brotherhood of Steel Encryption Key
+  description: An encryption key used by the Brotherhood of Steel.
   components:
   - type: EncryptionKey
     channels:
@@ -16,7 +16,7 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyBrotherhoodWashington
-  name: Washington BOS encryption key
+  name: Washington Brotherhood of Steel Encryption Key
   description: An encryption key used by the Washington Brotherhood of Steel.
   components:
   - type: EncryptionKey

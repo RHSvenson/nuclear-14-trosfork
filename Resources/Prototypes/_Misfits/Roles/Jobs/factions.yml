@@ -1,9 +1,19 @@
 - type: department
-  id: Synthetics
-  description: department-Synthetics-description
+  id: Robots
+  description: department-Robots-description
   color: "#607d8b"
+  weight: -100
   roles:
   - SyntheticMrHandy
   - SyntheticMrGutsy
   - SyntheticProtectron
   - SyntheticAssaultron
+
+# #Misfits Change
+- type: department
+  id: FEVMutants
+  description: department-FEVMutants-description
+  color: "#6b8e23"
+  weight: -100
+  roles:
+  - SuperMutant

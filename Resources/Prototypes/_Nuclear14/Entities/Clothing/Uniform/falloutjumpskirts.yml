@@ -115,7 +115,7 @@
 - type: entity
   parent: N14ClothingUniformSkirtBase
   id: N14ClothingUniformJumpskirtBOSBlack
-  name: black brotherhood of steel uniform
+  name: Black Brotherhood of Steel Uniform
   description: A uniform worn by members of The Brotherhood of Steel. This one is black.
   components:
   - type: Sprite
@@ -126,7 +126,7 @@
 - type: entity
   parent: N14ClothingUniformSkirtBase
   id: N14ClothingUniformJumpskirtBOSSilver
-  name: brotherhood of steel uniform
+  name: Brotherhood of Steel Uniform
   suffix: ranked silver
   description: A uniform worn by members of The Brotherhood of Steel. This one has silver rank-markings.
   components:
@@ -138,7 +138,7 @@
 - type: entity
   parent: N14ClothingUniformSkirtBase
   id: N14ClothingUniformJumpskirtBOSGold
-  name: brotherhood of steel uniform
+  name: Brotherhood of Steel Uniform
   suffix: ranked gold
   description: A uniform worn by members of The Brotherhood of Steel. This one has gold rank-markings.
   components:

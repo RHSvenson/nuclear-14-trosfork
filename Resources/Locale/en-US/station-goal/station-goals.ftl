@@ -1,5 +1,3 @@
-station-goal-fax-paper-name = Station Goal
-
 station-goal-fax-paper-header =
     ███╗░░██╗████████╗
     ████╗░██║╚══██╔══╝ Form NT-No.{$station}-CC
@@ -123,27 +121,6 @@ station-goal-combat=
     6. Encourage the use of the station boxing ring.
         If there is no boxing ring, you must create one.
 
-station-goal-shuttle=
-    Dear Station Command, the purpose of your shift is to build a space shuttle capable of being piloted.
-
-    Shuttle requirements:
-    1. The shuttle must have a locked bridge;
-        a medical room with the necessary medical supplies and chemical equipment;
-        a supply store surrounded by reinforced material;
-        a crew room with at least 12 seats.
-    2. There must be an intermediate room between the docking airlock and the main rooms to prevent possible depressurization.
-    3. The shuttle must have a standard atmosphere, and also have several air gas containers to maintain it.
-    4. The shuttle must be able to move in all directions (forward, backward, sideways) and turn reasonably well.
-
-    Upon completion, the shuttle crew must be recruited from the station personnel.
-    The shuttle crew must include:
-        1 pilot;
-        2 engineers;
-        1 medic/chemist;
-        1 security officer.
-
-    The shuttle should take on board all the station Command representatives as passengers and, in parallel with the evacuation shuttle, go to the Central Command station.
-
 station-goal-singularity=
     Dear station Command, the goal of your shift is to build a generator based on the gravitational singularity.
 
@@ -160,22 +137,6 @@ station-goal-solarpanels=
     2. Allocate an area for a compartment with spare batteries.
         This compartment should accommodate at least 3 fully charged SMES', which should not be connected to the main power system of the station unless needed.
 
-station-goal-artifacts=
-    Dear station Command, the purpose of your shift is to provide new information about alien artifacts to NanoTrasen.
-
-    It is required to organize the work of salvagers to search for and deliver artifacts from the wreckage around the station or expeditions.
-    After the delivery of the artifacts, they must be transferred to a special container to the research department.
-    It is necessary to deliver at least 2 fully studied and documented artifacts on the evacuation shuttle in special containment units.
-
-    Recommended information for the document:
-    1. Name of the artifact.
-    2. Physical description.
-    3. Properties of the object.
-    4. Location of where the artifact was found.
-    5. Additional notes.
-
-    The document must be certified by the stamp of the supervisor.
-
 station-goal-storage=
     Dear station Command, the purpose of your shift is to build an orbital storage facility with supplies and technology.
 
@@ -188,15 +149,6 @@ station-goal-storage=
     - Valuable, but not unique boards.
 
     Monitor the safety of the contents in the storage until the end of the shift, a cleanup crew will come retrieve the contents as they prepare the station.
-
-station-goal-zoo=
-    Dear station Command, the purpose of your shift is to improve the recreational value of the personnel at the station.
-
-    It is necessary to build a zoo with at least 5 enclosures containing different types of animals ordered from the supply department.
-    Provide animals with food, at least one cleaning robot in each enclosure, and everything necessary for life, depending on the type of animal.
-    It is also necessary to build a bathhouse for the animals, water vapor must be supplied by Atmospheric Technicians.
-
-    Upon completion of the zoo, it is required to provide the crew with at least 20 minutes of free time from work so that they can visit the new zoo.
 
 station-goal-labor=
     Dear station Command, the purpose of your shift is to increase the motivation of the personnel for the growth of labor productivity.

@@ -175,7 +175,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatBrotherHelmet
-  name: the brotherhoods standard helmet
+  name: Brotherhood of Steel Standard Helmet
   description: The standard Western Brotherhood of Steel military helmet. "Want to take over the world? Put on your helmet and run!"
   components:
   - type: Sprite
@@ -196,7 +196,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatBrotherCapralHelmet
-  name: the corporals helmet of the steel brotherhood
+  name: Brotherhood of Steel Corporal Helmet
   description: The helmet is given to knights who have earned great respect but have not yet earned the title of paladin
   components:
   - type: Sprite

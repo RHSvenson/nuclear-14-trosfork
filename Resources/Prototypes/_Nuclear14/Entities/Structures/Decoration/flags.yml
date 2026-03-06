@@ -110,7 +110,7 @@
 - type: entity
   parent: N14DecorationFlagFlammable
   id: N14DecorationFlagBrotherhoodWashington
-  name: Washington Brotherhood flag
+  name: Washington Brotherhood of Steel Flag
   description: A red and black flag with a sword surrounded in gears and wings.
   components:
   - type: Sprite
@@ -120,7 +120,7 @@
 - type: entity
   parent: N14DecorationFlagFlammable
   id: N14DecorationFlagBrotherhoodMidwest
-  name: Midwestern Brotherhood flag
+  name: Brotherhood of Steel Flag
   description: A blue and black flag with a sword surrounded in gears and wings.
   components:
   - type: Sprite

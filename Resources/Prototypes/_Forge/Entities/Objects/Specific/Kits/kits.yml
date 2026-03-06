@@ -1,6 +1,6 @@
 # MARK: BoS Squire Midwest Kits
 - type: entity
-  name: Brotherhood Squire default Midwest Kit
+  name: Brotherhood of Steel Squire Default Kit
   parent: KitBase
   id: KitSquireDefaultBoSMidwest
   description: A crate containing everything a member of the Brotherhood might need for their default needs.
@@ -21,7 +21,7 @@
       - id: N14BoxCardboardMREBoxKFilled
 
 - type: entity
-  name: Brotherhood Squire Sniper Midwest Kit
+  name: Brotherhood of Steel Squire Sniper Kit
   parent: KitBase
   id: KitSquireSniperBoSMidwest
   description: A crate containing everything a member of the Brotherhood might need for their sniper needs.

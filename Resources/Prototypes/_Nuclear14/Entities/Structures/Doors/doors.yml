@@ -259,7 +259,7 @@
 - type: entity
   parent: N14DoorMetalReinforced
   id: N14DoorMetalSecureBrotherhood
-  name: secure brotherhood door
+  name: Secure Brotherhood of Steel Door
   description: It's secure, AND branded! What more could you want?
   components:
   - type: Sprite

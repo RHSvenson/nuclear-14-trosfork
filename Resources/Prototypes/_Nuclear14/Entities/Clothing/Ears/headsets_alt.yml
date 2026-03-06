@@ -128,7 +128,7 @@
 - type: entity
   parent: N14ClothingHeadsetAlt
   id: N14ClothingHeadsetBOSMidwest
-  name: midwest radio earpiece
+  name: Brotherhood of Steel Radio Earpiece
   components:
   - type: ContainerFill
     containers:
@@ -142,7 +142,7 @@
 - type: entity
   parent: N14ClothingHeadsetAlt
   id: N14ClothingHeadsetBOSWashington
-  name: washington radio earpiece
+  name: Washington Radio Earpiece
   components:
   - type: ContainerFill
     containers:

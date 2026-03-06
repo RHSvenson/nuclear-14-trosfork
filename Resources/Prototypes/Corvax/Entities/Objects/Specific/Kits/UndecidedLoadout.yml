@@ -94,7 +94,7 @@
 
 - type: entity
   id: BoSWashingtonStandartKits
-  name: Undecided BoS Washington Kit
+  name: Undecided Washington Brotherhood of Steel Kit
   description: please only take one
   parent: BaseItem
   components:
@@ -116,7 +116,7 @@
 
 - type: entity
   id: BoSWashingtonScribeKits
-  name: Undecided BoS Washington Kit
+  name: Undecided Washington Brotherhood of Steel Kit
   description: please only take one
   parent: BaseItem
   components:
@@ -136,7 +136,7 @@
 
 - type: entity
   id: BoSWashingtonCommandKits
-  name: Undecided BoS Washington Kit
+  name: Undecided Washington Brotherhood of Steel Kit
   description: please only take one
   parent: BaseItem
   components:

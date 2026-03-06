@@ -105,7 +105,7 @@
   parent: N14BaseMobRaider
   id: N14MobNPCMBoSSerf
   suffix: NPC
-  description: A servant of the Midwestern Brotherhood chapter, not a full member. He likely works for food and shelter.
+  description: A servant of the Brotherhood chapter, not a full member. He likely works for food and shelter.
   components:
     - type: NpcFactionMember
       friendlyOrderable: true
@@ -116,11 +116,11 @@
         - MBoSSerfNPC
 
 - type: entity
-  name: Brotherhood Knight
+  name: Brotherhood of Steel Knight
   parent: N14BaseMobRaider
   id: N14MobNPCMBoSKnight
   suffix: NPC
-  description: A soldier of the Midwestern Brotherhood, not the most skilled and easily forgetable. Still, he might be dangerous.
+  description: A soldier of the Brotherhood, not the most skilled and easily forgetable. Still, he might be dangerous.
   components:
     - type: NpcFactionMember
       friendlyOrderable: true
@@ -203,7 +203,7 @@
 
 # Washington chapter's humanoid NPCs for event making and such.
 - type: entity
-  name: Brotherhood Initiate
+  name: Brotherhood of Steel Initiate
   parent: N14BaseMobRaider
   id: N14MobNPCWBoSInitiate
   suffix: NPC
@@ -218,7 +218,7 @@
         - WBoSInitiateNPC
 
 - type: entity
-  name: Brotherhood Knight
+  name: Brotherhood of Steel Knight
   parent: N14BaseMobRaider
   id: N14MobNPCWBoSKnight
   suffix: NPC

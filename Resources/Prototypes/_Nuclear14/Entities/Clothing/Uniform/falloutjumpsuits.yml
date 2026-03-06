@@ -598,8 +598,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitBOSGreen
-  name: MidWest brotherhood uniform
-  description: A uniform worn by members of The Midwest Brotherhood of Steel. This one is green.
+  name: Brotherhood of Steel Uniform
+  description: A uniform worn by members of the Brotherhood of Steel. This one is green.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/Brotherhood/bosgreen.rsi
@@ -609,8 +609,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformBosRecon
-  name: MidWest brotherhood paladin uniform
-  description: A uniform worn by high ranking members of The Midwest Brotherhood of Steel, different to the standard version due to being comfy to use in power armor.
+  name: Brotherhood of Steel Paladin Uniform
+  description: A uniform worn by high ranking members of the Brotherhood of Steel, different to the standard version due to being comfy to use in power armor.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/Brotherhood/bosrecon.rsi
@@ -620,8 +620,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitBOSScribe
-  name: MidWest brotherhood scribe uniform
-  description: A uniform worn by scribes of The Midwest Brotherhood of Steel. Affixed with an apron and pockets.
+  name: Brotherhood of Steel Scribe Uniform
+  description: A uniform worn by scribes of the Brotherhood of Steel. Affixed with an apron and pockets.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/Brotherhood/midwestbosscribe.rsi
@@ -631,8 +631,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitBOSFieldScribe
-  name: MidWest brotherhood scribe uniform
-  description: An orange jumper and brown combat trousers, the uniform worn by field-scribes of the Midwest's Brotherhood of Steel.
+  name: Brotherhood of Steel Scribe Uniform
+  description: An orange jumper and brown combat trousers, the uniform worn by field-scribes of the Brotherhood of Steel.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/Brotherhood/midwestbosfieldscribe.rsi
@@ -646,7 +646,7 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitBOSWashingtonFieldScribe
-  name: washington brotherhood scribe uniform
+  name: Washington Brotherhood of Steel Scribe Uniform
   description: A maroon jumper and black combat trousers, the uniform worn by field-scribes of Washington's Brotherhood of Steel.
   components:
   - type: Sprite
@@ -657,7 +657,7 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitBOSRed
-  name: washington brotherhood undersuit
+  name: Washington Brotherhood of Steel Undersuit
   description: A piece of undersuit modified to be comfy with the use of power armor.
   components:
   - type: Sprite
@@ -668,7 +668,7 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitBOSBlack
-  name: black washington brotherhood uniform
+  name: Black Washington Brotherhood of Steel Uniform
   description: A uniform worn by members of The Washington Brotherhood of Steel. This one is black.
   components:
   - type: Sprite
@@ -679,7 +679,7 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitBOSSilver
-  name: washington brotherhood of steel uniform
+  name: Washington Brotherhood of Steel Uniform
   suffix: silver rank
   description: A uniform worn by members of The Brotherhood of Steel. This one has silver rank-markings.
   components:
