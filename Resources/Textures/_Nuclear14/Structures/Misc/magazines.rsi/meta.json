@@ -75,6 +75,21 @@
       },
 	    {
         "name": "magazine_wasteland"
+      },
+      {
+        "name": "magazine_live_dirty"
+      },
+      {
+        "name": "boxingtimes"
+      },
+      {
+        "name": "magazine"
+      },
+      {
+        "name": "fixingthings"
+      },
+      {
+        "name": "futureweaponstoday"
       }
     ]
   }

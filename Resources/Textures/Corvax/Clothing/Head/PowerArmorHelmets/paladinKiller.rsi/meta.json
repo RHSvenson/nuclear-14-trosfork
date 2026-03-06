@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "license": "All Rights Reserved",
+  "license": "CC-BY-NC-SA-3.0",
   "copyright": "by bao - for Corvax Forge",
   "size": {
     "x": 32,
@@ -20,6 +20,9 @@
     },
     {
       "name": "icon-sealed"
+    },
+    {
+      "name": "icon-unshaded"
     }
   ]
 }
