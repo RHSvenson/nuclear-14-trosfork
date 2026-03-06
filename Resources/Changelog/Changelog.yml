@@ -91,3 +91,12 @@ Entries:
   id: 5610
   time: '2026-03-06T10:44:44.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/29
+- author: Cythisiax
+  changes:
+    - type: Add
+      message: Synthetics - Mr. Handy, Gutsy, Securitron, Protectron
+    - type: Fix
+      message: Removed physicsmap & movedgrids vars on (all) Wendover.yml.
+  id: 5611
+  time: '2026-03-06T17:56:37.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/30
