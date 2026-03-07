@@ -1,7 +1,7 @@
-﻿- type: entity
+- type: entity
   parent: N14ClothingHeadsetAlt
   id: N14ClothingHeadsetBOSWest
-  name: Brotherhood of Steel Over-Ear Headset
+  name: BoS Over-Ear Headset
   components:
   - type: Headset
   - type: EncryptionKeyHolder

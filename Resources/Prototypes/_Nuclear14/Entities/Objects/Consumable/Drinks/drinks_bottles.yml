@@ -473,6 +473,8 @@
   name: Gamma Gulp Beer
   description: One of Gecko's biggest exports. A mild, radioactive alcohol.
   components:
+  - type: Item
+    size: Small # #Misfits Change: match DrinkAleBottleFull size so 12 fit in N14CrateBreakPlain
   - type: Sprite
     sprite: _Nuclear14/Objects/Consumable/Drinks/alcohol.rsi
     state: gammagulp

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   parent: Clothing
   id: N14ClothingHeadsetLightScribe
@@ -81,7 +81,7 @@
 - type: entity
   parent: N14ClothingHeadsetLightScribe
   id: N14ClothingHeadsetBOSMidwestLightScribe
-  name: Brotherhood of Steel Scribe Headset
+  name: BoS Scribe Headset
   components:
   - type: ContainerFill
     containers:

@@ -46,7 +46,7 @@
 - type: entity
   parent: N14DecorationFlagpoleNCR
   id: N14DecorationFlagpoleMBOS
-  name: Brotherhood of Steel Flag Pole
+  name: BoS Flag Pole
   description: A Brotherhood of Steel flag on a wooden pole.
   components:
   - type: Sprite
@@ -58,7 +58,7 @@
 - type: entity
   parent: N14DecorationFlagpoleNCR
   id: N14DecorationFlagpoleWBOS
-  name: Washington Brotherhood of Steel Flag Pole
+  name: Washington BoS Flag Pole
   description: A Washinton Brotherhood flag on a wooden pole.
   components:
   - type: Sprite

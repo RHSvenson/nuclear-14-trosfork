@@ -3,7 +3,7 @@
   setPreference: true
   overrideConsoleVisibility: true
   canBeAntag: false
-  name: NCR Military Police Investigator
+  name: job-name-ncr-mp-investigator #Misfits Change
   description: job-description-ncr-mp-investegator
   playTimeTracker: NCRMPinvestigator
   requirements:

@@ -1,0 +1,374 @@
+# Misfits Change - Nuclear14 loadout name localizations
+
+# Bags
+loadout-name-N14ClothingBackpackMilitary = military backpack
+loadout-name-N14ClothingBackpackTribal = tribal backpack
+loadout-name-N14ClothingBackpackDuffelMilitary = military duffel bag
+loadout-name-N14ClothingBackpackDuffel = duffel bag
+loadout-name-N14ClothingBackpackDuffelSalvage = salvage duffel bag
+loadout-name-N14ClothingBackpackDuffelMilitaryMedical = military medical duffel bag
+loadout-name-N14ClothingBackpackHiking = hiking backpack
+loadout-name-N14ClothingBackpackExplorer = explorer backpack
+loadout-name-N14ClothingBackpackTrekker = trekker backpack
+loadout-name-N14ClothingBackpackVaultPurple = vault backpack (purple)
+loadout-name-N14ClothingBackpackVaultBlueDark = vault backpack (dark blue)
+loadout-name-N14ClothingBackpackVaultRed = vault backpack (red)
+loadout-name-N14ClothingBackpackVaultGreen = vault backpack (green)
+loadout-name-N14ClothingBackpackVaultGreenDark = vault backpack (dark green)
+loadout-name-N14ClothingBackpackVaultOrange = vault backpack (orange)
+loadout-name-N14ClothingBackpackRadioNCR = NCR radio backpack
+loadout-name-N14ClothingBackpackSatchelExplorer = explorer satchel
+loadout-name-N14ClothingBackpackSatchelTribal = tribal satchel
+loadout-name-N14ClothingBackpackSatchelMilitary = military satchel
+loadout-name-N14ClothingBackpackSatchelTrekker = trekker satchel
+
+# Uniforms
+loadout-name-N14LoadoutUniformJumpsuitVault14 = Vault 14 jumpsuit
+loadout-name-N14LoadoutUniformJumpskirtVault14 = Vault 14 jumpskirt
+loadout-name-N14LoadoutUniformJumpsuitSettlerRags = settler rags
+loadout-name-N14LoadoutUniformJumpsuitRags = rags
+loadout-name-N14LoadoutUniformJumpsuitCheckered = checkered suit
+loadout-name-N14LoadoutUniformJumpsuitDetectiveAlt = detective suit (alt)
+loadout-name-N14LoadoutUniformJumpsuitBartenderAlt = bartender outfit (alt)
+loadout-name-N14LoadoutUniformJumpsuitWastelandDoc = wasteland doctor outfit
+loadout-name-N14LoadoutUniformJumpsuitMerc = mercenary outfit
+loadout-name-N14LoadoutUniformJumpsuitMerchant = merchant outfit
+loadout-name-N14LoadoutUniformJumpsuitTrader = trader outfit
+loadout-name-N14LoadoutUniformJumpsuitCaravan = caravan outfit
+loadout-name-N14LoadoutUniformJumpsuitMechanic = mechanic outfit
+loadout-name-N14LoadoutUniformJumpsuitPreWarRelaxed = pre-war relaxed outfit
+loadout-name-N14LoadoutUniformJumpsuitPreWarCasual = pre-war casual outfit
+loadout-name-N14LoadoutUniformJumpsuitManagerSuit = manager suit
+loadout-name-N14LoadoutUniformJumpsuitPreWarManager = pre-war manager outfit
+loadout-name-N14LoadoutUniformJumpsuitBlueSuit = blue suit
+loadout-name-N14LoadoutUniformJumpsuitPreWarLumberjack = pre-war lumberjack outfit
+loadout-name-N14LoadoutUniformJumpsuitCombat = combat outfit
+loadout-name-N14LoadoutUniformJumpsuitBrahminFarmer = brahmin farmer outfit
+loadout-name-N14LoadoutUniformJumpsuitFollowers = Followers of the Apocalypse outfit
+loadout-name-N14LoadoutUniformJumpsuitCowboyBrown = cowboy outfit (brown)
+loadout-name-N14LoadoutUniformJumpsuitCowboyGrey = cowboy outfit (grey)
+loadout-name-N14LoadoutUniformJumpsuitTribal = tribal outfit
+loadout-name-N14LoadoutUniformJumpsuitWarriorTribal = tribal warrior outfit
+loadout-name-N14LoadoutUniformJumpsuitChinese = Chinese outfit
+loadout-name-N14LoadoutUniformJumpsuitAsylumDress = asylum dress
+loadout-name-N14LoadoutUniformDressAsymmetric = asymmetric dress
+loadout-name-N14LoadoutUniformJumpskirtFalloutBlue = fallout jumpskirt (blue)
+loadout-name-N14LoadoutUniformJumpskirtFalloutBlack = fallout jumpskirt (black)
+loadout-name-N14LoadoutUniformJumpskirtDressBlack = black dress
+loadout-name-N14LoadoutUniformJumpskirtDressBlue = blue dress
+loadout-name-N14LoadoutUniformJumpskirtSundress = sundress
+loadout-name-N14LoadoutUniformJumpskirtWastelandDoc = wasteland doctor skirt
+loadout-name-N14LoadoutUniformJumpskirtMerc = mercenary skirt
+loadout-name-N14LoadoutUniformJumpskirtTribal = tribal skirt
+loadout-name-N14LoadoutUniformJumpskirtDressBlackTango = black tango dress
+loadout-name-N14LoadoutUniformJumpskirtDressBlackTangoAlt = black tango dress (alt)
+loadout-name-N14LoadoutUniformJumpskirtDressVictorianRed = victorian red dress
+loadout-name-N14LoadoutUniformJumpskirtDressLongSleeve = long sleeve dress
+loadout-name-N14LoadoutUniformJumpskirtDressFormalRed = formal red dress
+
+# Outer clothing
+loadout-name-N14LoadoutOuterCoatLeatherDuster = leather duster
+loadout-name-N14LoadoutOuterCoatBattlecoat = battlecoat
+loadout-name-N14LoadoutOuterCoatBattlecoatTan = battlecoat (tan)
+loadout-name-N14LoadoutOuterCoatDuster = duster coat
+loadout-name-N14LoadoutOuterCoatWinterArmored = armored winter coat
+loadout-name-N14LoadoutOuterHarperCoat = Harper coat
+loadout-name-N14LoadoutOuterTribalArmor = tribal armor
+loadout-name-N14LoadoutOuterTribalArmorHeavy = heavy tribal armor
+loadout-name-N14LoadoutOuterLeatherArmor = leather armor
+loadout-name-N14LoadoutOuterMetalArmor = metal armor
+loadout-name-N14LoadoutOuterScavengerHeavyArmor = scavenger heavy armor
+loadout-name-N14LoadoutOuterGhostSheet = ghost sheet
+loadout-name-N14LoadoutOuterRaiderBlastmaster = raider blastmaster armor
+loadout-name-N14LoadoutOuterRaiderBadlands = raider badlands armor
+loadout-name-N14LoadoutOuterRobeConusrobe = Conus robe
+loadout-name-N14LoadoutOuterJacketLettermanRed = letterman jacket (red)
+loadout-name-N14LoadoutOuterJacketLettermanBrown = letterman jacket (brown)
+loadout-name-N14ClothingOuterCoatLeatherCoat = leather coat
+loadout-name-N14ClothingOuterCoatLeatherJacket = leather jacket
+loadout-name-N14ClothingOuterCoatFollowerLab = Followers lab coat
+loadout-name-N14ClothingOuterFlannelRed = flannel (red)
+loadout-name-N14ClothingOuterFlannelBrown = flannel (brown)
+loadout-name-N14ClothingOuterFlannelAqua = flannel (aqua)
+loadout-name-N14ClothingOuterTownMediumCoat = town medium coat
+loadout-name-N14ClothingOuterTownCoat = town coat
+loadout-name-N14ClothingOuterponcho = poncho
+loadout-name-N14ClothingOuterBandito = bandito outfit
+loadout-name-N14ClothingOuterElderwintercoat = elder's winter coat
+loadout-name-N14ClothingOuterdrylandelder = drylander elder outfit
+loadout-name-N14ClothingOuterdrylandersimple = drylander simple outfit
+loadout-name-N14ClothingOutershaman = shaman outfit
+loadout-name-N14ClothingOuterforager = forager outfit
+loadout-name-N14ClothingOuterhunter = hunter outfit
+loadout-name-N14ClothingOuterheadtaker = headtaker outfit
+
+# Shoes
+loadout-name-N14LoadoutShoesBlack = black shoes
+loadout-name-N14LoadoutShoesBrown = brown shoes
+loadout-name-N14LoadoutBootsBlack = black boots
+loadout-name-N14LoadoutBootsCowboy = cowboy boots
+loadout-name-N14LoadoutShoesRags = rag shoes
+loadout-name-N14ClothingBootsCombat = combat boots
+
+# Head
+loadout-name-N14LoadoutHeadHatTrucker = trucker hat
+loadout-name-N14LoadoutHeadHatArmyCap = army cap
+loadout-name-N14LoadoutHeadHatBeanie = beanie
+loadout-name-N14LoadoutHeadHatBaseball = baseball cap
+loadout-name-N14LoadoutHeadHatBandit = bandit hat
+loadout-name-N14LoadoutHeadHatHeadscarf = headscarf
+loadout-name-N14LoadoutHeadHatTribalOutcastHood = tribal outcast hood
+loadout-name-N14ClothingHeadHatCowboyBrown = cowboy hat (brown)
+loadout-name-N14ClothingHeadHatCowboyGrey = cowboy hat (grey)
+loadout-name-N14ClothingHeadHatCowboyGreyBanded = cowboy hat (grey banded)
+loadout-name-N14ClothingHeadHatEdlerSkullhelm = elder skull helm
+loadout-name-N14ClothingHeadHatEldersDamagedSkullHelm = elder's damaged skull helm
+loadout-name-N14ClothingHeadHatTribalPowerhelm = tribal power helm
+loadout-name-N14ClothingHeadTakerwraps = taker wraps
+loadout-name-N14ClothingTribalHood = tribal hood
+loadout-name-N14ClothingTribalHunterHood = tribal hunter hood
+loadout-name-N14ClothingTribalHeadWraps = tribal head wraps
+loadout-name-N14ClothingTribalRadstagSkull = radstag skull
+loadout-name-N14ClothingTribalShemagh = shemagh
+loadout-name-N14ClothingTribalShamanHeadband = shaman headband
+loadout-name-N14ClothingTribalShamanHat = shaman hat
+loadout-name-N14ClothingTribalMuffaloskull = muffalo skull
+
+# Eyes
+loadout-name-N14LoadoutEyesEyepatch = eyepatch
+loadout-name-N14ClothingEyesGlasses = glasses
+loadout-name-N14ClothingEyesGlassesWelding = welding glasses
+loadout-name-N14ClothingEyesSunGlasses = sunglasses
+loadout-name-N14ClothingDrylanderGoggles = drylander goggles
+
+# Hands
+loadout-name-N14LoadoutHandsGlovesCloth = cloth gloves
+loadout-name-N14LoadoutHandsGlovesLeather = leather gloves
+loadout-name-N14LoadoutHandsGlovesBlackLeather = black leather gloves
+loadout-name-N14LoadoutHandsGlovesFur = fur gloves
+loadout-name-N14LoadoutHandsGlovesNitrile = nitrile gloves
+loadout-name-N14LoadoutHandsGlovesNitrilePurple = nitrile gloves (purple)
+
+# Neck
+loadout-name-N14LoadoutNeckMantleLeather = leather mantle
+loadout-name-N14LoadoutNeckCloakLeather = leather cloak
+loadout-name-N14LoadoutNeckCloakDarkCloak = dark cloak
+loadout-name-ClothingNeckScarfStripedBlack = striped black scarf
+loadout-name-ClothingNeckTribalCloakBr = tribal cloak (brown)
+loadout-name-ClothingNeckTribalCloak = tribal cloak
+loadout-name-ClothingNeckShawl = shawl
+loadout-name-ClothingNeckCrucifixColor = crucifix (colorable)
+
+# Belt
+loadout-name-N14LoadoutBeltUtility = utility belt
+
+# Masks
+loadout-name-ClothingMaskBear = bear mask
+loadout-name-ClothingMaskBat = bat mask
+loadout-name-ClothingMaskBee = bee mask
+loadout-name-ClothingMaskRat = rat mask
+loadout-name-ClothingMaskRaven = raven mask
+loadout-name-ClothingMaskJackal = jackal mask
+loadout-name-ClothingMaskBreather = breather mask
+loadout-name-ClothingMaskWhiteBalaclava = white balaclava
+
+# Items
+loadout-name-N14LoadoutItemWallet = wallet
+loadout-name-N14LoadoutItemCanteen = canteen
+loadout-name-N14LoadoutItemFlask = flask
+loadout-name-N14LoadoutItemLighter = lighter
+loadout-name-N14LoadoutItemLighterCheap = cheap lighter
+loadout-name-N14LoadoutItemMatches = matches
+loadout-name-N14LoadoutItemCig = cigarette
+loadout-name-N14LoadoutItemCigsCustom = custom cigarettes
+loadout-name-N14LoadoutItemCigsKool = Kool cigarettes
+loadout-name-N14LoadoutItemCigsRepublics = Republic's cigarettes
+loadout-name-N14LoadoutItemCigsSalem = Salem cigarettes
+loadout-name-N14LoadoutItemCigsWinston = Winston cigarettes
+loadout-name-N14LoadoutItemCigsMarlboro = Marlboro cigarettes
+loadout-name-N14LoadoutFoodPorkBeans = pork and beans
+loadout-name-N14CurrencyCap100 = 100 caps
+loadout-name-GeigerCounter = Geiger counter
+loadout-name-d6Dice = d6 dice
+
+# Instruments
+loadout-name-N14InstrumentBanjo = banjo
+loadout-name-N14InstrumentGuitar = guitar
+loadout-name-N14InstrumentHarmonica = harmonica
+loadout-name-N14InstrumentViolin = violin
+loadout-name-N14InstrumentFlute = flute
+loadout-name-N14InstrumentClarinet = clarinet
+loadout-name-N14InstrumentTrumpet = trumpet
+loadout-name-N14InstrumentTrombone = trombone
+loadout-name-N14InstrumentSaxaphone = saxophone
+loadout-name-N14InstrumentPanflute = pan flute
+
+# Weapons
+loadout-name-N14WeaponPistol22lr = .22 LR pistol
+loadout-name-N14WeaponPistol9mm = 9mm pistol
+loadout-name-N14WeaponPistol10mmPipe = 10mm pipe pistol
+loadout-name-N14WeaponRevolver9mm = 9mm revolver
+loadout-name-N14WeaponRifle556Pipe = 5.56 pipe rifle
+loadout-name-N14WeaponShotgunDoubleBarrel = double barrel shotgun
+loadout-name-N14SpeedLoader9 = 9mm speed loader
+
+# Melee weapons
+loadout-name-N14TribalMachete = tribal machete
+loadout-name-N14TribalClub = tribal club
+loadout-name-N14TribalHatchet = tribal hatchet
+loadout-name-N14TribalSword = tribal sword
+loadout-name-N14KitchenKnife = kitchen knife
+loadout-name-N14BrassKnife = brass knife
+loadout-name-N14WastelandTribalSpear = wasteland tribal spear
+
+# NCR loadouts
+loadout-name-LoadoutNCRPinRecruit = NCR recruit pin
+loadout-name-LoadoutNCRPinPrivateSoldier = NCR private soldier pin
+loadout-name-LoadoutNCRPinPrivateNCRWS = NCR private pin (NCRWS)
+loadout-name-LoadoutNCRPinPrivate1stSoldier = NCR private 1st class pin (soldier)
+loadout-name-LoadoutNCRPinPrivate1stNCRWS = NCR private 1st class pin (NCRWS)
+loadout-name-LoadoutNCRPinCorporalSoldier = NCR corporal pin (soldier)
+loadout-name-LoadoutNCRPinCorporalNCRWS = NCR corporal pin (NCRWS)
+loadout-name-LoadoutNCRPinSpecialistSoldier = NCR specialist pin (soldier)
+loadout-name-LoadoutNCRPinSpecialistSNCRWS = NCR specialist pin (NCRWS)
+loadout-name-LoadoutNCRPinSergeant = NCR sergeant pin
+loadout-name-LoadoutNCRPinSergeant1st = NCR sergeant 1st class pin
+loadout-name-LoadoutNCRPinMasterSergeant = NCR master sergeant pin
+loadout-name-LoadoutNCRPinSergeantMajor = NCR sergeant major pin
+loadout-name-LoadoutNCRPinSecondLieutenant = NCR second lieutenant pin
+loadout-name-LoadoutNCRPinFirstlLieutenant = NCR first lieutenant pin
+loadout-name-LoadoutNCRPinCaptain = NCR captain pin
+loadout-name-LoadoutNCRPinMajor = NCR major pin
+loadout-name-LoadoutNCRPinDoctor = NCR doctor pin
+loadout-name-LoadoutNCRPinChiefPhysician = NCR chief physician pin
+loadout-name-LoadoutNCRuniformV1 = NCR uniform (v1)
+loadout-name-LoadoutNCRuniformV2 = NCR uniform (v2)
+loadout-name-LoadoutNCRuniformV3 = NCR uniform (v3)
+loadout-name-LoadoutNCRuniformPants = NCR uniform pants
+loadout-name-LoadoutNCRuniformCombatDesert = NCR combat uniform (desert)
+loadout-name-LoadoutNCRuniformDesertPantsFull = NCR desert pants (full)
+loadout-name-LoadoutNCRuniformHelmetDesert = NCR desert helmet
+loadout-name-LoadoutNCRuniformMaskDesert = NCR desert mask
+loadout-name-LoadoutNCRmaskDesert = NCR desert face mask
+loadout-name-LoadoutNCRhatB = NCR hat (type B)
+loadout-name-LoadoutNCRhatBeret = NCR beret
+loadout-name-LoadoutNCRGreenBoonie = NCR green boonie hat
+loadout-name-LoadoutNCRBrownBoonie = NCR brown boonie hat
+loadout-name-LoadoutNCRWhiteBoonie = NCR white boonie hat
+loadout-name-LoadoutNCRSnowHelmet = NCR snow helmet
+loadout-name-LoadoutNCRWoodsHelmet = NCR woods helmet
+loadout-name-LoadoutNCRWoodsHelmetGhillie = NCR woods ghillie helmet
+loadout-name-LoadoutNCRgloves = NCR gloves
+loadout-name-LoadoutNCRMaskBalaclava = NCR balaclava
+loadout-name-LoadoutNCRCloakNCR = NCR cloak
+loadout-name-LoadoutNCRCloakNCRSnow = NCR snow cloak
+loadout-name-LoadoutNCRCloakNCRWoods = NCR woods cloak
+loadout-name-LoadoutNCRCloakNCRGhillie = NCR ghillie cloak
+loadout-name-LoadoutNCRClothingNeckOldMantle = NCR old mantle
+loadout-name-LoadoutNCRNeckCloakRangerPoncho = NCR ranger poncho
+loadout-name-LoadoutNCRClothingUniformNCRCFUniform = NCRCF prisoner uniform
+loadout-name-LoadoutNCRPowerArmorT45Sierra = NCR T-45 power armor (Sierra)
+
+# NCR Ranger loadouts
+loadout-name-LoadoutNCRRangerCombat = NCR ranger combat armor
+loadout-name-LoadoutNCRRangerCoyote = NCR ranger coyote armor
+loadout-name-LoadoutNCRRangerVest = NCR ranger vest
+loadout-name-LoadoutNCRRangerEliteOld = NCR ranger elite (old) armor
+loadout-name-LoadoutNCRRangerHelmetEliteOld1 = NCR ranger elite (old) helmet
+loadout-name-LoadoutNCRRangerRedwood = NCR ranger redwood armor
+loadout-name-LoadoutNCRRangerRoman = NCR ranger roman armor
+loadout-name-LoadoutNCRRangerScorpion = NCR ranger scorpion armor
+loadout-name-LoadoutNCRRangerMedkit = NCR ranger medkit
+loadout-name-LoadoutNCRN14ClothingNeckCloakRanger = NCR ranger cloak
+loadout-name-LoadoutNCRN14ClothingOuterRangerPrice = NCR ranger Price armor
+loadout-name-LoadoutNCRN14ClothingOuterRangerFox = NCR ranger Fox armor
+loadout-name-LoadoutNCRN14ClothingOuterRangerWeathered = NCR ranger weathered armor
+loadout-name-LoadoutNCRN14ClothingUniformRangerVeteran = NCR veteran ranger uniform
+loadout-name-LoadoutNCRN14ClothingUniformRangerVeteranRed = NCR veteran ranger uniform (red)
+loadout-name-LoadoutNCRN14ClothingUniformRangerVeteranBlack = NCR veteran ranger uniform (black)
+loadout-name-LoadoutNCRN14ClothingUniformRangerBlue = NCR ranger uniform (blue)
+loadout-name-LoadoutNCRN14ClothingUniformRangerModif = NCR ranger uniform (modified)
+loadout-name-LoadoutNCRN14ClothingHeadHatRangerHelmet2 = NCR ranger helmet (type 2)
+loadout-name-LoadoutNCRN14ClothingHeadHatRangerHelmetFox2 = NCR ranger Fox helmet (type 2)
+loadout-name-LoadoutNCRN14ClothingHeadHatRangerHelmetModif2 = NCR ranger modified helmet (type 2)
+loadout-name-LoadoutNCRN14ClothingHeadHatRangerHelmetPrice2 = NCR ranger Price helmet (type 2)
+loadout-name-LoadoutNCRClothingMaskGasRangerPrice2 = NCR ranger Price gas mask (type 2)
+loadout-name-LoadoutNCRClothingMaskGasRanger2 = NCR ranger gas mask (type 2)
+loadout-name-LoadoutNCRClothingMaskGasRangerElite2 = NCR ranger elite gas mask (type 2)
+loadout-name-LoadoutNCRClothingMaskGasRangerModif2 = NCR ranger modified gas mask (type 2)
+loadout-name-LoadoutNCRClothingMaskGasRiot2 = NCR riot gas mask (type 2)
+loadout-name-LoadoutClothingOuterNCRCombatVeteranArmorDesert = NCR combat veteran armor (desert)
+loadout-name-LoadoutClothingOuterNCRVeteranArmorDesert = NCR veteran armor (desert)
+loadout-name-LoadoutClothingOuterNCRVestpaddedWebDesert = NCR padded web vest (desert)
+loadout-name-LoadoutClothingOuterNCRPouchedVestDesert = NCR pouched vest (desert)
+loadout-name-LoadoutClothingHandsGlovesNCR = NCR gloves
+loadout-name-LoadoutClothingEyesGlassesGoggles = combat goggles
+loadout-name-LoadoutClothingNeckNCRMPCoat = NCR MP coat
+loadout-name-LoadoutClothingNeckNCRMPBeret = NCR MP beret
+
+# NCR masks
+loadout-name-LoadoutMaskGas = gas mask
+loadout-name-LoadoutMaskMuzzle = muzzle mask
+loadout-name-LoadoutMaskBandSkull = skull bandana
+
+# Brotherhood of Steel loadouts (Midwest)
+loadout-name-LoadoutBoSMidwestSquire = Brotherhood squire armor (Midwest)
+loadout-name-LoadoutBoSMidwestSeniorKnight = Brotherhood senior knight armor (Midwest)
+loadout-name-LoadoutBoSMidwestFieldScribe = Brotherhood field scribe outfit (Midwest)
+loadout-name-LoadoutBoSMidwestReconHelmet = Brotherhood recon helmet (Midwest)
+loadout-name-LoadoutBoSMidwestUnknown = Brotherhood armor unknown (Midwest)
+loadout-name-LoadoutBoSMidwestUnknown2 = Brotherhood armor unknown 2 (Midwest)
+loadout-name-LoadoutMaskBoSMidwestLiner = Brotherhood liner mask (Midwest)
+loadout-name-LoadoutMaskBoSMidwestLinerElite = Brotherhood elite liner mask (Midwest)
+loadout-name-LoadoutMaskBoSMidwestLinerBlack = Brotherhood black liner mask (Midwest)
+loadout-name-LoadoutClothingOuterMBoSSquireArmor = Brotherhood squire armor (Midwest outer)
+loadout-name-LoadoutClothingOuterBOSInquisitorBlackCoat = Brotherhood inquisitor black coat
+loadout-name-LoadoutClothingOuterBOSInquisitorBattleArmor = Brotherhood inquisitor battle armor
+loadout-name-LoadoutClothingHeadHatBoSInquisitorBattleHelmet = Brotherhood inquisitor battle helmet
+loadout-name-LoadoutClothingHeadHatBoSInquisitorBattleHelmetHood = Brotherhood inquisitor battle helmet (hooded)
+loadout-name-LoadoutClothingHeadHatBoSInquisitorBlackHat = Brotherhood inquisitor black hat
+loadout-name-LoadoutClothingHeadHatBoSInquisitorHat = Brotherhood inquisitor hat
+
+# Brotherhood of Steel loadouts (Washington)
+loadout-name-LoadoutBoSWashingtonSquire = Brotherhood squire armor (Washington)
+loadout-name-LoadoutBoSWashingtonSeniorKnight = Brotherhood senior knight armor (Washington)
+loadout-name-LoadoutBoSWashingtonFieldScribe = Brotherhood field scribe outfit (Washington)
+loadout-name-LoadoutBoSWashingtonPA = Brotherhood power armor (Washington)
+loadout-name-LoadoutBoSWashingtonPACommander = Brotherhood commander power armor (Washington)
+loadout-name-LoadoutBoSWashingtonPaladinT51Armor = Brotherhood paladin T-51 armor (Washington)
+loadout-name-LoadoutBoSWashingtonCommanderT60Armor = Brotherhood commander T-60 armor (Washington)
+
+# Legion loadouts
+loadout-name-LoadoutLegionDeadRecruitArmor = Legion recruit armor
+loadout-name-LoadoutLegionDeadRecruitHelmet = Legion recruit helmet
+loadout-name-LoadoutLegionDeadVeteranArmor = Legion veteran armor
+loadout-name-LoadoutLegionDeadVeteranHelmet = Legion veteran helmet
+loadout-name-LoadoutLegionDeadPrimeArmor = Legion prime armor
+loadout-name-LoadoutLegionDeadPrimeHelmet = Legion prime helmet
+loadout-name-LoadoutLegionVenatorReconnaissanceArmor = Legion venator reconnaissance armor
+loadout-name-LoadoutLegionVenatorLightReconnaissanceArmor = Legion venator light reconnaissance armor
+loadout-name-LoadoutLegionCloakBlack = Legion black cloak
+loadout-name-LoadoutNeckCloakLegionWhite = Legion white cloak
+loadout-name-LoadoutNeckCloakLegionRed = Legion red cloak
+
+# Miscellaneous eyes
+loadout-name-ClothingEyesGlassesChemist = chemist glasses
+
+# Sponsor loadouts
+loadout-name-N14LoadoutUniformJumpsuitVault14Gold = Vault 14 jumpsuit (gold)
+loadout-name-N14LoadoutUniformJumpsuitVault14Purple = Vault 14 jumpsuit (purple)
+loadout-name-N14LoadoutUniformJumpskirtVault14Gold = Vault 14 jumpskirt (gold)
+loadout-name-N14LoadoutUniformJumpskirtVault14Purple = Vault 14 jumpskirt (purple)
+loadout-name-LoadoutClothingOuterNCRVestDesertCoat = NCR desert vest coat
+loadout-name-LoadoutClothingOuterNCRVestpaddedWebKiltDesert = NCR padded web kilt vest (desert)
+loadout-name-LoadoutClothingOuterNCRVeteranArmorKiltDesert = NCR veteran kilt armor (desert)
+loadout-name-LoadoutClothingOuterNCRCombatVeteranKiltArmorDesert = NCR combat veteran kilt armor (desert)
+loadout-name-LoadoutNCRN14ClothingHeadHatRangerHelmetSnowFox2 = NCR ranger Snow Fox helmet (type 2)
+loadout-name-LoadoutNCRN14ClothingOuterRangerSnowFox = NCR ranger Snow Fox armor
+loadout-name-LoadoutClothingOuterJacketCowboyOld = old cowboy jacket
+loadout-name-LoadoutUniformJumpsuitCowboyOld = old cowboy outfit
+loadout-name-LoadoutClothingHeadHatCowboyOld = old cowboy hat
+loadout-name-LoadoutClothingNeckCloakCowboyOld = old cowboy cloak
+loadout-name-LoadoutN14ClothingOuterWandererCoat = wanderer coat
+loadout-name-LoadoutBoSMidwestHellCat = Brotherhood Hellcat armor (Midwest)
+loadout-name-LoadoutN14ClothingOuterLegionPaladinKiller = Legion paladin killer armor

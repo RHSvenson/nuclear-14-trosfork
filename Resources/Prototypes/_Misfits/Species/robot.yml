@@ -1,0 +1,89 @@
+# Robot species definitions for player-controlled synthetic robots. #Misfits Change
+# Four variants: Mr. Handy, Protectron, Mr. Gutsy, Assaultron.
+# roundStart: true so whitelisted players see them in the character editor species dropdown
+# and via the Robot Type variant picker panel.
+# Access is gated via the RobotSpawn job whitelist (jobwhitelistadd RobotSpawn).
+
+- type: species
+  id: RobotMrHandy
+  name: species-name-robot-mr-handy
+  roundStart: true
+  order: 10 # #Misfits Change: robots last
+  whitelistRequired: true # #Misfits Change
+  restrictedCustomization: true # #Misfits Change
+  jobWhitelistUnlock: RobotSpawn # #Misfits Change
+  restrictedJobs: # #Misfits Change
+  - RobotSpawn
+  - Wastelander
+  sprites: RobotSprites
+  markingLimits: RobotMarkingLimits
+  prototype: N14PlayerSyntheticMrHandy
+  dollPrototype: N14PlayerSyntheticMrHandy
+  skinColoration: Hues
+
+- type: species
+  id: RobotProtectron
+  name: species-name-robot-protectron
+  roundStart: true
+  order: 11 # #Misfits Change: robots last
+  whitelistRequired: true # #Misfits Change
+  restrictedCustomization: true # #Misfits Change
+  jobWhitelistUnlock: RobotSpawn # #Misfits Change
+  restrictedJobs: # #Misfits Change
+  - RobotSpawn
+  - Wastelander
+  sprites: RobotSprites
+  markingLimits: RobotMarkingLimits
+  prototype: N14PlayerSyntheticProtectron
+  dollPrototype: N14PlayerSyntheticProtectron
+  skinColoration: Hues
+
+- type: species
+  id: RobotMrGutsy
+  name: species-name-robot-mr-gutsy
+  roundStart: true
+  order: 12 # #Misfits Change: robots last
+  whitelistRequired: true # #Misfits Change
+  restrictedCustomization: true # #Misfits Change
+  jobWhitelistUnlock: RobotSpawn # #Misfits Change
+  restrictedJobs: # #Misfits Change
+  - RobotSpawn
+  - Wastelander
+  sprites: RobotSprites
+  markingLimits: RobotMarkingLimits
+  prototype: N14PlayerSyntheticMrGutsy
+  dollPrototype: N14PlayerSyntheticMrGutsy
+  skinColoration: Hues
+
+- type: species
+  id: RobotAssaultron
+  name: species-name-robot-assaultron
+  roundStart: true
+  order: 13 # #Misfits Change: robots last
+  whitelistRequired: true # #Misfits Change
+  restrictedCustomization: true # #Misfits Change
+  jobWhitelistUnlock: RobotSpawn # #Misfits Change
+  restrictedJobs: # #Misfits Change
+  - RobotSpawn
+  - Wastelander
+  sprites: RobotSprites
+  markingLimits: RobotMarkingLimits
+  prototype: N14PlayerSyntheticAssaultron
+  dollPrototype: N14PlayerSyntheticAssaultron
+  skinColoration: Hues
+
+# Shared marking limits — robots have no body markings but need a valid points block.
+- type: markingPoints
+  id: RobotMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Chest:
+      points: 0
+      required: false
+
+# Shared sprite set — not actually rendered (robot entities use their own Sprite component).
+# Minimal valid entry using layers that don’t sex-morph.
+- type: speciesBaseSprites
+  id: RobotSprites
+  sprites:
+    Eyes: MobHumanoidEyes

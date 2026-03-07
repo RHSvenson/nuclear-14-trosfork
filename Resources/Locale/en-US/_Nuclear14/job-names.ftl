@@ -11,15 +11,15 @@ job-name-bos-mid-squire = Brotherhood of Steel Initiate
 job-description-bos-mid-squire = Follow the orders of your superiors and prove your worth.
 
 # Washington Brotherhood
-job-name-bos-washington-commander = Washington BoS Commander
+job-name-bos-washington-commander = Washington Brotherhood of Steel Commander
 job-description-bos-washington-commander = Lead the Washington Brotherhood of Steel on their mission.
-job-name-bos-washington-initiate = Washington BoS Initiate
+job-name-bos-washington-initiate = Washington Brotherhood of Steel Initiate
 job-description-bos-washington-initiate = Follow the orders of your superiors and prove your worth.
-job-name-bos-washington-knight = Washington BoS Knight
+job-name-bos-washington-knight = Washington Brotherhood of Steel Knight
 job-description-bos-washington-knight = Follow the Paladins on their mission for the chapter.
-job-name-bos-washington-paladin = Washington BoS Paladin
+job-name-bos-washington-paladin = Washington Brotherhood of Steel Paladin
 job-description-bos-washington-paladin = Assist the Paladin Commander as their second in command & heavy infantry.
-job-name-bos-washington-scribe = Washington BoS Scribe
+job-name-bos-washington-scribe = Washington Brotherhood of Steel Scribe
 job-description-bos-washington-scribe = Conduct scientific missions and research for your chapter.
 
 # Caravan

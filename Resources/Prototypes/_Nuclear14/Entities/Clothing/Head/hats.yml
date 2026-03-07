@@ -260,7 +260,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatBrotherhoodFieldCap
-  name: Brotherhood of Steel Field Cap
+  name: BoS Field Cap
   description: A cap worn by Paladins of the Brotherhood of Steel during their field duties.
   components:
   - type: Sprite

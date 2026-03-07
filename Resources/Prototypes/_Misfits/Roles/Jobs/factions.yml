@@ -4,10 +4,7 @@
   color: "#607d8b"
   weight: -100
   roles:
-  - SyntheticMrHandy
-  - SyntheticMrGutsy
-  - SyntheticProtectron
-  - SyntheticAssaultron
+  - RobotSpawn
 
 # #Misfits Change
 - type: department

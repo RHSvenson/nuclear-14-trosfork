@@ -95,11 +95,11 @@ public sealed partial class PowerMonitoringWindow
             button.TextureRect.Texture = _spriteSystem.Frame0(new SpriteSpecifier.Rsi(new ResPath(entry.MetaData.Value.SpritePath), entry.MetaData.Value.SpriteState));
 
         // Update name
-        var name = Loc.GetString(entry.MetaData.Value.EntityName);
+        var name = entry.MetaData.Value.EntityName; // #Misfits Change: EntityName is already resolved text, not a loc key
         button.NameLocalized.Text = name;
 
         // Update tool tip
-        button.ToolTip = Loc.GetString(name);
+        button.ToolTip = name;
 
         // Update power value
         button.PowerValue.Text = Loc.GetString("power-monitoring-window-value", ("value", entry.PowerValue));

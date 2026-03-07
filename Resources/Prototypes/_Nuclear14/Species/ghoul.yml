@@ -2,6 +2,7 @@
   id: Ghoul
   name: species-name-ghoul
   roundStart: true
+  order: 1 # #Misfits Change: sort after Human
   prototype: N14MobGhoul
   sprites: N14MobGhoulSprites
   markingLimits: MobGhoulMarkingLimits

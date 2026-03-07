@@ -1,0 +1,14 @@
+ent-N14DecorationFlagBearerEmpty = flag bearer
+    .desc = A post for hanging flags.
+ent-N14DecorationFlagNCR = NCR flag
+    .desc = A flag with a two headed bear, the symbol of the New California Republic.
+ent-N14DecorationFlagBrotherhoodMidwest = Brotherhood of Steel Flag
+    .desc = A blue and black flag with a sword surrounded in gears and wings.
+ent-N14DecorationFlagFollowers = Followers flag
+    .desc = A white flag with the black Follower's of the Apocalpyse cross on it.
+ent-N14DecorationFlagGunner = Gunner flag
+    .desc = A Gunner flag atop a bearer.
+ent-N14DecorationFlagLocust = Locust flag
+    .desc = A flag with a skull, the symbol of Locusts.
+ent-N14DecorationFlagYuma = Yuma flag
+    .desc = A banner depicting three rivers meeting at its center, overlaid with an ear of corn.

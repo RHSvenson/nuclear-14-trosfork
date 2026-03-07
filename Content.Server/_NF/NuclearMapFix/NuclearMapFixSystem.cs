@@ -28,7 +28,7 @@ namespace Content.Server._NF.NuclearMapFix
                 {
                     var gridUid = comp.GridUid;
                     _host.AppendCommand($"fixgridatmos {gridUid}");
-                    Logger.Error($"executed command on {gridUid})");
+                    Logger.Info($"executed command on {gridUid}");
                 }
             });
         }

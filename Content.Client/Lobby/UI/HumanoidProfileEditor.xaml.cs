@@ -90,6 +90,9 @@ namespace Content.Client.Lobby.UI
 
         private List<SpeciesPrototype> _species = new();
         private List<(string, RequirementsSelector)> _jobPriorities = new();
+
+        // #Misfits Change: robot variant species IDs for the 4-tab robot picker panel
+
         private readonly Dictionary<string, BoxContainer> _jobCategories;
 
         private Dictionary<Button, ConfirmationData> _confirmationData = new();
@@ -505,9 +508,9 @@ namespace Content.Client.Lobby.UI
 
             // Show/Hide the traits tab if they ever get enabled/disabled
             var traitsEnabled = cfgManager.GetCVar(CCVars.GameTraitsEnabled);
-            CTabContainer.SetTabVisible(3, traitsEnabled);
+            CTabContainer.SetTabVisible(TraitsTab, traitsEnabled);
             cfgManager.OnValueChanged(CCVars.GameTraitsEnabled,
-                enabled => CTabContainer.SetTabVisible(3, enabled));
+                enabled => CTabContainer.SetTabVisible(TraitsTab, enabled));
 
             TraitsShowUnusableButton.OnToggled += args => UpdateTraits(args.Pressed);
             TraitsRemoveUnusableButton.OnPressed += _ => TryRemoveUnusableTraits();
@@ -525,7 +528,7 @@ namespace Content.Client.Lobby.UI
 
             // Show/Hide the loadouts tab if they ever get enabled/disabled
             var loadoutsEnabled = cfgManager.GetCVar(CCVars.GameLoadoutsEnabled);
-            CTabContainer.SetTabVisible(4, loadoutsEnabled);
+            CTabContainer.SetTabVisible(LoadoutsTab, loadoutsEnabled);
             ShowLoadouts.Visible = loadoutsEnabled;
             cfgManager.OnValueChanged(CCVars.GameLoadoutsEnabled, LoadoutsChanged);
 
@@ -673,7 +676,12 @@ namespace Content.Client.Lobby.UI
             SpeciesButton.Clear();
             _species.Clear();
 
-            _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>().Where(o => o.RoundStart));
+            _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>()
+                .Where(o => o.RoundStart)
+                .Where(o => !o.WhitelistRequired // #Misfits Change
+                    || _requirements.IsWhitelisted()
+                    || (o.JobWhitelistUnlock != null && _requirements.IsJobWhitelisted(o.JobWhitelistUnlock.Value.Id))) // #Misfits Change
+                .OrderBy(o => o.Order)); // #Misfits Change: sort by Order field
             var speciesIds = _species.Select(o => o.ID).ToList();
 
             for (var i = 0; i < _species.Count; i++)
@@ -837,7 +845,10 @@ namespace Content.Client.Lobby.UI
             ReloadPreview();
 
             if (Profile != null)
+            {
                 PreferenceUnavailableButton.SelectId((int) Profile.PreferenceUnavailable);
+                UpdateTabVisibility(Profile.Species); // #Misfits Change: apply tab restrictions on load
+            }
         }
 
         /// A slim reload that only updates the entity itself and not any of the job entities, etc
@@ -862,7 +873,7 @@ namespace Content.Client.Lobby.UI
 
         private void LoadoutsChanged(bool enabled)
         {
-            CTabContainer.SetTabVisible(4, enabled);
+            CTabContainer.SetTabVisible(LoadoutsTab, enabled);
             ShowLoadouts.Visible = enabled;
         }
 
@@ -949,7 +960,7 @@ namespace Content.Client.Lobby.UI
 
                 var jobs = department.Roles.Select(jobId => _prototypeManager.Index<JobPrototype>(jobId))
                     .Where(job => job.SetPreference)
-                    .Where(job => !job.HideWithoutWhitelist || _requirements.IsWhitelisted()) // #Misfits Change
+                    .Where(job => !job.HideWithoutWhitelist || _requirements.IsWhitelisted() || (job.Whitelisted && _requirements.IsJobWhitelisted(job.ID))) // #Misfits Change
                     .ToArray();
 
                 Array.Sort(jobs, JobUIComparer.Instance);
@@ -968,7 +979,15 @@ namespace Content.Client.Lobby.UI
                     icon.Texture = jobIcon.Icon.Frame0();
                     selector.Setup(items, job.LocalizedName, 200, job.LocalizedDescription, icon);
 
-                    if (!_requirements.CheckJobWhitelist(job, out var reason))
+                    // #Misfits Change - species job restriction
+                    var currentSpecies = Profile != null
+                        ? _prototypeManager.Index<SpeciesPrototype>(Profile.Species)
+                        : null;
+                    if (currentSpecies?.RestrictedJobs != null && !currentSpecies.RestrictedJobs.Contains(job.ID))
+                        selector.LockRequirements(FormattedMessage.FromUnformatted(
+                            Loc.GetString("character-species-job-restriction",
+                                ("species", Loc.GetString(currentSpecies.Name)))));
+                    else if (!_requirements.CheckJobWhitelist(job, out var reason))
                         selector.LockRequirements(reason);
                     else if (!_characterRequirementsSystem.CheckRequirementsValid(
                          job.Requirements ?? new(),
@@ -1082,7 +1101,7 @@ namespace Content.Client.Lobby.UI
 
                 var jobs = department.Roles.Select(jobId => _prototypeManager.Index(jobId))
                     .Where(job => job.SetPreference)
-                    .Where(job => !job.HideWithoutWhitelist || _requirements.IsWhitelisted()) // #Misfits Change
+                    .Where(job => !job.HideWithoutWhitelist || _requirements.IsWhitelisted() || (job.Whitelisted && _requirements.IsJobWhitelisted(job.ID))) // #Misfits Change
                     .ToArray();
                 Array.Sort(jobs, JobUIComparer.Instance);
 
@@ -1104,7 +1123,15 @@ namespace Content.Client.Lobby.UI
                     icon.Texture = jobIcon.Icon.Frame0();
                     selector.Setup(items, job.LocalizedName, 200, job.LocalizedDescription, icon);
 
-                    if (!_requirements.CheckJobWhitelist(job, out var reason))
+                    // #Misfits Change - species job restriction
+                    var currentSpecies = Profile != null
+                        ? _prototypeManager.Index<SpeciesPrototype>(Profile.Species)
+                        : null;
+                    if (currentSpecies?.RestrictedJobs != null && !currentSpecies.RestrictedJobs.Contains(job.ID))
+                        selector.LockRequirements(FormattedMessage.FromUnformatted(
+                            Loc.GetString("character-species-job-restriction",
+                                ("species", Loc.GetString(currentSpecies.Name)))));
+                    else if (!_requirements.CheckJobWhitelist(job, out var reason))
                         selector.LockRequirements(reason);
                     else if (!_characterRequirementsSystem.CheckRequirementsValid(
                         job.Requirements ?? new(),
@@ -1385,9 +1412,24 @@ namespace Content.Client.Lobby.UI
             UpdateHeightWidthSliders();
             UpdateWeight();
             UpdateSpeciesGuidebookIcon();
+            UpdateTabVisibility(newSpecies); // #Misfits Change: hide tabs for restricted species
             IsDirty = true;
             ReloadProfilePreview();
             ReloadClothes(); // Species may have job-specific gear, reload the clothes
+        }
+
+        // #Misfits Change: hide Appearance/Jobs/Antags/Traits/Loadouts/Markings tabs for restricted species
+        private void UpdateTabVisibility(string speciesId)
+        {
+            var species = _prototypeManager.Index<SpeciesPrototype>(speciesId);
+            var restricted = species.RestrictedCustomization;
+
+            CTabContainer.SetTabVisible(Appearance, !restricted);
+            CTabContainer.SetTabVisible(Jobs, !restricted);
+            CTabContainer.SetTabVisible(Antags, !restricted);
+            CTabContainer.SetTabVisible(TraitsTab, !restricted);
+            CTabContainer.SetTabVisible(LoadoutsTab, !restricted);
+            CTabContainer.SetTabVisible(MarkingsTab, !restricted);
         }
 
         private void SetName(string newName)

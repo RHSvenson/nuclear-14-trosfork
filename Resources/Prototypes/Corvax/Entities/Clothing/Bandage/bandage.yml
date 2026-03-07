@@ -60,7 +60,7 @@
 - type: entity
   parent: NCClothingBandageBoSBase
   id: NCClothingBandageBoSRecruit
-  name: Brotherhood of Steel Recruit Bandage
+  name: BoS Recruit Bandage
   description: A bandage used by the Brotherhood of Steel recruits.
   components:
   - type: ClothingFactionAndRoleAdd
@@ -83,7 +83,7 @@
 - type: entity
   parent: NCClothingCollarBoSBase
   id: NCClothingCollarBoSSerf
-  name: Brotherhood of Steel Serf Collar
+  name: BoS Serf Collar
   description: A collar used by the Brotherhood of Steel serfs.
   components:
   - type: ClothingFactionAndRoleAdd

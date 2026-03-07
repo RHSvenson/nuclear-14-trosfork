@@ -521,7 +521,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         };
 
         var priorities = new Dictionary<string, JobPriority>(JobPriorities
-            .Where(p => prototypeManager.TryIndex<JobPrototype>(p.Key, out var job) && job.SetPreference && p.Value switch
+            .Where(p => prototypeManager.TryIndex<JobPrototype>(p.Key, out var job) && job.SetPreference
+                && (speciesPrototype.RestrictedJobs == null || speciesPrototype.RestrictedJobs.Contains(p.Key)) // #Misfits Change
+                && p.Value switch
             {
                 JobPriority.Never => false, // Drop never since that's assumed default.
                 JobPriority.Low => true,

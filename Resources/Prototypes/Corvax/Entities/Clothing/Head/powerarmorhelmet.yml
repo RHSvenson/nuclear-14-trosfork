@@ -61,7 +61,7 @@
 - type: entity
   parent: N14ClothingHeadHelmetPowerArmorT45
   id: N14ClothingHeadHelmetPowerArmorT45WestBOS
-  name: T-45 Western Brotherhood of Steel Power Armor Helmet
+  name: T-45 Western BoS Power Armor Helmet
   description: The legendary T-45 Sierra power armor helmet. A symbol of the pre-war era, this rare piece combines classic protection with upgraded electronics for frontline combat superiority.
   components:
   - type: Sprite

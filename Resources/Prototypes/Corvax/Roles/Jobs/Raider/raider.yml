@@ -1,7 +1,7 @@
 - type: job
   id: Raider
   setPreference: true
-  name: Raider
+  name: job-name-raider #Misfits Change
   description: job-description-raider
   playTimeTracker: Raider
   requirements:

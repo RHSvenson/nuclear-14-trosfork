@@ -17,7 +17,7 @@
 - type: entity
   id: N14SpawnPointBoSMidPaladinCommander
   parent: N14SpawnPointWastelander
-  name: Brotherhood of Steel Paladin Commander
+  name: BoS Paladin Commander
   components:
   - type: SpawnPoint
     job_id: BoSMidPaladinCommander
@@ -30,7 +30,7 @@
 - type: entity
   id: N14SpawnPointBoSMidKnight
   parent: N14SpawnPointBoSMidPaladinCommander
-  name: Brotherhood of Steel Knight
+  name: BoS Knight
   components:
   - type: SpawnPoint
     job_id: BoSMidKnight
@@ -42,7 +42,7 @@
 - type: entity
   id: N14SpawnPointBoSMidPaladin
   parent: N14SpawnPointBoSMidPaladinCommander
-  name: Brotherhood of Steel Paladin
+  name: BoS Paladin
   components:
   - type: SpawnPoint
     job_id: BoSMidPaladin
@@ -54,7 +54,7 @@
 - type: entity
   id: N14SpawnPointBoSMidInitiate # change this when I care
   parent: N14SpawnPointBoSMidPaladinCommander
-  name: Brotherhood of Steel Squire
+  name: BoS Squire
   components:
   - type: SpawnPoint
     job_id: BoSMidSquire
@@ -66,7 +66,7 @@
 - type: entity
   id: N14SpawnPointBoSMidScribe
   parent: N14SpawnPointBoSMidPaladinCommander
-  name: Brotherhood of Steel Scribe
+  name: BoS Scribe
   components:
   - type: SpawnPoint
     job_id: BoSMidScribe
@@ -79,7 +79,7 @@
 - type: entity
   id: N14SpawnPointBoSWashingtonCommander
   parent: N14SpawnPointWastelander
-  name: Washington Brotherhood of Steel Commander
+  name: Washington BoS Commander
   components:
   - type: SpawnPoint
     job_id: BoSWashingtonCommander
@@ -92,7 +92,7 @@
 - type: entity
   id: N14SpawnPointBoSWashingtonInitiate
   parent: N14SpawnPointBoSWashingtonCommander
-  name: Washington Brotherhood of Steel Recruit
+  name: Washington BoS Recruit
   components:
   - type: SpawnPoint
     job_id: BoSWashingtonInitiate
@@ -104,7 +104,7 @@
 - type: entity
   id: N14SpawnPointBoSWashingtonPaladin
   parent: N14SpawnPointBoSWashingtonCommander
-  name: Washington Brotherhood of Steel Captain
+  name: Washington BoS Captain
   components:
   - type: SpawnPoint
     job_id: BoSWashingtonPaladin
@@ -116,7 +116,7 @@
 - type: entity
   id: N14SpawnPointBoSWashingtonKnight
   parent: N14SpawnPointBoSWashingtonCommander
-  name: Washington Brotherhood of Steel Soldier
+  name: Washington BoS Soldier
   components:
   - type: SpawnPoint
     job_id: BoSWashingtonKnight
@@ -128,7 +128,7 @@
 - type: entity
   id: N14SpawnPointBoSWashingtonScribe
   parent: N14SpawnPointBoSWashingtonCommander
-  name: Washington Brotherhood of Steel Researcher
+  name: Washington BoS Researcher
   components:
   - type: SpawnPoint
     job_id: BoSWashingtonScribe

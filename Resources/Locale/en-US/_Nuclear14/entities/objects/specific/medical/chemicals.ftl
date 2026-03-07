@@ -1,0 +1,10 @@
+ent-N14Stimpak = stimpak
+    .desc = A syringe filled with a wondrous mixture of medical reagents. Essential for those with little to no medical knowledge.
+ent-N14JetInhaler = Jet inhaler
+    .desc = A rare injector filled with a narcotic reagent that makes you feel as though you're speeding up. It's weaker but lasts longer than Turbo.
+ent-N14RadAwayInhaler = RadAway inhaler
+    .desc = A jet inhaler with a RadAway phial screwed on top of it. Three puffs away from being rad free.
+ent-N14HealingPowder = healing powder
+    .desc = A bag of tribal healing powder. Nausiating.
+ent-N14HealingPoultice = healing poultice
+    .desc = A bag of poultice to help with all common ailments if slowly.

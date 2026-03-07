@@ -1,4 +1,5 @@
 ﻿construction-category-medical = Medical
+construction-category-explosives = Explosives
 
 lathe-category-ammo-box = Ammunition Boxes
 lathe-category-ammo-magazines = Magazines

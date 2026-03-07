@@ -3,7 +3,7 @@
   setPreference: true
   overrideConsoleVisibility: false
   canBeAntag: false
-  name: Town Shopkeeper Helper
+  name: job-name-townshopkeeperhelper #Misfits Change
   description: job-description-townshopkeeperhelper
   playTimeTracker: TownShopkeeperHelper
   requirements:

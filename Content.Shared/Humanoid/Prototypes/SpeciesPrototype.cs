@@ -1,3 +1,4 @@
+using Content.Shared.Roles; // #Misfits Change
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -185,6 +186,39 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField]
     public float AverageWidth = 40f;
+
+    /// <summary>
+    ///     If true, only whitelisted players can select this species.
+    /// </summary>
+    [DataField]
+    public bool WhitelistRequired; // #Misfits Change
+
+    /// <summary>
+    ///     If set, this species can only select jobs in this list.
+    ///     All other jobs will be unavailable.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<JobPrototype>>? RestrictedJobs; // #Misfits Change
+
+    /// <summary>
+    ///     If set, players job-whitelisted for this job will have this species unlocked,
+    ///     even without a general server whitelist.
+    /// </summary>
+    [DataField]
+    public ProtoId<JobPrototype>? JobWhitelistUnlock; // #Misfits Change
+
+    /// <summary>
+    ///     Sort order in the species dropdown. Lower values appear first.
+    /// </summary>
+    [DataField]
+    public int Order; // #Misfits Change
+
+    /// <summary>
+    ///     If true, the Jobs, Antags, Traits, Loadouts, and Markings tabs are hidden
+    ///     in the character editor for this species.
+    /// </summary>
+    [DataField]
+    public bool RestrictedCustomization; // #Misfits Change
 }
 
 public enum SpeciesNaming : byte

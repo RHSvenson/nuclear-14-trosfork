@@ -78,8 +78,6 @@
         type: BorgBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-  - type: ActivatableUI
-    key: enum.BorgUiKey.Key
   # - type: SiliconLawBound
   # - type: EmagSiliconLaw
     # stunTime: 5
@@ -121,8 +119,6 @@
       - BorgModuleSyndicateAssault
     hasMindState: on
     noMindState: off
-  - type: WiresPanel
-  - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
   - type: ContainerContainer
@@ -156,9 +152,6 @@
     # sounds:
       # Unsexed: UnisexSilicon
   - type: UnblockableSpeech
-  - type: Lock
-    locked: true
-  - type: ActivatableUIRequiresLock
   # - type: LockedWiresPanel # not in our version of the game yet 16/07/2024
   - type: Flashable
   - type: Damageable

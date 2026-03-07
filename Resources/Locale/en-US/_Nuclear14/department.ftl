@@ -1,6 +1,6 @@
 # Names
-department-BrotherhoodMidwest = Brotherhood of Steel
-department-BrotherhoodWashington = Washington Brotherhood of Steel
+department-BrotherhoodMidwest = BoS
+department-BrotherhoodWashington = Washington BoS
 department-CaravanCompany = Caravan Company
 department-NCR = New California Republic
 department-Ranger = Desert Rangers

@@ -3,7 +3,7 @@
   setPreference: true
   overrideConsoleVisibility: true
   canBeAntag: false
-  name: Brotherhood of Steel Inquisitor
+  name: job-name-bos-mid-inquisitor #Misfits Change
   description: job-description-bos-mid-inquisitor
   playTimeTracker: BoSMidInquisitor
   requirements:

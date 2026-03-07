@@ -29,11 +29,11 @@ id-card-access-level-ncr-sgt = NCRA Armory
 id-card-access-level-ncr-medic = NCRA Labs
 id-card-access-level-ncr = NCRA Gates
 
-id-card-access-level-midwest-paladin-commander = Brotherhood of Steel Office
-id-card-access-level-midwest-paladin = Brotherhood of Steel Suits
-id-card-access-level-midwest-knight = Brotherhood of Steel Armory
-id-card-access-level-midwest-scribe = Brotherhood of Steel Labs
-id-card-access-level-midwest = Brotherhood of Steel Gates
+id-card-access-level-midwest-paladin-commander = BoS Office
+id-card-access-level-midwest-paladin = BoS Suits
+id-card-access-level-midwest-knight = BoS Armory
+id-card-access-level-midwest-scribe = BoS Labs
+id-card-access-level-midwest = BoS Gates
 
 id-card-access-level-washington-commander = WBoS Office
 id-card-access-level-washington-paladin = WBoS Suits

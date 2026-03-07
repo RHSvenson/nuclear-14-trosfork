@@ -8,6 +8,19 @@ namespace Content.Server._NC.TTS;
 // ReSharper disable once InconsistentNaming
 public sealed partial class TTSSystem
 {
+    // #Misfits Change: use source-generated cached regexes to fix RA0026
+    [GeneratedRegex(@"[^a-zA-Z0-9,\-+?!. ]")]
+    private static partial Regex SanitizeCharsRegex();
+
+    [GeneratedRegex(@"(?<![a-zA-Z])[a-zA-Z]+?(?![a-zA-Z])", RegexOptions.Multiline | RegexOptions.IgnoreCase)]
+    private static partial Regex ReplaceWordRegex();
+
+    [GeneratedRegex(@"(?<=[1-90])(\.|,)(?=[1-90])")]
+    private static partial Regex DecimalPointRegex();
+
+    [GeneratedRegex(@"\d+")]
+    private static partial Regex DigitsRegex();
+
     private void OnTransformSpeech(TransformSpeechEvent args)
     {
         if (!_isEnabled) return;
@@ -17,10 +30,10 @@ public sealed partial class TTSSystem
     private string Sanitize(string text)
     {
         text = text.Trim();
-        text = Regex.Replace(text, @"[^a-zA-Z0-9,\-+?!. ]", "");
-        text = Regex.Replace(text, @"(?<![a-zA-Z])[a-zA-Z]+?(?![a-zA-Z])", ReplaceMatchedWord, RegexOptions.Multiline | RegexOptions.IgnoreCase);
-        text = Regex.Replace(text, @"(?<=[1-90])(\.|,)(?=[1-90])", " point ");
-        text = Regex.Replace(text, @"\d+", ReplaceWord2Num);
+        text = SanitizeCharsRegex().Replace(text, "");
+        text = ReplaceWordRegex().Replace(text, ReplaceMatchedWord);
+        text = DecimalPointRegex().Replace(text, " point ");
+        text = DigitsRegex().Replace(text, ReplaceWord2Num);
         text = text.Trim();
         return text;
     }

@@ -3,10 +3,6 @@ station-goal-shuttle =
     Your shift's goal is to build a crewed shuttle in space and equip it with everything necessary for survival.
     To complete it, the supply department needs to order all necessary resources for the engineering and research departments.
     The engineering department needs to build it, and the research department must provide the engineering department and shuttle with all necessary equipment.
-station-goal-singularity =
-    Your shift's goal is to build a generator based on a supermassive Singularity.
-    To complete it, the engineering department will need to build a containment cell, and the supply department will need to order all necessary materials.
-    The containment cell must be capable of containing a third-class singularity.
 station-goal-solar-panels =
     Your shift's goal is to organize a backup power system for the station based on solar panels.
     For this you will need to order all necessary materials from the supply department and then build 2 new solar panel arrays with the engineering department.

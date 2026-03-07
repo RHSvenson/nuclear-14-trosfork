@@ -161,7 +161,7 @@
 # Brotherhood Initiates
 - type: entity
   id: BoSMidwestInitSet
-  name: Undecided Brotherhood of Steel Initiate Kit
+  name: Undecided BoS Initiate Kit
   parent: BaseLoadoutKit
   components:
   - type: Sprite
@@ -188,7 +188,7 @@
 # Brotherhood Knights
 - type: entity
   id: BoSMidwestKnightSet
-  name: Undecided Brotherhood of Steel Knight Kit
+  name: Undecided BoS Knight Kit
   parent: BaseLoadoutKit
   components:
   - type: Sprite
@@ -215,7 +215,7 @@
 # Brotherhood Scribes
 - type: entity
   id: BoSMidwestScribeKits
-  name: Undecided Brotherhood of Steel Scribe Kit
+  name: Undecided BoS Scribe Kit
   parent: BaseLoadoutKit
   components:
   - type: Sprite
@@ -230,7 +230,7 @@
 # Brotherhood Paladins
 - type: entity
   id: BoSMidwestPaladinKits
-  name: Undecided Brotherhood of Steel Paladin Kit
+  name: Undecided BoS Paladin Kit
   parent: BaseLoadoutKit
   components:
   - type: Sprite

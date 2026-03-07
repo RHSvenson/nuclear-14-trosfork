@@ -45,6 +45,13 @@
     speechVerb: Robotic
   - type: Inventory
     templateId: borgShort
+  - type: ActivatableUI
+    key: enum.BorgUiKey.Key
+  - type: WiresPanel
+  - type: ActivatableUIRequiresPanel
+  - type: Lock
+    locked: true
+  - type: ActivatableUIRequiresLock
   - type: GhostRole
     prob: 1
     makeSentient: true
@@ -194,6 +201,13 @@
     speechVerb: Robotic
   - type: Inventory
     templateId: borgShort
+  - type: ActivatableUI
+    key: enum.BorgUiKey.Key
+  - type: WiresPanel
+  - type: ActivatableUIRequiresPanel
+  - type: Lock
+    locked: true
+  - type: ActivatableUIRequiresLock
   - type: GhostRole
     prob: 1
     makeSentient: true

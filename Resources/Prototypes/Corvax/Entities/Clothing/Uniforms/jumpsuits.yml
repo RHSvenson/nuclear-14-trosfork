@@ -45,7 +45,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: NCClothingUniformJumpsuitWesternBoS
-  name: Western Brotherhood of Steel Uniform
+  name: Western BoS Uniform
   description: A rugged uniform of the Western Brotherhood of Steel, symbolizing strength and unity.
   components:
   - type: Sprite
@@ -56,7 +56,7 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitBOSWest
-  name: Western Brotherhood of Steel Uniform
+  name: Western BoS Uniform
   description: A uniform worn by members of the Brotherhood of Steel. This one is green.
   components:
   - type: Sprite
@@ -67,7 +67,7 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformBosReconWest
-  name: Western Brotherhood of Steel Uniform
+  name: Western BoS Uniform
   description: A uniform worn by members of the Brotherhood of Steel. This one is green.
   components:
   - type: Sprite
@@ -78,7 +78,7 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitBOSWestScribe
-  name: Western Brotherhood of Steel Scribe Uniform
+  name: Western BoS Scribe Uniform
   description: A uniform worn by members of the Brotherhood of Steel. This one is green.
   components:
   - type: Sprite
@@ -89,7 +89,7 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitBOSWestPaladin
-  name: Western Brotherhood of Steel Paladin Uniform
+  name: Western BoS Paladin Uniform
   description: A uniform worn by members of the Brotherhood of Steel. This one is green.
   components:
   - type: Sprite
@@ -100,7 +100,7 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitBOSWestKnight
-  name: Western Brotherhood of Steel Knight Uniform
+  name: Western BoS Knight Uniform
   description: A uniform worn by members of the Brotherhood of Steel. This one is green.
   components:
   - type: Sprite
@@ -111,7 +111,7 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitBOSWestScout
-  name: Western Brotherhood of Steel Scout Uniform
+  name: Western BoS Scout Uniform
   description: A uniform worn by members of the Brotherhood of Steel. This one is green.
   components:
   - type: Sprite

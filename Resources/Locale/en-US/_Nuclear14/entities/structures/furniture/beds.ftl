@@ -1,0 +1,8 @@
+ent-N14Bed = Bed
+    .desc = A clean mattress for sleeping on.
+ent-N14BedWood = Wooden Bed
+    .desc = A bed with a wooden frame.
+ent-N14Bedroll = bedroll
+    .desc = A bedroll for sleeping on the road. Not very comfy.
+ent-N14BedMattress0 = Mattress
+    .desc = A mattress on the floor. Better than nothing.

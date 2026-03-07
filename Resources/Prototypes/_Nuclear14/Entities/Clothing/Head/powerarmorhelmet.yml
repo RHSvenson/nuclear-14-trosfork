@@ -439,7 +439,7 @@
 - type: entity
   parent: N14ClothingHeadHelmetPowerArmorX01
   id: N14ClothingHeadHelmetPowerArmorMidwest
-  name: Brotherhood of Steel Power Armor Helmet
+  name: BoS Power Armor Helmet
   description: A unknown model of Power Armor helmet adopted by the Brotherhood of Steel chapter.
   components:
   - type: Sprite
@@ -467,7 +467,7 @@
 - type: entity
   parent: N14ClothingHeadHelmetPowerArmorX01
   id: N14ClothingHeadHelmetPowerArmorMidwestCommander
-  name: Brotherhood of Steel Commander Power Armor Helmet
+  name: BoS Commander Power Armor Helmet
   description: A unknown model of Power Armor helmet adopted by the Brotherhood of Steel chapter. This modified version is commonly used by high-ranking Brotherhood of Steel Paladins.
   components:
   - type: Sprite

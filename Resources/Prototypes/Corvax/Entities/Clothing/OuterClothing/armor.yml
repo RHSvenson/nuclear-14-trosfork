@@ -247,7 +247,7 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterKnightWesternArmor
-  name: Western Brotherhood of Steel Knight Armor
+  name: Western BoS Knight Armor
   description: Excellent armor produced by the Western Brotherhood. It looks like the designer was based on a power
   components:
   - type: Sprite
@@ -267,7 +267,7 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterRecruitWesternArmor
-  name: Western Brotherhood of Steel Squire Armor
+  name: Western BoS Squire Armor
   description: Lightweight, comfortable armor designed for protection and high mobility
   components:
   - type: Sprite

@@ -6,7 +6,6 @@ namespace Content.Server._N14.PortalAutoLink
     public sealed partial class PortalAutoLinkSystem : EntitySystem
     {
         [Dependency] private readonly LinkedEntitySystem _linkedEntitySystem = default!;
-        [Dependency] private readonly IEntityManager _entityMgr = default!;
 
         public override void Initialize()
         {

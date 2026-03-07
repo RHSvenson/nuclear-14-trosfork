@@ -1210,7 +1210,7 @@
 - type: entity
   parent: N14ClothingOuterCombatArmorMK2
   id: N14ClothingOuterCombatArmorBOSMK2
-  name: Brotherhood of Steel Combat Armor MK2
+  name: BoS Combat Armor MK2
   description: A suit of combat armor used by the Washington Brotherhood of Steel.
   components:
   - type: Sprite
@@ -1221,7 +1221,7 @@
 - type: entity
   parent: N14ClothingOuterCombatArmor
   id: N14ClothingOuterCombatArmorBOS
-  name: Brotherhood of Steel Combat Armor
+  name: BoS Combat Armor
   description: A suit of combat armor used by the low-ranking members of the Washington Brotherhood of Steel.
   components:
   - type: Sprite
@@ -1296,7 +1296,7 @@
 - type: entity
   parent: N14ClothingOuterCombatArmorMK2
   id: N14ClothingOuterCombatArmorMK3
-  name: Brotherhood of Steel Combat Armor MK3
+  name: BoS Combat Armor MK3
   description: Meticulously worked on by the Washington Scribes, its near unrecognisable from its original state.
   components:
   - type: Sprite
@@ -1452,7 +1452,7 @@
 - type: entity
   parent: N14ClothingOuterCombatArmor
   id: N14ClothingOuterMidwestArmor
-  name: Brotherhood of Steel Combat Armor
+  name: BoS Combat Armor
   description: A suit of combat armor modified with multiple well-polished metal plates.
   components:
   - type: Sprite
@@ -1463,7 +1463,7 @@
 - type: entity
   parent: N14ClothingOuterCombatArmorMK2
   id: N14ClothingOuterMidwestArmorMK2
-  name: Veteran Brotherhood of Steel Combat Armor
+  name: Veteran BoS Combat Armor
   description: A suit of combat armor modified with multiple well-polished metal plates and vibrant orange lines, a more robust version.
   components:
   - type: Sprite
@@ -1474,7 +1474,7 @@
 - type: entity
   parent: N14ClothingOuterCombatArmor
   id: N14ClothingOuterMidwestReconArmor
-  name: Brotherhood of Steel Recon Armor
+  name: BoS Recon Armor
   description: A suit of recon armor manufactured by the Brotherhood of Steel, reserved for only higher ranked members.
   components:
   - type: Sprite

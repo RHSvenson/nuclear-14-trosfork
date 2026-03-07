@@ -144,68 +144,68 @@ undecided-loadout-category-recruit-healer-description =
     2 K-rations, 1 bottle of water, 1 mustard.
 
 # Washington BoS
-undecided-loadout-category-washington-base-name = Standard Washington Brotherhood of Steel Kit
+undecided-loadout-category-washington-base-name = Standard Washington BoS Kit
 undecided-loadout-category-washington-base-description =
     A box with everything needed for a Brotherhood of Steel member.
     Contains: 1 automatic plasma rifle, 1 laser pistol, 3 rifle batteries,
     2 pistol batteries, a stimulator, and a dry ration.
 
-undecided-loadout-category-washington-wattz-name = Plasma Washington Brotherhood of Steel Kit
+undecided-loadout-category-washington-wattz-name = Plasma Washington BoS Kit
 undecided-loadout-category-washington-wattz-description =
     A box with everything needed for a Brotherhood of Steel member.
     Contains: 1 "Wattz 2000" laser rifle, 1 laser pistol, 2 rifle batteries,
     2 pistol batteries, a stimulator, and a dry ration.
 
-undecided-loadout-category-washington-auto-name = Automatic Washington Brotherhood of Steel Kit
+undecided-loadout-category-washington-auto-name = Automatic Washington BoS Kit
 undecided-loadout-category-washington-auto-description =
     A box with everything needed for a Brotherhood of Steel member.
     Contains: 1 charging rifle, 1 laser pistol, 2 pistol batteries,
     a stimulator, and a dry ration.
 
-undecided-loadout-category-washington-proto-name = Prototype Washington Brotherhood of Steel Kit
+undecided-loadout-category-washington-proto-name = Prototype Washington BoS Kit
 undecided-loadout-category-washington-proto-description =
     A box with everything needed for a Brotherhood of Steel member.
     Contains: 1 prototype AER14 laser rifle, 1 laser pistol, 3 rifle batteries,
     2 pistol batteries, a stimulator, and a dry ration.
 
-undecided-loadout-category-washington-command-base-name = Standard Washington Brotherhood of Steel Command Kit
+undecided-loadout-category-washington-command-base-name = Standard Washington BoS Command Kit
 undecided-loadout-category-washington-command-base-description =
     A box with everything needed to command the Brotherhood of Steel.
     Contains: 1 automatic AER9 laser rifle, 1 laser pistol, 3 rifle batteries,
     2 pistol batteries, a stimulator, and a dry ration.
 
-undecided-loadout-category-washington-command-multi-name = Multiplasma Washington Brotherhood of Steel Command Kit
+undecided-loadout-category-washington-command-multi-name = Multiplasma Washington BoS Command Kit
 undecided-loadout-category-washington-command-multi-description =
     A box with everything needed to command the Brotherhood of Steel.
     Contains: 1 multiplasma rifle, 1 laser pistol, 3 rifle batteries,
     2 pistol batteries, a stimulator, and a dry ration.
 
-undecided-loadout-category-washington-command-caster-name = Strike Washington Brotherhood of Steel Command Kit
+undecided-loadout-category-washington-command-caster-name = Strike Washington BoS Command Kit
 undecided-loadout-category-washington-command-caster-description =
     A box with everything needed to command the Brotherhood of Steel.
     Contains: 1 plasma caster, 1 laser pistol, 3 plasma caster batteries,
     2 pistol batteries, a stimulator, and a dry ration.
 
-undecided-loadout-category-washington-command-wattz-name = Plasma Washington Brotherhood of Steel Command Kit
+undecided-loadout-category-washington-command-wattz-name = Plasma Washington BoS Command Kit
 undecided-loadout-category-washington-command-wattz-description =
     A box with everything needed to command the Brotherhood of Steel.
     Contains: 1 "Wattz 3000" laser rifle, 1 laser pistol, 3 rifle batteries,
     2 pistol batteries, a stimulator, and a dry ration.
 
-undecided-loadout-category-washington-command-gatling-name = Gatling Washington Brotherhood of Steel Command Kit
+undecided-loadout-category-washington-command-gatling-name = Gatling Washington BoS Command Kit
 undecided-loadout-category-washington-command-gatling-description =
     A box with everything needed to command the Brotherhood of Steel.
     Contains: 1 gatling laser, 1 laser pistol, 1 nuclear battery,
     2 pistol batteries, a stimulator, and a dry ration.
 
-undecided-loadout-category-washington-scribe-engineer-name = Washington Brotherhood of Steel Scribe Engineer Kit
+undecided-loadout-category-washington-scribe-engineer-name = Washington BoS Scribe Engineer Kit
 undecided-loadout-category-washington-scribe-engineer-description =
     A box with gear needed to maintain the base and perform technical work.
     Contains: 1 automatic AER9 laser rifle, 1 laser pistol, 3 rifle batteries,
     2 pistol batteries, 1 utility belt, engineering equipment,
     a stimulator, and a dry ration.
 
-undecided-loadout-category-washington-scribe-medic-name = Washington Brotherhood of Steel Scribe Medic Kit
+undecided-loadout-category-washington-scribe-medic-name = Washington BoS Scribe Medic Kit
 undecided-loadout-category-washington-scribe-medic-description =
     A box with gear needed to keep Brotherhood fighters alive.
     Contains: 1 charging pistol, 1 medical belt, 1 kit for treating gunshot wounds,

@@ -140,7 +140,7 @@
 - type: entity
   parent: N14ClothingOuterPowerArmorT45
   id: N14ClothingOuterPowerArmorT45West
-  name: T-45 Western Brotherhood of Steel Power Armor
+  name: T-45 Western BoS Power Armor
   description: A fully functional suit of power armor with servos. Rare and issued exclusively to veterans of the Republic Armed Forces. The left shoulder pad features a stuffed bear head. You may see it for the first and last time in your life.
   components:
   - type: Sprite

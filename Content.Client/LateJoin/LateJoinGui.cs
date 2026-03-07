@@ -189,7 +189,7 @@ namespace Content.Client.LateJoin
                         var job = _prototypeManager.Index<JobPrototype>(jobId);
 
                         // #Misfits Change - hide whitelist-gated jobs from non-whitelisted players
-                        if (job.HideWithoutWhitelist && !_jobRequirements.IsWhitelisted())
+                        if (job.HideWithoutWhitelist && !_jobRequirements.IsWhitelisted() && !(job.Whitelisted && _jobRequirements.IsJobWhitelisted(job.ID)))
                             continue;
 
                         jobsAvailable.Add(job);

@@ -101,6 +101,14 @@ public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
         return true;
     }
 
+    /// <summary>
+    ///     Returns true if the player has been job-whitelisted for the given job ID.
+    /// </summary>
+    public bool IsJobWhitelisted(string jobId) // #Misfits Change
+    {
+        return _jobWhitelists.Contains(jobId);
+    }
+
     public TimeSpan FetchOverallPlaytime()
     {
         return _roles.TryGetValue("Overall", out var overallPlaytime) ? overallPlaytime : TimeSpan.Zero;

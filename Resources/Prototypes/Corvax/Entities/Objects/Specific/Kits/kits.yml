@@ -542,7 +542,7 @@
 # Washington BoS kits
 
 - type: entity
-  name: Washington Brotherhood of Steel Base Kit
+  name: Washington BoS Base Kit
   parent: KitBase
   id: KitBaseWashingtonBoS
   description: "A set of Washington Brotherhood of Steel equipment."
@@ -565,7 +565,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: Washington Brotherhood of Steel Wattz Kit
+  name: Washington BoS Wattz Kit
   parent: KitBase
   id: KitWattzWashingtonBoS
   description: "A set of Washington Brotherhood of Steel equipment."
@@ -588,7 +588,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: Washington Brotherhood of Steel Auto Kit
+  name: Washington BoS Auto Kit
   parent: KitBase
   id: KitAutoWashingtonBoS
   description: "A set of Washington Brotherhood of Steel equipment."
@@ -609,7 +609,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: Washington Brotherhood of Steel Proto Kit
+  name: Washington BoS Proto Kit
   parent: KitBase
   id: KitProtoWashingtonBoS
   description: "A set of Washington Brotherhood of Steel equipment."
@@ -632,7 +632,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: Washington Brotherhood of Steel Command Base Kit
+  name: Washington BoS Command Base Kit
   parent: KitBase
   id: KitCommandBaseWashingtonBoS
   description: "A set of Washington Brotherhood of Steel equipment."
@@ -655,7 +655,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: Washington Brotherhood of Steel Command Multi Kit
+  name: Washington BoS Command Multi Kit
   parent: KitBase
   id: KitCommandMultiWashingtonBoS
   description: "A set of Washington Brotherhood of Steel equipment."
@@ -677,7 +677,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: Washington Brotherhood of Steel Command Caster Kit
+  name: Washington BoS Command Caster Kit
   parent: KitBase
   id: KitCommandCasterWashingtonBoS
   description: "A set of Washington Brotherhood of Steel equipment."
@@ -700,7 +700,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: Washington Brotherhood of Steel Command Wattz Kit
+  name: Washington BoS Command Wattz Kit
   parent: KitBase
   id: KitCommandWattzWashingtonBoS
   description: "A set of Washington Brotherhood of Steel equipment."
@@ -723,7 +723,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: Washington Brotherhood of Steel Command Gatling Kit
+  name: Washington BoS Command Gatling Kit
   parent: KitBase
   id: KitCommandGatlingWashingtonBoS
   description: "A set of Washington Brotherhood of Steel equipment."
@@ -745,7 +745,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: Washington Brotherhood of Steel Scribe Engineer Kit
+  name: Washington BoS Scribe Engineer Kit
   parent: KitBase
   id: KitScribeEngineerWashingtonBoS
   description: "A set of Washington Brotherhood of Steel equipment."
@@ -773,7 +773,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: Washington Brotherhood of Steel Scribe Medic Kit
+  name: Washington BoS Scribe Medic Kit
   parent: KitBase
   id: KitScribeMedicWashingtonBoS
   description: "A set of Washington Brotherhood of Steel equipment."

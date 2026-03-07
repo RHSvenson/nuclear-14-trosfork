@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   parent: Clothing
   id: N14ClothingHeadsetAlt
@@ -128,7 +128,7 @@
 - type: entity
   parent: N14ClothingHeadsetAlt
   id: N14ClothingHeadsetBOSMidwest
-  name: Brotherhood of Steel Radio Earpiece
+  name: BoS Radio Earpiece
   components:
   - type: ContainerFill
     containers:

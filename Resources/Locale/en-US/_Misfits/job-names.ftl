@@ -10,6 +10,10 @@ job-description-synthetic-protectron = You are a RobCo Industries Protectron sec
 job-name-synthetic-assaultron = Assaultron
 job-description-synthetic-assaultron = You are a RobCo Industries Assaultron combat robot, built for speed and destruction. Your laser systems and melee capabilities make you a formidable force. Choose your allegiances wisely.
 
+# Robot Spawn (consolidated synthetic job)
+job-name-robot-spawn = Robot Spawn
+job-description-robot-spawn = You are an autonomous robot navigating the wasteland. Your chassis type determines your capabilities — choose wisely.
+
 # Super Mutant
 job-name-supermutant = Super Mutant
 job-description-supermutant = You are a hulking FEV-mutated humanoid, towering over normal humans. Your immense strength and endurance are matched only by your reduced intellect. Find your place in the wasteland — through force, loyalty, or surprising compassion.

@@ -48,6 +48,7 @@ ent-N14DoorWoodSlantedLockedDoctor = { ent-N14DoorWoodSlanted }
     .desc = { ent-N14DoorWoodSlanted.desc }
 ent-N14DoorWoodSlantedLockedShopkeeper = { ent-N14DoorWoodSlanted }
     .suffix = Oasis, Locked, Shopkeeper
+    .desc = { ent-N14DoorWoodSlanted.desc }
 
 ent-N14DoorAirlockSlantedLockedVaultDweller = { ent-N14DoorAirlockSlanted }
     .suffix = Vault, Locked

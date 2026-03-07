@@ -2,6 +2,7 @@
   id: GhoulGlowing
   name: species-name-ghoul-glowing
   roundStart: true
+  order: 2 # #Misfits Change: sort after Ghoul
   prototype: N14MobGhoulGlowing
   sprites: N14MobGhoulGlowingSprites
   markingLimits: MobGhoulMarkingLimits

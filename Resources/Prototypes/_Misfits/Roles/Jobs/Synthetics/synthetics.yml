@@ -1,98 +1,23 @@
-# Synthetics jobs: playable Mr. Handy, Protectron, Mr. Gutsy, and Assaultron robot roles.
-# Players spawn directly into the robot body via jobEntity.
+# Robot Spawn job: single job for all player-controlled synthetic robots. #Misfits Change
+# Players choose their robot type (Mr. Handy, Protectron, Mr. Gutsy, Assaultron) as a
+# species in the character customization menu via the Robot Type variant picker panel.
+# Access is gated via the job-specific whitelist (admin: jobwhitelistadd <player> RobotSpawn).
+# On spawn, StationSpawningSystem uses profile.Species -> species.Prototype -> correct robot entity.
 
 - type: job
-  id: SyntheticMrHandy
-  name: job-name-synthetic-mr-handy
-  description: job-description-synthetic-mr-handy
-  playTimeTracker: SyntheticMrHandy
+  id: RobotSpawn
+  name: job-name-robot-spawn
+  description: job-description-robot-spawn
+  playTimeTracker: RobotSpawn
   icon: JobIconBorg
   supervisors: job-supervisors-synthetic
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
+  whitelisted: true # #Misfits Change: per-job whitelist via jobwhitelistadd
   hideWithoutWhitelist: true # #Misfits Change
-  nameDataset: NamesAI
   spawnLoadout: false
   applyTraits: false
-  jobEntity: N14PlayerSyntheticMrHandy
-  requirements:
-    - !type:CharacterWhitelistRequirement
-    - !type:CharacterPlaytimeRequirement
-      tracker: SyntheticMrHandy
-      min: 35996400 # 9999 hours
-
-- type: job
-  id: SyntheticProtectron
-  name: job-name-synthetic-protectron
-  description: job-description-synthetic-protectron
-  playTimeTracker: SyntheticProtectron
-  icon: JobIconBorg
-  supervisors: job-supervisors-synthetic
-  canBeAntag: false
-  setPreference: true
-  overrideConsoleVisibility: true
-  hideWithoutWhitelist: true # #Misfits Change
-  nameDataset: NamesAI
-  spawnLoadout: false
-  applyTraits: false
-  jobEntity: N14PlayerSyntheticProtectron
-  requirements:
-    - !type:CharacterWhitelistRequirement
-    - !type:CharacterPlaytimeRequirement
-      tracker: SyntheticProtectron
-      min: 35996400 # 9999 hours
-
-- type: job
-  id: SyntheticMrGutsy
-  name: job-name-synthetic-mr-gutsy
-  description: job-description-synthetic-mr-gutsy
-  playTimeTracker: SyntheticMrGutsy
-  icon: JobIconBorg
-  supervisors: job-supervisors-synthetic
-  canBeAntag: false
-  setPreference: true
-  overrideConsoleVisibility: true
-  hideWithoutWhitelist: true # #Misfits Change
-  nameDataset: NamesAI
-  spawnLoadout: false
-  applyTraits: false
-  jobEntity: N14PlayerSyntheticMrGutsy
-  requirements:
-    - !type:CharacterWhitelistRequirement
-    - !type:CharacterPlaytimeRequirement
-      tracker: SyntheticMrGutsy
-      min: 35996400 # 9999 hours
-
-- type: job
-  id: SyntheticAssaultron
-  name: job-name-synthetic-assaultron
-  description: job-description-synthetic-assaultron
-  playTimeTracker: SyntheticAssaultron
-  icon: JobIconBorg
-  supervisors: job-supervisors-synthetic
-  canBeAntag: false
-  setPreference: true
-  overrideConsoleVisibility: true
-  hideWithoutWhitelist: true # #Misfits Change
-  nameDataset: NamesAI
-  spawnLoadout: false
-  applyTraits: false
-  jobEntity: N14PlayerSyntheticAssaultron
-  requirements:
-    - !type:CharacterWhitelistRequirement
-    - !type:CharacterPlaytimeRequirement
-      tracker: SyntheticAssaultron
-      min: 35996400 # 9999 hours
 
 - type: playTimeTracker
-  id: SyntheticMrHandy
-
-- type: playTimeTracker
-  id: SyntheticProtectron
-
-- type: playTimeTracker
-  id: SyntheticMrGutsy
-
-- type: playTimeTracker
-  id: SyntheticAssaultron
+  id: RobotSpawn

@@ -15,12 +15,11 @@
   hideWithoutWhitelist: true # #Misfits Change
   spawnLoadout: false
   applyTraits: false
-  jobEntity: N14MobSuperMutant
   requirements:
     - !type:CharacterWhitelistRequirement
-    - !type:CharacterPlaytimeRequirement
-      tracker: SuperMutant
-      min: 35996400 # 9999 hours
+    - !type:CharacterSpeciesRequirement
+      species:
+        - SuperMutant
 
 - type: playTimeTracker
   id: SuperMutant

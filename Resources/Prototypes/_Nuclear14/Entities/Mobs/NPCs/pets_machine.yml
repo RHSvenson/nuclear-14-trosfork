@@ -231,7 +231,7 @@
     proto: robot
 
 - type: entity
-  name: Brotherhood of Steel Eyebot
+  name: BoS Eyebot
   id: N14MobPetEyebotMBoS
   parent: N14MobPetEyebot
   description: A military Eyebot in the colours of the Brotherhood of Steel!
@@ -259,7 +259,7 @@
     - English
 
 - type: entity
-  name: Washington Brotherhood of Steel Eyebot
+  name: Washington BoS Eyebot
   id: N14MobPetEyebotWBoS
   parent: N14MobPetEyebot
   description: A military Eyebot in the colours of the Washington Brotherhood!

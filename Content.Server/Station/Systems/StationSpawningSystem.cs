@@ -116,6 +116,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             DebugTools.Assert(entity is null);
             var jobEntity = EntityManager.SpawnEntity(prototype.JobEntity, coordinates);
             MakeSentientCommand.MakeSentient(jobEntity, EntityManager);
+
+            // #Misfits Change - apply character profile name to jobEntity spawns
+            if (profile != null)
+                _metaSystem.SetEntityName(jobEntity, profile.Name);
+
             DoJobSpecials(job, jobEntity);
             _identity.QueueIdentityUpdate(jobEntity);
             return jobEntity;

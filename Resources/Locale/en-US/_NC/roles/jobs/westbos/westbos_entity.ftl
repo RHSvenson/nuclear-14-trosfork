@@ -1,10 +1,10 @@
-ent-N14BoSWestElderCommander = BoS Elder
+ent-N14BoSWestElderCommander = Brotherhood of Steel Elder
     .desc = { ent-MobHuman.desc }
-ent-N14MobHumanBoSWestPaladin = BoS Paladin
+ent-N14MobHumanBoSWestPaladin = Brotherhood of Steel Paladin
     .desc = { ent-MobHuman.desc }
-ent-N14MobHumanBoSWestScribe = BoS Scribe
+ent-N14MobHumanBoSWestScribe = Brotherhood of Steel Scribe
     .desc = { ent-MobHuman.desc }
-ent-N14MobHumanBoSWestKnight = BoS Knight
+ent-N14MobHumanBoSWestKnight = Brotherhood of Steel Knight
     .desc = { ent-MobHuman.desc }
-ent-N14MobHumanBoSWestGunsmith = BoS Gunsmith
+ent-N14MobHumanBoSWestGunsmith = Brotherhood of Steel Gunsmith
     .desc = { ent-MobHuman.desc }

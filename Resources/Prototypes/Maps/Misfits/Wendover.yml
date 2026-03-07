@@ -86,7 +86,4 @@
           CaesarLegionSlave: [ 3, 3 ] # Forge-Legion
           # Raider: [3,3]
           Followers: [ 2, 2 ]
-          SyntheticMrHandy: [ 2, 4 ]
-          SyntheticMrGutsy: [ 1, 2 ]
-          SyntheticProtectron: [ 2, 4 ]
-          SyntheticAssaultron: [ 1, 2 ]
+          RobotSpawn: [ 4, 8 ]

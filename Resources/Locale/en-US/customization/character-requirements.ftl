@@ -75,6 +75,8 @@ character-species-requirement = You must{$inverted ->
     *[other]{""}
 } be a {$species}
 
+character-species-job-restriction = Not available for {$species}
+
 character-height-requirement = You must{$inverted ->
     [true]{" "}not
     *[other]{""}

@@ -127,7 +127,7 @@
   - type: DogVision # Corvax-Change
 
 - type: entity
-  name: Brotherhood of Steel Mutt
+  name: BoS Mutt
   id: N14MobPetDogMBoS
   parent: N14MobPetDog
   description: A rather normal dog, seems to have a whole vest with a name on it.
@@ -171,7 +171,7 @@
       storagebase: !type:Container
 
 - type: entity
-  name: Washington Brotherhood of Steel Mutt
+  name: Washington BoS Mutt
   id: N14MobPetDogWBoS
   parent: N14MobPetDog
   description: A butchered but overall not-too-rusted cybernetic dog with a name engraved into it.

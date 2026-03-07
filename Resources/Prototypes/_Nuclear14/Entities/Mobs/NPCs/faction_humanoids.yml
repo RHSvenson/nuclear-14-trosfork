@@ -116,7 +116,7 @@
         - MBoSSerfNPC
 
 - type: entity
-  name: Brotherhood of Steel Knight
+  name: BoS Knight
   parent: N14BaseMobRaider
   id: N14MobNPCMBoSKnight
   suffix: NPC
@@ -203,7 +203,7 @@
 
 # Washington chapter's humanoid NPCs for event making and such.
 - type: entity
-  name: Brotherhood of Steel Initiate
+  name: BoS Initiate
   parent: N14BaseMobRaider
   id: N14MobNPCWBoSInitiate
   suffix: NPC
@@ -218,7 +218,7 @@
         - WBoSInitiateNPC
 
 - type: entity
-  name: Brotherhood of Steel Knight
+  name: BoS Knight
   parent: N14BaseMobRaider
   id: N14MobNPCWBoSKnight
   suffix: NPC

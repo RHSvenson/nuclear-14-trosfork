@@ -1015,7 +1015,7 @@
 # Brotherhood Midwestern Chapter Kits
 # MBoS Initiate & Squire Kits
 - type: entity
-  name: Brotherhood of Steel Initiate Laser Kit
+  name: BoS Initiate Laser Kit
   parent: KitBase
   id: KitMBoS_IniLas
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1036,7 +1036,7 @@
       - id: N14BoxCardboardMREBoxKFilled
 
 - type: entity
-  name: Brotherhood of Steel Initiate Ballistic Kit
+  name: BoS Initiate Ballistic Kit
   parent: KitBase
   id: KitMBoS_IniBal
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1058,7 +1058,7 @@
 
 # MBoS Knight & Senior Knight kits
 - type: entity
-  name: Brotherhood of Steel Knight Laser Kit
+  name: BoS Knight Laser Kit
   parent: KitBase
   id: KitMBoS_KniLas
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1079,7 +1079,7 @@
       - id: N14BoxCardboardMREBoxKFilled
 
 - type: entity
-  name: Brotherhood of Steel Knight Ballistic Kit
+  name: BoS Knight Ballistic Kit
   parent: KitBase
   id: KitMBoS_KniBal
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1101,7 +1101,7 @@
 
 # MBoS Scribe Medic Kit
 - type: entity
-  name: Brotherhood of Steel Scribe Medical Kit
+  name: BoS Scribe Medical Kit
   parent: KitBase
   id: KitMBoS_ScrMed
   description: A crate containing everything a member of the Brotherhood of Steel Scribes might need for keeping the fighting forces alive.
@@ -1126,7 +1126,7 @@
 
 # MBoS Scribe Field Kit
 - type: entity
-  name: Brotherhood of Steel Scribe Field Kit
+  name: BoS Scribe Field Kit
   parent: KitBase
   id: KitMBoS_ScrFld
   description: A crate containing everything a member of the Brotherhood of Steel Scribes might need for supporting their unit in the field.
@@ -1149,7 +1149,7 @@
 
 # MBoS Scribe Engineer Kit
 - type: entity
-  name: Brotherhood of Steel Scribe Engineer Kit
+  name: BoS Scribe Engineer Kit
   parent: KitBase
   id: KitMBoS_ScrEng
   description: A crate containing everything a member of the Brotherhood of Steel Scribes might need for their general engineering needs.
@@ -1173,7 +1173,7 @@
 
 # MBoS Paladin Kits
 - type: entity
-  name: Brotherhood of Steel Paladin Laser Kit
+  name: BoS Paladin Laser Kit
   parent: KitBase
   id: KitMBoS_PalLas
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1195,7 +1195,7 @@
       - id: N14BoxCardboardMREBoxKFilled
 
 - type: entity
-  name: Brotherhood of Steel Paladin Ballistic Kit
+  name: BoS Paladin Ballistic Kit
   parent: KitBase
   id: KitMBoS_PalBal
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1217,7 +1217,7 @@
       - id: N14BoxCardboardMREBoxKFilled
 
 - type: entity
-  name: Brotherhood of Steel Paladin Sniper Kit
+  name: BoS Paladin Sniper Kit
   parent: KitBase
   id: KitMBoS_PalSni
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1239,7 +1239,7 @@
       - id: N14BoxCardboardMREBoxKFilled
 
 - type: entity
-  name: Brotherhood of Steel Paladin Plasma Kit
+  name: BoS Paladin Plasma Kit
   parent: KitBase
   id: KitMBoS_PalPla
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1264,7 +1264,7 @@
 # Brotherhood Washington Chapter Kits
 # WBoS Initiate & Squire Kits
 - type: entity
-  name: Brotherhood of Steel Initiate Plasma Kit
+  name: BoS Initiate Plasma Kit
   parent: KitBase
   id: KitWBoS_IniPla
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1285,7 +1285,7 @@
       - id: N14BoxCardboardMREBoxKFilled
 
 - type: entity
-  name: Brotherhood of Steel Initiate Ballistic Kit
+  name: BoS Initiate Ballistic Kit
   parent: KitBase
   id: KitWBoS_IniBal
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1307,7 +1307,7 @@
 
 # WBoS Knight & Senior Knight kits
 - type: entity
-  name: Brotherhood of Steel Knight Laser Kit
+  name: BoS Knight Laser Kit
   parent: KitBase
   id: KitWBoS_KniPla
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1328,7 +1328,7 @@
       - id: N14BoxCardboardMREBoxKFilled
 
 - type: entity
-  name: Brotherhood of Steel Knight Ballistic Kit
+  name: BoS Knight Ballistic Kit
   parent: KitBase
   id: KitWBoS_KniBal
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1350,7 +1350,7 @@
 
 # WBoS Scribe Medic Kit
 - type: entity
-  name: Brotherhood of Steel Scribe Medical Kit
+  name: BoS Scribe Medical Kit
   parent: KitBase
   id: KitWBoS_ScrMed
   description: A crate containing everything a member of the Brotherhood of Steel Scribes might need for keeping the fighting forces alive.
@@ -1375,7 +1375,7 @@
 
 # WBoS Scribe Field Kit
 - type: entity
-  name: Brotherhood of Steel Scribe Field Kit
+  name: BoS Scribe Field Kit
   parent: KitBase
   id: KitWBoS_ScrFld
   description: A crate containing everything a member of the Brotherhood of Steel Scribes might need for supporting their unit in the field.
@@ -1398,7 +1398,7 @@
 
 # WBoS Scribe Engineer Kit
 - type: entity
-  name: Brotherhood of Steel Scribe Engineer Kit
+  name: BoS Scribe Engineer Kit
   parent: KitBase
   id: KitWBoS_ScrEng
   description: A crate containing everything a member of the Brotherhood of Steel Scribes might need for their general engineering needs.
@@ -1422,7 +1422,7 @@
 
 # WBoS Paladin Kits
 - type: entity
-  name: Brotherhood of Steel Paladin Plasma Kit
+  name: BoS Paladin Plasma Kit
   parent: KitBase
   id: KitWBoS_PalPla
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1444,7 +1444,7 @@
       - id: N14BoxCardboardMREBoxKFilled
 
 - type: entity
-  name: Brotherhood of Steel Paladin Sniper Kit
+  name: BoS Paladin Sniper Kit
   parent: KitBase
   id: KitWBoS_PalSni
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1466,7 +1466,7 @@
       - id: N14BoxCardboardMREBoxKFilled
 
 - type: entity
-  name: Brotherhood of Steel Paladin Ballistic Kit
+  name: BoS Paladin Ballistic Kit
   parent: KitBase
   id: KitWBoS_PalBal
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1488,7 +1488,7 @@
       - id: N14BoxCardboardMREBoxKFilled
 
 - type: entity
-  name: Brotherhood of Steel Paladin Laser Kit
+  name: BoS Paladin Laser Kit
   parent: KitBase
   id: KitWBoS_PalLas
   description: A crate containing everything a member of the Brotherhood might need.

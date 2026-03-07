@@ -1,7 +1,7 @@
 # Names
 department-CaesarLegion = Caesar's Legion
 department-Raider = Blood Hounds
-department-BrotherhoodWest = Western Brotherhood of Steel
+department-BrotherhoodWest = Western BoS
 # Descriptions
 department-CaesarLegion-description = Caesar's Legion is an autocratic, traditionalist, imperialist slave-owning society and totalitarian dictatorship, founded on concepts of the Roman Empire.
 department-Raider-description =
