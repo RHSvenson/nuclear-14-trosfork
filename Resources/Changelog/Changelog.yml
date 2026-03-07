@@ -262,3 +262,66 @@ Entries:
   id: 5614
   time: '2026-03-07T13:58:52.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/33
+- author: Cythisiax
+  changes:
+    - type: Add
+      message: >-
+        Added AllowedLoadoutCategories field to SpeciesPrototype so species can
+        restrict which loadout categories are visible in the character editor
+    - type: Add
+      message: >-
+        Added mob_sounds prototype file for Misfits, wiring up all new mob audio
+        collections
+    - type: Add
+      message: >-
+        Added audio files for 19 mob types (Assaultron, Bloatfly, Cazador,
+        Centaur, Deathclaw, Dog, Eyebot, Gecko, Ghoul, Gutsy, Handy, Molerat,
+        Nightstalker, Protectron, Radscorpion, Roach, Scorpion, Sentry,
+        Supermutant) with idle/aggro/taunt/death/attack variants
+    - type: Add
+      message: Added SolaceGrace lobby background texture and prototype entry
+    - type: Add
+      message: Added audio attributions file for new mob sounds
+    - type: Fix
+      message: >-
+        Character editor now skips applying job clothes when a species has
+        RestrictedJobs and the preferred job is not in that list
+    - type: Fix
+      message: >-
+        Empty job department categories are now hidden instead of rendering
+        blank containers in both RefreshJobs and UpdateRoleRequirements
+    - type: Fix
+      message: >-
+        Cyborg name placeholder no longer calls Loc.GetString on names that are
+        already display text, preventing broken placeholder strings
+    - type: Fix
+      message: >-
+        Loadout list now filters by species AllowedLoadoutCategories so
+        restricted species only see relevant loadout options
+    - type: Tweak
+      message: >-
+        Revised RestrictedCustomization behavior — previously hid Appearance,
+        Jobs, Loadouts, Antags, Traits, and Markings tabs; now only hides
+        Antags, Traits, and Markings (Appearance and Jobs tabs restored for
+        restricted species)
+    - type: Tweak
+      message: >-
+        Loadouts tab visibility for restricted species now depends on whether
+        AllowedLoadoutCategories has entries, rather than being unconditionally
+        hidden
+    - type: Tweak
+      message: >-
+        Moved job filtering logic earlier in RefreshJobs/UpdateRoleRequirements
+        so empty-department detection works correctly before containers are
+        created
+    - type: Tweak
+      message: >-
+        Updated Nuclear14 NPC entities (animals, ghouls, insects, lizards,
+        robots, pets) to reference new mob sound collections
+    - type: Tweak
+      message: >-
+        Expanded Supermutant species entity with additional components and
+        configuration
+  id: 5615
+  time: '2026-03-07T18:33:24.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/34
