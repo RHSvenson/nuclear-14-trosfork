@@ -39,8 +39,6 @@
         </BoxContainer>
         <Control MinHeight="10" />
         <ui:NeoTabContainer Name="CTabContainer" VerticalExpand="True" HScrollEnabled="False" VScrollEnabled="False">
-            <!-- #Misfits Change: hidden default tab so no content tab is selected on open -->
-            <BoxContainer Name="DescriptionTab" HorizontalExpand="True" Orientation="Vertical" />
             <BoxContainer Name="Appearance" HorizontalExpand="True" Orientation="Vertical">
                 <ScrollContainer HorizontalExpand="True" HScrollEnabled="True" VerticalExpand="True" VScrollEnabled="True">
                     <BoxContainer HorizontalExpand="True" Orientation="Vertical">

@@ -186,15 +186,6 @@ namespace Content.Client.Lobby.UI
 
             #endregion Custom Species Name
 
-            #region Description
-
-            // #Misfits Change: hidden blank default tab so no content tab is selected on open
-            DescriptionTab.Orphan();
-            CTabContainer.AddTab(DescriptionTab, string.Empty);
-            CTabContainer.SetTabVisible(DescriptionTab, false);
-
-            #endregion Description
-
             #region Appearance
 
             Appearance.Orphan();
@@ -1439,10 +1430,6 @@ namespace Content.Client.Lobby.UI
             CTabContainer.SetTabVisible(TraitsTab, !restricted);
             CTabContainer.SetTabVisible(LoadoutsTab, !restricted);
             CTabContainer.SetTabVisible(MarkingsTab, !restricted);
-
-            // Switch to the hidden blank tab so no content is visible for restricted species
-            if (restricted)
-                CTabContainer.SelectTab(DescriptionTab);
         }
 
         private void SetName(string newName)

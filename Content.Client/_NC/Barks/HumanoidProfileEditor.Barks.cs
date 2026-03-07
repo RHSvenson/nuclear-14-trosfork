@@ -13,7 +13,7 @@ public sealed partial class HumanoidProfileEditor
         _barkVoiceList = _prototypeManager
             .EnumeratePrototypes<BarkPrototype>()
             .Where(o => o.RoundStart)
-            .OrderBy(o => Loc.GetString(o.Name))
+            .OrderBy(o => o.Name) // #Misfits Change - Name is raw display text, not a loc key
             .ToList();
 
         BarkVoiceButton.OnItemSelected += args =>

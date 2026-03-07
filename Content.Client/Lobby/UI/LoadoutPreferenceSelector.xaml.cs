@@ -237,13 +237,13 @@ public sealed partial class LoadoutPreferenceSelector : Control
         };
 
         NameEdit.PlaceHolder = loadoutName;
-        DescriptionEdit.Placeholder = new Rope.Leaf(Loc.GetString(loadoutDesc));
+        DescriptionEdit.Placeholder = new Rope.Leaf(loadoutDesc); // #Misfits Change - loadoutDesc is already resolved text, not a loc key
 
 
         var tooltip = new StringBuilder();
         // Add the loadout description to the tooltip if there is one
         if (!string.IsNullOrEmpty(loadoutDesc))
-            tooltip.Append($"{Loc.GetString(loadoutDesc)}");
+            tooltip.Append(loadoutDesc); // #Misfits Change - use description directly, not as loc key
 
         // Get requirement reasons
         characterRequirementsSystem.CheckRequirementsValid(
