@@ -325,3 +325,10 @@ Entries:
   id: 5615
   time: '2026-03-07T18:33:24.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/34
+- author: Dpellowski
+  changes:
+    - type: Add
+      message: Human default species for new characters
+  id: 5616
+  time: '2026-03-07T21:41:10.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/51
