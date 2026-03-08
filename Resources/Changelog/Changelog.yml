@@ -446,3 +446,34 @@ Entries:
   id: 5618
   time: '2026-03-08T13:34:24.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/75
+- author: cythisiax
+  changes:
+    - type: Add
+      message: >-
+        Mentor Help (MHelp) system — a parallel messaging channel to AHelp for
+        mentors to receive and respond to player help requests
+    - type: Add
+      message: >-
+        Mentorhelp admin permission flag for controlling who receives mentor
+        help messages
+    - type: Add
+      message: MHelp button in lobby and in-game toolbar
+    - type: Add
+      message: Discord webhook support for relaying MHelp messages
+    - type: Add
+      message: >-
+        Whitelist Search admin panel — search players by name and manage their
+        role whitelists
+    - type: Add
+      message: Whitelisting tab in the admin menu (F7)
+    - type: Tweak
+      message: Remapped F1 to Mentor Help, F2 to Admin Help
+    - type: Tweak
+      message: >-
+        Mentor Message window uses a purple banner to differentiate from AHelp's
+        red banner
+    - type: Tweak
+      message: Added Mentorhelp flag description in the permissions panel
+  id: 5619
+  time: '2026-03-08T20:09:26.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/77
