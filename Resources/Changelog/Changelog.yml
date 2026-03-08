@@ -389,3 +389,60 @@ Entries:
   id: 5617
   time: '2026-03-08T05:26:00.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/67
+- author: Cythisia
+  changes:
+    - type: Add
+      message: >-
+        Round timer now counts down in the OS window title bar when a round-end
+        vote is active
+    - type: Add
+      message: >-
+        Added an in-game Wasteland Map viewer (openable from a map item) showing
+        the current map image
+    - type: Add
+      message: >-
+        Feral ghoul NPCs are now neutral to player ghouls by default; they only
+        turn hostile after a player ghoul attacks them
+    - type: Add
+      message: >-
+        Added `UnignoreEntity` to the NPC faction exception system so ghoul
+        aggro can be reverted cleanly
+    - type: Add
+      message: >-
+        Map renderer (GridPainter, EntityPainter, DecalPainter) now supports
+        `offsetX`/`offsetY` arguments for correctly positioned map renders
+    - type: Add
+      message: Added a Wendover map image texture for the Wasteland Map viewer
+    - type: Add
+      message: >-
+        Added all BOS job files (Elder, Head Paladin/Knight/Scribe > Senior >
+        Regular > Squire >Initiate.
+    - type: Add
+      message: >-
+        Added all Legion job files (Recruit, Slave, Legionnaire, Veteran
+        Legionnaire, Warrior, Decanus, Veteran Decanus, Venator, Houndmaster,
+        Vexillarius, Centurion, Legate)
+    - type: Add
+      message: >-
+        Added all NCR Misfits job files (Recruit, Private, Private First Class,
+        Corporal, Sergeant, Staff Sergeant, First Sergeant, Lieutenant, Captain,
+        Doctor, Medic, Engineer, MP Investigator, Prisoner) 
+    - type: Add
+      message: >-
+        Whitelist search window now filters to show only Fallout-relevant
+        departments
+    - type: Tweak
+      message: >-
+        Job list in the character editor and late-join menu now shows a thin
+        rank group separator line above jobs with `showBorder: true`
+    - type: Tweak
+      message: >-
+        Added `showBorder` field to `JobPrototype` for marking the start of a
+        new rank group visually
+    - type: Fix
+      message: >-
+        Lobby/late-join job whitelist UI no longer shows Corvax/vanilla
+        departments irrelevant to Nuclear-14
+  id: 5618
+  time: '2026-03-08T13:34:24.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/75
