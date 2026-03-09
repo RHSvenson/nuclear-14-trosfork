@@ -48,6 +48,7 @@
       80: 0.7
   - type: Speech
     speechVerb: Skeleton
+  - type: PersistentCurrency # Misfits - Currency wallet
   - type: ZombieImmune
   - type: Vocal
     sounds:
