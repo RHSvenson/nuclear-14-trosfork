@@ -180,7 +180,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
 
         _typingUpdateTimestamps[args.SenderSession.UserId] = (_timing.RealTime, msg.Typing);
 
-        var isMentor = _adminManager.GetAdminData(args.SenderSession)?.HasFlag(AdminFlags.Mentorhelp) ?? false;
+        var isMentor = _adminManager.GetAdminData(args.SenderSession)?.HasFlag(AdminFlags.ViewNotes) ?? false; // #Misfits Change — ViewNotes grants MHelp access
         var channel = isMentor ? msg.Channel : args.SenderSession.UserId;
         var update = new MentorHelpPlayerTypingUpdated(channel, args.SenderSession.Name, msg.Typing);
 
@@ -264,7 +264,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
 
         var personalChannel = senderSession.UserId == message.UserId;
         var senderAdmin = _adminManager.GetAdminData(senderSession);
-        var senderMentor = senderAdmin?.HasFlag(AdminFlags.Mentorhelp) ?? false;
+        var senderMentor = senderAdmin?.HasFlag(AdminFlags.ViewNotes) ?? false; // #Misfits Change — ViewNotes grants MHelp access
         var authorized = personalChannel || senderMentor;
         if (!authorized)
             return;
@@ -561,7 +561,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
     private IList<INetChannel> GetNonAfkMentors()
     {
         return _adminManager.ActiveAdmins
-            .Where(p => (_adminManager.GetAdminData(p)?.HasFlag(AdminFlags.Mentorhelp) ?? false) &&
+            .Where(p => (_adminManager.GetAdminData(p)?.HasFlag(AdminFlags.ViewNotes) ?? false) && // #Misfits Change — ViewNotes grants MHelp access
                         !_afkManager.IsAfk(p))
             .Select(p => p.Channel)
             .ToList();
@@ -570,7 +570,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
     private IList<INetChannel> GetTargetMentors()
     {
         return _adminManager.ActiveAdmins
-            .Where(p => _adminManager.GetAdminData(p)?.HasFlag(AdminFlags.Mentorhelp) ?? false)
+            .Where(p => _adminManager.GetAdminData(p)?.HasFlag(AdminFlags.ViewNotes) ?? false) // #Misfits Change — ViewNotes grants MHelp access
             .Select(p => p.Channel)
             .ToList();
     }

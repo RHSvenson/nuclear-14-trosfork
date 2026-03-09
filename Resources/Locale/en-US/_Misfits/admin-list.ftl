@@ -1,5 +1,5 @@
 # Misfits Change - Locale strings for the /admins player command popup
-misfits-admin-list-title = Online Staff
+misfits-admin-list-title = Connected
 misfits-admin-list-admins-header = Admins ({$count})
 misfits-admin-list-mentors-header = Mentors ({$count})
 misfits-admin-list-none-online = None currently online.

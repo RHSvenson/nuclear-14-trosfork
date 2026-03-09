@@ -115,9 +115,17 @@
         /// </summary>
         Whitelist = 1 << 20,
 
-        // #Misfits Change - Mentor help permission
+        // #Misfits Change - Originally the gate for the MHelp (mentor help) system.
+        // This flag is NOW UNUSED for both routing and staff-list categorisation.
+        // MHelp routing (who receives player help requests) is controlled by AdminFlags.ViewNotes.
+        // Staff-list categorisation (/admins "Connected" window):
+        //   - "Mentor"  = has ViewNotes AND does NOT have Admin
+        //   - "Admin"   = has Admin
+        // Do NOT remove this enum value — it preserves bit-21 for any existing DB rows that
+        // may still reference it, and keeps the AdminFlags bitmask stable.
         /// <summary>
-        /// Allows use of the mentor help system.
+        /// UNUSED. Formerly allowed use of the mentor help system.
+        /// MHelp access is now granted by <see cref="ViewNotes"/>.
         /// </summary>
         Mentorhelp = 1 << 21,
 

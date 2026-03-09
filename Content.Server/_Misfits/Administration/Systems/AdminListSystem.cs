@@ -69,8 +69,9 @@ public sealed class AdminListSystem : EntitySystem
                 PermissionCount = permCount,
             };
 
-            // Mentor = has Mentorhelp but NOT Admin flag
-            if (data.HasFlag(AdminFlags.Mentorhelp) && !data.HasFlag(AdminFlags.Admin))
+            // #Misfits Change — Mentor = has ViewNotes but NOT Admin.
+            // ViewNotes also gates MHelp routing. MENTORHELP flag is unused.
+            if (data.HasFlag(AdminFlags.ViewNotes) && !data.HasFlag(AdminFlags.Admin))
             {
                 ev.Mentors.Add(entry);
             }

@@ -42,14 +42,14 @@ namespace Content.Client.Administration.UI
             { AdminFlags.Round,       "Force map/round management" },
             { AdminFlags.Query,       "Run BQL queries" },
             { AdminFlags.Adminhelp,   "Use the ahelp system" },
-            { AdminFlags.ViewNotes,   "View player notes" },
+            { AdminFlags.ViewNotes,   "View player notes — also grants MHelp access and shows staff as Mentor in /admins" }, // #Misfits Change — ViewNotes is the gate for MHelp and Mentor categorisation
             { AdminFlags.EditNotes,   "Create/edit player notes" },
             { AdminFlags.MassBan,     "Ban multiple players at once" },
             { AdminFlags.Stealth,     "Hide from non-stealth admins" },
             { AdminFlags.Adminchat,   "Use admin chat" },
             { AdminFlags.Pii,         "View IPs & HWIDs" },
             { AdminFlags.Whitelist,   "Manage the whitelist" },
-            { AdminFlags.Mentorhelp,  "MHelp for mentors to receive help requests" },
+            { AdminFlags.Mentorhelp,  "(Unused — MHelp access and Mentor listing are both handled by VIEWNOTES)" }, // #Misfits Change — superseded
             { AdminFlags.Host,        "Full host-level access (dangerous)" },
         };
 

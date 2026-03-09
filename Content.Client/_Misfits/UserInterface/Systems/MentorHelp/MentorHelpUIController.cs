@@ -152,7 +152,7 @@ public sealed class MentorHelpUIController : UIController,
 
     public void EnsureUIHelper()
     {
-        var isMentor = _adminManager.HasFlag(AdminFlags.Mentorhelp);
+        var isMentor = _adminManager.HasFlag(AdminFlags.ViewNotes); // #Misfits Change — ViewNotes grants MHelp access
 
         if (UIHelper != null && UIHelper.IsMentor == isMentor)
             return;

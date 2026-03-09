@@ -431,6 +431,12 @@ namespace Content.Server.Administration.UI
 
         private bool UserAdminFlagCheck(AdminFlags flags)
         {
+            // #Misfits Change — HOST implies all flags, mirroring the client-side fix.
+            // Without this, newly added custom flags (e.g. Mentorhelp) can never be assigned
+            // by admins who were promoted before the flag existed, because they lack it personally.
+            if (_adminManager.HasAdminFlag(Player, AdminFlags.Host))
+                return true;
+
             return _adminManager.HasAdminFlag(Player, flags);
         }
 
