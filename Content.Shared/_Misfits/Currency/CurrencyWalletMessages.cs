@@ -1,0 +1,35 @@
+// #Misfits Change - Currency wallet UI messages
+using Content.Shared._Misfits.Currency.Components;
+using Content.Shared.Actions;
+using Robust.Shared.Serialization;
+
+namespace Content.Shared._Misfits.Currency;
+
+/// <summary>
+/// Action event raised when the player wants to open the currency wallet UI.
+/// </summary>
+public sealed partial class OpenCurrencyWalletEvent : InstantActionEvent
+{
+}
+
+/// <summary>
+/// Sent from the server to the client with current currency balances so the wallet UI can be shown/updated.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class CurrencyWalletStateMessage : EntityEventArgs
+{
+    public int Bottlecaps;
+    public int NCRDollars;
+    public int LegionDenarii;
+    public int PrewarMoney;
+}
+
+/// <summary>
+/// Sent from the client to the server to request a currency withdrawal.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class WithdrawCurrencyRequest : EntityEventArgs
+{
+    public CurrencyType CurrencyType;
+    public int Amount;
+}

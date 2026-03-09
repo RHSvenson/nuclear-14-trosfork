@@ -502,3 +502,50 @@ Entries:
   id: 5620
   time: '2026-03-08T22:02:47.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/80
+- author: cythisiax
+  changes:
+    - type: Add
+      message: >-
+        Added new admin Whitelisting and Staff tabs, an Admin List
+        window/system, and a player quick-action popup.
+    - type: Add
+      message: >-
+        Added new admin and chat commands, including admins, players, whitelist
+        slots, and roleplay emote commands like do/em.
+    - type: Add
+      message: >-
+        Added MoMMI Discord relay support, supporting shared events/CVars, and
+        new localization entries for the expanded admin UI.
+    - type: Tweak
+      message: >-
+        Reordered and expanded the admin menu, moved Players forward, and
+        changed player list clicks to open quick actions on left-click and verbs
+        on right-click.
+    - type: Tweak
+      message: >-
+        Updated chat parsing to support slash aliases before channel detection,
+        and made minor power armor/prototype adjustments.
+  id: 5621
+  time: '2026-03-09T02:41:17.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/81
+- author: Dpellowski
+  changes:
+    - type: Add
+      message: >-
+        Added a persistent currency wallet system. Players can deposit
+        Bottlecaps, NCR Dollars, Legion Denarii, and Pre-War Money by using
+        currency items in hand.
+    - type: Add
+      message: >-
+        Added a Currency Wallet GUI accessible via an action button in the
+        action bar. Players can view their stored currency and withdraw specific
+        amounts.
+    - type: Add
+      message: Pre-War Money is now a supported persistent currency type.
+    - type: Add
+      message: >-
+        Currency balances persist across rounds and server restarts, tied to
+        each character.
+  id: 5622
+  time: '2026-03-09T02:59:37.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/82
