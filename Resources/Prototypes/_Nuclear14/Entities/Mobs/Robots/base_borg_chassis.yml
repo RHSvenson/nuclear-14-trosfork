@@ -46,6 +46,7 @@
     sprite: _Nuclear14/Mobs/Robots/ms13robots.rsi
   - type: RotationVisuals
     horizontalRotation: 90
+  - type: PersistentCurrency # Misfits - Currency wallet
   - type: MobState
     allowedStates:
     - Alive

@@ -1,0 +1,12 @@
+# #Misfits Change - Currency wallet action
+- type: entity
+  id: ActionOpenCurrencyWallet
+  name: Currency Wallet
+  description: Open your currency wallet to view and withdraw stored currency.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Nuclear14/Objects/Misc/currency.rsi
+      state: caps3
+    event: !type:OpenCurrencyWalletEvent
