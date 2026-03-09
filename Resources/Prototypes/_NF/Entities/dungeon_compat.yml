@@ -16,7 +16,7 @@
     - N14Scrap1
     - N14ScrapElectronic1
     - BookRandom
-    - N14HandheldRadio
+    - RadioHandheld
     chance: 1.0
     offset: 0.0
 
@@ -101,7 +101,7 @@
   id: NFAsteroidRockElementalSpawner
 
 - type: entity
-  parent: Landmine
+  parent: LandMineExplosive
   id: NFConcealedMineSpawner
 
 - type: entity
@@ -141,7 +141,7 @@
   id: PortableGeneratorJrPacmanShuttle
 
 - type: entity
-  parent: N14HandheldRadio
+  parent: RadioHandheld
   id: RadioHandheldNF
 
 - type: entity

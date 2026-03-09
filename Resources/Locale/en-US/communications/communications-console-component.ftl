@@ -5,9 +5,9 @@ comms-console-menu-announcement-button = Announce
 comms-console-menu-broadcast-button = Broadcast
 # Misfits Change - wasteland theme: shuttle → train
 #comms-console-menu-call-shuttle = Call emergency shuttle
-comms-console-menu-call-shuttle = Call emergency train
+comms-console-menu-call-shuttle = Call train
 #comms-console-menu-recall-shuttle = Recall emergency shuttle
-comms-console-menu-recall-shuttle = Recall emergency train
+comms-console-menu-recall-shuttle = Recall train
 comms-console-menu-time-remaining = Time remaining: {$time}
 
 # Popup

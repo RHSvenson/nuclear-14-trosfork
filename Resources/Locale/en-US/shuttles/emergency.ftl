@@ -2,29 +2,29 @@
 # Commands
 ## Delay shuttle round end
 #emergency-shuttle-command-round-desc = Stops the timer that ends the round when the emergency shuttle exits hyperspace.
-emergency-shuttle-command-round-desc = Stops the timer that ends the round when the emergency train departs the wasteland.
+emergency-shuttle-command-round-desc = Stops the timer that ends the round when the train departs the wasteland.
 emergency-shuttle-command-round-yes = Round delayed.
 emergency-shuttle-command-round-no = Unable to delay round end.
 
 ## Dock emergency shuttle
 #emergency-shuttle-command-dock-desc = Calls the emergency shuttle and docks it to the station... if it can.
-emergency-shuttle-command-dock-desc = Calls the emergency train and docks it to the station... if it can.
+emergency-shuttle-command-dock-desc = Calls the train and docks it to the station... if it can.
 
 ## Launch emergency shuttle
 #emergency-shuttle-command-launch-desc = Early launches the emergency shuttle if possible.
-emergency-shuttle-command-launch-desc = Early launches the emergency train if possible.
+emergency-shuttle-command-launch-desc = Early launches the train if possible.
 
 # Emergency shuttle
 #emergency-shuttle-left = The Emergency Shuttle has left the station. Estimate {$transitTime} seconds until the shuttle arrives at CentCom.
-emergency-shuttle-left = The Emergency Train has left the station. Estimate {$transitTime} seconds until the train arrives at the Overseer's Command.
+emergency-shuttle-left = The train has left the station. Estimate {$transitTime} seconds until it clears the region.
 #emergency-shuttle-launch-time = The emergency shuttle will launch in {$consoleAccumulator} seconds.
-emergency-shuttle-launch-time = The emergency train will depart in {$consoleAccumulator} seconds.
+emergency-shuttle-launch-time = The train will depart in {$consoleAccumulator} seconds.
 #emergency-shuttle-docked = The Emergency Shuttle has docked {$direction} of the station, {$location}. It will leave in {$time} seconds.
-emergency-shuttle-docked = The Emergency Train has arrived {$direction} of the station, {$location}. It will depart in {$time} seconds.
+emergency-shuttle-docked = The train has arrived {$direction} of the station, {$location}. It will depart in {$time} seconds.
 #emergency-shuttle-good-luck = The Emergency Shuttle is unable to find a station. Good luck.
-emergency-shuttle-good-luck = The Emergency Train is unable to find the station. Good luck out there.
+emergency-shuttle-good-luck = The train is unable to find the station. Good luck out there.
 #emergency-shuttle-nearby = The Emergency Shuttle is unable to find a valid docking port. It has warped {$direction}.
-emergency-shuttle-nearby = The Emergency Train is unable to find a valid docking port. It has rerouted {$direction}.
+emergency-shuttle-nearby = The train is unable to find a valid docking port. It has rerouted {$direction}.
 
 # Emergency shuttle console popup / announcement
 emergency-shuttle-console-no-early-launches = Early departure is disabled
@@ -36,7 +36,7 @@ emergency-shuttle-console-denied = Access denied
 
 # UI
 #emergency-shuttle-console-window-title = Emergency Shuttle Console
-emergency-shuttle-console-window-title = Emergency Train Console
+emergency-shuttle-console-window-title = Train Console
 emergency-shuttle-ui-engines = ENGINES:
 emergency-shuttle-ui-idle = Idle
 emergency-shuttle-ui-repeal-all = Repeal All

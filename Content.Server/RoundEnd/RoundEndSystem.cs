@@ -32,6 +32,10 @@ namespace Content.Server.RoundEnd
     /// </summary>
     public sealed class RoundEndSystem : EntitySystem
     {
+        private const string RoundEndAnnouncementSender = "round-end-system-shuttle-announcement-sender";
+        private static readonly TimeSpan FiveMinuteAnnouncement = TimeSpan.FromMinutes(5);
+        private static readonly TimeSpan TwoMinuteAnnouncement = TimeSpan.FromMinutes(2);
+
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
@@ -145,7 +149,7 @@ namespace Content.Server.RoundEnd
             return _countdownTokenSource != null;
         }
 
-        public void RequestRoundEnd(EntityUid? requester = null, bool checkCooldown = true, string text = "round-end-system-shuttle-called-announcement", string name = "Station")
+        public void RequestRoundEnd(EntityUid? requester = null, bool checkCooldown = true, string text = "round-end-system-shuttle-called-announcement", string? name = null)
         {
             var duration = DefaultCountdownDuration;
 
@@ -163,7 +167,7 @@ namespace Content.Server.RoundEnd
             RequestRoundEnd(duration, requester, checkCooldown, text, name);
         }
 
-        public void RequestRoundEnd(TimeSpan countdownTime, EntityUid? requester = null, bool checkCooldown = true, string text = "round-end-system-shuttle-called-announcement", string name = "Station")
+        public void RequestRoundEnd(TimeSpan countdownTime, EntityUid? requester = null, bool checkCooldown = true, string text = "round-end-system-shuttle-called-announcement", string? name = null)
         {
             if (_gameTicker.RunLevel != GameRunLevel.InRound)
                 return;
@@ -200,19 +204,19 @@ namespace Content.Server.RoundEnd
                 units = "eta-units-minutes";
             }
 
-            _announcer.SendAnnouncement(_announcer.GetAnnouncementId("ShuttleCalled"),
-                Filter.Broadcast(),
+            SendRoundEndAnnouncement(
+                "ShuttleCalled",
                 text,
                 name,
-                Color.Gold,
-                null,
-                null,
                 ("time", time),
-                    ("units", Loc.GetString(units))
+                ("units", Loc.GetString(units))
             );
 
             LastCountdownStart = _gameTiming.CurTime;
             ExpectedCountdownEnd = _gameTiming.CurTime + countdownTime;
+
+            // #Misfits Change: Emit additional countdown reminders for wasteland train timing.
+            ScheduleCountdownAnnouncements(countdownTime, _countdownTokenSource.Token, name);
 
             // TODO full game saves
             Timer.Spawn(countdownTime, _shuttle.CallEmergencyShuttle, _countdownTokenSource.Token);
@@ -254,12 +258,9 @@ namespace Content.Server.RoundEnd
                 _adminLogger.Add(LogType.ShuttleRecalled, LogImpact.High, $"Shuttle recalled");
             }
 
-            _announcer.SendAnnouncement(
-                _announcer.GetAnnouncementId("ShuttleRecalled"),
-                Filter.Broadcast(),
-                "round-end-system-shuttle-recalled-announcement",
-                Loc.GetString("Station"),
-                Color.Gold
+            SendRoundEndAnnouncement(
+                "ShuttleRecalled",
+                "round-end-system-shuttle-recalled-announcement"
             );
 
             LastCountdownStart = null;
@@ -390,7 +391,46 @@ namespace Content.Server.RoundEnd
             _countdownTokenSource.Cancel();
             _countdownTokenSource = new CancellationTokenSource();
 
+            ScheduleCountdownAnnouncements(countdown, _countdownTokenSource.Token);
             Timer.Spawn(countdown, _shuttle.CallEmergencyShuttle, _countdownTokenSource.Token);
+        }
+
+        private void ScheduleCountdownAnnouncements(TimeSpan countdownTime, CancellationToken token, string? sender = null)
+        {
+            ScheduleCountdownAnnouncement(countdownTime, FiveMinuteAnnouncement, token, sender);
+            ScheduleCountdownAnnouncement(countdownTime, TwoMinuteAnnouncement, token, sender);
+        }
+
+        private void ScheduleCountdownAnnouncement(TimeSpan countdownTime, TimeSpan remainingTime, CancellationToken token, string? sender = null)
+        {
+            if (countdownTime <= remainingTime)
+                return;
+
+            Timer.Spawn(countdownTime - remainingTime, () =>
+            {
+                SendRoundEndAnnouncement(
+                    "ShuttleCalled",
+                    "round-end-system-shuttle-countdown-announcement",
+                    sender,
+                    ("time", (int) remainingTime.TotalMinutes),
+                    ("units", Loc.GetString("eta-units-minutes"))
+                );
+            }, token);
+        }
+
+        private void SendRoundEndAnnouncement(string announcementId, string text, string? sender = null, params (string, object)[] args)
+        {
+            sender ??= Loc.GetString(RoundEndAnnouncementSender);
+
+            _announcer.SendAnnouncement(
+                _announcer.GetAnnouncementId(announcementId),
+                Filter.Broadcast(),
+                text,
+                sender,
+                Color.Gold,
+                null,
+                null,
+                args);
         }
 
         public override void Update(float frameTime)
