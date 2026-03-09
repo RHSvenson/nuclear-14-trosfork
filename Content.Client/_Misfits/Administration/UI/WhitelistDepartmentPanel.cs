@@ -18,9 +18,7 @@ public sealed class WhitelistDepartmentPanel : PanelContainer
         IPrototypeManager proto,
         HashSet<ProtoId<JobPrototype>> whitelists,
         IReadOnlyDictionary<ProtoId<JobPrototype>, WhitelistJobAdminInfo> adminInfo,
-        bool canManagePlaytime,
-        bool canManageSlots,
-        bool hasStation)
+        bool canManagePlaytime)
     {
         Margin = new Thickness(0, 0, 0, 6);
         StyleClasses.Add("BackgroundDark");
@@ -60,11 +58,7 @@ public sealed class WhitelistDepartmentPanel : PanelContainer
                 job,
                 whitelists.Contains(jobProtoId),
                 info?.RoleTime ?? TimeSpan.Zero,
-                info?.Slots,
-                info?.HasSlotConfiguration ?? false,
-                canManagePlaytime,
-                canManageSlots,
-                hasStation);
+                canManagePlaytime);
 
             row.OnSetJob += (id, enabled) => OnSetJob?.Invoke(id, enabled);
             row.OnAddRoleTime += (id, timeString) => OnAddRoleTime?.Invoke(id, timeString);

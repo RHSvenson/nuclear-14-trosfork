@@ -42,6 +42,7 @@
   id: CaesarLegionVenatorGear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitLegionnaire
+    ears: N14ClothingHeadsetLegion
     mask: N14ClothingMaskBrownMask
     back: N14ClothingBackpackMilitary
     shoes: N14ClothingShoesKaligi

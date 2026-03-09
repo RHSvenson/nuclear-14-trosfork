@@ -40,6 +40,12 @@ trait-description-N14Paracusia =
     The challenges of the Wasteland have led you to experience chronic and frequent auditory hallucinations,
     causing you to perceive sounds that are not really there.
 
+# Misfits Change
+trait-name-ChronicPain = Chronic Pain
+trait-description-ChronicPain =
+    Old injuries never fully healed, leaving you with persistent pain that flares up without medication.
+    Painkillers and proper treatment can suppress the symptoms for a while.
+
 trait-name-N14Snoring = Snoring
 trait-description-N14Snoring = You tend to snore loudly while sleeping.
 

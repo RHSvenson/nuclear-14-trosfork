@@ -17,7 +17,7 @@
     - state: keycard_vault
   - type: WastelandMap
     mapTexturePath: _Misfits/Maps/wendover_map.png
-    mapTitle: Synthetic Navigation System
+    mapTitle: General Atomics Navigation
     worldBounds: "-517,-308,484,311"
     # No tacticalFeed - standalone personal map, no faction blip sharing
   - type: WastelandMapAction
@@ -26,3 +26,16 @@
     interfaces:
       enum.WastelandMapUiKey.Key:
         type: WastelandMapBoundUserInterface
+
+# #Misfits Change - RobCo Industries nav card for Protectron and Assaultron
+- type: entity
+  parent: MisfitsRobotNavCard
+  id: MisfitsRobotNavCardRobCo
+  name: navigation module
+  description: An integrated navigation and communications chip embedded in synthetic beings. Provides tactical map access and facilitates radio-frequency communications. Cannot be removed without specialized tools.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WastelandMap
+    mapTexturePath: _Misfits/Maps/wendover_map.png
+    mapTitle: RobCo Industries Navigation
+    worldBounds: "-517,-308,484,311"

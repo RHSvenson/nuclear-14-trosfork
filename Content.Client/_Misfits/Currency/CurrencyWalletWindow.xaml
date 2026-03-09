@@ -1,5 +1,5 @@
 <DefaultWindow xmlns="https://spacestation14.io"
-               Title="Currency Wallet"
+               Title="{Loc 'currency-wallet-window-title'}"
                MinSize="320 300">
     <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="8 8 8 8">
         <!-- Bottlecaps -->

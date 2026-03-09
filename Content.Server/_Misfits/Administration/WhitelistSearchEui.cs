@@ -6,6 +6,7 @@ using Content.Server.Database;
 using Content.Server.EUI;
 using Content.Server.Players.JobWhitelist;
 using Content.Server.Players.PlayTimeTracking;
+using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Misfits.Administration;
 using Content.Shared.Administration;
@@ -28,10 +29,11 @@ public sealed class WhitelistSearchEui : BaseEui
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly JobWhitelistManager _jobWhitelist = default!;
     [Dependency] private readonly PlayTimeTrackingManager _playTime = default!;
-    [Dependency] private readonly StationJobsSystem _stationJobs = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly IEntityManager _entManager = default!;
 
     private readonly ISawmill _sawmill;
+    private StationJobsSystem StationJobs => _entManager.System<StationJobsSystem>();
+    private StationSystem StationSystem => _entManager.System<StationSystem>();
 
     private static readonly HashSet<string> AllowedDepartments = new()
     {
@@ -163,8 +165,9 @@ public sealed class WhitelistSearchEui : BaseEui
         }
 
         _selectedStation = ResolveTargetStation();
-        _selectedStationName = _selectedStation is { } station
-            ? station.ToString()
+        _selectedStationName = _selectedStation is { } resolvedStation
+            && _entManager.TryGetComponent<MetaDataComponent>(resolvedStation, out var meta)
+            ? meta.EntityName
             : null;
 
         _jobAdminInfo = await BuildJobAdminInfo(playerId);
@@ -259,7 +262,7 @@ public sealed class WhitelistSearchEui : BaseEui
         if (_selectedStation == null || !_proto.HasIndex<JobPrototype>(job) || delta == 0)
             return;
 
-        if (!_stationJobs.TryAdjustJobSlot(_selectedStation.Value, job, delta, createSlot: true, clamp: true))
+        if (!StationJobs.TryAdjustJobSlot(_selectedStation.Value, job, delta, createSlot: true, clamp: true))
             return;
 
         if (_jobAdminInfo != null)
@@ -267,7 +270,7 @@ public sealed class WhitelistSearchEui : BaseEui
             var row = _jobAdminInfo.FirstOrDefault(x => x.Job == job);
             if (row != null)
             {
-                if (_stationJobs.TryGetJobSlot(_selectedStation.Value, job, out var slots))
+                if (StationJobs.TryGetJobSlot(_selectedStation.Value, job, out var slots))
                 {
                     row.HasSlotConfiguration = true;
                     row.Slots = slots is null ? null : (int) slots.Value;
@@ -310,7 +313,7 @@ public sealed class WhitelistSearchEui : BaseEui
                 var hasSlotConfiguration = false;
                 int? slots = 0;
 
-                if (_selectedStation != null && _stationJobs.TryGetJobSlot(_selectedStation.Value, jobId, out var slotData))
+                if (_selectedStation != null && StationJobs.TryGetJobSlot(_selectedStation.Value, jobId, out var slotData))
                 {
                     hasSlotConfiguration = true;
                     slots = slotData is null ? null : (int) slotData.Value;
@@ -326,11 +329,18 @@ public sealed class WhitelistSearchEui : BaseEui
     private EntityUid? ResolveTargetStation()
     {
         if (Player.AttachedEntity is { Valid: true } attached &&
-            _stationSystem.GetOwningStation(attached) is { } currentStation)
+            StationSystem.GetOwningStation(attached) is { } currentStation &&
+            _entManager.HasComponent<StationJobsComponent>(currentStation))
         {
             return currentStation;
         }
 
-        return _stationSystem.GetStations().FirstOrDefault();
+        foreach (var station in StationSystem.GetStations())
+        {
+            if (_entManager.HasComponent<StationJobsComponent>(station))
+                return station;
+        }
+
+        return null;
     }
 }

@@ -1,4 +1,5 @@
 // #Misfits Change - Enriched job row with whitelist, role time, and slot controls
+using System.Globalization;
 using Content.Shared.Roles;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
@@ -17,11 +18,7 @@ public sealed class WhitelistJobRow : PanelContainer
         JobPrototype job,
         bool whitelisted,
         TimeSpan roleTime,
-        int? slots,
-        bool hasSlotConfiguration,
-        bool canManagePlaytime,
-        bool canManageSlots,
-        bool hasStation)
+        bool canManagePlaytime)
     {
         Margin = new Thickness(0, 0, 0, 2);
 
@@ -31,6 +28,9 @@ public sealed class WhitelistJobRow : PanelContainer
             SeparationOverride = 8,
             HorizontalExpand = true,
         };
+
+        // WhitelistJobRow only handles whitelist checkbox + role time.
+        // Slot adjustments are managed by the separate JobSlotsWindow.
 
         var whitelistBox = new CheckBox
         {
@@ -81,36 +81,6 @@ public sealed class WhitelistJobRow : PanelContainer
             addTimeInput.Text = string.Empty;
         };
 
-        var slotText = hasStation
-            ? FormatSlotText(slots, hasSlotConfiguration)
-            : Loc.GetString("misfits-whitelist-search-slot-no-station");
-
-        var slotLabel = new Label
-        {
-            Text = slotText,
-            MinWidth = 100,
-            VerticalAlignment = VAlignment.Center,
-        };
-
-        var minusButton = new Button
-        {
-            Text = "-",
-            MinWidth = 28,
-            Disabled = !canManageSlots || !hasStation || slots == null,
-            StyleClasses = { "OpenRight" },
-        };
-
-        var plusButton = new Button
-        {
-            Text = "+",
-            MinWidth = 28,
-            Disabled = !canManageSlots || !hasStation || slots == null,
-            StyleClasses = { "OpenLeft" },
-        };
-
-        minusButton.OnPressed += _ => OnAdjustJobSlots?.Invoke(jobId, -1);
-        plusButton.OnPressed += _ => OnAdjustJobSlots?.Invoke(jobId, 1);
-
         if (!job.Whitelisted)
             whitelistBox.Modulate = Color.FromHex("#cccccc");
 
@@ -119,9 +89,6 @@ public sealed class WhitelistJobRow : PanelContainer
         root.AddChild(roleTimeLabel);
         root.AddChild(addTimeInput);
         root.AddChild(addTimeButton);
-        root.AddChild(slotLabel);
-        root.AddChild(minusButton);
-        root.AddChild(plusButton);
 
         AddChild(root);
     }
@@ -129,12 +96,12 @@ public sealed class WhitelistJobRow : PanelContainer
     private static string FormatTime(TimeSpan time)
     {
         if (time.TotalHours < 1)
-            return FormattableString.Invariant($"{Math.Round(time.TotalMinutes):0}m");
+            return string.Format(CultureInfo.InvariantCulture, "{0:0}m", Math.Round(time.TotalMinutes));
 
         if (time.TotalDays < 1)
-            return FormattableString.Invariant($"{time.TotalHours:0.#}h");
+            return string.Format(CultureInfo.InvariantCulture, "{0:0.#}h", time.TotalHours);
 
-        return FormattableString.Invariant($"{time.TotalDays:0.#}d");
+        return string.Format(CultureInfo.InvariantCulture, "{0:0.#}d", time.TotalDays);
     }
 
     private static string FormatSlotText(int? slots, bool hasSlotConfiguration)

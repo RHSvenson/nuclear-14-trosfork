@@ -11,5 +11,24 @@ public sealed partial class WhitelistingTab : Control
     public WhitelistingTab()
     {
         RobustXamlLoader.Load(this);
+
+        RoleWhitelistsButton.Text = GetLocalizedOrFallback(
+            "misfits-whitelisting-tab-role-whitelists-btn",
+            "Role Whitelists Menu");
+        RoleWhitelistsDescription.Text = GetLocalizedOrFallback(
+            "misfits-whitelisting-tab-role-whitelists-desc",
+            "Search for players and manage their job/role whitelists.");
+        JobSlotsButton.Text = GetLocalizedOrFallback(
+            "misfits-whitelisting-tab-job-slots-btn",
+            "Job Slots Menu");
+        JobSlotsDescription.Text = GetLocalizedOrFallback(
+            "misfits-whitelisting-tab-job-slots-desc",
+            "Search for players and manage station job slot configuration.");
+    }
+
+    private static string GetLocalizedOrFallback(string key, string fallback)
+    {
+        var localized = Loc.GetString(key);
+        return localized == key ? fallback : localized;
     }
 }

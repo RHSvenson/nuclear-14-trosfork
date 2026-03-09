@@ -51,6 +51,8 @@ misfits-server-tab-looc-desc = Toggle LOOC (local out-of-character) chat on or o
 # Whitelisting tab button descriptions
 misfits-whitelisting-tab-role-whitelists-btn = Role Whitelists Menu
 misfits-whitelisting-tab-role-whitelists-desc = Search for players and manage their job/role whitelists.
+misfits-whitelisting-tab-job-slots-btn = Job Slots Menu
+misfits-whitelisting-tab-job-slots-desc = Search for players and manage station job slot configuration.
 misfits-whitelist-search-station = Station: {$station}
 misfits-whitelist-search-station-none = Station: none
 misfits-whitelist-search-role-time = Time: {$time}
@@ -59,3 +61,11 @@ misfits-whitelist-search-add-time-placeholder = 1h
 misfits-whitelist-search-slot-count = Slots: {$count}
 misfits-whitelist-search-slot-unlimited = Slots: Unlimited
 misfits-whitelist-search-slot-no-station = Slots: no station
+
+# Job Slots EUI (standalone panel, no player search)
+misfits-job-slots-station = Station: {$station}
+misfits-job-slots-station-none = Station: none
+misfits-job-slots-slot-count = Slots: {$count}
+misfits-job-slots-slot-unlimited = Slots: Unlimited
+misfits-job-slots-slot-no-station = Slots: no station
+misfits-job-slots-slot-not-configured = Not configured

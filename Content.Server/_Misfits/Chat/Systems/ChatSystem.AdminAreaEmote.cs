@@ -1,5 +1,5 @@
 // #Misfits Change
-// ChatSystem partial — admin area (local-radius) emote in green text, no speaker name.
+// ChatSystem partial — admin area (local-radius) emote in green text, no speaker name, no bubble.
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Robust.Shared.Player;
@@ -12,6 +12,8 @@ public sealed partial class ChatSystem
     ///     Sends a green-coloured nameless ambient emote to all players in normal voice range
     ///     of <paramref name="source"/> (like /do but green).  Admin-only; no action-blocker
     ///     or rate-limit checks are applied.
+    ///     Uses <see cref="EntityUid.Invalid"/> as the message source so no speech bubble
+    ///     appears over the admin's head.
     /// </summary>
     public void TrySendAdminAreaEmote(
         EntityUid source,
@@ -30,16 +32,33 @@ public sealed partial class ChatSystem
             "chat-admin-area-emote-wrap-message",
             ("message", formatted));
 
-        SendInVoiceRange(
-            ChatChannel.Emotes,
-            string.Empty,
-            action,
-            wrappedMessage,
-            obfuscated:               string.Empty,
-            obfuscatedWrappedMessage: string.Empty,
-            source,
-            ChatTransmitRange.Normal,
-            player.UserId);
+        // Send to everyone in voice range but with EntityUid.Invalid as the message entity
+        // so no speech bubble appears over the admin's head.
+        foreach (var (session, data) in GetRecipients(source, Transform(source).GridUid == null ? 0.3f : VoiceRange))
+        {
+            if (session.AttachedEntity != null
+                && Transform(session.AttachedEntity.Value).GridUid != Transform(source).GridUid
+                && !CheckAttachedGrids(source, session.AttachedEntity.Value))
+                continue;
+
+            var entRange = MessageRangeCheck(session, data, ChatTransmitRange.Normal);
+            if (entRange == MessageRangeCheckResult.Disallowed)
+                continue;
+
+            var entHideChat = entRange == MessageRangeCheckResult.HideChat;
+
+            _chatManager.ChatMessageToOne(
+                ChatChannel.Emotes,
+                action,
+                wrappedMessage,
+                EntityUid.Invalid,        // no entity → no bubble
+                entHideChat,
+                session.Channel,
+                author: player.UserId);
+        }
+
+        _replay.RecordServerMessage(
+            new ChatMessage(ChatChannel.Emotes, action, wrappedMessage, default, null, false));
 
         _adminLogger.Add(
             LogType.Chat,

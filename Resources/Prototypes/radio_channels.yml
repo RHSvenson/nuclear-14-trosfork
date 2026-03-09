@@ -1,14 +1,18 @@
+# #Misfits Change — Common must exist for code references but keycode removed
+# so ';' no longer auto-consumes to this channel.
 - type: radioChannel
   id: Common
   name: chat-radio-common
-  keycode: ";"
+  # keycode: ";"  # Misfits — disabled, ';' should not auto-consume to Common
   frequency: 1459
   color: "#32cd32"
 
+# #Misfits Change — All SS14-base non-Fallout radio channels: keycodes stripped,
+# prototypes kept to avoid broken references in entity YAMLs.
 - type: radioChannel
   id: CentCom
   name: chat-radio-centcom
-  keycode: 'y'
+  # keycode: 'y'  # Misfits — disabled
   frequency: 1337
   color: "#2681a5"
   longRange: true
@@ -16,56 +20,56 @@
 - type: radioChannel
   id: Command
   name: chat-radio-command
-  keycode: '6'
+  # keycode: '6'  # Misfits — disabled
   frequency: 1353
   color: "#fcdf03"
 
 - type: radioChannel
   id: Engineering
   name: chat-radio-engineering
-  keycode: '7'
+  # keycode: '7'  # Misfits — disabled
   frequency: 1357
   color: "#f37746"
 
 - type: radioChannel
   id: Medical
   name: chat-radio-medical
-  keycode: '3'
+  # keycode: '3'  # Misfits — disabled
   frequency: 1355
   color: "#57b8f0"
 
 - type: radioChannel
   id: Science
   name: chat-radio-science
-  keycode: '9'
+  # keycode: '9'  # Misfits — disabled
   frequency: 1351
   color: "#c68cfa"
 
 - type: radioChannel
   id: Security
   name: chat-radio-security
-  keycode: '4'
+  # keycode: '4'  # Misfits — disabled
   frequency: 1359
   color: "#dd3535"
 
 - type: radioChannel
   id: Service
   name: chat-radio-service
-  keycode: '1'
+  # keycode: '1'  # Misfits — disabled
   frequency: 1349
   color: "#6ca729"
 
 - type: radioChannel
   id: Supply
   name: chat-radio-supply
-  keycode: '2'
+  # keycode: '2'  # Misfits — disabled
   frequency: 1347
   color: "#b88646"
 
 - type: radioChannel
   id: Syndicate
   name: chat-radio-syndicate
-  keycode: 't'
+  # keycode: 't'  # Misfits — disabled
   frequency: 1213
   color: "#8f4a4b"
   longRange: true
@@ -75,24 +79,21 @@
   name: chat-radio-handheld
   frequency: 1330
   color: "#d39f01"
-  # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
   longRange: true
   showFrequency: true # Frontier
 
 - type: radioChannel
   id: Binary
   name: chat-radio-binary
-  keycode: 'b'
+  # keycode: 'b'  # Misfits — disabled (conflicts with BoS :b)
   frequency: 1001
   color: "#2ed2fd"
-  # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
   longRange: true
 
 - type: radioChannel
   id: Freelance
   name: chat-radio-freelance
-  keycode: 'f'
+  # keycode: 'f'  # Misfits — disabled
   frequency: 1984
   color: "#f6ce64"
-  # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
   longRange: true

@@ -105,6 +105,22 @@
     - state: crypt_gray
     - state: com_label
 
+# #Misfits Change - Legion encryption key
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyLegion
+  name: Legion encryption key
+  description: An encryption key used by Caesar's Legion.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Legion
+    defaultChannel: Legion
+  - type: Sprite
+    layers:
+    - state: crypt_red
+    - state: synd_label
+
 # #Misfits Change - Global wasteland radio key, included in all headsets
 - type: entity
   parent: EncryptionKey

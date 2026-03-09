@@ -302,6 +302,11 @@
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    openSound:
+      path: /Audio/_Nuclear14/Effects/Doors/DRS_Metal_Jail_Swing_Open_01.ogg
+    closeSound:
+      path: /Audio/_Nuclear14/Effects/Doors/DRS_Metal_Jail_Swing_Close_01.ogg
 
 - type: entity
   parent: N14DoorMetalReinforced

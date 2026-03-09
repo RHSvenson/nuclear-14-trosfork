@@ -11,8 +11,8 @@
 
 - type: entity
   id: ActionScream
-  name: Scream
-  description: AAAAAAAAAAAAAAAAAAAAAAAAA
+  name: action-name-scream # Misfits Change
+  description: action-desc-scream # Misfits Change
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction

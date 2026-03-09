@@ -1,4 +1,5 @@
 using System.Collections.Frozen;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
@@ -64,6 +65,7 @@ public abstract class SharedChatSystem : EntitySystem
     private void CacheRadios()
     {
         _keyCodes = _prototypeManager.EnumeratePrototypes<RadioChannelPrototype>()
+            .Where(x => x.KeyCode != '\0')
             .ToFrozenDictionary(x => x.KeyCode);
     }
 
@@ -114,12 +116,14 @@ public abstract class SharedChatSystem : EntitySystem
         if (input.Length == 0)
             return false;
 
-        if (input.StartsWith(RadioCommonPrefix))
-        {
-            output = SanitizeMessageCapital(input[1..].TrimStart());
-            channel = _prototypeManager.Index<RadioChannelPrototype>(CommonChannel);
-            return true;
-        }
+        // #Misfits Change — disabled ';' auto-consuming to Common channel.
+        // Players must use explicit :channel prefixes for radio.
+        // if (input.StartsWith(RadioCommonPrefix))
+        // {
+        //     output = SanitizeMessageCapital(input[1..].TrimStart());
+        //     channel = _prototypeManager.Index<RadioChannelPrototype>(CommonChannel);
+        //     return true;
+        // }
 
         // #Misfits Change
         // Disabled '.' as a radio prefix so './' can be used for chat-side aliases without overlapping radio parsing.

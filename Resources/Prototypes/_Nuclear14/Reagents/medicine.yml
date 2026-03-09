@@ -266,6 +266,8 @@
         damage:
           types:
             Poison: -0.5
+      - !type:SuppressAddiction #Misfits Change
+        time: 30
      # - !type:Drunk
      # - !type:CureAddiction
 

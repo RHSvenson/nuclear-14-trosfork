@@ -38,6 +38,19 @@
   - type: NpcFactionMember
     factions:
     - Wastelander
+  - type: PassiveDamage # #Misfits Change: gradual self-repair, ~30 per type per minute
+    allowedStates:
+    - Alive
+    - Critical
+    damage:
+      groups:
+        Brute: -0.5
+      types:
+        Heat: -0.5
+        Shock: -0.5
+  - type: RobotSelfRepairAnnouncer # #Misfits Change: hull integrity warnings + self-repair popups
+  - type: EmitBuzzWhileDamaged # #Misfits Change: sparks/buzz when below half health
+
   - type: ContainerFill
     containers:
       borg_brain:
@@ -92,12 +105,30 @@
   - type: NpcFactionMember
     factions:
     - Wastelander
+  - type: PassiveDamage # #Misfits Change: gradual self-repair, ~30 per type per minute
+    allowedStates:
+    - Alive
+    - Critical
+    damage:
+      groups:
+        Brute: -0.5
+      types:
+        Heat: -0.5
+        Shock: -0.5
+  - type: RobotSelfRepairAnnouncer # #Misfits Change: hull integrity warnings + self-repair popups
+  - type: EmitBuzzWhileDamaged # #Misfits Change: sparks/buzz when below half health
+
+  - type: Tag # #Misfits Change: Protectron walks, so it should have footstep sounds
+    tags:
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
   - type: ContainerFill
     containers:
       borg_brain:
         - PositronicBrain
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
-        - MisfitsRobotNavCard
+        - MisfitsRobotNavCardRobCo # RobCo Industries Navigation
   - type: ItemSlots
     slots:
       cell_slot:
@@ -140,14 +171,28 @@
   - type: NpcFactionMember
     factions:
     - Wastelander
+  - type: PassiveDamage # #Misfits Change: gradual self-repair, ~30 per type per minute
+    allowedStates:
+    - Alive
+    - Critical
+    damage:
+      groups:
+        Brute: -0.5
+      types:
+        Heat: -0.5
+        Shock: -0.5
+  - type: RobotSelfRepairAnnouncer # #Misfits Change: hull integrity warnings + self-repair popups
+  - type: EmitBuzzWhileDamaged # #Misfits Change: sparks/buzz when below half health
+
   - type: ContainerFill
     containers:
       borg_brain:
         - PositronicBrain
       borg_module:
         - N14BorgModulePlasma
+        # - N14BorgModuleFlamer # #Misfits Change: Flamer module disabled - bugged
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
-        - MisfitsRobotNavCard
+        - MisfitsRobotNavCard # General Atomics Navigation
   - type: ItemSlots
     slots:
       cell_slot:
@@ -192,12 +237,30 @@
   - type: NpcFactionMember
     factions:
     - Wastelander
+  - type: PassiveDamage # #Misfits Change: gradual self-repair, ~30 per type per minute
+    allowedStates:
+    - Alive
+    - Critical
+    damage:
+      groups:
+        Brute: -0.5
+      types:
+        Heat: -0.5
+        Shock: -0.5
+  - type: RobotSelfRepairAnnouncer # #Misfits Change: hull integrity warnings + self-repair popups
+  - type: EmitBuzzWhileDamaged # #Misfits Change: sparks/buzz when below half health
+
+  - type: Tag # #Misfits Change: Assaultron walks, so it should have footstep sounds
+    tags:
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
   - type: ContainerFill
     containers:
       borg_brain:
         - PositronicBrain
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
-        - MisfitsRobotNavCard
+        - MisfitsRobotNavCardRobCo # RobCo Industries Navigation
   - type: ItemSlots
     slots:
       cell_slot:

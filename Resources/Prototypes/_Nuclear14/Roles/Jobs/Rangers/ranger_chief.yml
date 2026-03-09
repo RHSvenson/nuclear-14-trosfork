@@ -19,6 +19,13 @@
           - Rangers
   requirements:
     - !type:CharacterWhitelistRequirement
+    - !type:CharacterSpeciesRequirement # #Misfits Change - robots cannot be Rangers
+      inverted: true
+      species:
+      - RobotMrHandy
+      - RobotProtectron
+      - RobotMrGutsy
+      - RobotAssaultron
 
 - type: startingGear
   id: RangerChiefGear

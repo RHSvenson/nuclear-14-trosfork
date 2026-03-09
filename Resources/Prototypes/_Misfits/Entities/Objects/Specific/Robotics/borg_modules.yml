@@ -1,10 +1,113 @@
-# N14-specific borg modules for playable synthetic robots.
+# N14-specific borg modules for playable synthetic robots. #Misfits Change
 
+# Integrated plasma caster weapon for Mr. Gutsy borg module - uses internal battery + self-recharge so it never needs reloading. #Misfits Change
+- type: entity
+  id: N14BorgWeaponPlasmaRifle
+  parent: BaseWeaponBattery
+  name: integrated plasma caster
+  description: An onboard plasma projector integrated into the chassis. Draws from the robot's internal power reserves and recharges automatically.
+  suffix: borg, integrated
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -58
+  - type: Sprite
+    scale: 0.8, 0.8
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_rifle_icon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-2
+      map: ["enum.GunVisualLayers.Mag"]
+      shader: unshaded
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
+    size: Huge
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Battery
+    maxCharge: 99999
+    startingCharge: 99999
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletPlasma
+    fireCost: 100
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: false
+  - type: Gun
+    fireRate: 3
+    soundGunshot:
+      collection: N14PlasmaAutoRifleGunshot
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: FollowDistance
+    backStrength: 5
+
+# Integrated flamer weapon for Mr. Gutsy borg module - disabled, bugged. #Misfits Change
+# - type: entity
+#   id: N14BorgWeaponFlamer
+#   parent: WeaponFireGunBase
+#   name: integrated flamer
+#   description: A built-in incendiary projector integrated into the chassis. Fed by a continuously regenerating internal fuel reservoir.
+#   suffix: borg, integrated
+#   categories: [ HideSpawnMenu ]
+#   components:
+#   - type: SolutionContainerManager
+#     solutions:
+#       chamber:
+#         maxVol: 500
+#         reagents:
+#         - ReagentId: WeldingFuel
+#           Quantity: 500
+#   - type: SolutionRegeneration
+#     solution: chamber
+#     generated:
+#       reagents:
+#       - ReagentId: WeldingFuel
+#         Quantity: 200
+#     duration: 1
+#   - type: SolutionAmmoProvider
+#     solutionId: chamber
+#     proto: FireProjectile
+#   - type: Gun
+#     cameraRecoilScalar: 0
+#     fireRate: 10
+#     selectedMode: FullAuto
+#     availableModes:
+#     - FullAuto
+#     soundGunshot:
+#       path: /Audio/_Nuclear14/Weapons/Guns/Flames/flamer.ogg
+#   - type: Sprite
+#     sprite: Objects/Weapons/Guns/Pistols/soaker.rsi
+#     layers:
+#     - state: detail1
+#     - state: detail2
+#       map: ["enum.PowerDeviceVisualLayers.Powered"]
+#     - state: icon
+#       map: [ "enum.DamageStateVisualLayers.Base" ]
+#   - type: Item
+#     sprite: Objects/Weapons/Guns/Pistols/soaker.rsi
+#     size: Normal
+#   - type: FollowDistance
+#     backStrength: 6
+
+# Plasma caster module - provides the integrated borg plasma rifle. #Misfits Change
 - type: entity
   id: N14BorgModulePlasma
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
   name: plasma caster cyborg module
-  description: A plasma projector module. Provides a plasma rifle for ranged combat.
+  description: A plasma projector module. Provides an integrated plasma caster for ranged combat. The weapon draws from internal power reserves and recharges automatically.
   components:
   - type: Sprite
     layers:
@@ -12,4 +115,19 @@
     - state: icon-radiation
   - type: ItemBorgModule
     items:
-    - N14WeaponPlasmaRifle
+    - N14BorgWeaponPlasmaRifle
+
+# Flamer module - disabled, bugged. #Misfits Change
+# - type: entity
+#   id: N14BorgModuleFlamer
+#   parent: [ BaseBorgModule, BaseProviderBorgModule ]
+#   name: flamer cyborg module
+#   description: An incendiary projector module. Provides an integrated flamer for close-range combat. The weapon draws from an internal fuel reservoir that regenerates automatically.
+#   components:
+#   - type: Sprite
+#     layers:
+#     - state: generic
+#     - state: icon-fire-extinguisher
+#   - type: ItemBorgModule
+#     items:
+#     - N14BorgWeaponFlamer

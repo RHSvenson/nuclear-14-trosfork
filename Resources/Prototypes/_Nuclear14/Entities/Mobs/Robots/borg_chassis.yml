@@ -41,6 +41,11 @@
         state: icon
   # - type: Construction
     # node: cyborg
+  - type: Tag # #Misfits Change: Protectron walks, so it should have footstep sounds
+    tags:
+    - DoorBumpOpener
+    - CanPilot
+    - FootstepSound
   - type: Speech
     speechVerb: Robotic
   - type: Inventory

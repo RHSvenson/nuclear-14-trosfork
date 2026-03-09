@@ -1,0 +1,11 @@
+# Misfits Change — Addiction status effect and withdrawal message dataset
+
+- type: localizedDataset
+  id: AddictionEffects
+  values:
+    prefix: addiction-effect-
+    count: 10
+
+- type: statusEffect
+  id: Addicted
+  alwaysAllowed: true

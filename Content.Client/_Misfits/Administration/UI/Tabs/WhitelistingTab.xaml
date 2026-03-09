@@ -7,12 +7,12 @@
     <ScrollContainer VerticalExpand="True">
         <BoxContainer Orientation="Vertical" SeparationOverride="4">
             <BoxContainer Orientation="Horizontal" SeparationOverride="8">
-                <cc:CommandButton Command="whitelistsearch" Text="{Loc misfits-whitelisting-tab-role-whitelists-btn}" MinWidth="180" />
-                <Label Text="{Loc misfits-whitelisting-tab-role-whitelists-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
+                <cc:CommandButton Name="RoleWhitelistsButton" Command="whitelistsearch" Text="{Loc misfits-whitelisting-tab-role-whitelists-btn}" MinWidth="180" />
+                <Label Name="RoleWhitelistsDescription" Text="{Loc misfits-whitelisting-tab-role-whitelists-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
             </BoxContainer>
             <BoxContainer Orientation="Horizontal" SeparationOverride="8">
-                <cc:CommandButton Command="whitelistslots" Text="{Loc misfits-whitelisting-tab-job-slots-btn}" MinWidth="180" />
-                <Label Text="{Loc misfits-whitelisting-tab-job-slots-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
+                <cc:CommandButton Name="JobSlotsButton" Command="whitelistslots" Text="{Loc misfits-whitelisting-tab-job-slots-btn}" MinWidth="180" />
+                <Label Name="JobSlotsDescription" Text="{Loc misfits-whitelisting-tab-job-slots-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
             </BoxContainer>
         </BoxContainer>
     </ScrollContainer>

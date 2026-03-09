@@ -85,7 +85,8 @@ public sealed class ChatUIController : UIController
         {SharedChatSystem.EmotesPrefix, ChatSelectChannel.Emotes},
         {SharedChatSystem.EmotesAltPrefix, ChatSelectChannel.Emotes},
         {SharedChatSystem.AdminPrefix, ChatSelectChannel.Admin},
-        {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
+        // #Misfits Change — disabled ';' auto-consuming to Radio/Common channel.
+        // {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
         {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead},
         {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic} //Nyano - Summary: adds the telepathic prefix =.
     };
@@ -99,7 +100,8 @@ public sealed class ChatUIController : UIController
         {ChatSelectChannel.OOC, SharedChatSystem.OOCPrefix},
         {ChatSelectChannel.Emotes, SharedChatSystem.EmotesPrefix},
         {ChatSelectChannel.Admin, SharedChatSystem.AdminPrefix},
-        {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
+        // #Misfits Change — disabled ';' auto-consuming to Radio/Common channel.
+        // {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
         {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix},
         {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix } //Nyano - Summary: associates telepathic with =.
     };
@@ -748,6 +750,7 @@ public sealed class ChatUIController : UIController
         return TryAssignSlashAlias(text, "./me", ChatSelectChannel.Emotes, ref channel, ref strippedText, ref forceRadioPrefix)
             || TryAssignSlashAlias(text, "./em", ChatSelectChannel.Emotes, ref channel, ref strippedText, ref forceRadioPrefix)
             || TryAssignSlashAlias(text, "./do", ChatSelectChannel.Emotes, ref channel, ref strippedText, ref forceRadioPrefix)
+            || TryAssignSlashAlias(text, "./aemote", ChatSelectChannel.Emotes, ref channel, ref strippedText, ref forceRadioPrefix) // #Misfits Change — admin area emote alias
             || TryAssignSlashAlias(text, "./looc", ChatSelectChannel.LOOC, ref channel, ref strippedText, ref forceRadioPrefix)
             || TryAssignSlashAlias(text, "./ooc", ChatSelectChannel.OOC, ref channel, ref strippedText, ref forceRadioPrefix)
             || TryAssignSlashAlias(text, "./admin", ChatSelectChannel.Admin, ref channel, ref strippedText, ref forceRadioPrefix)

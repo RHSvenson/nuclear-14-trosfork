@@ -113,9 +113,7 @@ public sealed partial class WhitelistSearchWindow : FancyWindow
             UpdateDepartments(
                 state.Whitelists,
                 state.JobAdminInfo,
-                state.CanManagePlaytime,
-                state.CanManageSlots,
-                state.SelectedStationName != null);
+                state.CanManagePlaytime);
         }
         else
         {
@@ -128,9 +126,7 @@ public sealed partial class WhitelistSearchWindow : FancyWindow
     private void UpdateDepartments(
         HashSet<ProtoId<JobPrototype>> whitelists,
         List<WhitelistJobAdminInfo>? jobAdminInfo,
-        bool canManagePlaytime,
-        bool canManageSlots,
-        bool hasStation)
+        bool canManagePlaytime)
     {
         var infoLookup = jobAdminInfo?
             .ToDictionary(x => x.Job, x => x) ?? new Dictionary<ProtoId<JobPrototype>, WhitelistJobAdminInfo>();
@@ -141,7 +137,7 @@ public sealed partial class WhitelistSearchWindow : FancyWindow
             if (!AllowedDepartments.Contains(proto.ID))
                 continue;
 
-            var panel = new WhitelistDepartmentPanel(proto, _proto, whitelists, infoLookup, canManagePlaytime, canManageSlots, hasStation);
+            var panel = new WhitelistDepartmentPanel(proto, _proto, whitelists, infoLookup, canManagePlaytime);
             panel.OnSetJob += (id, whitelisting) => OnSetJob?.Invoke(id, whitelisting);
             panel.OnAddRoleTime += (id, timeString) => OnAddRoleTime?.Invoke(id, timeString);
             panel.OnAdjustJobSlots += (id, delta) => OnAdjustJobSlots?.Invoke(id, delta);

@@ -1,14 +1,16 @@
+# #Misfits Change — DeltaV non-Fallout channels: keycodes stripped,
+# prototypes kept to avoid broken references.
 - type: radioChannel
   id: Justice
   name: chat-radio-justice
-  keycode: "j"
+  # keycode: "j"  # Misfits — disabled
   frequency: 1420
   color: "#701442"
 
 - type: radioChannel
   id: Prison
   name: chat-radio-prison
-  keycode: 'p'
+  # keycode: 'p'  # Misfits — disabled
   frequency: 1601
   color: "#FFA500"
 

@@ -10,11 +10,12 @@
       params:
         volume: 5
   - type: Sprite
-    scale: 0.75, 0.75
-    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Projectiles/plasma.rsi
+    scale: 1.2, 0.5
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-    - state: plasma
+    - state: bullet
       shader: unshaded
+      color: "#44FF66"
   - type: Fixtures
     fixtures:
       projectile:
@@ -34,8 +35,10 @@
         - HighImpassable
         - LowImpassable
         hard: False
+  - type: Ammo
+    muzzleFlash: PlasmaMuzzleFlashEffect
   - type: Projectile
-    impactEffect: BulletImpactEffect
+    impactEffect: BulletPlasmaImpactEffect
     damage:
       types:
         Heat: 20
@@ -52,7 +55,7 @@
   - type: Sprite
     scale: 0.5, 0.5
   - type: Projectile
-    impactEffect: BulletImpactEffect
+    impactEffect: BulletPlasmaImpactEffect
     damage:
       types:
         Heat: 18
@@ -68,7 +71,7 @@
   - type: Sprite
     scale: 1.0, 1.0
   - type: Projectile
-    impactEffect: BulletImpactEffect
+    impactEffect: BulletPlasmaImpactEffect
     damage:
       types:
         Heat: 24

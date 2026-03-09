@@ -39,6 +39,8 @@
             Poison: 0.2
           groups:
       - !type:Jitter
+      - !type:Addicting #Misfits Change
+        time: 8
       - !type:GenericStatusEffect
         key: Stun
         time: 3
@@ -80,6 +82,8 @@
             Poison: 0.5
           groups:
       - !type:Jitter
+      - !type:Addicting #Misfits Change
+        time: 10
       - !type:GenericStatusEffect
         key: Stun
         time: 5
@@ -108,6 +112,8 @@
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
       - !type:Drunk
+      - !type:Addicting #Misfits Change
+        time: 8
     Narcotic:
       effects:
       - !type:ChemAddMoodlet
@@ -130,6 +136,8 @@
         type: Add
         time: 10
         refresh: false
+      - !type:Addicting #Misfits Change
+        time: 6
     Food:
       effects:
       - !type:SatiateThirst
@@ -149,6 +157,8 @@
       - !type:NocturineNightVision # Forge-Change
         durationSeconds: 5.0
         color: "#F0FFFF" # Forge-Change
+      - !type:Addicting #Misfits Change
+        time: 4
 
 - type: reagent
   id: Buffout
@@ -162,6 +172,8 @@
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
       - !type:Jitter
+      - !type:Addicting #Misfits Change
+        time: 6
       # - !type:HealthIncreaseReagent
         # increaseAmount: 50
 
@@ -185,6 +197,8 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 1.1
         sprintSpeedModifier: 1.1
+      - !type:Addicting #Misfits Change
+        time: 10
       # - !type:HealthIncreaseReagent
         # increaseAmount: 50
 
@@ -200,6 +214,8 @@
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
       - !type:Jitter
+      - !type:Addicting #Misfits Change
+        time: 8
       # - !type:HealthIncreaseReagent
         # increaseAmount: 50
 
@@ -215,6 +231,8 @@
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
       - !type:Jitter #Placeholder for when we get Special working again.
+      - !type:Addicting #Misfits Change
+        time: 5
 
 - type: reagent
   id: MentatsBerry
@@ -228,6 +246,8 @@
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
       - !type:Jitter #Placeholder for when we get Special working again.
+      - !type:Addicting #Misfits Change
+        time: 5
 
 - type: reagent
   id: MentatsGrape
@@ -241,6 +261,8 @@
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
       - !type:Jitter #Placeholder for when we get Special working again.
+      - !type:Addicting #Misfits Change
+        time: 5
 
 - type: reagent
   id: MentatsOrange
@@ -254,6 +276,8 @@
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
       - !type:Jitter #Placeholder for when we get Special working again.
+      - !type:Addicting #Misfits Change
+        time: 5
 
 - type: reagent
   id: DamageResistMixture
@@ -279,6 +303,8 @@
     Medicine:
       metabolismRate: 0.2
       effects:
+      - !type:Addicting #Misfits Change
+        time: 6
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows

@@ -1,14 +1,14 @@
-// #Misfits Change - Console command to open the whitelist job slots admin panel
+// #Misfits Change - Console command to open the job slots admin panel
 using Content.Server.Administration;
 using Content.Server.EUI;
-using Content.Shared._Misfits.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
 namespace Content.Server._Misfits.Administration.Commands;
 
 /// <summary>
-/// Opens the whitelist job slots panel so admins can search for players and manage station job slots.
+/// Opens the Job Slots panel so admins can view and adjust per-job slot counts
+/// on the active station without needing to select a player first.
 /// </summary>
 [AdminCommand(AdminFlags.Whitelist)]
 public sealed class WhitelistSlotsCommand : LocalizedCommands
@@ -25,7 +25,7 @@ public sealed class WhitelistSlotsCommand : LocalizedCommands
             return;
         }
 
-        var ui = new WhitelistSearchEui();
+        var ui = new JobSlotsEui();
         _eui.OpenEui(ui, player);
     }
 }

@@ -87,7 +87,7 @@
   - type: Inventory
     templateId: borgRobot # #Misfits Change: no equipment slots for robots
   - type: Hands
-    showInHands: false
+    showInHands: true # #Misfits Change: allow held items to render visually in-world
     # disableExplosionRecursion: true # not in our version of the game yet 16/07/2024
   - type: BorgHands
   - type: ComplexInteraction
@@ -104,6 +104,7 @@
     allowSelfRepair: false
   - type: ItemToggle
     onUse: false
+    onActivate: false # #Misfits Change: prevent clicking self in non-combat mode from toggling chassis
   - type: BorgChassis
     maxModules: 10
     moduleWhitelist:
@@ -226,7 +227,7 @@
     tags:
     - DoorBumpOpener
     - CanPilot
-    - FootstepSound #Misfits Change - robot footstep sounds
+    # FootstepSound intentionally omitted - only walking robots (Protectron, Assaultron) add it back #Misfits Change
   - type: Emoting
   # - type: GuideHelp
     # guides:

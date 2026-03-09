@@ -44,6 +44,7 @@
   id: CaesarLegionCenturionGear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitLegionnaire
+    ears: N14ClothingHeadsetLegion
     neck: ClothingNeckBlackScarf
     eyes: N14ClothingEyesGlassesWelding
     back: N14ClothingBackpackMilitary

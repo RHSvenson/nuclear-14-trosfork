@@ -10,6 +10,14 @@
   startingGear: FarmerGear
   icon: "JobIconWastelandFarmer" # Corvax-Change
   supervisors: job-supervisors-wastelander
+  requirements: # #Misfits Change - robots cannot be Farmers
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+      - RobotMrHandy
+      - RobotProtectron
+      - RobotMrGutsy
+      - RobotAssaultron
   access:
   - WastelandFarmer
   - TownsPerson # Corvax-Change

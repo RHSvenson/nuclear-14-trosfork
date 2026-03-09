@@ -34,7 +34,7 @@ public sealed class PersistentCurrencySystem : EntitySystem
 
     private const string CurrencyDataPath = "/currency_data.json";
     private readonly Dictionary<string, CharacterCurrency> _currencyData = new();
-    private ResPath _saveFilePath = default!;
+    private string _saveFilePath = string.Empty;
 
     /// <summary>
     /// Maps CurrencyType to the entity prototype ID to spawn when withdrawing.
@@ -60,7 +60,7 @@ public sealed class PersistentCurrencySystem : EntitySystem
 
         // Set up save file path
         var userDataPath = _resourceManager.UserData.RootDir ?? ".";
-        _saveFilePath = new ResPath(userDataPath) / "currency_data.json";
+        _saveFilePath = Path.Combine(userDataPath, "currency_data.json");
 
         // Load existing data
         LoadCurrencyData();
@@ -317,10 +317,10 @@ public sealed class PersistentCurrencySystem : EntitySystem
     {
         try
         {
-            if (!File.Exists(_saveFilePath.ToString()))
+            if (!File.Exists(_saveFilePath))
                 return;
 
-            var json = File.ReadAllText(_saveFilePath.ToString());
+            var json = File.ReadAllText(_saveFilePath);
             var data = JsonSerializer.Deserialize<Dictionary<string, CharacterCurrency>>(json);
 
             if (data != null)
@@ -346,7 +346,7 @@ public sealed class PersistentCurrencySystem : EntitySystem
                 WriteIndented = true
             });
 
-            File.WriteAllText(_saveFilePath.ToString(), json);
+            File.WriteAllText(_saveFilePath, json);
         }
         catch (Exception ex)
         {

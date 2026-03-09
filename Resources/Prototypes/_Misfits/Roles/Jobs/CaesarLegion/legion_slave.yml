@@ -37,6 +37,7 @@
   id: CaesarLegionSlaveGear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitRags
+    ears: N14ClothingHeadsetLegion
     shoes: N14ClothingShoesTribal
     gloves: N14ClothingHandsGlovesTribal
     bandage: NCClothingCollarLegionSlave

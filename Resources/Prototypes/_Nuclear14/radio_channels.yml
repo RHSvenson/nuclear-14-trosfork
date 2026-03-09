@@ -1,10 +1,3 @@
-- type: radioChannel
-  id: WastelandCommon # I think we will just use "Common" to avoid conflicts. Vault Common can be different.
-  name: chat-radio-wasteland-common
-  keycode: "'"
-  frequency: 1459
-  color: "#32cd32"
-
 # #Misfits Change - Global wasteland channel accessible to all headsets via .w
 - type: radioChannel
   id: WastelandGlobal
@@ -15,41 +8,6 @@
   longRange: true
 
 - type: radioChannel
-  id: VaultCommand #No longer used, all Vault dwellers got the same channel now
-  name: chat-radio-vault-command
-  keycode: 'c'
-  frequency: 1353
-  color: "#fcdf03"
-
-- type: radioChannel
-  id: VaultEngineering #No longer used, all Vault dwellers got the same channel now
-  name: chat-radio-vault-engineering
-  keycode: 'e'
-  frequency: 1357
-  color: "#f37746"
-
-- type: radioChannel
-  id: VaultMedical #No longer used, all Vault dwellers got the same channel now
-  name: chat-radio-vault-medical
-  keycode: 'i'
-  frequency: 1355
-  color: "#57b8f0"
-
-- type: radioChannel
-  id: VaultScience #No longer used, all Vault dwellers got the same channel now
-  name: chat-radio-vault-science
-  keycode: 'n'
-  frequency: 1351
-  color: "#c68cfa"
-
-- type: radioChannel
-  id: VaultSecurity #No longer used, all Vault dwellers got the same channel now
-  name: chat-radio-vault-security
-  keycode: 's'
-  frequency: 1359
-  color: "#dd3535"
-
-- type: radioChannel
   id: VaultCommon
   name: chat-radio-vault-common
   keycode: 'v' # Corvax-Change
@@ -57,9 +15,39 @@
   color: "#3E7BD1"
 
 - type: radioChannel
+  id: VaultCommand
+  name: chat-radio-vault-command
+  frequency: 1350
+  color: "#5B9BD5"
+
+- type: radioChannel
+  id: VaultEngineering
+  name: chat-radio-vault-engineering
+  frequency: 1351
+  color: "#F0A500"
+
+- type: radioChannel
+  id: VaultMedical
+  name: chat-radio-vault-medical
+  frequency: 1352
+  color: "#52B4E9"
+
+- type: radioChannel
+  id: VaultScience
+  name: chat-radio-vault-science
+  frequency: 1353
+  color: "#D381C9"
+
+- type: radioChannel
+  id: VaultSecurity
+  name: chat-radio-vault-security
+  frequency: 1354
+  color: "#A32B2B"
+
+- type: radioChannel
   id: CaravanCompany
   name: chat-radio-caravan
-  keycode: 'u'
+  keycode: 'c'
   frequency: 1347
   color: "#b88646"
 
@@ -80,23 +68,31 @@
 - type: radioChannel
   id: BrotherhoodOfSteel
   name: chat-radio-bos
-  keycode: 'm'
+  keycode: 'b'  # #Misfits Change — was 'm', now :b
   frequency: 1213
   color: "#3B72BF"
 
 - type: radioChannel
   id: Enclave
   name: chat-radio-enclave
-  keycode: 'l'
+  keycode: 'e'
   frequency: 1600
   color: "#c6cf00"
 
 - type: radioChannel
   id: NCR
   name: chat-radio-ncr
-  keycode: 'k' # Corvax-Change
+  keycode: 'n' # Corvax-Change
   frequency: 1546
   color: "#d77715"
+
+# #Misfits Change — Legion radio channel
+- type: radioChannel
+  id: Legion
+  name: chat-radio-legion
+  keycode: 'l'
+  frequency: 1650
+  color: "#8b0000"
 
 - type: radioChannel
   id: PBS
