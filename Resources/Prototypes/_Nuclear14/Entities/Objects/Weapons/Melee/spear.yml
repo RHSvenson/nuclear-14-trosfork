@@ -1,5 +1,5 @@
 - type: entity
-  name: baseThrowingSpear
+  name: throwing spear
   parent: BaseItem
   id: baseThrowingSpear
   description: Definition of a classic. Keeping murder affordable since 200,000 BCE.
