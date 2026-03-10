@@ -154,3 +154,20 @@
     Slash: 4
     Piercing: 4
     Heat: 4
+
+# #Misfits Change - FEV-mutated super mutants: 50% damage reduction across the board, immune to radiation.
+- type: damageModifierSet
+  id: SuperMutant
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Heat: 0.5
+    Shock: 0.5
+    Cold: 0.5
+    Caustic: 0.5
+    Poison: 0.5
+    Asphyxiation: 0.5
+    Bloodloss: 0.5
+    Cellular: 0.5
+    Radiation: 0.0

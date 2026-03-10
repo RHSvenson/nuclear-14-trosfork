@@ -1,6 +1,8 @@
 # Super Mutant base mob entity.
 # Full humanoid species with hands, inventory, and clothing support.
-# Higher health thresholds and slower movement to reflect their bulk.
+# Doubled health thresholds (200 crit / 400 dead), 50% damage reduction,
+# immune to radiation and stamina damage. Uses supermutant inventory template
+# restricting body-worn slots to SuperMutantWearable-tagged clothing only.
 
 - type: entity
   save: false
@@ -12,6 +14,7 @@
   - type: HumanoidAppearance
     species: SuperMutant
   - type: Inventory #Misfits Change - displacement maps to stretch clothing onto larger body
+    templateId: supermutant
     speciesId: supermutant
     displacements:
       jumpsuit:
@@ -142,14 +145,50 @@
   - type: Thirst
   - type: Damageable
     damageContainer: Biological
+    damageModifierSet: SuperMutant
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.0
     baseSprintSpeed: 3.5
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Critical
-      200: Dead
+      200: Critical
+      400: Dead
+  - type: Stamina
+    critThreshold: 1000000
+  # Misfits Change - radiation is absorbed as healing fuel rather than damage.
+  # healFactor 0.1 (default) ≈ 2× super stimpack rate in a moderate rad zone (~50 rads/sec).
+  # healCap scaled to SM health: 360 = 90% of 400 dead threshold (vs 90 = 90% of 100 crit for humans).
+  - type: RadiationReceiver
+  - type: RadiationHealing
+    healCap: 360
+  # Misfits Change - base fist damage 15 (2x Oni modifier brings effective damage to 30).
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcFist
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 15
+    heavyRateModifier: 1
+    heavyDamageBaseModifier: 1
+    heavyStaminaCost: 0
+    maxTargets: 1
+  # Misfits Change - 2x multiplier on all outgoing melee damage (unarmed + wielded weapons).
+  - type: Oni
+    modifiers:
+      coefficients:
+        Blunt: 2.0
+        Slash: 2.0
+        Piercing: 2.0
+        Shock: 2.0
+  - type: MeleeThrowOnHit
+    speed: 15
+    lifetime: 0.025
+  # Misfits Change - stuns the grabbed target for 5 seconds on successful carry.
+  - type: GrabStun
 
 - type: entity
   save: false
@@ -212,6 +251,7 @@
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
   - type: Inventory #Misfits Change - displacement maps for character preview
+    templateId: supermutant
     speciesId: supermutant
     displacements:
       jumpsuit:

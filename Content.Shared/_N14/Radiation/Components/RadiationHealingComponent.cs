@@ -25,6 +25,12 @@ public sealed partial class RadiationHealingComponent : Component
     [DataField("decayRate")] public float DecayRate = 0.25f;
 
     /// <summary>
+    /// Maximum total damage the entity can have before radiation healing stops.
+    /// Defaults to 90 (matches human health scale). Scale up for tougher species.
+    /// </summary>
+    [DataField("healCap")] public float HealCap = 90f;
+
+    /// <summary>
     /// Current accumulated radiation intensity in rads per second.
     /// </summary>
     [AutoNetworkedField] public float CurrentExposure;

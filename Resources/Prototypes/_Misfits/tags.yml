@@ -17,3 +17,8 @@
 
 - type: Tag
   id: IdCardEnclave # #Misfits Change
+
+# #Misfits Change - Tag for Super Mutant species-specific clothing.
+# Used by the supermutant inventory template whitelist to restrict body-worn slots.
+- type: Tag
+  id: SuperMutantWearable

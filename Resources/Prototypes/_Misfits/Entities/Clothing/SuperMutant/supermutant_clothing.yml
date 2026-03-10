@@ -1,0 +1,108 @@
+# #Misfits Change - Super Mutant species-specific clothing items.
+# Tagged with SuperMutantWearable to match supermutant inventory template whitelist.
+# Only Super Mutants can equip these items in body-worn slots.
+
+# --- Jumpsuit ---
+- type: entity
+  parent: UnsensoredClothingUniformBase
+  id: ClothingSuperMutantJumpsuit
+  name: super mutant garb
+  description: A crude set of garments cobbled together from scavenged materials, sized for a super mutant's massive frame.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/jumpsuit.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+# --- Outer Clothing ---
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingSuperMutantOuterClothing
+  name: super mutant armor
+  description: Scrap metal and leather lashed together into crude but effective armor, built to fit a super mutant.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/outerclothing.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/outerclothing.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+# --- Gloves ---
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingSuperMutantGloves
+  name: super mutant hand wraps
+  description: Heavy strips of leather and cloth wound around enormous green hands.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/gloves.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/gloves.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+# --- Shoes ---
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingSuperMutantShoes
+  name: super mutant boots
+  description: Oversized boots fashioned from thick hides, sized for a super mutant's feet.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/shoes.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/shoes.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+# --- Head ---
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingSuperMutantHead
+  name: super mutant headgear
+  description: A crude helmet assembled from scrap metal and leather, shaped to fit a super mutant's oversized skull.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/head.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/head.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+# --- Mask ---
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingSuperMutantMask
+  name: super mutant face wrap
+  description: A strip of thick hide covering the lower face, more for intimidation than protection.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/mask.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/mask.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+# --- Neck ---
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingSuperMutantNeck
+  name: super mutant neck guard
+  description: A thick collar of scrap and leather protecting a super mutant's neck.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/neck.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/neck.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
