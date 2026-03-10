@@ -2,14 +2,15 @@
 // by entities wearing or holding items with SpearBlockComponent (shields, power armor).
 //
 // Mirrors ReflectSystem's ReflectUserComponent propagation pattern.
-// When a hit triggers, the spear is prevented from embedding (temporary ThrownItemImmuneComponent)
-// and a narrative popup is shown: "[Thrower]'s [spear] was deflected by [target] and fell to the ground!"
+// When a hit triggers, the spear embeds into the blocking item (shield/PA) instead of the mob.
+// If no blocking item is found as an entity, the spear falls to the ground instead.
 using Content.Shared._Misfits.Throwing.Components;
 using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
+using Content.Shared.Projectiles;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Robust.Shared.Network;
@@ -24,6 +25,7 @@ public sealed class SpearBlockSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedProjectileSystem _projectile = default!;
 
     public override void Initialize()
     {
@@ -106,13 +108,33 @@ public sealed class SpearBlockSystem : EntitySystem
         if (!_tagSystem.HasTag(args.Thrown, "Spear"))
             return;
 
-        // Add ThrownItemImmuneComponent BEFORE ThrowDoHitEvent fires (which follows this event
-        // synchronously in ThrowCollideInteraction). OnEmbedThrowDoHit checks this flag to skip embedding.
-        // SpearBlockCleanupComponent signals Update() to remove it next tick.
-        if (_netManager.IsServer && !HasComp<ThrownItemImmuneComponent>(uid))
+        // Find the first equipped item providing SpearBlockComponent (shield or PA suit).
+        EntityUid? blockEntity = null;
+        foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(uid, SlotFlags.All & ~SlotFlags.POCKET))
         {
-            AddComp<ThrownItemImmuneComponent>(uid);
-            EnsureComp<SpearBlockCleanupComponent>(uid);
+            if (HasComp<SpearBlockComponent>(ent))
+            {
+                blockEntity = ent;
+                break;
+            }
+        }
+
+        if (_netManager.IsServer)
+        {
+            // Prevent normal embed into the mob.
+            if (!HasComp<ThrownItemImmuneComponent>(uid))
+            {
+                AddComp<ThrownItemImmuneComponent>(uid);
+                EnsureComp<SpearBlockCleanupComponent>(uid);
+            }
+
+            // Redirect embed into the blocking item (shield / PA) instead of falling to ground.
+            if (blockEntity.HasValue
+                && TryComp<EmbeddableProjectileComponent>(args.Thrown, out var embeddable)
+                && embeddable.EmbedOnThrow)
+            {
+                _projectile.Embed(args.Thrown, blockEntity.Value, args.User, embeddable, args.TargetPart);
+            }
         }
 
         if (!_netManager.IsServer)
@@ -125,10 +147,22 @@ public sealed class SpearBlockSystem : EntitySystem
             ? Identity.Name(throwerId, EntityManager)
             : Loc.GetString("spear-block-unknown-thrower");
 
-        _popup.PopupEntity(
-            Loc.GetString("spear-block-deflected",
-                ("thrower", throwerName), ("spear", spearName), ("target", targetName)),
-            uid,
-            PopupType.Medium);
+        if (blockEntity.HasValue)
+        {
+            var shieldName = Name(blockEntity.Value);
+            _popup.PopupEntity(
+                Loc.GetString("spear-block-embedded",
+                    ("thrower", throwerName), ("spear", spearName), ("target", targetName), ("shield", shieldName)),
+                uid,
+                PopupType.Medium);
+        }
+        else
+        {
+            _popup.PopupEntity(
+                Loc.GetString("spear-block-deflected",
+                    ("thrower", throwerName), ("spear", spearName), ("target", targetName)),
+                uid,
+                PopupType.Medium);
+        }
     }
 }

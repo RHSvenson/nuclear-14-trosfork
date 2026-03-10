@@ -74,6 +74,9 @@
     damageModifierSet: WastelandAnimal
   - type: Puller
     needsHands: true
+  - type: Grammar # Misfits Change - proper noun so names appear capitalized in says/emotes when possessed
+    attributes:
+      proper: true
   - type: TypingIndicator
     proto: robot
   - type: Speech

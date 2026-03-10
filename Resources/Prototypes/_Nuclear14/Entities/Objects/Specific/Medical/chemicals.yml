@@ -703,30 +703,24 @@
           Quantity: 100
 
 - type: entity
-  parent: N14ChemicalSyringe
+  # #Misfits Change /Tweak/ - Smelling salts use a long resuscitation interaction instead of injecting a reagent.
+  parent: BaseItem
   id: N14SmellingSalts
   name: smelling salts
   description: A small glass ampoule containing smelling salts. Their smell is said to wake up even a dead ghoul.
   components:
+  - type: Item
+    size: Tiny
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
   - type: Sprite
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
-    layers:
-    - state: powder1
-      map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: powder1
-  - type: Hypospray
-    solutionName: pen
-    transferAmount: 15
-  - type: SolutionContainerManager
-    solutions:
-      pen:
-        maxVol: 15
-        reagents:
-        - ReagentId: SmellingSalts
-          Quantity: 15
+    state: powder1
+  - type: SmellingSalts
+    doAfterDuration: 6
+    reviveHeal:
+      types:
+        Asphyxiation: -40
+  - type: DoAfter
 
 - type: entity
   parent: N14HealingPowder

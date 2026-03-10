@@ -346,11 +346,14 @@ public sealed class SurgeryBui : BoundUserInterface
 
         if (_entities.TryGetComponent(_part, out MetaDataComponent? partMeta) &&
             _entities.TryGetComponent(_surgery?.Ent, out MetaDataComponent? surgeryMeta))
-            _window.Title = Loc.GetString("surgery-ui-window-title") + "-" + partMeta.EntityName + surgeryMeta.EntityName; // Corvax-Localization
+            // #Misfits Change Fix: format the surgery title through localization instead of concatenating raw names.
+            _window.Title = Loc.GetString("surgery-ui-window-title-with-part-and-surgery",
+                ("part", partMeta.EntityName),
+                ("surgery", surgeryMeta.EntityName));
         else if (partMeta != null)
-            _window.Title = Loc.GetString("surgery-ui-window-title") + "-" + partMeta.EntityName; // Corvax-Localization
+            _window.Title = Loc.GetString("surgery-ui-window-title-with-part", ("part", partMeta.EntityName));
         else
-            _window.Title = Loc.GetString("surgery-ui-window-title"); // Corvax-Localization
+            _window.Title = Loc.GetString("surgery-ui-window-title");
     }
 
     private enum ViewType

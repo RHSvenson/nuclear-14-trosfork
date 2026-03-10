@@ -6,6 +6,7 @@ using Content.Server.EUI;
 using Content.Server.Ghost;
 using Content.Server.Popups;
 using Content.Server.PowerCell;
+using Content.Server._Misfits.Medical;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -44,6 +45,7 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly ResuscitationSystem _resuscitation = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
@@ -112,10 +114,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!_powerCell.HasActivatableCharge(uid, user: user))
             return false;
 
-        if (!targetCanBeAlive && _mobState.IsAlive(target, mobState))
-            return false;
-
-        if (!targetCanBeAlive && !component.CanDefibCrit && _mobState.IsCritical(target, mobState))
+        if (!_resuscitation.CanResuscitate(target, targetCanBeAlive, component.CanDefibCrit, mobState))
             return false;
 
         return true;
@@ -140,7 +139,7 @@ public sealed class DefibrillatorSystem : EntitySystem
             return false;
 
         _audio.PlayPvs(component.ChargeSound, uid);
-        return _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.DoAfterDuration, new DefibrillatorZapDoAfterEvent(),
+        var started = _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.DoAfterDuration, new DefibrillatorZapDoAfterEvent(),
             uid, target, uid)
             {
                 BlockDuplicate = true,
@@ -148,6 +147,11 @@ public sealed class DefibrillatorSystem : EntitySystem
                 NeedHand = true,
                 BreakOnMove = !component.AllowDoAfterMovement
             });
+
+        if (started)
+            _resuscitation.SendAttemptEmote(target, uid);
+
+        return started;
     }
 
     public void Zap(EntityUid uid, EntityUid target, EntityUid user, DefibrillatorComponent? component = null, MobStateComponent? mob = null, MobThresholdsComponent? thresholds = null)
@@ -187,45 +191,30 @@ public sealed class DefibrillatorSystem : EntitySystem
         component.NextZapTime = _timing.CurTime + component.ZapDelay;
         _appearance.SetData(uid, DefibrillatorVisuals.Ready, false);
 
-        ICommonSession? session = null;
+        // #Misfits Change /Tweak/ - Use the shared resuscitation helper so defib and smelling salts revive through the same state checks.
+        var result = _resuscitation.TryResuscitate(uid,
+            target,
+            user,
+            component.ZapHeal,
+            "defibrillator-revive-do",
+            mob,
+            thresholds);
 
-        var dead = true;
-        if (_rotting.IsRotten(target))
+        if (result.Rotten)
         {
             _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-rotten"),
                 InGameICChatType.Speak, true);
         }
         else
         {
-            if (_mobState.IsDead(target, mob))
-                _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid);
-
-            if (_mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold) &&
-                TryComp<DamageableComponent>(target, out var damageableComponent) &&
-                damageableComponent.TotalDamage < threshold)
-            {
-                _mobState.ChangeMobState(target, MobState.Critical, mob, uid);
-                dead = false;
-            }
-
-            if (_mind.TryGetMind(target, out _, out var mind) &&
-                mind.Session is { } playerSession)
-            {
-                session = playerSession;
-                // notify them they're being revived.
-                if (mind.CurrentEntity != target)
-                {
-                    _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind), session);
-                }
-            }
-            else
+            if (!result.HasMindSession)
             {
                 _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-no-mind"),
                     InGameICChatType.Speak, true);
             }
         }
 
-        var sound = dead || session == null
+        var sound = !result.Revived || !result.HasMindSession
             ? component.FailureSound
             : component.SuccessSound;
         _audio.PlayPvs(sound, uid);

@@ -168,6 +168,9 @@ chatsan-replacement-58 = sorry.
 chatsan-word-59 = cya
 chatsan-replacement-59 = see you.
 
+chatsan-word-60 = u
+chatsan-replacement-60 = you
+
 chatsan-word-99 = jerk
 chatsan-replacement-99 = jerking off
 

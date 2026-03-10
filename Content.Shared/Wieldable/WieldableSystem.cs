@@ -185,7 +185,8 @@ public sealed class WieldableSystem : EntitySystem
             return false;
         }
 
-        if (_handsSystem.CountFreeableHands((user, hands)) < component.FreeHandsRequired)
+        // #Misfits Change /Fix/ - Wielding must reserve actually empty hands, not auto-drop occupied or pull-blocked hands.
+        if (_handsSystem.EnumerateHands(user, hands).Count(hand => hand.IsEmpty) < component.FreeHandsRequired)
         {
             if (!quiet)
             {

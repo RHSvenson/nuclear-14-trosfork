@@ -164,7 +164,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         }
     }
 
-    private void Embed(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, TargetBodyPart? targetPart = null)
+    public void Embed(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, TargetBodyPart? targetPart = null) // #Misfits Change Tweak: made public for SpearBlockSystem redirect
     {
         TryComp<PhysicsComponent>(uid, out var physics);
         _physics.SetLinearVelocity(uid, Vector2.Zero, body: physics);

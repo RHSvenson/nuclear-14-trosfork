@@ -79,6 +79,9 @@
       - SlipEntity
   - type: RandomMetadata
     nameSegments: [names_N14pet_robot]
+  - type: Grammar # Misfits Change - proper noun so names appear capitalized in says/emotes when possessed
+    attributes:
+      proper: true
 # Let's see how much this remains functional, butchered MobSiliconBase, it is.
 
 - type: entity
