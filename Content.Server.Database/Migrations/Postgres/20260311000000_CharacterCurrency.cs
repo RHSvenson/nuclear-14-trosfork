@@ -18,7 +18,7 @@ namespace Content.Server.Database.Migrations.Postgres
                 name: "character_currency",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "integer", nullable: false)
+                    character_currency_id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy",
                             NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     player_id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -27,7 +27,7 @@ namespace Content.Server.Database.Migrations.Postgres
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_character_currency", x => x.id);
+                    table.PrimaryKey("PK_character_currency", x => x.character_currency_id);
                 });
 
             migrationBuilder.CreateIndex(

@@ -1411,7 +1411,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("id");
+                        .HasColumnName("character_currency_id");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
@@ -1432,8 +1432,7 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasName("PK_character_currency");
 
                     b.HasIndex("PlayerId", "CharacterName")
-                        .IsUnique()
-                        .HasDatabaseName("IX_character_currency_player_id_character_name");
+                        .IsUnique();
 
                     b.ToTable("character_currency", (string)null);
                 });

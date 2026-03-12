@@ -1338,7 +1338,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER")
-                        .HasColumnName("id");
+                        .HasColumnName("character_currency_id");
 
                     b.Property<int>("Bottlecaps")
                         .HasColumnType("INTEGER")
@@ -1357,8 +1357,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasName("PK_character_currency");
 
                     b.HasIndex("PlayerId", "CharacterName")
-                        .IsUnique()
-                        .HasDatabaseName("IX_character_currency_player_id_character_name");
+                        .IsUnique();
 
                     b.ToTable("character_currency", (string)null);
                 });

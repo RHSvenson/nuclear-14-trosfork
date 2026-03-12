@@ -17,7 +17,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 name: "character_currency",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "INTEGER", nullable: false)
+                    character_currency_id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     player_id = table.Column<Guid>(type: "TEXT", nullable: false),
                     character_name = table.Column<string>(type: "TEXT", nullable: false),
@@ -25,7 +25,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_character_currency", x => x.id);
+                    table.PrimaryKey("PK_character_currency", x => x.character_currency_id);
                 });
 
             migrationBuilder.CreateIndex(
