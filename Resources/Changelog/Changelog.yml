@@ -1249,3 +1249,71 @@ Entries:
   id: 5636
   time: '2026-03-12T15:49:07.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/108
+- author: Cythisiax
+  changes:
+    - type: Fix
+      message: >-
+        Lathe UI now uses server-reported available materials to correctly
+        enable and disable recipe buttons and tooltips even when physical
+        composition is not fully synced.
+    - type: Fix
+      message: >-
+        Moved disabled-recipe tooltip handling to the outer control so tooltips
+        still appear when recipe buttons cannot be pressed.
+    - type: Fix
+      message: UI now refreshes when lathe storage materials change.
+    - type: Fix
+      message: >-
+        Routed bolas and ensnare feedback through local emote chat instead of
+        popups.
+    - type: Fix
+      message: Added ensnare chat for hit, struggle start, failure, and completion.
+    - type: Fix
+      message: Adjusted ensnare removal, pickup, and destroy behavior.
+    - type: Fix
+      message: >-
+        Added explicit ShieldBlockingStarted and ShieldBlockingStopped events so
+        shield raise and lower chat does not get mixed with equip or drop noise.
+    - type: Fix
+      message: Pevented duplicate chat output for thrown ensnares.
+    - type: Fix
+      message: Improved the self-pointing string.
+    - type: Fix
+      message: >-
+        Raised a single ToggleableClothingToggledEvent only when attachments
+        fully deploy or retract to avoid noisy toggle events.
+    - type: Fix
+      message: Added HidesHair to the tribal hood to prevent hair clipping.
+    - type: Fix
+      message: >-
+        Removed the bonfire ignite and step trigger from the unlit bonfire
+        behavior.
+    - type: Tweak
+      message: >-
+        Lathe server logic now computes total available materials across pool
+        and storage and includes them in LatheUpdateState.
+    - type: Tweak
+      message: >-
+        Added a SharedLatheSystem overload to check craftability against a
+        provided material dictionary.
+    - type: Tweak
+      message: Broadcast shield raise and lower through local emote chat.
+    - type: Tweak
+      message: >-
+        Added PowerArmorChatSystem to announce full suit deploy and retract
+        states through emotes.
+    - type: Tweak
+      message: >-
+        Unified several gameplay feedback paths around chat-emote output instead
+        of popup-based feedback.
+    - type: Tweak
+      message: Tweaked headset light animation properties
+    - type: Tweak
+      message: Updated locale strings for the new chat emotes.
+    - type: Add
+      message: >-
+        dded Misfits chat hooks for ensnares, shield blocking, and power armor
+        state changes.
+  id: 5637
+  time: '2026-03-12T19:02:02.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/109
