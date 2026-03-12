@@ -101,7 +101,7 @@ public sealed class PipBoyHubCartridgeSystem : EntitySystem
                 HandleGroupJoin(cardUid, netComp, ownNumber, msg);
                 break;
             case PipBoyHubMessageType.GroupLeave:
-                HandleGroupLeave(cardUid, netComp, ownNumber, msg);
+                HandleGroupLeave(ent, cardUid, netComp, ownNumber, msg);
                 break;
             case PipBoyHubMessageType.GroupToggleMapTracking:
                 HandleGroupToggleMapTracking(cardUid, netComp, msg);
@@ -281,7 +281,7 @@ public sealed class PipBoyHubCartridgeSystem : EntitySystem
         Dirty(cardUid, netComp);
     }
 
-    private void HandleGroupLeave(EntityUid cardUid, PipBoyNetworkComponent netComp, uint ownNumber, PipBoyHubUiMessageEvent msg)
+    private void HandleGroupLeave(Entity<PipBoyHubCartridgeComponent> ent, EntityUid cardUid, PipBoyNetworkComponent netComp, uint ownNumber, PipBoyHubUiMessageEvent msg)
     {
         if (msg.GroupId == null)
             return;
@@ -289,6 +289,10 @@ public sealed class PipBoyHubCartridgeSystem : EntitySystem
         _network.LeaveGroup(msg.GroupId.Value, ownNumber);
         netComp.Groups.Remove(msg.GroupId.Value);
         Dirty(cardUid, netComp);
+
+        // #Misfits Add - Clear selection if we left the currently selected group
+        if (ent.Comp.SelectedGroupId == msg.GroupId)
+            ent.Comp.SelectedGroupId = null;
     }
 
     private void HandleGroupToggleMapTracking(EntityUid cardUid, PipBoyNetworkComponent netComp, PipBoyHubUiMessageEvent msg)

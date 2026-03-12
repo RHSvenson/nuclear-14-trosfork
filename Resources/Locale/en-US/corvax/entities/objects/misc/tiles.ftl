@@ -154,7 +154,6 @@ tiles-cm-freezer = tiles cm freezer
 tiles-cm-cult = tiles cm cult
 tiles-cm-engine = tiles cm engine
 tile-name-solar-panel = solar panel
-tiles-astro-grass = tiles astro grass
 tile-name-mech-recharge-floor = mech recharge floor
 carpet = carpet
 tiles-cm-green-sterile = tiles cm green sterile

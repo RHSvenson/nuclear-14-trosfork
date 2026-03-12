@@ -90,6 +90,11 @@ namespace Content.Client.PDA
 
         protected override void UpdateState(BoundUserInterfaceState state)
         {
+            // #Misfits Add - Set HasId flag BEFORE base.UpdateState, because the base class
+            // calls UpdateAvailablePrograms (which checks _hasIdCard) before we reach _menu.UpdateState.
+            if (state is PdaUpdateState pdaState)
+                _menu?.SetHasIdCard(pdaState.HasId);
+
             base.UpdateState(state);
 
             if (state is not PdaUpdateState updateState)

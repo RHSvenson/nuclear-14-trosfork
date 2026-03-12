@@ -157,8 +157,11 @@ public sealed partial class PipBoyGroupsUiFragment : BoxContainer
                     _collapsedGroups.Remove(capturedGid);
                 else
                     _collapsedGroups.Add(capturedGid);
-                // Re-select to refresh (triggers UI update)
-                OnSendMessage?.Invoke(PipBoyHubMessageType.GroupSelect, null, capturedGid, null);
+                // #Misfits Change - Toggle collapse locally and select/deselect the group
+                if (_collapsedGroups.Contains(capturedGid))
+                    OnSendMessage?.Invoke(PipBoyHubMessageType.GroupSelect, null, null, null); // deselect
+                else
+                    OnSendMessage?.Invoke(PipBoyHubMessageType.GroupSelect, null, capturedGid, null); // select
             };
             groupContainer.AddChild(toggleBtn);
 

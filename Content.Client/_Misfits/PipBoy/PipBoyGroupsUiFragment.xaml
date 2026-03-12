@@ -73,121 +73,115 @@
                     Margin="2 0 0 0" />
         </BoxContainer>
 
-        <!-- Group list + chat split -->
-        <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True" Margin="0 4 0 0">
-            <!-- Group list -->
-            <PanelContainer StyleClasses="AngleRect" VerticalExpand="True" MaxWidth="160">
-                <ScrollContainer VerticalExpand="True" MinWidth="150" HorizontalExpand="True" HScrollEnabled="False">
-                    <BoxContainer Name="GroupList"
+        <!-- Group list (full width, collapsible bars) -->
+        <ScrollContainer HorizontalExpand="True" HScrollEnabled="False" ReturnMeasure="True" MaxHeight="150" Margin="0 4 0 0">
+            <BoxContainer Name="GroupList"
+                          Orientation="Vertical"
+                          HorizontalExpand="True"
+                          Margin="4">
+                <Label Name="NoGroupsLabel"
+                       Text="{Loc pipboy-hub-no-groups}"
+                       HorizontalAlignment="Center"
+                       StyleClasses="LabelSubText" />
+            </BoxContainer>
+        </ScrollContainer>
+
+        <!-- Selected group chat/tracking panel -->
+        <PanelContainer StyleClasses="AngleRect" VerticalExpand="True" HorizontalExpand="True" Margin="0 4 0 0">
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="4">
+                <Label Name="GroupChatTitle"
+                       Text="{Loc pipboy-hub-group-select-prompt}"
+                       StyleClasses="LabelHeading"
+                       Margin="0 0 0 4" />
+
+                <!-- Group tracking locations -->
+                <PanelContainer Name="GroupTrackingPanel"
+                                StyleClasses="AngleRect"
+                                MaxHeight="80"
+                                Visible="False"
+                                Margin="0 0 0 2">
+                    <BoxContainer Orientation="Vertical" Margin="4">
+                        <Label Text="{Loc pipboy-hub-group-tracking-header}"
+                               StyleClasses="LabelSubText" />
+                        <BoxContainer Name="GroupTrackingList"
+                                      Orientation="Vertical" />
+                    </BoxContainer>
+                </PanelContainer>
+
+                <!-- Group waypoints -->
+                <PanelContainer Name="GroupWaypointsPanel"
+                                StyleClasses="AngleRect"
+                                MaxHeight="100"
+                                Visible="False"
+                                Margin="0 0 0 2">
+                    <BoxContainer Orientation="Vertical" Margin="4">
+                        <Label Text="{Loc pipboy-hub-waypoints-header}"
+                               StyleClasses="LabelSubText" />
+                        <BoxContainer Name="GroupWaypointsList"
+                                      Orientation="Vertical" />
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 2 0 0">
+                            <LineEdit Name="WaypointLabelInput"
+                                      PlaceHolder="{Loc pipboy-hub-waypoint-label-placeholder}"
+                                      HorizontalExpand="True"
+                                      StyleClasses="OpenRight" />
+                            <Button Name="WaypointAddBtn"
+                                    Text="{Loc pipboy-hub-waypoint-add}"
+                                    MinWidth="50"
+                                    StyleClasses="OpenLeft" />
+                        </BoxContainer>
+                    </BoxContainer>
+                </PanelContainer>
+
+                <!-- Group password (for owner) -->
+                <BoxContainer Name="GroupEncryptionRow"
+                              Orientation="Horizontal"
+                              HorizontalExpand="True"
+                              Margin="0 0 0 2"
+                              Visible="False">
+                    <LineEdit Name="GroupEncryptPasswordInput"
+                              PlaceHolder="{Loc pipboy-hub-group-set-password-placeholder}"
+                              HorizontalExpand="True"
+                              StyleClasses="OpenRight" />
+                    <Button Name="GroupSetPasswordBtn"
+                            Text="{Loc pipboy-hub-group-set-password}"
+                            MinWidth="60"
+                            StyleClasses="OpenLeft" />
+                </BoxContainer>
+
+                <!-- Radio connection status -->
+                <Label Name="RadioStatusLabel"
+                       Text=""
+                       StyleClasses="LabelSubText"
+                       Visible="False"
+                       Margin="0 0 0 2" />
+
+                <!-- Group messages -->
+                <ScrollContainer Name="GroupMessagesScroll"
+                                 VerticalExpand="True"
+                                 HorizontalExpand="True"
+                                 Visible="False">
+                    <BoxContainer Name="GroupMessageList"
                                   Orientation="Vertical"
                                   VerticalExpand="True"
-                                  HorizontalExpand="True"
-                                  Margin="4">
-                        <Label Name="NoGroupsLabel"
-                               Text="{Loc pipboy-hub-no-groups}"
-                               HorizontalAlignment="Center"
-                               StyleClasses="LabelSubText" />
-                    </BoxContainer>
+                                  HorizontalExpand="True" />
                 </ScrollContainer>
-            </PanelContainer>
 
-            <!-- Group chat/tracking panel -->
-            <PanelContainer StyleClasses="AngleRect" VerticalExpand="True" HorizontalExpand="True" Margin="4 0 0 0">
-                <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="4">
-                    <Label Name="GroupChatTitle"
-                           Text="{Loc pipboy-hub-group-select-prompt}"
-                           StyleClasses="LabelHeading"
-                           Margin="0 0 0 4" />
-
-                    <!-- Group tracking locations -->
-                    <PanelContainer Name="GroupTrackingPanel"
-                                    StyleClasses="AngleRect"
-                                    MaxHeight="80"
-                                    Visible="False"
-                                    Margin="0 0 0 2">
-                        <BoxContainer Orientation="Vertical" Margin="4">
-                            <Label Text="{Loc pipboy-hub-group-tracking-header}"
-                                   StyleClasses="LabelSubText" />
-                            <BoxContainer Name="GroupTrackingList"
-                                          Orientation="Vertical" />
-                        </BoxContainer>
-                    </PanelContainer>
-
-                    <!-- Group waypoints -->
-                    <PanelContainer Name="GroupWaypointsPanel"
-                                    StyleClasses="AngleRect"
-                                    MaxHeight="100"
-                                    Visible="False"
-                                    Margin="0 0 0 2">
-                        <BoxContainer Orientation="Vertical" Margin="4">
-                            <Label Text="{Loc pipboy-hub-waypoints-header}"
-                                   StyleClasses="LabelSubText" />
-                            <BoxContainer Name="GroupWaypointsList"
-                                          Orientation="Vertical" />
-                            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 2 0 0">
-                                <LineEdit Name="WaypointLabelInput"
-                                          PlaceHolder="{Loc pipboy-hub-waypoint-label-placeholder}"
-                                          HorizontalExpand="True"
-                                          StyleClasses="OpenRight" />
-                                <Button Name="WaypointAddBtn"
-                                        Text="{Loc pipboy-hub-waypoint-add}"
-                                        MinWidth="50"
-                                        StyleClasses="OpenLeft" />
-                            </BoxContainer>
-                        </BoxContainer>
-                    </PanelContainer>
-
-                    <!-- Group password (for owner) -->
-                    <BoxContainer Name="GroupEncryptionRow"
-                                  Orientation="Horizontal"
-                                  HorizontalExpand="True"
-                                  Margin="0 0 0 2"
-                                  Visible="False">
-                        <LineEdit Name="GroupEncryptPasswordInput"
-                                  PlaceHolder="{Loc pipboy-hub-group-set-password-placeholder}"
-                                  HorizontalExpand="True"
-                                  StyleClasses="OpenRight" />
-                        <Button Name="GroupSetPasswordBtn"
-                                Text="{Loc pipboy-hub-group-set-password}"
-                                MinWidth="60"
-                                StyleClasses="OpenLeft" />
-                    </BoxContainer>
-
-                    <!-- Radio connection status -->
-                    <Label Name="RadioStatusLabel"
-                           Text=""
-                           StyleClasses="LabelSubText"
-                           Visible="False"
-                           Margin="0 0 0 2" />
-
-                    <!-- Group messages -->
-                    <ScrollContainer Name="GroupMessagesScroll"
-                                     VerticalExpand="True"
-                                     HorizontalExpand="True"
-                                     Visible="False">
-                        <BoxContainer Name="GroupMessageList"
-                                      Orientation="Vertical"
-                                      VerticalExpand="True"
-                                      HorizontalExpand="True" />
-                    </ScrollContainer>
-
-                    <!-- Group message input -->
-                    <BoxContainer Name="GroupMessageInputRow"
-                                  Orientation="Horizontal"
-                                  HorizontalExpand="True"
-                                  Margin="0 4 0 0"
-                                  Visible="False">
-                        <LineEdit Name="GroupMessageInput"
-                                  PlaceHolder="{Loc pipboy-hub-message-placeholder}"
-                                  HorizontalExpand="True"
-                                  StyleClasses="OpenRight" />
-                        <Button Name="GroupSendBtn"
-                                Text="{Loc pipboy-hub-send}"
-                                MinWidth="50"
-                                StyleClasses="OpenLeft" />
-                    </BoxContainer>
+                <!-- Group message input -->
+                <BoxContainer Name="GroupMessageInputRow"
+                              Orientation="Horizontal"
+                              HorizontalExpand="True"
+                              Margin="0 4 0 0"
+                              Visible="False">
+                    <LineEdit Name="GroupMessageInput"
+                              PlaceHolder="{Loc pipboy-hub-message-placeholder}"
+                              HorizontalExpand="True"
+                              StyleClasses="OpenRight" />
+                    <Button Name="GroupSendBtn"
+                            Text="{Loc pipboy-hub-send}"
+                            MinWidth="50"
+                            StyleClasses="OpenLeft" />
                 </BoxContainer>
-            </PanelContainer>
-        </BoxContainer>
+            </BoxContainer>
+        </PanelContainer>
     </BoxContainer>
 </pipboy:PipBoyGroupsUiFragment>

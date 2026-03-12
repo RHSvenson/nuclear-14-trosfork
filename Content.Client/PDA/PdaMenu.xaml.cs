@@ -40,6 +40,10 @@ namespace Content.Client.PDA
         private EntityUid? _pdaEntity;
         // #Misfits Add - Track whether an ID card is inserted (for Programs tab gating)
         private bool _hasIdCard;
+
+        // #Misfits Add - Called early by PdaBoundUserInterface before base.UpdateState triggers UpdateAvailablePrograms
+        public void SetHasIdCard(bool hasId) => _hasIdCard = hasId;
+
         // #Misfits Add - Body part TextureRects for health doll
         private Dictionary<TargetBodyPart, TextureRect>? _bodyPartControls;
 
