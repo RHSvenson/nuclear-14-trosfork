@@ -1517,3 +1517,73 @@ Entries:
   id: 5640
   time: '2026-03-13T18:30:40.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/118
+- author: Cythisiax
+  changes:
+    - type: Fix
+      message: Wound treater audio now uses valid brutepack and ointment sound effects.
+    - type: Fix
+      message: >-
+        Firewood's broken component has been commented out. The referenced
+        didn't exist.
+    - type: Fix
+      message: >-
+        Faction Bank Terminals no longer render a floating "weights" sprite
+        overlay. Duplicate and powered sprite layers (including the screen
+        state) have been removed, so the terminal now correctly shows only its
+        off-state appearance regardless of power.
+    - type: Fix
+      message: >-
+        Super Mutant NPC sprites across all variants (melee, ranged, Nightkin,
+        boss) have been rescaled to playable Super Mutant art footprint,
+        resolving the visually compressed appearance.
+    - type: Fix
+      message: >-
+        Portable generators (standard, heavy, and welding-fuel variants) now
+        start active at round start (on: true), preventing locations that depend
+        on them from losing power every round until a player manually turns them
+        on.
+    - type: Tweak
+      message: >-
+        NCR Captain, BoS West Elder Commander, and Caesar's Legion Legate have
+        been set to 0 active slots. These are now admin-notify command roles.
+        They remain in the roster but require admin action to fill.
+    - type: Tweak
+      message: >-
+        Raider slots on Wendover have been increased from 3 to 6 total,
+        reflecting their role as the wasteland's most common hostile faction.
+    - type: Tweak
+      message: >-
+        The Raider faction (job department) has been renamed from "Blood Hounds"
+        to "Outlaws" across all job UI and descriptions for a more thematically
+        fitting identity.
+    - type: Tweak
+      message: >-
+        SPECIAL stat descriptions on the character creation screen have been
+        rewritten to be more accurate and atmospheric. Charisma and Intelligence
+        now honestly state they are not yet implemented; the remaining five
+        reflect their actual gameplay effects.
+    - type: Tweak
+      message: >-
+        The currency wallet has been hidden from the status bar alert strip. It
+        remains fully accessible via the character screen, reducing HUD clutter
+        during normal play.
+    - type: Tweak
+      message: >-
+        Several ambient server systems have been disabled for performance and
+        stability. Temperature conduction and damage, rain puddle spawning, and
+        thermal ambience processing have all been commented out server-side,
+        reducing unnecessary tick overhead during normal play.
+    - type: Add
+      message: >-
+        Luck now does something. All junk piles carry a LuckJunkBonus component.
+        Players with high Luck have a chance to find a rare bonus item when
+        searching a junk pile, with odds scaling to their Luck stat.
+    - type: Add
+      message: >-
+        Emotes typed in chat (e.g. lol, rofl, :)) are now converted into action
+        emotes globally. When sent over a radio channel, they broadcast as radio
+        emotes with the suffix "over the radio" (e.g. [Wasteland] ULGA laughs
+        over the radio.), with no speech verb and no quotation marks.
+  id: 5641
+  time: '2026-03-13T21:55:34.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/116
