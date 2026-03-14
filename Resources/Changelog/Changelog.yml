@@ -1592,3 +1592,10 @@ Entries:
   id: 5642
   time: '2026-03-14T02:26:30.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/120
+- author: cythisiax
+  changes:
+    - type: Fix
+      message: supermutant accessibility thru randomize.
+  id: 5643
+  time: '2026-03-14T02:49:03.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/123
