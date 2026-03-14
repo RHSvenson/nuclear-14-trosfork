@@ -66,6 +66,28 @@
     - HidesHair
     - HidesBeard
 
+# #Misfits Add - BOS-issue T-45 helmet with Brotherhood tactical HUD.
+# Used by N14ClothingOuterPowerArmorT45 so BOS initiates/knights can access the shared map feed.
+# Raiders intentionally keep the plain T45 helmet (no map) via their own ToggleableClothing override.
+- type: entity
+  parent: N14ClothingHeadHelmetPowerArmorT45
+  id: N14ClothingHeadHelmetPowerArmorT45BOS
+  name: t-45 power armor helmet
+  description: An old helmet used with T-45 Power Armor suits. The Brotherhood of Steel keeps a tactical map feed active inside the visor.
+  components:
+  - type: WastelandMap
+    mapTexturePath: _Misfits/Maps/wendover_map.png
+    mapTitle: Brotherhood Tactical HUD
+    worldBounds: "-517,-308,484,311"
+    tacticalFeed: Brotherhood
+    compactHud: true
+  - type: WastelandMapAction
+    requiredSlot: HEAD
+  - type: UserInterface
+    interfaces:
+      enum.WastelandMapUiKey.Key:
+        type: WastelandMapBoundUserInterface
+
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: N14ClothingHeadHelmetPowerArmorT51
@@ -201,6 +223,27 @@
     tags:
     - HidesHair
     - HidesBeard
+
+# #Misfits Add - BOS-issue T-60 helmet with Brotherhood tactical HUD.
+# Used by N14ClothingOuterPowerArmorT60BOS so Senior Paladins can access the shared map feed.
+- type: entity
+  parent: N14ClothingHeadHelmetPowerArmorT60
+  id: N14ClothingHeadHelmetPowerArmorT60BOS
+  name: t-60 power armor helmet
+  description: A T-60 helmet carrying Brotherhood of Steel livery. The tactical map feed is active on the visor.
+  components:
+  - type: WastelandMap
+    mapTexturePath: _Misfits/Maps/wendover_map.png
+    mapTitle: Brotherhood Tactical HUD
+    worldBounds: "-517,-308,484,311"
+    tacticalFeed: Brotherhood
+    compactHud: true
+  - type: WastelandMapAction
+    requiredSlot: HEAD
+  - type: UserInterface
+    interfaces:
+      enum.WastelandMapUiKey.Key:
+        type: WastelandMapBoundUserInterface
 
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase

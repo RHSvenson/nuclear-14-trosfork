@@ -36,5 +36,26 @@
         </BoxContainer>
         <Label Name="ResultLabel" Access="Public"/>
 
+        <!-- Separator -->
+        <PanelContainer MinHeight="1" Modulate="#404040"/>
+
+        <!-- Custom freeform order section -->
+        <!-- #Misfits Add - admin can type an entirely custom title and description -->
+        <Label Text="{Loc loremaster-tab-custom-header}" Modulate="#87CEFA"/>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Label Text="{Loc loremaster-tab-custom-title-label}" VerticalAlignment="Center" MinWidth="90"/>
+            <LineEdit Name="CustomTitleEdit" Access="Public" HorizontalExpand="True"
+                      PlaceHolder="{Loc loremaster-tab-custom-title-placeholder}"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Label Text="{Loc loremaster-tab-custom-desc-label}" VerticalAlignment="Center" MinWidth="90"/>
+            <LineEdit Name="CustomDescEdit" Access="Public" HorizontalExpand="True"
+                      PlaceHolder="{Loc loremaster-tab-custom-desc-placeholder}"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Control HorizontalExpand="True"/>
+            <Button Name="IssueCustomButton" Text="{Loc loremaster-tab-custom-issue-button}" Access="Public" MinWidth="160"/>
+        </BoxContainer>
+
     </BoxContainer>
 </Control>

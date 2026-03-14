@@ -62,6 +62,20 @@ public sealed class IssueLoreMasterObjectiveEvent : EntityEventArgs
 }
 
 /// <summary>
+/// Admin → server: issue a fully custom (admin-typed) objective to the highest-ranking online
+/// member of a faction. Title and description are provided directly; no prototype is used.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class IssueCustomLoreMasterObjectiveEvent : EntityEventArgs
+{
+    public string FactionId = string.Empty;
+    /// <summary>Admin-supplied title shown in the C menu objective list.</summary>
+    public string CustomTitle = string.Empty;
+    /// <summary>Admin-supplied description shown beneath the title.</summary>
+    public string CustomDescription = string.Empty;
+}
+
+/// <summary>
 /// Server → admin client: result of an objective-issuance attempt.
 /// </summary>
 [Serializable, NetSerializable]

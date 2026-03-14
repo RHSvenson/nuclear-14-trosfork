@@ -76,6 +76,7 @@ public sealed partial class LoreMasterTab : Control
         FactionSelector.OnItemSelected += args => { FactionSelector.Select(args.Id); OnFactionChanged(); };
         RefreshButton.OnPressed += _ => RequestRefresh();
         IssueButton.OnPressed += _ => OnIssuePressed();
+        IssueCustomButton.OnPressed += _ => OnIssueCustomPressed(); // #Misfits Add
 
         OnFactionChanged();
     }
@@ -219,5 +220,22 @@ public sealed partial class LoreMasterTab : Control
         ResultLabel.Modulate = Color.Yellow;
 
         _loreMaster.IssueObjective(CurrentFactionId, proto);
+    }
+
+    // #Misfits Add - issue a fully admin-typed (freeform) objective to the top-ranked faction member.
+    private void OnIssueCustomPressed()
+    {
+        var title = CustomTitleEdit.Text.Trim();
+        if (string.IsNullOrEmpty(title))
+        {
+            ResultLabel.Text = Loc.GetString("loremaster-tab-custom-error-no-title");
+            ResultLabel.Modulate = Color.OrangeRed;
+            return;
+        }
+
+        ResultLabel.Text = Loc.GetString("loremaster-tab-issuing");
+        ResultLabel.Modulate = Color.Yellow;
+
+        _loreMaster.IssueCustomObjective(CurrentFactionId, title, CustomDescEdit.Text.Trim());
     }
 }

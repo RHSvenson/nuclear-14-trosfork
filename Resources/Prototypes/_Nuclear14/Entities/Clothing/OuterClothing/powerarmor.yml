@@ -40,7 +40,7 @@
     blockUnequipWhenAttached: true
     replaceCurrentClothing: false
     clothingPrototypes:
-      head: N14ClothingHeadHelmetPowerArmorT45
+      head: N14ClothingHeadHelmetPowerArmorT45BOS # #Misfits Change - BOS T45 now spawns the Brotherhood tactical-HUD helmet
       gloves: N14ClothingPAGauntlets
       shoes: N14ClothingPABoots
       back: N14ClothingPowerSystemsBack
@@ -135,6 +135,22 @@
   - type: ToggleableClothing
     clothingPrototypes:
       head: N14ClothingHeadHelmetPowerArmorT60
+      gloves: N14ClothingPAGauntlets
+      shoes: N14ClothingPABoots
+      back: N14ClothingPowerSystemsBack
+
+# #Misfits Add - BOS-variant T60 that equips the Brotherhood tactical-HUD helmet.
+# Senior Paladins wear this so they can access the shared BOS map feed.
+# The plain N14ClothingOuterPowerArmorT60 is intentionally left alone (NCR crafting ingredient).
+- type: entity
+  parent: N14ClothingOuterPowerArmorT60
+  id: N14ClothingOuterPowerArmorT60BOS
+  name: t-60 power armor
+  description: A T-60 suit maintained by the Brotherhood of Steel. The helmet visor carries an active tactical map feed.
+  components:
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: N14ClothingHeadHelmetPowerArmorT60BOS # #Misfits Change - BOS T60 uses BOS tactical-HUD helmet
       gloves: N14ClothingPAGauntlets
       shoes: N14ClothingPABoots
       back: N14ClothingPowerSystemsBack

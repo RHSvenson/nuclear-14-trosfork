@@ -8,7 +8,8 @@ namespace Content.Shared.Objectives.Components;
 /// <summary>
 /// Required component for an objective entity prototype.
 /// </summary>
-[RegisterComponent, Access(typeof(SharedObjectivesSystem))]
+// #Misfits Change: broadened Access from (rwx------) to (rwxrwxrw-) so LoreMasterSystem (Content.Server) can set Issuer on custom objectives at runtime.
+[RegisterComponent, Access(typeof(SharedObjectivesSystem), Other = AccessPermissions.ReadWrite)]
 public sealed partial class ObjectiveComponent : Component
 {
     /// <summary>

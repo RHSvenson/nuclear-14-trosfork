@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client._Misfits.Chat; // #Misfits Change
+using Content.Client._Misfits.Roster; // #Misfits Add
 using Content.Client.Administration.Systems; // #Misfits Change
 using Content.Client.Guidebook.RichText; // #Misfits Change
 using Content.Client.UserInterface.Systems.Chat.Controls;
@@ -73,7 +74,11 @@ public partial class ChatBox : UIWidget, ILinkClickHandler // #Misfits Change â€
         _controller.MessageAdded += OnMessageAdded;
         _controller.RegisterChat(this);
 
-       
+        // #Misfits Add - Wire the Roster button to open the crew manifest window.
+        // Uses RosterUIController so the network send has proper DI/entity-system access.
+        var rosterCtrl = UserInterfaceManager.GetUIController<RosterUIController>();
+        RosterButton.OnPressed += _ => rosterCtrl.RequestRoster();
+
         _cfg = IoCManager.Resolve<IConfigurationManager>();
         //_chatStackAmount = _cfg.GetCVar(CCVars.ChatStackLastLines);
         //if (_chatStackAmount < 0) // anti-idiot protection
