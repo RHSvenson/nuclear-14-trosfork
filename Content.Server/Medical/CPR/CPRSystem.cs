@@ -1,3 +1,11 @@
+// #Misfits Change — Entire upstream right-click CPR system commented out.
+// Redundant: the Misfits left-click CPR system (Content.Server/_Misfits/Medical/CPR/CPRSystem.cs)
+// supersedes this. That system works for any player with empty hands, heals brute + asphyxiation,
+// and has a built-in cooldown. This verb-based system only healed 6 Asphyxiation and required
+// CPRTrainingComponent (medical roles only).
+// CPRTrainingComponent and its trait are left intact so YAML prototypes remain valid;
+// without this system subscribing to events the component is simply inert.
+/*
 using Content.Server.Atmos.Rotting;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
@@ -137,3 +145,4 @@ public sealed class CPRSystem : EntitySystem
             performer.Comp.CPRPlayingStream = _audio.Stop(performer.Comp.CPRPlayingStream);
     }
 }
+*/
