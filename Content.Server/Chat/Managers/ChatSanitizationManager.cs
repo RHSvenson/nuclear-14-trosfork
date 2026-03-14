@@ -210,6 +210,7 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         { "wtf",  "chatsan-confused" },          // what the f***
         { "tbh",  "chatsan-shrugs" },            // to be honest
         { "idk",  "chatsan-shrugs" },            // I don't know
+        { "?",    "chatsan-confused" },          // Misfits Add - lone question mark (confusion/query reaction)
         // Physical gestures
         { "smh",  "chatsan-shakes-head" },       // shaking my head
         { "fml",  "chatsan-facepalms" },         // f*** my life

@@ -60,15 +60,16 @@
     speechSounds: Pai
   - type: BorgHands # #Misfits Change: Mr. Handy gets a third usable item slot
     handCount: 3
-  - type: IdleSound
-  - type: SpamEmitSound
-    minInterval: 15
-    maxInterval: 50
-    sound:
-      collection: N14HandyIdle
-      params:
-        volume: -7
-        maxDistance: 6
+  # #Misfits Change: Disabled idle/aggro auto-sounds for player-controlled robots — sounds fire uncontrollably while the player is present
+  # - type: IdleSound
+  # - type: SpamEmitSound
+  #   minInterval: 15
+  #   maxInterval: 50
+  #   sound:
+  #     collection: N14HandyIdle
+  #     params:
+  #       volume: -7
+  #       maxDistance: 6
   - type: StepTriggerImmune
   - type: NpcFactionMember
     factions:
@@ -133,15 +134,16 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai
-  - type: IdleSound
-  - type: SpamEmitSound
-    minInterval: 15
-    maxInterval: 50
-    sound:
-      collection: N14ProtectronIdle
-      params:
-        volume: -7
-        maxDistance: 6
+  # #Misfits Change: Disabled idle/aggro auto-sounds for player-controlled robots — sounds fire uncontrollably while the player is present
+  # - type: IdleSound
+  # - type: SpamEmitSound
+  #   minInterval: 15
+  #   maxInterval: 50
+  #   sound:
+  #     collection: N14ProtectronIdle
+  #     params:
+  #       volume: -7
+  #       maxDistance: 6
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.0
     baseSprintSpeed: 3.5
@@ -218,15 +220,16 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai
-  - type: IdleSound
-  - type: SpamEmitSound
-    minInterval: 15
-    maxInterval: 50
-    sound:
-      collection: N14GutsyIdle
-      params:
-        volume: -7
-        maxDistance: 6
+  # #Misfits Change: Disabled idle/aggro auto-sounds for player-controlled robots — sounds fire uncontrollably while the player is present
+  # - type: IdleSound
+  # - type: SpamEmitSound
+  #   minInterval: 15
+  #   maxInterval: 50
+  #   sound:
+  #     collection: N14GutsyIdle
+  #     params:
+  #       volume: -7
+  #       maxDistance: 6
   - type: StepTriggerImmune
   - type: NpcFactionMember
     factions:
@@ -290,15 +293,16 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai
-  - type: IdleSound
-  - type: SpamEmitSound
-    minInterval: 15
-    maxInterval: 50
-    sound:
-      collection: N14AssaultronIdle
-      params:
-        volume: -7
-        maxDistance: 6
+  # #Misfits Change: Disabled idle/aggro auto-sounds for player-controlled robots — sounds fire uncontrollably while the player is present
+  # - type: IdleSound
+  # - type: SpamEmitSound
+  #   minInterval: 15
+  #   maxInterval: 50
+  #   sound:
+  #     collection: N14AssaultronIdle
+  #     params:
+  #       volume: -7
+  #       maxDistance: 6
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.0
     baseSprintSpeed: 6.0

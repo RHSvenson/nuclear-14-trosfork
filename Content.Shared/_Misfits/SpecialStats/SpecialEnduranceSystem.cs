@@ -11,6 +11,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
+using MobState = Content.Shared.Mobs.MobState; // #Misfits Fix: alias guards against Content.Shared._Misfits.MobState namespace shadowing the enum
 
 namespace Content.Shared._Misfits.SpecialStats;
 

@@ -26,6 +26,11 @@ public sealed class NeedFlavorTextSystem : EntitySystem
     private readonly Dictionary<EntityUid, ThirstThreshold> _lastThirstThresholds = new();
     private readonly Dictionary<EntityUid, TimeSpan> _nextCollapseAttemptAt = new();
 
+    // Misfits Tweak - Cooldown per entity to reduce flavortext spam when hovering near a threshold boundary.
+    private readonly Dictionary<EntityUid, TimeSpan> _nextHungerFlavorAt = new();
+    private readonly Dictionary<EntityUid, TimeSpan> _nextThirstFlavorAt = new();
+    private static readonly TimeSpan FlavorTextCooldown = TimeSpan.FromMinutes(5);
+
     private static readonly string[] HungerPeckishMessages =
     {
         "need-flavor-hunger-peckish-1",
@@ -86,12 +91,14 @@ public sealed class NeedFlavorTextSystem : EntitySystem
     {
         _lastHungerThresholds.Remove(uid);
         _nextCollapseAttemptAt.Remove(uid);
+        _nextHungerFlavorAt.Remove(uid);
     }
 
     private void OnThirstShutdown(EntityUid uid, ThirstComponent component, ComponentShutdown args)
     {
         _lastThirstThresholds.Remove(uid);
         _nextCollapseAttemptAt.Remove(uid);
+        _nextThirstFlavorAt.Remove(uid);
     }
 
     public override void Update(float frameTime)
@@ -149,7 +156,7 @@ public sealed class NeedFlavorTextSystem : EntitySystem
             }
 
             if (IsInterestingHungerThreshold(threshold))
-                SendAmbientNeedMessage(session, GetHungerMessages(threshold));
+                TrySendAmbientNeedMessage(uid, session, GetHungerMessages(threshold), _nextHungerFlavorAt);
 
             return;
         }
@@ -182,7 +189,7 @@ public sealed class NeedFlavorTextSystem : EntitySystem
             }
 
             if (IsInterestingThirstThreshold(threshold))
-                SendAmbientNeedMessage(session, GetThirstMessages(threshold));
+                TrySendAmbientNeedMessage(uid, session, GetThirstMessages(threshold), _nextThirstFlavorAt);
 
             return;
         }
@@ -202,8 +209,13 @@ public sealed class NeedFlavorTextSystem : EntitySystem
             _stun.TryKnockdown(uid, TimeSpan.FromSeconds(2.5f), true);
     }
 
-    private void SendAmbientNeedMessage(ICommonSession session, string[] messageKeys)
+    // Misfits Tweak - Only send if the per-entity cooldown has elapsed; update the cooldown on success.
+    private void TrySendAmbientNeedMessage(EntityUid uid, ICommonSession session, string[] messageKeys, Dictionary<EntityUid, TimeSpan> cooldownMap)
     {
+        if (cooldownMap.TryGetValue(uid, out var nextAt) && _timing.CurTime < nextAt)
+            return;
+
+        cooldownMap[uid] = _timing.CurTime + FlavorTextCooldown;
         var text = Loc.GetString(_random.Pick(messageKeys));
         _chat.SendPrivateDoMessage(session, text);
     }

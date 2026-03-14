@@ -176,7 +176,16 @@ public sealed class FactionBankTerminalSystem : EntitySystem
                 var tileLocal = _maps.GridTileToLocal(grid, grid.Comp,
                     new Vector2i(record.TileX, record.TileY));
 
-                Spawn(record.PrototypeId, tileLocal);
+                // #Misfits Fix — capture UID and stamp PlacementKey immediately.
+                // OnTerminalStartup is skipped when _isSelfSpawning is true, so
+                // the key would otherwise be empty, causing OnTerminalShutdown to
+                // skip the DB removal when the entity is later deleted from the round.
+                var spawnedUid = Spawn(record.PrototypeId, tileLocal);
+                if (TryComp<FactionBankTerminalComponent>(spawnedUid, out var atmComp))
+                {
+                    atmComp.PlacementKey = key;
+                    Dirty(spawnedUid, atmComp);
+                }
                 _log.Debug($"Respawned ATM '{record.PrototypeId}' at {key}");
             }
         }

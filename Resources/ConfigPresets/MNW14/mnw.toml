@@ -69,6 +69,10 @@ wiki = "https://ss14.misfitsystems.net/wiki/index.php/Main_Page"
 tickrate = 25
 bindto = "::,0.0.0.0"
 log_late_msg = false
+# #Misfits Fix - increase send/receive buffers to 1 MB to avoid
+# "send buffer full" errors during long rounds with 20+ players.
+sendbuffersize = 1048576
+receivebuffersize = 1048576
 
 [physics]
 grid_splitting = false

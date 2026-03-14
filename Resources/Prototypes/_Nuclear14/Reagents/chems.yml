@@ -11,7 +11,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: MovespeedMixtureAmbient
-        cooldown: 12
+        cooldown: 40
         messageKeys:
         - drug-ambience-movespeed-mixture-1
         - drug-ambience-movespeed-mixture-2
@@ -84,7 +84,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: RobustMovespeedMixtureAmbient
-        cooldown: 10
+        cooldown: 35
         messageKeys:
         - drug-ambience-robust-movespeed-mixture-1
         - drug-ambience-robust-movespeed-mixture-2
@@ -145,7 +145,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: DamageModifyingMixtureAmbient
-        cooldown: 14
+        cooldown: 45
         messageKeys:
         - drug-ambience-damage-modifying-mixture-1
         - drug-ambience-damage-modifying-mixture-2
@@ -189,7 +189,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: DaytripperAmbient
-        cooldown: 14
+        cooldown: 45
         messageKeys:
         - drug-ambience-daytripper-1
         - drug-ambience-daytripper-2
@@ -223,7 +223,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: CateyeAmbient
-        cooldown: 18
+        cooldown: 55
         messageKeys:
         - drug-ambience-cateye-1
         - drug-ambience-cateye-2
@@ -249,7 +249,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: BuffoutAmbient
-        cooldown: 14
+        cooldown: 45
         messageKeys:
         - drug-ambience-buffout-1
         - drug-ambience-buffout-2
@@ -301,7 +301,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: BuffjetAmbient
-        cooldown: 12
+        cooldown: 40
         messageKeys:
         - drug-ambience-buffjet-1
         - drug-ambience-buffjet-2
@@ -344,7 +344,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: BufftatsAmbient
-        cooldown: 14
+        cooldown: 45
         messageKeys:
         - drug-ambience-bufftats-1
         - drug-ambience-bufftats-2
@@ -377,7 +377,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: MentatsAmbient
-        cooldown: 16
+        cooldown: 50
         messageKeys:
         - drug-ambience-mentats-1
         - drug-ambience-mentats-2
@@ -404,7 +404,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: MentatsBerryAmbient
-        cooldown: 16
+        cooldown: 50
         messageKeys:
         - drug-ambience-mentats-berry-1
         - drug-ambience-mentats-berry-2
@@ -427,7 +427,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: MentatsGrapeAmbient
-        cooldown: 16
+        cooldown: 50
         messageKeys:
         - drug-ambience-mentats-grape-1
         - drug-ambience-mentats-grape-2
@@ -450,7 +450,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: MentatsOrangeAmbient
-        cooldown: 16
+        cooldown: 50
         messageKeys:
         - drug-ambience-mentats-orange-1
         - drug-ambience-mentats-orange-2
@@ -473,7 +473,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: DamageResistMixtureAmbient
-        cooldown: 14
+        cooldown: 45
         messageKeys:
         - drug-ambience-damage-resist-mixture-1
         - drug-ambience-damage-resist-mixture-2
@@ -511,7 +511,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: HydraAmbient
-        cooldown: 12
+        cooldown: 40
         messageKeys:
         - drug-ambience-hydra-1
         - drug-ambience-hydra-2
@@ -559,7 +559,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: MourningPoulticeAmbient
-        cooldown: 16
+        cooldown: 50
         messageKeys:
         - drug-ambience-mourning-poultice-1
         - drug-ambience-mourning-poultice-2

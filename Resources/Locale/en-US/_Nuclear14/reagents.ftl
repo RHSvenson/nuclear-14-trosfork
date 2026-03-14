@@ -307,7 +307,8 @@ reagent-name-antiseptic = Antiseptic
 reagent-desc-antiseptic = A cleaning solution made from Abraxo Cleaner and some Rubbing Alcohol.
 
 # Ores, Metals, Materials
-materials-circuitry = circuitry # #Misfits Add: was a raw name string in the material prototype with no FTL entry — triggered WARN in MaterialDisplay.xaml.cs
+# Misfits Add: circuitry had no FTL entry — added here to avoid raw name string rendering in MaterialDisplay
+materials-circuitry = circuitry
 materials-aluminum = aluminum
 materials-antchitin = chitin
 materials-charcoal = charcoal
@@ -336,6 +337,13 @@ materials-scrap = scrap
 materials-raw-aluminum = raw aluminum
 materials-raw-sulfur = raw sulfur
 materials-sulfur = sulfur
+# Misfits Add: Currency materials — keys were camelCase raw strings with no FTL entries, rendering blank in lathe material panel
+legionAurei = aureus
+legiondenarius = denarius
+ncrCredit = NCR credit
+# Misfits Add: Missing material keys for N14 organics/crafting materials
+materials-fertilizer = fertilizer
+materials-timber = timber
 
 reagent-name-gunpowder = gunpowder
 reagent-desc-gunpowder = Small pellet gunpowder. Now just add lead.

@@ -12,8 +12,11 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> AllowMovementWhileCrit =
         CVarDef.Create("mobstate.allow_movement_while_crit", true, CVar.REPLICATED);
 
+    // #Misfits Fix - Players were able to speak in Local chat during Critical state, which is unintended.
+    // Changed default from true to false so crit entities cannot speak unless the CVar is explicitly enabled per-server.
+    // ActionCritLastWords still works because it uses AllowNextCritSpeechComponent to bypass this check.
     public static readonly CVarDef<bool> AllowTalkingWhileCrit =
-        CVarDef.Create("mobstate.allow_talking_while_crit", true, CVar.REPLICATED);
+        CVarDef.Create("mobstate.allow_talking_while_crit", false, CVar.REPLICATED);
 
     /// <summary>
     ///     Currently does nothing because I would have to figure out WHERE I would even put this check, and the mover controller is fairly complicated.

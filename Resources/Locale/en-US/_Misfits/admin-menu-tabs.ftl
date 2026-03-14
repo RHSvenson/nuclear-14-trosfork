@@ -21,6 +21,16 @@ loremaster-tab-target-label = Will issue to: {$name} ({$job})
 loremaster-tab-member-count = Online members: {$count}
 loremaster-tab-issuing = Issuing...
 
+## Custom freeform order section
+# #Misfits Add - labels/hints for the admin-typed custom order fields
+loremaster-tab-custom-header = Issue Custom Order
+loremaster-tab-custom-title-label = Title:
+loremaster-tab-custom-desc-label = Description:
+loremaster-tab-custom-title-placeholder = e.g. Secure the perimeter
+loremaster-tab-custom-desc-placeholder = Optional — additional detail for the recipient
+loremaster-tab-custom-issue-button = Issue Custom Order
+loremaster-tab-custom-error-no-title = Custom order title cannot be empty.
+
 ## Per-faction objective selector labels
 # NCR
 loremaster-obj-ncr-kill = Eliminate High-Value Target

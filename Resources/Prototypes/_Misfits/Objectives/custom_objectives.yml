@@ -1,0 +1,23 @@
+# #Misfits Add - Custom objective placeholder prototype for the Loremaster admin tab.
+# Title and description are overridden server-side from admin input (LoreMasterSystem).
+# The icon is a generic folder sprite; the entity name/description set in YAML act as fallbacks only.
+# unique: false — an admin may issue multiple standing orders to the same member.
+# issuer is set server-side to match the issuing faction.
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseObjective
+  id: LoreMasterCustomObjective
+  name: Custom Order
+  description: A special order has been issued.
+  components:
+  - type: Objective
+    # Generic briefcase icon — neutral, fits an "admin order" aesthetic.
+    icon:
+      sprite: Objects/Misc/bureaucracy.rsi
+      state: folder-white
+    difficulty: 0.0
+    # Issuer is overridden per-faction server-side; unknown is the safe YAML default.
+    issuer: objective-issuer-unknown
+    unique: false  # Admins can issue multiple distinct custom orders.
+  - type: CustomObjective

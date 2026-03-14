@@ -1,3 +1,4 @@
+using System.Linq; // #Misfits Fix: needed for IReadOnlyList<T>.Contains() extension
 using System.Numerics;
 using Content.Client.Stylesheets;
 using Content.Shared.CCVar;
@@ -403,6 +404,46 @@ namespace Content.Client.Options.UI.Tabs
             }
 
             var key = keyEvent.Key;
+
+            // #Misfits Fix - Pressing Escape cancels the rebinding operation instead of accidentally
+            // binding Escape to a key function, which would break menu navigation. This is standard
+            // game UX: ESC = cancel, not bind.
+            if (key == Keyboard.Key.Escape)
+            {
+                var rebinding = _currentlyRebinding;
+                _currentlyRebinding = null;
+
+                // Restore the previous binding if it was removed when rebind mode was entered.
+                // We defer this because RemoveBinding was itself deferred and may not have run yet.
+                _deferCommands.Add(() =>
+                {
+                    if (rebinding.Binding != null &&
+                        !_inputManager.GetKeyBindings(rebinding.KeyControl.Function).Contains(rebinding.Binding))
+                    {
+                        // The old binding was removed; re-register it to restore the prior state.
+                        var oldReg = new KeyBindingRegistration
+                        {
+                            Function = rebinding.Binding.Function,
+                            BaseKey = rebinding.Binding.BaseKey,
+                            Mod1 = rebinding.Binding.Mod1,
+                            Mod2 = rebinding.Binding.Mod2,
+                            Mod3 = rebinding.Binding.Mod3,
+                            Priority = rebinding.Binding.Priority,
+                            Type = rebinding.Binding.BindingType,
+                            CanFocus = rebinding.Binding.CanFocus,
+                            CanRepeat = rebinding.Binding.CanRepeat,
+                            AllowSubCombs = rebinding.Binding.AllowSubCombs,
+                            CommandWhenUIFocused = rebinding.Binding.CommandWhenUIFocused,
+                        };
+                        _inputManager.RegisterBinding(oldReg);
+                    }
+
+                    // Refresh the row to reflect current (restored) state.
+                    UpdateKeyControl(rebinding.KeyControl);
+                });
+
+                return;
+            }
 
             // Figure out modifiers based on key event.
             // TODO: this won't allow for combinations with keys other than the standard modifier keys,

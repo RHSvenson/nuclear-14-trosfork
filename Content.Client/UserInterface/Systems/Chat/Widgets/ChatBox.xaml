@@ -11,6 +11,11 @@
                     StyleClasses="StyleNano.StyleClassChatPanel">
         <BoxContainer Orientation="Vertical" SeparationOverride="4" HorizontalExpand="True" VerticalExpand="True">
             <OutputPanel Name="Contents" HorizontalExpand="True" VerticalExpand="True" Margin="8 8 8 4" />
+            <!-- #Misfits Add - Roster button row: opens the crew manifest (department/role/player list). -->
+            <!-- Placed above the chat input so it's visible in lobby and in-game without extra menus. -->
+            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Right" Margin="2 0 2 0" SeparationOverride="2">
+                <Button Name="RosterButton" Access="Public" Text="Roster" MinWidth="60" />
+            </BoxContainer>
             <controls:ChatInputBox HorizontalExpand="True" Name="ChatInput" Access="Public" Margin="2"/>
         </BoxContainer>
     </PanelContainer>

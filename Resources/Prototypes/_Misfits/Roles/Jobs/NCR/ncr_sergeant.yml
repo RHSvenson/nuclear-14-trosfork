@@ -42,6 +42,7 @@
     hands: N14ClothingHandsGlovesCombat
     jumpsuit: N14ClothingOfficerUniformNCRDesert # Corvax-Change
     shoes: N14ClothingBootsCombatFilled
+    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
     neck: N14ClothingNeckMantleNCR
     belt: ClothingBeltNCR
     outerClothing: N14ClothingOuterNCRCombatArmor

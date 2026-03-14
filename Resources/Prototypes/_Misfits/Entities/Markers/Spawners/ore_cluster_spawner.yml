@@ -18,11 +18,15 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    # Uses the biome spawner marker icon so it's visible to admins via Show Spawns.
+    # Misfits Change: Two-layer composite — basalt floor base + ore-vein overlay — so the
+    # spawner is visually recognisable as an ore mining zone to mappers and in-game players.
     snapCardinals: true
     drawdepth: Overdoors
-    sprite: _Nuclear14/Markers/biome.rsi
-    color: "#FF6600"  # orange tint to distinguish from biome markers
+    sprite: Tiles/Planet/basalt.rsi
+    layers:
+      - state: basalt1                        # basalt floor base texture
+      - sprite: Structures/Walls/rock.rsi
+        state: rock_asteroid_ore              # generic ore-vein indicator overlay
 
 # Default: drought rock walls matching Wendover's aesthetic, ~4–9 tile radius
 - type: entity

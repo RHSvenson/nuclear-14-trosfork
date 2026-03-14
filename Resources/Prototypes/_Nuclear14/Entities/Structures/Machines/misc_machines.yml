@@ -75,17 +75,19 @@
   - type: Sprite
     layers:
     - state: wartable_broken
-  # #Misfits Add - Repurposed as NCR CO tactical map terminal.
+  # #Misfits Tweak - Repurposed as NCR tactical map terminal (all ranks).
   # Overrides the parent's Brotherhood-feed WastelandMap with an NCR feed.
-  # Restricted to NCRCaptain access level only. All NCR dogtags inherit
-  # IdCardNCR from N14IDNCRDogtag, so every NCR member appears as a blip.
+  # Changed from NCRCaptain-only to base NCR access so every NCR role
+  # (Recruit through Captain, Rangers, Doctors, etc.) can use the map.
+  # All NCR dogtags inherit IdCardNCR from N14IDNCRDogtag, so every NCR
+  # member appears as a blip on the feed regardless of who opens it.
   - type: WastelandMap
     mapTexturePath: _Misfits/Maps/wendover_map.png
     mapTitle: NCR Tactical Map - Wendover
     worldBounds: "-517,-308,484,311"
     tacticalFeed: NCR
   - type: AccessReader
-    access: [["NCRCaptain"]]
+    access: [["NCR"]] # #Misfits Tweak - was [["NCRCaptain"]], opened to all NCR
   - type: ActivatableUIRequiresAccess
   # End Misfits Add
   - type: Destructible

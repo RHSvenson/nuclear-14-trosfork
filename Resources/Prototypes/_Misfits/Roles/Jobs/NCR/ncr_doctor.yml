@@ -44,6 +44,7 @@
     outerClothing: N14ClothingOuterNCRPouchedVestDesert # Forge-Change
     back: N14ClothingBackpackNCR # Corvax-Change
     shoes: N14ClothingBootsLeatherFilled
+    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
     neck: ClothingNeckPinNCRDoctor
     belt: ClothingBeltNCR
     id: N14IDNCRDogtagDoctorSenior

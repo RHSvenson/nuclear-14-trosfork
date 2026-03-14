@@ -7,12 +7,15 @@ using Content.Server.Chat.Managers;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Shared._Misfits.Administration;
+using Content.Shared._Misfits.Objectives; // #Misfits Add - CustomObjectiveComponent
 using Content.Shared.Administration;
 using Content.Shared.Chat;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems; // #Misfits Change /Fix/ - RA0002
+using Content.Shared.Objectives.Components;
 using Content.Shared.Objectives.Systems;
 using Robust.Shared.Enums;
+using Robust.Shared.GameObjects; // #Misfits Add - MetaDataSystem
 using Robust.Shared.Player;
 using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
@@ -34,6 +37,7 @@ public sealed class LoreMasterSystem : EntitySystem
     [Dependency] private readonly JobSystem _jobs = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!; // #Misfits Change /Fix/ - RA0002
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!; // #Misfits Add - set custom objective title/description
 
     // Faction display names and chat-markup colours used when formatting notifications.
     private static readonly Dictionary<string, (string Display, string Color)> FactionConfig = new()
@@ -43,11 +47,21 @@ public sealed class LoreMasterSystem : EntitySystem
         ["CaesarLegion"]       = ("Caesar's Legion",      "#8B0000"),
     };
 
+    // #Misfits Add - maps faction ID → objective-issuer locale key for the custom objective prototype.
+    // This ensures the custom order groups under the correct coloured faction header in the C menu.
+    private static readonly Dictionary<string, string> FactionIssuer = new()
+    {
+        ["NCR"]                = "ncr",
+        ["BrotherhoodOfSteel"] = "brotherhoodofsteel",
+        ["CaesarLegion"]       = "caesarlegion",
+    };
+
     public override void Initialize()
     {
         base.Initialize();
         SubscribeNetworkEvent<RequestLoreMasterFactionInfoEvent>(OnRequestFactionInfo);
         SubscribeNetworkEvent<IssueLoreMasterObjectiveEvent>(OnIssueObjective);
+        SubscribeNetworkEvent<IssueCustomLoreMasterObjectiveEvent>(OnIssueCustomObjective); // #Misfits Add
     }
 
     // ── Query ─────────────────────────────────────────────────────────────
@@ -108,13 +122,21 @@ public sealed class LoreMasterSystem : EntitySystem
         var objective = _objectives.TryCreateObjective(mindId, mind, msg.ObjectivePrototype);
         if (objective == null)
         {
-            // #Misfits Change /Fix/ - distinguish 'prototype not found' from 'no targets online'
-            // TryCreateObjective cancels and returns null both when faction requirements aren't met
-            // AND when ObjectiveAssignedEvent is cancelled (e.g. PickRandomEnemyHead finds no enemies).
+            // #Misfits Change /Fix/ - distinguish the three failure modes:
+            // 1. Prototype doesn't exist at all.
+            // 2. Unique constraint — target already holds this exact objective.
+            // 3. Runtime cancellation — no valid target (enemy offline) or steal limit hit.
             if (!_protoManager.HasIndex<EntityPrototype>(msg.ObjectivePrototype))
             {
                 Respond(args.SenderSession, false,
                     $"Unknown objective prototype '{msg.ObjectivePrototype}'.");
+            }
+            else if (mind.AllObjectives.Any(o =>
+                MetaData(o).EntityPrototype?.ID == msg.ObjectivePrototype))
+            {
+                // unique: true blocked the assignment — the member already has this objective
+                Respond(args.SenderSession, false,
+                    $"Could not assign '{msg.ObjectivePrototype}'.\n{topMember.PlayerName} already has this objective assigned.");
             }
             else
             {
@@ -133,6 +155,74 @@ public sealed class LoreMasterSystem : EntitySystem
 
         Respond(args.SenderSession, true,
             $"Issued '{msg.ObjectivePrototype}' to {topMember.PlayerName} ({topMember.JobName}).");
+    }
+
+    // ── Custom objective issuance ──────────────────────────────────────────
+
+    // #Misfits Add - issue a fully admin-typed (freeform) objective to the top-ranked faction member.
+    private void OnIssueCustomObjective(IssueCustomLoreMasterObjectiveEvent msg, EntitySessionEventArgs args)
+    {
+        if (!_adminManager.IsAdmin(args.SenderSession))
+            return;
+
+        // Basic server-side sanity — client validates too, but never trust client-only checks.
+        var title = msg.CustomTitle.Trim();
+        if (string.IsNullOrEmpty(title))
+        {
+            Respond(args.SenderSession, false, "Custom order title cannot be empty.");
+            return;
+        }
+
+        var members = BuildMemberList(msg.FactionId);
+        if (members.Count == 0)
+        {
+            Respond(args.SenderSession, false, $"No online {msg.FactionId} members found.");
+            return;
+        }
+
+        var topMember = members[0];
+        ICommonSession? targetSession = null;
+        var actorQuery = EntityQueryEnumerator<ActorComponent>();
+        while (actorQuery.MoveNext(out _, out var actor))
+        {
+            if (actor.PlayerSession.Name == topMember.PlayerName)
+            {
+                targetSession = actor.PlayerSession;
+                break;
+            }
+        }
+
+        if (targetSession?.AttachedEntity == null)
+        {
+            Respond(args.SenderSession, false, "Could not locate target session.");
+            return;
+        }
+
+        if (!_minds.TryGetMind(targetSession.AttachedEntity.Value, out var mindId, out var mind))
+        {
+            Respond(args.SenderSession, false, "Target has no mind.");
+            return;
+        }
+
+        // Spawn the placeholder prototype and override its metadata before adding to the mind.
+        // We bypass TryCreateObjective here because there is no target-selection event to fire.
+        var uid = Spawn("LoreMasterCustomObjective");
+        _metaData.SetEntityName(uid, title);
+        _metaData.SetEntityDescription(uid, msg.CustomDescription.Trim());
+
+        // Set the issuer to match the faction so it groups correctly in the C menu.
+        var issuerKey = FactionIssuer.GetValueOrDefault(msg.FactionId, "unknown");
+        var objComp = Comp<ObjectiveComponent>(uid);
+        objComp.Issuer = issuerKey;
+        Dirty(uid, objComp);
+
+        _minds.AddObjective(mindId, mind, uid);
+
+        // Deliver in-world faction notification (same style as preset objectives).
+        SendFactionOrderNotification(targetSession, msg.FactionId, title, msg.CustomDescription.Trim());
+
+        Respond(args.SenderSession, true,
+            $"Custom order issued to {topMember.PlayerName} ({topMember.JobName}): {title}");
     }
 
     // ── Helpers ───────────────────────────────────────────────────────────

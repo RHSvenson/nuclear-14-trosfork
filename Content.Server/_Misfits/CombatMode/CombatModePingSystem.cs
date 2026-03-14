@@ -1,5 +1,7 @@
 // Misfits Change - Plays a short local-area ping when a player or NPC activates combat mode.
 // Anti-spam cooldown prevents rapidly toggling the sound by flicking combat mode on and off.
+// Cleans up stale entries for deleted entities to prevent memory leaks over long rounds.
+using Content.Server.NPC.HTN;
 using Content.Shared.CombatMode;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
@@ -13,11 +15,12 @@ namespace Content.Server._Misfits.CombatMode;
 public sealed class CombatModeActivatedEvent : EntityEventArgs { }
 
 /// <summary>
-/// Plays a positional ping sound (audible within voice range, ~10 tiles) whenever a
-/// non-NPC entity (i.e. a player) activates combat mode via the Num1 toggle.
+/// Plays a positional ping sound (audible within voice range, ~10 tiles) whenever
+/// an entity activates combat mode. For NPCs the cooldown is longer to avoid audio spam
+/// flooding the network send buffer during large engagements.
 /// <para>
-/// A per-player cooldown blocks the sound from replaying if the player rapidly
-/// toggles combat mode on and off.
+/// A per-entity cooldown blocks the sound from replaying if combat mode is toggled rapidly.
+/// Stale dictionary entries are pruned periodically to prevent memory leaks on long rounds.
 /// </para>
 /// </summary>
 public sealed class CombatModePingSystem : EntitySystem
@@ -28,6 +31,10 @@ public sealed class CombatModePingSystem : EntitySystem
     // Seconds a player must wait before the ping can play again after being triggered.
     private const float PingCooldownSeconds = 3f;
 
+    // #Misfits Tweak - NPCs get a longer cooldown to avoid flooding the network with audio
+    // packets when dozens of mobs aggro simultaneously.
+    private const float NpcPingCooldownSeconds = 10f;
+
     // Voice range in world units — matches SharedChatSystem.VoiceRange (10).
     private const float PingMaxDistance = 10f;
 
@@ -36,6 +43,10 @@ public sealed class CombatModePingSystem : EntitySystem
 
     // Per-entity timestamp of when the ping last played, used to enforce the cooldown.
     private readonly Dictionary<EntityUid, TimeSpan> _lastPingTime = new();
+
+    // #Misfits Fix - Accumulator for periodic cleanup of stale entries (dead/deleted entities).
+    private float _cleanupAccumulator;
+    private const float CleanupIntervalSeconds = 60f;
 
     public override void Initialize()
     {
@@ -53,17 +64,45 @@ public sealed class CombatModePingSystem : EntitySystem
         _lastPingTime.Clear();
     }
 
+    // #Misfits Fix - Periodically prune entries for entities that no longer exist.
+    // Prevents the dictionary from growing unbounded during 3+ hour rounds with mob churn.
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        _cleanupAccumulator += frameTime;
+        if (_cleanupAccumulator < CleanupIntervalSeconds)
+            return;
+
+        _cleanupAccumulator -= CleanupIntervalSeconds;
+
+        // Remove entries for entities that have been deleted.
+        var toRemove = new List<EntityUid>();
+        foreach (var uid in _lastPingTime.Keys)
+        {
+            if (!Exists(uid))
+                toRemove.Add(uid);
+        }
+
+        foreach (var uid in toRemove)
+            _lastPingTime.Remove(uid);
+    }
+
     private void OnCombatModeActivated(EntityUid uid, CombatModeComponent comp, CombatModeActivatedEvent args)
     {
-        // Enforce anti-spam cooldown so rapid on/off toggling cannot replay the ping.
+        var isNpc = HasComp<HTNComponent>(uid);
+
+        // Use a longer cooldown for NPCs to avoid saturating the network send buffer.
+        var cooldown = isNpc ? NpcPingCooldownSeconds : PingCooldownSeconds;
+
+        // Enforce anti-spam cooldown.
         var now = _timing.CurTime;
         if (_lastPingTime.TryGetValue(uid, out var lastPing) &&
-            (now - lastPing).TotalSeconds < PingCooldownSeconds)
+            (now - lastPing).TotalSeconds < cooldown)
             return;
 
         _lastPingTime[uid] = now;
 
-        // #Misfits Tweak - NPCs also play the ping when they aggro, not just players.
         // Play positional ping audible within local/voice range (~10 tiles).
         _audio.PlayPvs(
             new SoundPathSpecifier(PingSound),

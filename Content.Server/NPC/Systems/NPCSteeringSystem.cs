@@ -28,6 +28,9 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Prying.Systems;
+using Content.Server.Worldgen; // #Misfits Add - chunk-aware steering
+using Content.Server.Worldgen.Components; // #Misfits Add - chunk-aware steering
+using Content.Server.Worldgen.Systems; // #Misfits Add - chunk-aware steering
 using Microsoft.Extensions.ObjectPool;
 
 namespace Content.Server.NPC.Systems;
@@ -61,6 +64,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly WorldControllerSystem _worldController = default!; // #Misfits Add - chunk-aware steering
 
     private EntityQuery<FixturesComponent> _fixturesQuery;
     private EntityQuery<MovementSpeedModifierComponent> _modifierQuery;
@@ -68,6 +72,8 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
     private EntityQuery<NPCRangedCombatComponent> _npcRangedQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<TransformComponent> _xformQuery;
+    private EntityQuery<WorldControllerComponent> _worldMapQuery; // #Misfits Add - chunk-aware steering
+    private EntityQuery<LoadedChunkComponent> _loadedChunkQuery; // #Misfits Add - chunk-aware steering
 
     private ObjectPool<HashSet<EntityUid>> _entSetPool =
         new DefaultObjectPool<HashSet<EntityUid>>(new SetPolicy<EntityUid>());
@@ -103,6 +109,8 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         _npcRangedQuery = GetEntityQuery<NPCRangedCombatComponent>();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
+        _worldMapQuery = GetEntityQuery<WorldControllerComponent>(); // #Misfits Add
+        _loadedChunkQuery = GetEntityQuery<LoadedChunkComponent>(); // #Misfits Add
 
         for (var i = 0; i < InterestDirections; i++)
         {
@@ -144,6 +152,22 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
                 comp.PathfindToken = null;
             }
         }
+    }
+
+    // #Misfits Add - Mirrors HTNSystem.IsNPCActive (Corvax).
+    // Returns false when the NPC is in a worldgen chunk that has no active loaders,
+    // so we don't waste CPU steering NPCs that nobody can see.
+    private bool IsChunkLoaded(EntityUid uid, TransformComponent xform)
+    {
+        if (!_worldMapQuery.TryGetComponent(xform.MapUid, out var worldComponent))
+            return true; // Not a worldgen map — always active.
+
+        var chunk = _worldController.GetOrCreateChunk(
+            WorldGen.WorldToChunkCoords(_transform.GetWorldPosition(xform)).Floored(),
+            xform.MapUid!.Value,
+            worldComponent);
+
+        return _loadedChunkQuery.TryGetComponent(chunk, out var loaded) && loaded.Loaders is not null;
     }
 
     private void OnDebugRequest(RequestNPCSteeringDebugEvent msg, EntitySessionEventArgs args)
@@ -243,6 +267,12 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
 
         while (query.MoveNext(out var uid, out _, out var steering, out var mover, out var xform))
         {
+            // #Misfits Add - Skip steering for NPCs in unloaded worldgen chunks.
+            // Mirrors the IsNPCActive check in HTNSystem so both planning and steering
+            // are skipped together, preventing wasted CPU on frozen mobs.
+            if (!IsChunkLoaded(uid, xform))
+                continue;
+
             _npcPool[index] = (uid, steering, mover, xform);
             index++;
         }

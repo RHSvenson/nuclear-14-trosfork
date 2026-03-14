@@ -8,6 +8,7 @@
   - type: Perishable
     rotAfter: 1800 # Half an in-game day.
   - type: Hunger # Forge-Change
+    baseDecayRate: 0.004 # Misfits Tweak - halved from 0.008 so hunger depletes ~2x slower; Peckish reached ~3.5hrs from typical start vs ~1.7hrs vanilla
     hungerThresholdDecayModifiers:
       Overfed: 1
       Okay: 0.6
@@ -22,6 +23,7 @@
     sprite: Mobs/Species/Human/parts.rsi
     state: full
   - type: Thirst
+    baseDecayRate: 0.02 # Misfits Tweak - reduced from 0.1 (5x slower); first "Thirsty" ~1hr from typical start vs ~13min vanilla; not Parched until ~2hrs
     dehydrationDamage:
       types:
         Cold: 0.15 # Misfits Change - use Cold damage for Dehydration instead of custom Dehydration type (no brute/bleed from thirst)

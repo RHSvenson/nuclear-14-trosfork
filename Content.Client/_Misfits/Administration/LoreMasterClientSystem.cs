@@ -41,6 +41,21 @@ public sealed class LoreMasterClientSystem : EntitySystem
         });
     }
 
+    /// <summary>
+    /// Ask the server to issue a fully custom (admin-typed) objective to the highest-ranking
+    /// online faction member. No prototype is involved — title and description are freeform.
+    /// </summary>
+    // #Misfits Add - custom order support
+    public void IssueCustomObjective(string factionId, string customTitle, string customDescription)
+    {
+        RaiseNetworkEvent(new IssueCustomLoreMasterObjectiveEvent
+        {
+            FactionId = factionId,
+            CustomTitle = customTitle,
+            CustomDescription = customDescription,
+        });
+    }
+
     private void OnFactionInfo(LoreMasterFactionInfoEvent msg)
     {
         OnFactionInfoReceived?.Invoke(msg);

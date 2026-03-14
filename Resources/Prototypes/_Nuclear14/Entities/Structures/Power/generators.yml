@@ -417,8 +417,8 @@
       minTargetPower: 1000
       optimalPower: 8000
       maxTargetPower: 8000
-      # 15 minutes at a full 250u tank.
-      optimalBurnRate: 0.11111111
+      # ~2 hours at a full 250u tank. #Misfits Tweak: reduced burn rate from 0.11111111 for longer runtime.
+      optimalBurnRate: 0.01388889
       fuelEfficiencyConstant: 0.3
     - type: ChemicalFuelGeneratorAdapter
       solution: tank
@@ -454,8 +454,8 @@
       minTargetPower: 1000
       optimalPower: 5000
       maxTargetPower: 5000
-      # Roughly one hour on a full 30-sheet hopper.
-      optimalBurnRate: 0.008333333
+      # Roughly two hours on a full 30-sheet hopper. #Misfits Tweak: halved burn rate from 0.008333333 to reduce fuel consumption.
+      optimalBurnRate: 0.004166667
       fuelEfficiencyConstant: 0.2
     - type: SolidFuelGeneratorAdapter
       fuelMaterial: Uranium
@@ -521,8 +521,8 @@
       minTargetPower: 1000
       optimalPower: 8000
       maxTargetPower: 8000
-      # 15 minutes at full tank.
-      optimalBurnRate: 0.11111111
+      # ~2 hours at full tank. #Misfits Tweak: reduced burn rate from 0.11111111 for longer runtime.
+      optimalBurnRate: 0.01388889
       fuelEfficiencyConstant: 0.3
     - type: ChemicalFuelGeneratorAdapter
       solution: tank
