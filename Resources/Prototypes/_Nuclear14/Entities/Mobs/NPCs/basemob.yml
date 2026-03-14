@@ -7,6 +7,8 @@
   slots:
     torso:
       part: TorsoAnimal
+      organs: #Misfits Fix - add stomach so N14 animals can eat/drink and be force-fed
+        stomach: OrganAnimalStomach
 
 - type: entity
   name: wasteland animal

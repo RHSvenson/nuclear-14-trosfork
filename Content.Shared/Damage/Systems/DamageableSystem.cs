@@ -206,6 +206,11 @@ namespace Content.Shared.Damage
                     continue;
 
                 var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + value);
+
+                // Clamp to per-type damage cap if one is configured.
+                if (damageable.DamageTypeCaps.TryGetValue(type, out var cap))
+                    newValue = FixedPoint2.Min(newValue, cap);
+
                 if (newValue == oldValue)
                     continue;
 

@@ -5,6 +5,9 @@
   name: Urist McHands
   abstract: true
   components:
+  - type: Damageable
+    damageTypeCaps:
+      Poison: 100 # N14: Prevent unrecoverable 500+ toxin states
   - type: Perishable
     rotAfter: 1800 # Half an in-game day.
   - type: Hunger # Forge-Change

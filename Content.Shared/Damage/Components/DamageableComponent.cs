@@ -86,6 +86,13 @@ namespace Content.Shared.Damage
 
         [DataField]
         public FixedPoint2? HealthBarThreshold;
+
+        /// <summary>
+        ///     Per-type maximum damage caps. If a damage type is listed here, it cannot exceed that value.
+        ///     Useful for preventing unrecoverable states (e.g. capping Toxin at 100 for humanoids).
+        /// </summary>
+        [DataField]
+        public Dictionary<string, FixedPoint2> DamageTypeCaps = new();
     }
 
     [Serializable, NetSerializable]

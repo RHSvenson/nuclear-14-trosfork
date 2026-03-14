@@ -124,6 +124,12 @@ public abstract partial class SharedBuckleSystem
             return;
         }
 
+        // #Misfits Fix — skip position-drift check for mountable straps.
+        // The mount system manages rider positioning with direction-dependent
+        // offsets that intentionally deviate from BuckleOffset.
+        if (HasComp<MountableComponent>(strapUid))
+            return;
+
         var delta = (xform.LocalPosition - strapComp.BuckleOffset).LengthSquared();
         if (delta > 1e-5)
             Unbuckle(buckle, (strapUid, strapComp), null);

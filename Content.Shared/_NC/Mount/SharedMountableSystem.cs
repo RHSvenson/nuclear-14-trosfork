@@ -27,7 +27,12 @@ public sealed class SharedMountSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RiderComponent, MoveEvent>(OnRiderMove);
+        // #Misfits Fix — subscribe to the MOUNT's MoveEvent, not the rider's.
+        // The rider is parented to the mount after buckle, so modifying rider
+        // position from the rider's own MoveEvent used the wrong coordinate space
+        // (mountXform.LocalPosition + offset treated as local-to-mount) and
+        // triggered BuckleTransformCheck, causing instant unbuckle & teleports.
+        SubscribeLocalEvent<MountableComponent, MoveEvent>(OnMountMove);
         SubscribeLocalEvent<RiderComponent, MobStateChangedEvent>(OnMobStateChanged);
 
         SubscribeLocalEvent<MountableComponent, DownAttemptEvent>(OnDownAttempt);
@@ -37,17 +42,22 @@ public sealed class SharedMountSystem : EntitySystem
     }
 
     /// <summary>
-    /// Responsible for shifting the rider when riding
+    /// Responsible for shifting the rider when the mount rotates.
+    /// The rider is parented to the mount, so LocalPosition is relative to mount.
+    /// We only need the direction-dependent offset, not the mount's grid position.
     /// </summary>
-    private void OnRiderMove(Entity<RiderComponent> ent, ref MoveEvent args)
+    private void OnMountMove(Entity<MountableComponent> ent, ref MoveEvent args)
     {
-        if (ent.Comp.Mount is not { } mount || !TryComp<MountableComponent>(mount, out var mountable)
-            || !TryComp(mount, out TransformComponent? mountXform))
+        // #Misfits Fix — only update rider offset when mount rotation changes
+        if (args.NewRotation == args.OldRotation)
             return;
 
-        var direction = mountXform.LocalRotation.GetDir();
-        var offset = mountable.RiderOffset + mountable.DirectionOffsets.GetValueOrDefault(direction, Vector2.Zero);
-        _transform.SetLocalPositionNoLerp(ent.Owner, mountXform.LocalPosition + offset);
+        if (ent.Comp.Rider is not { } rider)
+            return;
+
+        var direction = args.NewRotation.GetDir();
+        var offset = ent.Comp.RiderOffset + ent.Comp.DirectionOffsets.GetValueOrDefault(direction, Vector2.Zero);
+        _transform.SetLocalPositionNoLerp(rider, offset);
     }
 
     /// <summary>
@@ -77,6 +87,14 @@ public sealed class SharedMountSystem : EntitySystem
 
         Dirty(ent.Owner, ent.Comp);
         Dirty(args.Buckle.Owner, rider);
+
+        // #Misfits Fix — set initial rider offset based on current mount facing
+        if (TryComp(ent, out TransformComponent? mountXform))
+        {
+            var direction = mountXform.LocalRotation.GetDir();
+            var offset = ent.Comp.RiderOffset + ent.Comp.DirectionOffsets.GetValueOrDefault(direction, Vector2.Zero);
+            _transform.SetLocalPositionNoLerp(args.Buckle.Owner, offset);
+        }
 
         if (ent.Comp.ControlMovement)
         {
