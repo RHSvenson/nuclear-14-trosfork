@@ -103,7 +103,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: HealingPowderAmbient
-        cooldown: 55
+        cooldown: 150 # Misfits Tweak: raised from 55 — was flooding chat when multiple doses stacked
         messageKeys:
         - drug-ambience-healing-powder-1
         - drug-ambience-healing-powder-2
@@ -113,7 +113,7 @@
         component: HealingPowderHaze
         type: Add
         time: 14
-        refresh: false
+        refresh: true # Misfits Fix: was false — caused 14s effect to expire then re-add on every metabolism tick, looping the blur forever
       - !type:HealthChange
         damage:
           groups:
@@ -430,7 +430,7 @@
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: HealingPoulticeAmbient
-        cooldown: 50
+        cooldown: 150 # Misfits Tweak: raised from 50 — was flooding chat when multiple doses stacked
         messageKeys:
         - drug-ambience-healing-poultice-1
         - drug-ambience-healing-poultice-2
