@@ -1599,3 +1599,16 @@ Entries:
   id: 5643
   time: '2026-03-14T02:49:03.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/123
+- author: cythisiax
+  changes:
+    - type: Fix
+      message: Chatsanitizer sanitizing anything with "?"
+    - type: Fix
+      message: 'Messed up NCR headsets. '
+    - type: Tweak
+      message: >-
+        Adjusted faction loadouts in character customization menu, accessible to
+        their respective factions.
+  id: 5644
+  time: '2026-03-14T04:09:27.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/124
