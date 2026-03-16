@@ -63,7 +63,7 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
 
         // Forward welder interactions on the wearer to the armor entity so
         // RepairableSystem can handle them (InteractUsingEvent is not inventory-relayed).
-        SubscribeLocalEvent<PowerArmorWornComponent, InteractUsingEvent>(OnWearerInteractUsing);
+        SubscribeLocalEvent<PowerArmorWornComponent, InteractUsingEvent>(OnWearerInteractUsing, before: new[] { typeof(SharedArmorSystem) });
     }
 
     /// <summary>
