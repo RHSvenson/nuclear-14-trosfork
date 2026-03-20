@@ -1766,3 +1766,36 @@ Entries:
   id: 5654
   time: '2026-03-19T00:45:07.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/146
+- author: Dpellowski
+  changes:
+    - type: Add
+      message: >-
+        Added playtime requirements for all faction roles (NCR, Legion,
+        Brotherhood, Vault, Tribal, Townsfolk, Rangers, Followers)
+    - type: Add
+      message: Whitelisted players can bypass playtime requirements on all roles
+    - type: Tweak
+      message: NCR roles now require 5hrs of the previous rank to unlock
+    - type: Tweak
+      message: >-
+        Legion roles follow a branching progression chain with 3-5hr
+        requirements per rank
+    - type: Tweak
+      message: >-
+        Brotherhood roles require escalating playtime from Squire through Head
+        Paladin (5-60hrs)
+    - type: Tweak
+      message: >-
+        Rangers now use playtime requirements (20-40hrs) instead of
+        whitelist-only access
+    - type: Tweak
+      message: Vault, Tribal, and Townsfolk roles have tiered playtime gates (5-60hrs)
+    - type: Tweak
+      message: Followers and Tribal entry roles require 5hrs of Wastelander or Survivor
+    - type: Fix
+      message: >-
+        Admins now properly accumulate playtime for their active job role
+        instead of only tracking Admin and Overall time
+  id: 5655
+  time: '2026-03-19T23:00:39.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/147
