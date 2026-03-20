@@ -14,9 +14,9 @@
       species:
       - Human
       - Ghoul
-    - !type:CharacterPlaytimeRequirement
-      tracker: NCRNCO
-      min: 18000 # 5 hours
+    - !type:CharacterDepartmentTimeRequirement
+      department: NCR
+      min: 72000 # 20 hours
   startingGear: NCRStaffSergeantGear
   icon: "JobIconNcrSerg"
   supervisors: job-supervisors-ncr-first-sergeant

@@ -11,7 +11,7 @@
     - Human
   - !type:CharacterDepartmentTimeRequirement
     department: Vault
-    min: 216000 # 60 hours
+    min: 252000 # 70 hours
   playTimeTracker: Overseer
   weight: 100
   startingGear: OverseerGear

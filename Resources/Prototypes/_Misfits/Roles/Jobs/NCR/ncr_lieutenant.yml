@@ -14,9 +14,9 @@
       species:
       - Human
       - Ghoul
-    - !type:CharacterPlaytimeRequirement
-      tracker: NCRFirstSergeant
-      min: 18000 # 5 hours
+    - !type:CharacterDepartmentTimeRequirement
+      department: NCR
+      min: 198000 # 55 hours
   weight: 110
   startingGear: NCRLTGear
   icon: "JobIconNcrLeader" # Corvax-Change

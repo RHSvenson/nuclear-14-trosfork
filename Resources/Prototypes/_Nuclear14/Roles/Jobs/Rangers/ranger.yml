@@ -20,9 +20,9 @@
         factions:
           - Rangers
   requirements:
-    - !type:CharacterPlaytimeRequirement
-      tracker: RangerRecruit
-      min: 72000 # 20 hours
+    - !type:CharacterDepartmentTimeRequirement
+      department: Rangers
+      min: 126000 # 35 hours
     - !type:CharacterSpeciesRequirement # #Misfits Change - robots and super mutants cannot be Rangers
       inverted: true
       species:

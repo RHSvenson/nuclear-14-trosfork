@@ -15,9 +15,9 @@
     - !type:CharacterSpeciesRequirement
       species:
       - Human
-    - !type:CharacterPlaytimeRequirement
-      tracker: BoSMidPaladin
-      min: 216000 # 60 hours
+    - !type:CharacterDepartmentTimeRequirement
+      department: BrotherhoodOfSteel
+      min: 252000 # 70 hours
   startingGear: BoSMidPaladinCommanderGear
   alwaysUseSpawner: true
   icon: "JobIconBosMCommander" # Corvax-Change

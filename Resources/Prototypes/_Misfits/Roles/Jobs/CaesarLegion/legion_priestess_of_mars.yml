@@ -17,9 +17,9 @@
   requirements:
     # Priestess is a senior officer — requires meaningful Legion service.
     # CaesarLegionSlave is the female-accessible entry rank, so hours gate placed there.
-    - !type:CharacterPlaytimeRequirement
-      tracker: CaesarLegionSlave
-      min: 18000 # 5 hours as a Slave (matches Centurion entry bar for the female path)
+    - !type:CharacterDepartmentTimeRequirement
+      department: CaesarLegion
+      min: 180000 # 50 hours
     - !type:CharacterSpeciesRequirement
       species:
         - Human

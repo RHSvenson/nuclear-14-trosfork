@@ -14,9 +14,9 @@
       species:
       - Human
       - Ghoul
-    - !type:CharacterPlaytimeRequirement
-      tracker: BoSKnight
-      min: 72000 # 20 hours
+    - !type:CharacterDepartmentTimeRequirement
+      department: BrotherhoodOfSteel
+      min: 180000 # 50 hours
   startingGear: BoSMidKnightGear
   alwaysUseSpawner: true
   icon: "JobIconBosMKnight" # Corvax-Change

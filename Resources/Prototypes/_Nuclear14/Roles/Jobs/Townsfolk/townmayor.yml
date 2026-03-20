@@ -17,7 +17,7 @@
       - Ghoul
     - !type:CharacterDepartmentTimeRequirement
       department: Townsfolk
-      min: 216000 # 60 hours
+      min: 252000 # 70 hours
   startingGear: TownMayorGear
   icon: "JobIconTownMayor" # Corvax-Change
   supervisors: job-supervisors-townsfolk

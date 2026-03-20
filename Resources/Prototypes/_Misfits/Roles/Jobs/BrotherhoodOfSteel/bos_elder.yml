@@ -14,10 +14,7 @@
       - Human
     - !type:CharacterDepartmentTimeRequirement
       department: BrotherhoodOfSteel
-      min: 216000 # 60 hours
-    - !type:CharacterPlaytimeRequirement
-      tracker: BoSMidPaladin
-      min: 43200 # 12 hours
+      min: 252000 # 70 hours
   startingGear: BoSWestElderCommanderGear
   alwaysUseSpawner: true
   icon: "JobIconBosMCommander"

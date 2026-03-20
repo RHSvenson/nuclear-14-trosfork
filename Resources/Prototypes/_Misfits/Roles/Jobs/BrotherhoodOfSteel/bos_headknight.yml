@@ -67,9 +67,9 @@
     - !type:CharacterSpeciesRequirement
       species:
       - Human
-    - !type:CharacterPlaytimeRequirement
-      tracker: BoSMidKnight
-      min: 144000 # 40 hours
+    - !type:CharacterDepartmentTimeRequirement
+      department: BrotherhoodOfSteel
+      min: 252000 # 70 hours
   startingGear: BoSHeadKnightGear
   alwaysUseSpawner: true
   icon: "JobIconBosMKnight"

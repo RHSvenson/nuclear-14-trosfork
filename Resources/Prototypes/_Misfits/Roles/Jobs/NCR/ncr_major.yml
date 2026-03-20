@@ -18,9 +18,9 @@
       species:
         - Human
         - Ghoul
-    - !type:CharacterPlaytimeRequirement
-      tracker: NCRCaptain
-      min: 18000  # 5 hours as Captain before eligible for Major
+    - !type:CharacterDepartmentTimeRequirement
+      department: NCR
+      min: 252000 # 70 hours
   startingGear: NCRMajorGear
   icon: "JobIconNcrLeader"
   supervisors: job-supervisors-ncr-captain

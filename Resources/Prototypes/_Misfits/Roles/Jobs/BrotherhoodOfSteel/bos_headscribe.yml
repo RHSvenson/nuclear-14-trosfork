@@ -12,9 +12,9 @@
     - !type:CharacterSpeciesRequirement
       species:
       - Human
-    - !type:CharacterPlaytimeRequirement
-      tracker: BoSMidScribe
-      min: 108000 # 30 hours
+    - !type:CharacterDepartmentTimeRequirement
+      department: BrotherhoodOfSteel
+      min: 252000 # 70 hours
   startingGear: BoSWestScribeGear
   alwaysUseSpawner: true
   icon: "JobIconBosMScriptor"
