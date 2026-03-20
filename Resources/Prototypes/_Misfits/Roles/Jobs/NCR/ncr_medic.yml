@@ -5,6 +5,7 @@
 - type: job
   id: NCRMedic
   setPreference: false # #Misfits Tweak - hidden from character creation, role consolidated into Specialist
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
   overrideConsoleVisibility: false
   canBeAntag: false
   name: job-name-ncr-medic

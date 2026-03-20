@@ -30,6 +30,7 @@
       - type: NpcFactionMember
         factions:
           - BrotherhoodOfSteel
+      - type: PowerArmorProficiency # #Misfits Add: Senior Paladins can equip power armor.
 
 - type: startingGear
   id: BoSMidPaladinGear

@@ -323,7 +323,7 @@
   completetime: 5
   materials:
     Lead: 16
-    Paper: 24
+    N14Paper: 24
     Steel: 100
     N14Gunpowder: 16
 
@@ -334,7 +334,7 @@
   completetime: 5
   materials:
     Lead: 60
-    Paper: 90
+    N14Paper: 90
     N14Gunpowder: 60
     Cardboard: 100
 
@@ -346,7 +346,7 @@
   completetime: 2
   materials:
     Lead: 1
-    Paper: 2
+    N14Paper: 2
     N14Gunpowder: 2
 
 - type: latheRecipe
@@ -357,7 +357,7 @@
   materials:
     Lead: 20
     Steel: 100
-    Paper: 40
+    N14Paper: 40
     N14Gunpowder: 40
 
 - type: latheRecipe
@@ -367,7 +367,7 @@
   completetime: 5
   materials:
     Lead: 30
-    Paper: 60
+    N14Paper: 60
     N14Gunpowder: 60
     Cardboard: 100
 

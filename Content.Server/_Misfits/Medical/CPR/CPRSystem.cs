@@ -8,6 +8,7 @@ using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Robust.Server.Audio;
@@ -47,7 +48,7 @@ public sealed class CPRSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<InteractHandEvent>(OnInteractHand);
+        SubscribeLocalEvent<MobStateComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<CPRDoAfterEvent>(OnCPRDoAfter);
     }
 
@@ -63,7 +64,7 @@ public sealed class CPRSystem : EntitySystem
         }
     }
 
-    private void OnInteractHand(InteractHandEvent args)
+    private void OnInteractHand(EntityUid uid, MobStateComponent component, InteractHandEvent args)
     {
         if (args.Handled)
             return;

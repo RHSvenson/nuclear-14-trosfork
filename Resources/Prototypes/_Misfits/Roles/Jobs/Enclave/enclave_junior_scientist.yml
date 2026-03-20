@@ -4,6 +4,7 @@
   id: EnclaveJuniorScientist
   setPreference: true
   hideWithoutJobWhitelist: true
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
   weight: 98
   overrideConsoleVisibility: false
   canBeAntag: false

@@ -32,6 +32,7 @@
       - type: NpcFactionMember
         factions:
           - BrotherhoodOfSteel
+      - type: PowerArmorProficiency # #Misfits Add: Elder can equip power armor.
 
 - type: startingGear
   id: BoSWestElderCommanderGear

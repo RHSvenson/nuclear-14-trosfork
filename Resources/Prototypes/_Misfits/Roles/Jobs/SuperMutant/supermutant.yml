@@ -4,6 +4,7 @@
 
 - type: job
   id: SuperMutant
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
   name: job-name-supermutant
   description: job-description-supermutant
   playTimeTracker: SuperMutant

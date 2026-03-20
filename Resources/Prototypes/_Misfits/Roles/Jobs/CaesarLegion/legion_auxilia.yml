@@ -9,14 +9,9 @@
   description: job-description-caesar-legion-auxilia
   playTimeTracker: CaesarLegionAuxilia
   requirements:
-    - !type:CharacterLogicOrRequirement
-      requirements:
-        - !type:CharacterPlaytimeRequirement
-          tracker: CaesarLegionRecruit
-          min: 10800 # 3 hours
-        - !type:CharacterPlaytimeRequirement
-          tracker: CaesarLegionSlave
-          min: 10800 # 3 hours
+    - !type:CharacterPlaytimeRequirement
+      tracker: CaesarLegionRecruit
+      min: 10800 # 3 hours
     - !type:CharacterSpeciesRequirement
       species:
       - Human

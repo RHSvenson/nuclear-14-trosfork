@@ -22,6 +22,12 @@ public sealed partial class CharacterLogicAndRequirement : CharacterRequirement
     [DataField]
     public List<CharacterRequirement> Requirements { get; private set; } = new();
 
+    // #Misfits Change - Allow whitelist bypass if all children can be bypassed
+    public override bool CanBeBypassedByJobWhitelist(JobPrototype job)
+    {
+        return Requirements.Count > 0 && Requirements.All(r => r.CanBeBypassedByJobWhitelist(job));
+    }
+
     public override bool IsValid(JobPrototype job,
         HumanoidCharacterProfile profile,
         Dictionary<string, TimeSpan> playTimes,
@@ -64,6 +70,12 @@ public sealed partial class CharacterLogicOrRequirement : CharacterRequirement
 {
     [DataField]
     public List<CharacterRequirement> Requirements { get; private set; } = new();
+
+    // #Misfits Change - Allow whitelist bypass if any child can be bypassed
+    public override bool CanBeBypassedByJobWhitelist(JobPrototype job)
+    {
+        return Requirements.Any(r => r.CanBeBypassedByJobWhitelist(job));
+    }
 
     public override bool IsValid(JobPrototype job,
         HumanoidCharacterProfile profile,
@@ -120,6 +132,12 @@ public sealed partial class CharacterLogicXorRequirement : CharacterRequirement
 {
     [DataField]
     public List<CharacterRequirement> Requirements { get; private set; } = new();
+
+    // #Misfits Change - Allow whitelist bypass if any child can be bypassed
+    public override bool CanBeBypassedByJobWhitelist(JobPrototype job)
+    {
+        return Requirements.Any(r => r.CanBeBypassedByJobWhitelist(job));
+    }
 
     public override bool IsValid(JobPrototype job,
         HumanoidCharacterProfile profile,

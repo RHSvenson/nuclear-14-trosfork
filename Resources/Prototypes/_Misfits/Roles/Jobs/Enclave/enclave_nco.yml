@@ -4,6 +4,7 @@
   id: EnclaveNCO
   setPreference: true
   hideWithoutJobWhitelist: true
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
   weight: 105
   overrideConsoleVisibility: false
   canBeAntag: false

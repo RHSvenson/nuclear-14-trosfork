@@ -14,14 +14,9 @@
       species:
       - Human
       - Ghoul
-    - !type:CharacterLogicOrRequirement
-      requirements:
-        - !type:CharacterPlaytimeRequirement
-          tracker: Wastelander
-          min: 18000 # 5 hours
-        - !type:CharacterPlaytimeRequirement
-          tracker: Survivor
-          min: 18000 # 5 hours
+    - !type:CharacterPlaytimeRequirement
+      tracker: Wastelander
+      min: 18000 # 5 hours
   startingGear: TribalGear
   alwaysUseSpawner: true
   icon: "JobIconTribal" # Corvax-Change

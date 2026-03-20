@@ -4,6 +4,7 @@
   id: EnclaveCommander
   setPreference: true
   hideWithoutJobWhitelist: true
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
   weight: 120
   showBorder: true
   overrideConsoleVisibility: false

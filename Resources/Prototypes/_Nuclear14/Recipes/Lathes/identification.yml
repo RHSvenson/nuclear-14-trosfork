@@ -5,7 +5,7 @@
   category: N14Identification
   completetime: 5
   materials:
-    Paper: 50
+    N14Paper: 50
 
 - type: latheRecipe
   id: PassportWastelander
@@ -13,7 +13,7 @@
   category: N14Identification
   completetime: 5
   materials:
-    Paper: 50
+    N14Paper: 50
 
 - type: latheRecipe
   id: PassportPhoto
@@ -21,7 +21,7 @@
   category: N14Identification
   completetime: 5
   materials:
-    Paper: 50
+    N14Paper: 50
 
 - type: latheRecipe
   id: PassportVIP
@@ -29,7 +29,7 @@
   category: N14Identification
   completetime: 5
   materials:
-    Paper: 50
+    N14Paper: 50
 
 - type: latheRecipe
   id: IDDoctor
@@ -37,7 +37,7 @@
   category: N14Identification
   completetime: 5
   materials:
-    Paper: 50
+    N14Paper: 50
 
 #MARK: Caravan
 #- type: latheRecipe
@@ -46,7 +46,7 @@
 #  category: N14Identification
 #  completetime: 5
 #  materials:
-#    Paper: 50
+#    N14Paper: 50
 #
 #- type: latheRecipe
 #  id: PassportCaravanTrader
@@ -54,7 +54,7 @@
 #  category: N14Identification
 #  completetime: 5
 #  materials:
-#    Paper: 50
+#    N14Paper: 50
 
 #MARK: Brotherhood Midwest
 - type: latheRecipe
@@ -147,7 +147,7 @@
   category: N14Identification
   completetime: 5
   materials:
-    Paper: 100
+    N14Paper: 100
 
 - type: latheRecipe
   id: PassportTownsfolkShopkeeper
@@ -155,7 +155,7 @@
   category: N14Identification
   completetime: 5
   materials:
-    Paper: 100
+    N14Paper: 100
 
 - type: latheRecipe
   id: PassportTownsfolkMechanic
@@ -163,7 +163,7 @@
   category: N14Identification
   completetime: 5
   materials:
-    Paper: 100
+    N14Paper: 100
 
 - type: latheRecipe
   id: PassportTownsfolkDoctor
@@ -171,7 +171,7 @@
   category: N14Identification
   completetime: 5
   materials:
-    Paper: 100
+    N14Paper: 100
 
 - type: latheRecipe
   id: PassportTownsfolkDeputy

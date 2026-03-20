@@ -25,18 +25,19 @@ public sealed partial class WhitelistSearchWindow : FancyWindow
 
     private CancellationTokenSource? _searchDebounce;
 
-    // #Misfits Change - Only show Fallout-relevant factions/departments
-    private static readonly HashSet<string> AllowedDepartments = new()
+    // #Misfits Change - Exclude vanilla SS14 departments; all Nuclear14/Misfits factions show automatically
+    private static readonly HashSet<string> ExcludedDepartments = new()
     {
-        "BrotherhoodOfSteel",
-        "CaesarLegion",
-        "NCR",
-        "Townsfolk",
-        "FEVMutants",
-        "Tribe",
-        "Robots",
-        "Vault",
-        "Raider",
+        "Logistics",
+        "Civilian",
+        "Command",
+        "Dignitary",
+        "Engineering",
+        "Medical",
+        "Security",
+        "Epistemics",
+        "Silicon",
+        "Specific",
     };
 
     public WhitelistSearchWindow()
@@ -131,7 +132,7 @@ public sealed partial class WhitelistSearchWindow : FancyWindow
                      .OrderByDescending(x => x.Weight)
                      .ThenBy(x => x.ID))
         {
-            if (!AllowedDepartments.Contains(proto.ID))
+            if (ExcludedDepartments.Contains(proto.ID))
                 continue;
 
             var panel = new WhitelistDepartmentPanel(proto, _proto, whitelists);

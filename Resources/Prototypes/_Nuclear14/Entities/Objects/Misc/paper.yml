@@ -36,7 +36,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      Paper: 100
+      N14Paper: 100
   - type: Appearance
   - type: PaperVisuals
   - type: Flammable

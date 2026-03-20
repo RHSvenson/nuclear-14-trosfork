@@ -4,6 +4,7 @@
   id: EnclaveSeniorOfficer
   setPreference: true
   hideWithoutJobWhitelist: true
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
   weight: 115
   overrideConsoleVisibility: false
   canBeAntag: false
