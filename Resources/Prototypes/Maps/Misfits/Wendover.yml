@@ -48,6 +48,7 @@
           TownShopkeeper: [ 1, 1 ]
           TownShopkeeperHelper: [ 1, 1 ] # Forge-Town
           Townsperson: [ 5, 5 ]
+          NCRMajor: [ 1, 0 ] # #Misfits Add - whitelist-only command role; 0 active late-join slots
           NCRCaptain: [ 1, 0 ] # #Misfits Tweak - 0 active slots (admin-notify role)
           NCRLT: [ 1, 1 ]
           RangerVeteran: [ 1, 1 ]
