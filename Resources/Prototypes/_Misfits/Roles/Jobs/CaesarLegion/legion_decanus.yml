@@ -8,9 +8,9 @@
   description: job-description-caesar-legion-dean
   playTimeTracker: CaesarLegionDean
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: CaesarLegion
-      min: 126000 # 35 hours
+    # TEMP REMOVED - !type:CharacterDepartmentTimeRequirement
+    #   department: CaesarLegion
+    #   min: 126000 # 35 hours
     - !type:CharacterSpeciesRequirement
       species:
       - Human

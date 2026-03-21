@@ -10,9 +10,9 @@
   description: job-description-caesar-legion-veteran-decanus
   playTimeTracker: CaesarLegionVeteranDecanus
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: CaesarLegion
-      min: 198000 # 55 hours
+    # TEMP REMOVED - !type:CharacterDepartmentTimeRequirement
+    #   department: CaesarLegion
+    #   min: 198000 # 55 hours
     - !type:CharacterSpeciesRequirement
       species:
       - Human

@@ -8,9 +8,9 @@
   description: job-description-caesar-legion-prime-decanus
   playTimeTracker: CaesarLegionPrimeDecanus
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: CaesarLegion
-      min: 162000 # 45 hours
+    # TEMP REMOVED - !type:CharacterDepartmentTimeRequirement
+    #   department: CaesarLegion
+    #   min: 162000 # 45 hours
     - !type:CharacterSpeciesRequirement
       species:
       - Human
