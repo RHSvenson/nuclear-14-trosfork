@@ -1,4 +1,3 @@
-using Content.Shared.Interaction;
 using Content.Shared.Teleportation.Systems;
 
 namespace Content.Server._N14.PortalAutoLink
@@ -22,7 +21,7 @@ namespace Content.Server._N14.PortalAutoLink
         {
             linkedEntityId = null;
 
-            var entityEnumerator = EntityQueryEnumerator<PortalAutoLinkComponent>();
+            var entityEnumerator = AllEntityQuery<PortalAutoLinkComponent>();
             while (entityEnumerator.MoveNext(out var currentEntityUid, out var currentAutoLinkComponent))
             {
                 if (entity.Owner == currentEntityUid) // Forge-Change
