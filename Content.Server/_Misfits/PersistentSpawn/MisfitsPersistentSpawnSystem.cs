@@ -59,16 +59,19 @@ public sealed class MisfitsPersistentSpawnSystem : EntitySystem
     /// </summary>
     private readonly Dictionary<EntityUid, string> _uidToPersistenceId = new();
 
+    // #Misfits Fix - track the DB load task so OnRoundStarted can block until it finishes.
+    // The old JSON system was synchronous so dicts were always populated before round start.
+    private Task _initLoadTask = Task.CompletedTask;
+
     public override void Initialize()
     {
         base.Initialize();
 
         _log = Logger.GetSawmill("persistent_spawn");
 
-        // Load records from database into in-memory dictionaries
-        LoadEntityRecordsAsync();
-        LoadTileRecordsAsync();
-        LoadDecalRecordsAsync();
+        // Load records from database into in-memory dictionaries.
+        // Stored as a Task so OnRoundStarted can block on it if it hasn't finished yet.
+        _initLoadTask = LoadAllRecordsAsync();
 
         // One-time JSON → database migration
         MigrateJsonToDatabase();
@@ -92,11 +95,12 @@ public sealed class MisfitsPersistentSpawnSystem : EntitySystem
 
     private void OnRoundStarted(RoundStartedEvent args)
     {
+        // Wait for the initial DB load to complete before spawning.
+        // On a normal server boot this is already done; on a fast restart it blocks briefly.
+        _initLoadTask.GetAwaiter().GetResult();
+
         _uidToPersistenceId.Clear();
         // NOTE: Do NOT reload records from DB here.
-        // LoadEntityRecordsAsync / LoadTileRecordsAsync are async void — they
-        // clear the dictionaries synchronously then await the DB, so the spawn
-        // loops below would iterate over empty collections (race condition).
         // In-memory dictionaries are always kept in sync by spawn/erase handlers,
         // and Initialize() loads from DB on server startup.
 
@@ -491,11 +495,17 @@ public sealed class MisfitsPersistentSpawnSystem : EntitySystem
         }
     }
 
-    // ── Database persistence — entities ────────────────────────────────────────────
+    // ── Database persistence — load all on startup ────────────────────────────────
+    // #Misfits Fix - replaced three separate async void loaders with one Task-returning
+    // method so Initialize() can store the task and OnRoundStarted can await it.
+    // The old pattern cleared the dicts synchronously then awaited, causing empty dicts
+    // at round start whenever the game loop got there before the DB responded.
 
-    private async void LoadEntityRecordsAsync()
+    private async Task LoadAllRecordsAsync()
     {
         _entityRecords.Clear();
+        _tileRecords.Clear();
+        _decalRecords.Clear();
 
         try
         {
@@ -509,13 +519,6 @@ public sealed class MisfitsPersistentSpawnSystem : EntitySystem
         {
             _log.Error($"Failed to load persistent entity records: {ex}");
         }
-    }
-
-    // ── Database persistence — tiles ───────────────────────────────────────────────
-
-    private async void LoadTileRecordsAsync()
-    {
-        _tileRecords.Clear();
 
         try
         {
@@ -529,13 +532,6 @@ public sealed class MisfitsPersistentSpawnSystem : EntitySystem
         {
             _log.Error($"Failed to load persistent tile records: {ex}");
         }
-    }
-
-    // ── Database persistence — decals ──────────────────────────────────────────────
-
-    private async void LoadDecalRecordsAsync()
-    {
-        _decalRecords.Clear();
 
         try
         {

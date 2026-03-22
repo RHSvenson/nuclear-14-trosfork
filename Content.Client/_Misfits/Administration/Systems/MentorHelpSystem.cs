@@ -54,12 +54,15 @@ public sealed class MentorHelpSystem : SharedMentorHelpSystem
     private void OnTicketListMsg(HelpTicketListMessage msg)
     {
         var mhelpTickets = msg.Tickets.Where(t => t.Type == HelpTicketType.MentorHelp).ToList();
-        // #Misfits Add — seed known tickets from the initial list (no toast for bulk load)
+        // #Misfits Fix — replace known ticket cache from authoritative server list.
+        // This prevents old round ticket IDs from persisting client-side.
+        _knownTickets.Clear();
         foreach (var t in mhelpTickets)
             _knownTickets[t.TicketId] = t.Status;
 
-        if (mhelpTickets.Count > 0)
-            OnTicketListReceived?.Invoke(mhelpTickets);
+        // #Misfits Fix — always notify listeners, including empty lists,
+        // so UI caches can clear stale entries between rounds.
+        OnTicketListReceived?.Invoke(mhelpTickets);
     }
 
     // #Misfits Add — show a toast popup for notable ticket events

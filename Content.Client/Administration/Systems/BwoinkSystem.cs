@@ -56,12 +56,15 @@ namespace Content.Client.Administration.Systems
         private void OnTicketListMsg(HelpTicketListMessage msg)
         {
             var ahelpTickets = msg.Tickets.Where(t => t.Type == HelpTicketType.AdminHelp).ToList();
-            // #Misfits Add — seed known tickets from the initial list (no toast for bulk load)
+            // #Misfits Fix — replace known ticket cache from authoritative server list.
+            // This prevents old round ticket IDs from persisting client-side.
+            _knownTickets.Clear();
             foreach (var t in ahelpTickets)
                 _knownTickets[t.TicketId] = t.Status;
 
-            if (ahelpTickets.Count > 0)
-                OnTicketListReceived?.Invoke(ahelpTickets);
+            // #Misfits Fix — always notify listeners, including empty lists,
+            // so UI caches can clear stale entries between rounds.
+            OnTicketListReceived?.Invoke(ahelpTickets);
         }
 
         // #Misfits Add — show a toast popup for notable ticket events

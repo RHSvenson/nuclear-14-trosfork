@@ -239,6 +239,9 @@ public sealed partial class MentorHelpControl : Control
 
     private void OnTicketListReceived(List<HelpTicketInfo> tickets)
     {
+        // #Misfits Fix — full list sync should replace local cache,
+        // not append, so stale previous-round tickets are removed.
+        _tickets.Clear();
         foreach (var ticket in tickets)
         {
             _tickets[ticket.PlayerId] = ticket;

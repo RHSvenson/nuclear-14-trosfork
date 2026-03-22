@@ -5,6 +5,8 @@ misfits-admin-menu-whitelisting-tab = Whitelisting
 misfits-admin-menu-staff-tab = Staff
 # #Misfits Change - LoreMaster tab for faction objective management
 misfits-admin-menu-loremaster-tab = Loremaster
+# #Misfits Change - Ticket stats tab showing per-round admin and mentor ticket statistics
+misfits-admin-menu-ticket-stats-tab = Ticket Stats
 
 ## Fax Manager shortcut
 loremaster-tab-fax-manager = Fax Manager

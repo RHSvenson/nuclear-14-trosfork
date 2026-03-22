@@ -36,6 +36,8 @@ public sealed partial class AdminMenuWindow : DefaultWindow
         MasterTabContainer.SetTabTitle((int) TabIndex.Whitelisting, Loc.GetString("misfits-admin-menu-whitelisting-tab"));
         // #Misfits Change - Staff tab
         MasterTabContainer.SetTabTitle((int) TabIndex.Staff, Loc.GetString("misfits-admin-menu-staff-tab"));
+        // #Misfits Change - Ticket stats tab
+        MasterTabContainer.SetTabTitle((int) TabIndex.TicketStats, Loc.GetString("misfits-admin-menu-ticket-stats-tab"));
         // #Misfits Change - LoreMaster tab (faction objective management)
         MasterTabContainer.SetTabTitle((int) TabIndex.LoreMaster, Loc.GetString("misfits-admin-menu-loremaster-tab"));
         MasterTabContainer.OnTabChanged += OnTabChanged;
@@ -109,6 +111,7 @@ public sealed partial class AdminMenuWindow : DefaultWindow
         Objects,
         Whitelisting, // #Misfits Change
         Staff, // #Misfits Change
+        TicketStats, // #Misfits Change - Ticket statistics tab
         LoreMaster, // #Misfits Change
     }
 }

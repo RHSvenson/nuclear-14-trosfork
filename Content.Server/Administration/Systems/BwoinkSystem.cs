@@ -482,8 +482,9 @@ namespace Content.Server.Administration.Systems
                 RaiseNetworkEvent(sysMsg, admin);
             }
 
-            // #Misfits Add — push ticket events into admin chat so all admins see them
-            _chatManager.SendAdminAnnouncement(text);
+            // #Misfits Add — push ticket events into admin chat, filtered to admins with Adminhelp flag only
+            // (mentors with ViewNotes should NOT see adminhelp tickets)
+            _chatManager.SendAdminAnnouncement(text, flagWhitelist: AdminFlags.Adminhelp);
         }
 
         // #Misfits Add — admin claims a ticket

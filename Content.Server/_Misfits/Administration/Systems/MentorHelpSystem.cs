@@ -357,8 +357,9 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
             RaiseNetworkEvent(sysMsg, mentor);
         }
 
-        // #Misfits Add — push ticket events into admin chat so all admins see them
-        _chatManager.SendAdminAnnouncement(text);
+        // #Misfits Add — push mentor ticket events into admin chat, filtered to mentors with ViewNotes flag only
+        // (mentors should NOT see these but the flag is for consistency; actual recipients filtered via GetTargetMentors)
+        _chatManager.SendAdminAnnouncement(text, flagWhitelist: AdminFlags.ViewNotes);
     }
 
     private void OnTicketClaim(HelpTicketClaimMessage msg, EntitySessionEventArgs args)

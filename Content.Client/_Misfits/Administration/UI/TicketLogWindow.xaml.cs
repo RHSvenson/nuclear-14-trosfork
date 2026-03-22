@@ -45,6 +45,8 @@ public sealed partial class TicketLogWindow : DefaultWindow
 
     private void OnTicketListReceived(List<HelpTicketInfo> tickets)
     {
+        // Full list sync is authoritative for this round.
+        _tickets.Clear();
         foreach (var t in tickets)
             _tickets[t.TicketId] = t;
 
