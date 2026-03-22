@@ -2,7 +2,9 @@
 // Inspired by CPR concepts in stalker-14-EN, designed and built independently for N14.
 // Allows a player to perform CPR on a critically-injured target to stabilise them and
 // partially reverse damage, giving medics a meaningful emergency tool.
+// #Misfits Fix - extended to support CPR on dead targets (requires N14CPRTraining trait).
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Medical.CPR; // for CPRTrainingComponent (N14CPRTraining trait gate)
 using Content.Shared._Misfits.Medical.CPR;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -30,6 +32,7 @@ public sealed class CPRSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!; // #Misfits Fix - needed for dead-threshold check
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -76,9 +79,19 @@ public sealed class CPRSystem : EntitySystem
         if (user == target)
             return;
 
-        // Target must be in critical state.
-        if (!_mobState.IsCritical(target))
+        // #Misfits Fix - accept both critical and dead targets.
+        var isTargetCritical = _mobState.IsCritical(target);
+        var isTargetDead = _mobState.IsDead(target);
+
+        if (!isTargetCritical && !isTargetDead)
             return;
+
+        // CPR on a dead target is gated behind the N14CPRTraining trait.
+        if (isTargetDead && !HasComp<CPRTrainingComponent>(user))
+        {
+            _popup.PopupEntity(Loc.GetString("cpr-no-training-for-dead"), user, user, PopupType.Small);
+            return;
+        }
 
         // Performer must not be on cooldown.
         if (HasComp<CPRCooldownComponent>(user))
@@ -89,12 +102,24 @@ public sealed class CPRSystem : EntitySystem
 
         args.Handled = true;
 
-        _popup.PopupEntity(
-            Loc.GetString("cpr-start-performer", ("target", target)),
-            user, user, PopupType.Medium);
-        _popup.PopupEntity(
-            Loc.GetString("cpr-start-target", ("user", user)),
-            target, target, PopupType.Medium);
+        if (isTargetDead)
+        {
+            _popup.PopupEntity(
+                Loc.GetString("cpr-start-performer-dead", ("target", target)),
+                user, user, PopupType.Medium);
+            _popup.PopupEntity(
+                Loc.GetString("cpr-start-target-dead", ("user", user)),
+                target, target, PopupType.Medium);
+        }
+        else
+        {
+            _popup.PopupEntity(
+                Loc.GetString("cpr-start-performer", ("target", target)),
+                user, user, PopupType.Medium);
+            _popup.PopupEntity(
+                Loc.GetString("cpr-start-target", ("user", user)),
+                target, target, PopupType.Medium);
+        }
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(8f), new CPRDoAfterEvent(), user, target)
         {
@@ -114,10 +139,12 @@ public sealed class CPRSystem : EntitySystem
         var user = args.User;
         var target = args.Target.Value;
 
-        // Re-validate: target must still be critical.
-        if (!_mobState.IsCritical(target))
+        // #Misfits Fix - re-validate for both critical and dead states.
+        var isTargetCritical = _mobState.IsCritical(target);
+        var isTargetDead = _mobState.IsDead(target);
+
+        if (!isTargetCritical && !isTargetDead)
         {
-            // Misfits Fix: pass target argument to match FTL string "{ $target } no longer needs CPR."
             _popup.PopupEntity(Loc.GetString("cpr-target-no-longer-critical", ("target", target)), user, user, PopupType.Small);
             return;
         }
@@ -131,14 +158,42 @@ public sealed class CPRSystem : EntitySystem
         healSpec.DamageDict.Add("Asphyxiation", -CPRAsphyxiationHeal);
         _damageable.TryChangeDamage(target, healSpec, true, origin: user);
 
-        _popup.PopupEntity(
-            Loc.GetString("cpr-success-performer", ("target", target)),
-            user, user, PopupType.Medium);
-        _popup.PopupEntity(
-            Loc.GetString("cpr-success-target", ("user", user)),
-            target, target, PopupType.Medium);
-
         _audio.PlayPvs(CPRSound, target, AudioParams.Default.WithVolume(-2f));
+
+        if (isTargetDead)
+        {
+            // #Misfits Fix - attempt to revive: if healing pushed total damage below the death threshold,
+            // transition the target from Dead → Critical. This mirrors the ResuscitationSystem pattern.
+            if (TryComp<MobStateComponent>(target, out var mobState) &&
+                _mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold) &&
+                TryComp<DamageableComponent>(target, out var damageable) &&
+                damageable.TotalDamage < threshold)
+            {
+                _mobState.ChangeMobState(target, MobState.Critical, mobState, user);
+                _popup.PopupEntity(
+                    Loc.GetString("cpr-revive-performer", ("target", target)),
+                    user, user, PopupType.Large);
+                _popup.PopupEntity(
+                    Loc.GetString("cpr-revive-target", ("user", user)),
+                    target, target, PopupType.Large);
+            }
+            else
+            {
+                // Damage still above death threshold — CPR wasn't enough to revive.
+                _popup.PopupEntity(
+                    Loc.GetString("cpr-failed-revive-performer", ("target", target)),
+                    user, user, PopupType.Medium);
+            }
+        }
+        else
+        {
+            _popup.PopupEntity(
+                Loc.GetString("cpr-success-performer", ("target", target)),
+                user, user, PopupType.Medium);
+            _popup.PopupEntity(
+                Loc.GetString("cpr-success-target", ("user", user)),
+                target, target, PopupType.Medium);
+        }
 
         // Apply cooldown: performer cannot immediately repeat.
         var cooldown = EnsureComp<CPRCooldownComponent>(user);

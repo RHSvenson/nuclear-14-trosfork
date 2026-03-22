@@ -3,7 +3,9 @@ using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Shared.Audio;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Placeable;
+using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Temperature;
 
 namespace Content.Server.Temperature.Systems;
@@ -20,6 +22,20 @@ public sealed class BonfireHeaterSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        // Gate the step-trigger so it only fires when the bonfire is actually lit,
+        // and only on mobs — not dropped items or placed food sitting on the surface.
+        SubscribeLocalEvent<BonfireHeaterComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
+    }
+
+    // #Misfits Add: Cancel step-trigger attempts if the bonfire is not on fire or the tripper
+    // is not a mob; prevents unconditional burning on an unlit bonfire and avoids igniting
+    // food items placed on the surface.
+    private void OnStepTriggerAttempt(EntityUid uid, BonfireHeaterComponent comp, ref StepTriggerAttemptEvent args)
+    {
+        var isHotEvent = new IsHotEvent();
+        RaiseLocalEvent(uid, isHotEvent);
+        if (!isHotEvent.IsHot || !HasComp<MobStateComponent>(args.Tripper))
+            args.Cancelled = true;
     }
 
     public override void Update(float deltaTime)
@@ -46,6 +62,11 @@ public sealed class BonfireHeaterSystem : EntitySystem
             var heatToAdd = comp.BaseHeatMultiplier;
             foreach (var ent in placer.PlacedEntities)
             {
+                // #Misfits Fix: Propagate external heat into InternalTemperatureComponent BEFORE
+                // ChangeHeat fires OnTemperatureChangeEvent. Cooking construction graphs check
+                // internal temperature first, so internal temp must be up-to-date at the moment
+                // the event is handled — the upstream conduction loop is disabled in this fork.
+                _temperature.ConductToInternalTemperature(ent, deltaTime);
                 _temperature.ChangeHeat(ent, heatToAdd, true);
             }
         }

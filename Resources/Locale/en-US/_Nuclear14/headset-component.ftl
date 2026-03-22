@@ -21,3 +21,4 @@ chat-radio-pbs = Broadcast
 chat-radio-bazaar = Bazaar
 chat-radio-wasteland = Wasteland
 chat-radio-wasteland-global = Wasteland
+chat-radio-followers = Followers

@@ -102,6 +102,14 @@
   color: "#c44508"
   longRange: true
 
+# #Misfits Add — Followers of the Apocalypse private radio channel
+- type: radioChannel
+  id: FollowersOfApocalypse
+  name: chat-radio-followers
+  keycode: 'f'
+  frequency: 1700
+  color: "#5cbf82"
+
 # Zetan
 
 # - type: radioChannel

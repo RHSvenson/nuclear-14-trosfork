@@ -64,7 +64,7 @@
   - type: FireProtection
     reduction: 0.9
   - type: ExplosionResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.15 # #Misfits Tweak: PA shrugs off most grenade blast — ~18 HP at ground zero vs 120 unarmored
   - type: HeldSpeedModifier
     mirrorClothingModifier: false
     walkModifier: 0.5
@@ -131,7 +131,7 @@
       shoes: N14ClothingPABoots
       back: N14ClothingPowerSystemsBack
   - type: ExplosionResistance
-    damageCoefficient: 0.55
+    damageCoefficient: 0.12 # #Misfits Tweak: T-51 blast resistance — ~14 HP at ground zero
 
 - type: entity
   parent: N14ClothingOuterPowerArmorT51
@@ -239,7 +239,7 @@
         Caustic: 0.75
         Radiation: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.08 # #Misfits Tweak: X-01 advanced plating — ~10 HP at ground zero
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -286,7 +286,7 @@
         Caustic: 0.75
         Radiation: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.55
+    damageCoefficient: 0.10 # #Misfits Tweak: X-02 blast resistance — ~12 HP at ground zero
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -342,7 +342,7 @@
         Caustic: 0.75
         Radiation: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.06 # #Misfits Tweak: Hellfire designed for combat — best blast resistance, ~7 HP at ground zero
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -380,7 +380,7 @@
         Caustic: 0.75
         Radiation: 0.65
   - type: ExplosionResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.20 # #Misfits Tweak: Raider PA cobbled together — weakest blast protection, ~24 HP at ground zero
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -427,7 +427,7 @@
         Caustic: 0.75
         Radiation: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.12 # #Misfits Tweak: Midwest BoS blast resistance — ~14 HP at ground zero
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -534,7 +534,7 @@
   - type: TemperatureProtection
     coefficient: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.55
+    damageCoefficient: 0.10 # #Misfits Tweak: T-51bc Paladin blast resistance — ~12 HP at ground zero
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -591,7 +591,7 @@
   - type: TemperatureProtection
     coefficient: 0.55
   - type: ExplosionResistance
-    damageCoefficient: 0.65
+    damageCoefficient: 0.20 # #Misfits Tweak: NCR salvaged PA — weakest blast protection after raider, ~24 HP at ground zero
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -627,7 +627,7 @@
         Caustic: 0.75
         Radiation: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.55
+    damageCoefficient: 0.12 # #Misfits Tweak: Canadian Shield blast resistance — ~14 HP at ground zero
   - type: Reflect # #Misfits Change Tweak: T-51bc "Canadian Shield" ricochets small-caliber rounds at 30% (innate).
     reflects:
       - SmallCaliber
@@ -661,7 +661,7 @@
         Caustic: 0.75
         Radiation: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.12 # #Misfits Tweak: Washington BoS T-51 blast resistance — ~14 HP at ground zero
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:

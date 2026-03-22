@@ -136,3 +136,19 @@
     layers:
     - state: crypt_gray
     - state: common_label
+
+# #Misfits Add — Followers of the Apocalypse private encryption key
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyFollowers
+  name: Followers encryption key
+  description: An encryption key used by the Followers of the Apocalypse.
+  components:
+  - type: EncryptionKey
+    channels:
+    - FollowersOfApocalypse
+    defaultChannel: FollowersOfApocalypse
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: med_label

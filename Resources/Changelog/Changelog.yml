@@ -1890,3 +1890,16 @@ Entries:
   id: 5662
   time: '2026-03-21T01:56:34.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/155
+- author: cythisiax
+  changes:
+    - type: Add
+      message: FoTA headsets, encryption, their own radio, wasteland radio
+    - type: Fix
+      message: CPR fix to work while dead with no defib presence
+    - type: Fix
+      message: bonfires not able to be used as a cooking device
+    - type: Tweak
+      message: powerarmor damage reduction versus grenades/explosives
+  id: 5663
+  time: '2026-03-22T19:14:59.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/158

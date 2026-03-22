@@ -177,6 +177,28 @@ public sealed class TemperatureSystem : EntitySystem
         else return comp.SpecificHeat * physics.FixturesMass;
     }
 
+    // #Misfits Add: Conduct heat from an entity's external TemperatureComponent into its
+    // InternalTemperatureComponent using Fourier's law. Called by BonfireHeaterSystem each tick
+    // for items placed on a lit bonfire, so cooking construction graphs (which check internal
+    // temperature) can actually trigger. The upstream conduction loop is disabled for this fork,
+    // so this targeted per-item call replaces it for the bonfire use-case only.
+    public void ConductToInternalTemperature(EntityUid uid, float deltaTime,
+        TemperatureComponent? temperature = null, InternalTemperatureComponent? internalTemp = null)
+    {
+        if (!Resolve(uid, ref temperature, false) || !Resolve(uid, ref internalTemp, false))
+            return;
+
+        var diff = temperature.CurrentTemperature - internalTemp.Temperature;
+        if (Math.Abs(diff) < 0.1f)
+            return;
+
+        // q = conductivity * diff / thickness (W/m²), converted to K via heat capacity
+        var q = internalTemp.Conductivity * diff / internalTemp.Thickness;
+        var joules = q * internalTemp.Area * deltaTime;
+        var degrees = joules / GetHeatCapacity(uid, temperature);
+        internalTemp.Temperature += degrees;
+    }
+
     private void OnInit(EntityUid uid, InternalTemperatureComponent comp, MapInitEvent args)
     {
         if (!TryComp<TemperatureComponent>(uid, out var temp))

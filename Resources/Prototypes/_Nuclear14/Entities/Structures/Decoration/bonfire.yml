@@ -90,6 +90,15 @@
         - MidImpassable
         - LowImpassable
         hard: false
-  # Misfits Change /Fix/ Removed StepTrigger and TileEntityEffect (Ignite) — they fired unconditionally
-  # regardless of lit state, burning players/items walking over an unlit bonfire.
-  # Heating is handled by BonfireHeaterSystem, which is already gated behind IsHotEvent.
+  # Misfits Change /Fix/ StepTrigger + TileEntityEffect restored. Unconditional ignition is
+  # prevented by BonfireHeaterSystem.OnStepTriggerAttempt, which cancels the attempt when the
+  # bonfire is unlit or the tripper is not a mob (so placed food items are not set on fire).
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.2
+  - type: TileEntityEffect
+    effects:
+    - !type:FlammableReaction
+      multiplier: 1.5
+      multiplierOnExisting: 0.5
+    - !type:Ignite

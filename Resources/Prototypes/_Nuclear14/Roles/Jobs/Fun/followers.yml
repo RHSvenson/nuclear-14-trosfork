@@ -40,6 +40,7 @@
     shoes: N14ClothingBootsLeather # Forge-Change
     neck: ClothingNeckStethoscope # Forge-Change
     id: N14IDDoctorFollower
+    ears: N14ClothingHeadsetFollowers # #Misfits Add - Followers need FoTA + wasteland radio access
     outerClothing: N14ClothingOuterCoatFollowerLab # Forge-Change
     belt: N14ClothingBeltMedicalFilled
     pocket1: SurgicalSterilanSpray # #Misfits Change - Followers are surgeons; sterile spray prevents cross-contamination
