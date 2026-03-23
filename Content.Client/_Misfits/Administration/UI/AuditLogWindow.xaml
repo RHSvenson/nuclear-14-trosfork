@@ -1,0 +1,43 @@
+<!-- #Misfits Add — Audit log window: shows all current-round tickets with filtering, per-ticket stats, and chat access -->
+<DefaultWindow
+    xmlns="https://spacestation14.io"
+    SetSize="1020 560"
+    Title="{Loc misfits-audit-log-window-title}">
+    <BoxContainer Orientation="Vertical" Margin="4" SeparationOverride="4">
+
+        <!-- Header: descriptive label + refresh button -->
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Label Text="{Loc misfits-audit-log-header}" StyleClasses="LabelHeading" />
+            <Control HorizontalExpand="True" />
+            <Button Name="RefreshAuditLog" Text="{Loc misfits-staff-tab-ticket-refresh}" MinWidth="100" />
+        </BoxContainer>
+
+        <!-- Filter row -->
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Label Text="{Loc misfits-audit-log-filter-staff}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
+            <LineEdit Name="StaffFilter" PlaceHolder="{Loc misfits-audit-log-filter-staff-placeholder}" MinWidth="160" />
+            <Label Text="{Loc misfits-audit-log-filter-type}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
+            <OptionButton Name="TypeFilter" />
+            <Label Text="{Loc misfits-audit-log-filter-status}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
+            <OptionButton Name="StatusFilter" />
+        </BoxContainer>
+
+        <!-- Column headers -->
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4" Margin="0 4 0 2">
+            <Label Text="{Loc misfits-staff-tab-ticket-col-id}"       MinWidth="52"  StyleClasses="LabelSubText" />
+            <Label Text="{Loc misfits-audit-log-col-type}"            MinWidth="65"  StyleClasses="LabelSubText" />
+            <Label Text="{Loc misfits-staff-tab-ticket-col-player}"   MinWidth="130" StyleClasses="LabelSubText" />
+            <Label Text="{Loc misfits-staff-tab-ticket-col-status}"   MinWidth="115" StyleClasses="LabelSubText" />
+            <Label Text="{Loc misfits-staff-tab-ticket-col-claimed}"  MinWidth="110" StyleClasses="LabelSubText" />
+            <Label Text="{Loc misfits-staff-tab-ticket-col-resolved}" MinWidth="110" StyleClasses="LabelSubText" />
+            <Label Text="{Loc misfits-staff-tab-ticket-col-duration}" MinWidth="72"  StyleClasses="LabelSubText" />
+            <Label Text="{Loc misfits-staff-tab-ticket-col-time}"     MinWidth="80"  StyleClasses="LabelSubText" />
+        </BoxContainer>
+
+        <!-- Ticket list (scrollable) -->
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Name="AuditListContainer" Orientation="Vertical" SeparationOverride="2" />
+        </ScrollContainer>
+
+    </BoxContainer>
+</DefaultWindow>

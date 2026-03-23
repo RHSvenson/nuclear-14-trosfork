@@ -328,16 +328,15 @@
   id: N14BPBoSArmorBosScribe
   result: N14ClothingOuterBosScribe
   category: N14BlueprintBoSArmorT1
-  completetime: 5
+  completetime: 7
   requiresBlueprint: true
   availableFaction:
   - BrotherhoodOfSteel
   materials:
-    Cloth: 125
-    Thread: 100
-    Leather: 75
+    Cloth: 100
+    Thread: 75
+    Leather: 50
 
-# --- BoS Tier 2 Armor ---
 - type: latheRecipe
   id: N14BPBoSArmorWBoSSquireArmor
   result: N14ClothingOuterWBoSSquireArmor
@@ -458,38 +457,6 @@
 
 # --- BoS Tier 4 Armor (Power Armor) ---
 - type: latheRecipe
-  id: N14BPBoSArmorWBoSPaladinArmor
-  result: N14ClothingOuterWBoSPaladinArmor
-  category: N14BlueprintBoSArmorT4
-  completetime: 22
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 700
-    Cloth: 350
-    Thread: 250
-    Leather: 200
-    Circuitry: 125
-    ScrapElectronic: 75
-
-- type: latheRecipe
-  id: N14BPBoSArmorMBoSPaladinArmor
-  result: N14ClothingOuterMBoSPaladinArmor
-  category: N14BlueprintBoSArmorT4
-  completetime: 22
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 700
-    Cloth: 350
-    Thread: 250
-    Leather: 200
-    Circuitry: 125
-    ScrapElectronic: 75
-
-- type: latheRecipe
   id: N14BPBoSArmorPowerArmorT45
   result: N14ClothingOuterPowerArmorT45
   category: N14BlueprintBoSArmorT4
@@ -508,32 +475,32 @@
   id: N14BPBoSArmorPowerArmorT51
   result: N14ClothingOuterPowerArmorT51
   category: N14BlueprintBoSArmorT4
-  completetime: 35
+  completetime: 32
   requiresBlueprint: true
   availableFaction:
   - BrotherhoodOfSteel
   materials:
-    Steel: 1800
-    N14Iron: 600
-    Circuitry: 300
-    ScrapElectronic: 250
+    Steel: 1500
+    N14Iron: 500
+    Circuitry: 275
+    ScrapElectronic: 225
     N14Brass: 125
 
 - type: latheRecipe
   id: N14BPBoSArmorPowerArmorT60
   result: N14ClothingOuterPowerArmorT60
   category: N14BlueprintBoSArmorT4
-  completetime: 40
+  completetime: 35
   requiresBlueprint: true
   availableFaction:
   - BrotherhoodOfSteel
   materials:
-    Steel: 2000
-    N14Iron: 700
-    Circuitry: 350
-    ScrapElectronic: 300
+    Steel: 1750
+    N14Iron: 600
+    Circuitry: 300
+    ScrapElectronic: 250
     N14Brass: 150
-    N14Gold: 50
+
 
 # =====================================================================
 # BROTHERHOOD OF STEEL AMMO RECIPES

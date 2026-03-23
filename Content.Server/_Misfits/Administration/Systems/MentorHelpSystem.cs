@@ -7,6 +7,7 @@ using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Content.Server.Administration;
+using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Afk;
 using Content.Server.Chat.Managers; // #Misfits Add — for IChatManager (ticket admin chat push)
@@ -16,6 +17,7 @@ using Content.Server.Players.RateLimiting;
 using Content.Shared._Misfits.Administration;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
+using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Players.RateLimiting;
@@ -46,6 +48,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
     [Dependency] private readonly IAfkManager _afkManager = default!;
     [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
     [Dependency] private readonly IChatManager _chatManager = default!; // #Misfits Add — push ticket events to admin chat
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
 
     [GeneratedRegex(@"^https://(?:(?:canary|ptb)\.)?discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")]
     private static partial Regex DiscordRegex();
@@ -163,6 +166,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
             dcTicket.ResolvedAt = DateTime.UtcNow;
             BroadcastMentorTicketUpdate(dcTicket);
             SendMentorTicketSystemMessage(dcTicket.PlayerId, Loc.GetString("ticket-system-auto-resolved-disconnect", ("id", dcTicket.TicketId), ("type", "MHELP")));
+            LogMentorTicketEvent(dcTicket, "auto-resolved on disconnect", "System", LogImpact.Medium);
         }
 
         var statusText = e.NewStatus switch
@@ -313,6 +317,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
                 _mhelpTickets[playerId] = newTicket;
                 BroadcastMentorTicketUpdate(newTicket);
                 SendMentorTicketSystemMessage(playerId, Loc.GetString("ticket-system-created", ("id", newTicket.TicketId), ("player", playerName), ("type", "MHELP")));
+                LogMentorTicketEvent(newTicket, "created (from previously resolved conversation)", playerName, LogImpact.Low);
             }
             return;
         }
@@ -329,6 +334,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
         _mhelpTickets[playerId] = ticket;
         BroadcastMentorTicketUpdate(ticket);
         SendMentorTicketSystemMessage(playerId, Loc.GetString("ticket-system-created", ("id", ticket.TicketId), ("player", playerName), ("type", "MHELP")));
+        LogMentorTicketEvent(ticket, "created", playerName, LogImpact.Low);
     }
 
     private void BroadcastMentorTicketUpdate(HelpTicketInfo ticket)
@@ -379,6 +385,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
         ticket.ClaimedById = args.SenderSession.UserId;
         BroadcastMentorTicketUpdate(ticket);
         SendMentorTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-claimed", ("id", ticket.TicketId), ("role", "Mentor"), ("admin", args.SenderSession.Name), ("type", "MHELP")));
+        LogMentorTicketEvent(ticket, "claimed", args.SenderSession.Name, LogImpact.Low);
     }
 
     private void OnTicketResolve(HelpTicketResolveMessage msg, EntitySessionEventArgs args)
@@ -400,6 +407,8 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
         ticket.ResolvedAt = DateTime.UtcNow;
         BroadcastMentorTicketUpdate(ticket);
         SendMentorTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-resolved", ("id", ticket.TicketId), ("role", "Mentor"), ("admin", args.SenderSession.Name), ("type", "MHELP")));
+        var age = (DateTime.UtcNow - ticket.CreatedAt).TotalMinutes;
+        LogMentorTicketEvent(ticket, $"resolved ({age:F1}m since created)", args.SenderSession.Name, LogImpact.Medium);
     }
 
     // #Misfits Add — unclaim handler returns a claimed ticket to Open
@@ -420,6 +429,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
         ticket.ClaimedById = null;
         BroadcastMentorTicketUpdate(ticket);
         SendMentorTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-unclaimed", ("id", ticket.TicketId), ("role", "Mentor"), ("admin", args.SenderSession.Name), ("type", "MHELP")));
+        LogMentorTicketEvent(ticket, "unclaimed", args.SenderSession.Name, LogImpact.Low);
     }
 
     // #Misfits Add — reopen handler returns a resolved ticket to Open
@@ -443,6 +453,23 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
         ticket.ResolvedAt = null;
         BroadcastMentorTicketUpdate(ticket);
         SendMentorTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-reopened", ("id", ticket.TicketId), ("role", "Mentor"), ("admin", args.SenderSession.Name), ("type", "MHELP")));
+        LogMentorTicketEvent(ticket, "reopened", args.SenderSession.Name, LogImpact.Medium);
+    }
+
+    // Persist mentor ticket lifecycle events for long-term staffing audits.
+    private void LogMentorTicketEvent(HelpTicketInfo ticket, string action, string actorName, LogImpact impact)
+    {
+        _adminLog.Add(LogType.AdminMessage, impact,
+            $"MHELP ticket #{ticket.TicketId} {action} | player={ticket.PlayerName} ({ticket.PlayerId}) | actor={actorName} | status={ticket.Status}");
+    }
+
+    // Persist mentor-help message traffic for complete historical review.
+    private void LogMentorTicketMessage(int? ticketId, string senderName, bool senderIsMentor, string messageText)
+    {
+        var ticketText = ticketId.HasValue ? $"#{ticketId.Value}" : "<none>";
+        var direction = senderIsMentor ? "mentor->player" : "player->mentor";
+        _adminLog.Add(LogType.AdminMessage, LogImpact.Low,
+            $"MHELP message ticket={ticketText} direction={direction} sender={senderName}: {messageText}");
     }
 
     private void OnTicketRequestList(HelpTicketRequestListMessage msg, EntitySessionEventArgs args)
@@ -510,6 +537,9 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
 
         var playSound = senderAdmin == null || message.PlaySound;
         var msg = new MentorHelpTextMessage(message.UserId, senderSession.UserId, senderText, playSound: playSound);
+
+        int? ticketId = _mhelpTickets.TryGetValue(message.UserId, out var historyTicket) ? historyTicket.TicketId : null;
+        LogMentorTicketMessage(ticketId, senderSession.Name, senderMentor, message.Text);
 
         // Notify all mentors
         var mentors = GetTargetMentors();

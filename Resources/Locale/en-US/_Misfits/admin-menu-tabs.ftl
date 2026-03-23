@@ -90,6 +90,25 @@ misfits-staff-tab-ticket-log-btn = Ticket Log
 misfits-staff-tab-ticket-log-desc = View all current-round tickets (open, claimed, resolved).
 misfits-ticket-log-window-title = Ticket Log
 
+# #Misfits Add — Audit Log button in Staff tab
+misfits-staff-tab-audit-log-btn = Audit Log
+misfits-staff-tab-audit-log-desc = Browse this round's tickets by staff member, status, or type — and open a player's live chat.
+
+# Audit Log window
+misfits-audit-log-window-title = Audit Log
+misfits-audit-log-header = Round Ticket Audit
+misfits-audit-log-filter-all = All
+misfits-audit-log-filter-staff = Staff:
+misfits-audit-log-filter-staff-placeholder = Filter by staff name…
+misfits-audit-log-filter-type = Type:
+misfits-audit-log-filter-status = Status:
+misfits-audit-log-col-type = Type
+misfits-audit-log-status-open = Open
+misfits-audit-log-status-claimed = Claimed
+misfits-audit-log-status-resolved = Resolved
+misfits-audit-log-no-results = No tickets match the current filters.
+misfits-audit-log-open-chat = Open Chat
+
 # Admin tab button descriptions
 misfits-admin-tab-kick-desc = Open the player actions panel (kick, warn, etc.)
 misfits-admin-tab-ban-desc = Open the banning panel to ban or unban players.

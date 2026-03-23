@@ -224,6 +224,8 @@ namespace Content.Server.Administration.Systems
                 dcTicket.ResolvedAt = DateTime.UtcNow;
                 BroadcastTicketUpdate(dcTicket);
                 SendTicketSystemMessage(dcTicket.PlayerId, Loc.GetString("ticket-system-auto-resolved-disconnect", ("id", dcTicket.TicketId), ("type", "AHELP")));
+                // #Misfits Add — persist disconnect auto-resolve so ticket history survives round resets.
+                LogAHelpTicketEvent(dcTicket, "auto-resolved on disconnect", "System", LogImpact.Medium);
             }
 
             // Notify all admins if a player disconnects or reconnects
@@ -436,6 +438,8 @@ namespace Content.Server.Administration.Systems
                     _tickets[playerId] = newTicket;
                     BroadcastTicketUpdate(newTicket);
                     SendTicketSystemMessage(playerId, Loc.GetString("ticket-system-created", ("id", newTicket.TicketId), ("player", playerName), ("type", "AHELP")));
+                    // #Misfits Add — persist reopened-as-new ticket creation for long-term audits.
+                    LogAHelpTicketEvent(newTicket, "created (from previously resolved conversation)", playerName, LogImpact.Low);
                 }
                 return; // ticket already open or claimed — do nothing extra
             }
@@ -452,6 +456,8 @@ namespace Content.Server.Administration.Systems
             _tickets[playerId] = ticket;
             BroadcastTicketUpdate(ticket);
             SendTicketSystemMessage(playerId, Loc.GetString("ticket-system-created", ("id", ticket.TicketId), ("player", playerName), ("type", "AHELP")));
+            // #Misfits Add — persist ticket creation for cross-round staffing analytics.
+            LogAHelpTicketEvent(ticket, "created", playerName, LogImpact.Low);
         }
 
         // #Misfits Add — broadcast a ticket update to all admins with Adminhelp flag
@@ -506,6 +512,8 @@ namespace Content.Server.Administration.Systems
             ticket.ClaimedById = args.SenderSession.UserId;
             BroadcastTicketUpdate(ticket);
             SendTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-claimed", ("id", ticket.TicketId), ("role", "Admin"), ("admin", args.SenderSession.Name), ("type", "AHELP")));
+            // #Misfits Add — persist claims so staff handling volume can be audited historically.
+            LogAHelpTicketEvent(ticket, "claimed", args.SenderSession.Name, LogImpact.Low);
         }
 
         // #Misfits Add — admin resolves a ticket
@@ -527,6 +535,9 @@ namespace Content.Server.Administration.Systems
             ticket.ResolvedAt = DateTime.Now;
             BroadcastTicketUpdate(ticket);
             SendTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-resolved", ("id", ticket.TicketId), ("role", "Admin"), ("admin", args.SenderSession.Name), ("type", "AHELP")));
+            // #Misfits Add — persist resolutions with timing to support promotion/performance reviews.
+            var age = (DateTime.Now - ticket.CreatedAt).TotalMinutes;
+            LogAHelpTicketEvent(ticket, $"resolved ({age:F1}m since created)", args.SenderSession.Name, LogImpact.Medium);
         }
 
         // #Misfits Add — admin unclaims (releases) a ticket back to Open
@@ -547,6 +558,8 @@ namespace Content.Server.Administration.Systems
             ticket.ClaimedById = null;
             BroadcastTicketUpdate(ticket);
             SendTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-unclaimed", ("id", ticket.TicketId), ("role", "Admin"), ("admin", args.SenderSession.Name), ("type", "AHELP")));
+            // #Misfits Add — persist unclaims for queue-handoff auditability.
+            LogAHelpTicketEvent(ticket, "unclaimed", args.SenderSession.Name, LogImpact.Low);
         }
 
         // #Misfits Add — admin reopens a resolved ticket
@@ -570,6 +583,24 @@ namespace Content.Server.Administration.Systems
             ticket.ResolvedAt = null;
             BroadcastTicketUpdate(ticket);
             SendTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-reopened", ("id", ticket.TicketId), ("role", "Admin"), ("admin", args.SenderSession.Name), ("type", "AHELP")));
+            // #Misfits Add — persist reopen events to track unresolved churn over time.
+            LogAHelpTicketEvent(ticket, "reopened", args.SenderSession.Name, LogImpact.Medium);
+        }
+
+        // #Misfits Add — central helper for persistent AHELP ticket lifecycle logging.
+        private void LogAHelpTicketEvent(HelpTicketInfo ticket, string action, string actorName, LogImpact impact)
+        {
+            _adminLog.Add(LogType.AdminMessage, impact,
+                $"AHELP ticket #{ticket.TicketId} {action} | player={ticket.PlayerName} ({ticket.PlayerId}) | actor={actorName} | status={ticket.Status}");
+        }
+
+        // #Misfits Add — persist individual ticket messages so complete conversation history is auditable.
+        private void LogAHelpTicketMessage(int? ticketId, string senderName, bool senderIsStaff, string messageText)
+        {
+            var ticketText = ticketId.HasValue ? $"#{ticketId.Value}" : "<none>";
+            var direction = senderIsStaff ? "staff->player" : "player->staff";
+            _adminLog.Add(LogType.AdminMessage, LogImpact.Low,
+                $"AHELP message ticket={ticketText} direction={direction} sender={senderName}: {messageText}");
         }
 
         // #Misfits Add — admin requests full ticket list (e.g. on connect or UI open)
@@ -1052,7 +1083,10 @@ namespace Content.Server.Administration.Systems
             var playSound = bwoinkParams.SenderAdmin == null || bwoinkParams.Message.PlaySound;
             var msg = new BwoinkTextMessage(bwoinkParams.Message.UserId, bwoinkParams.SenderId, bwoinkText, playSound: playSound);
 
-            LogBwoink(msg);
+            // #Misfits Add — persist each AHELP message for long-term moderation audits.
+            var senderIsStaff = bwoinkParams.SenderAdmin?.HasFlag(AdminFlags.Adminhelp) ?? false;
+            int? ticketId = _tickets.TryGetValue(msg.UserId, out var historyTicket) ? historyTicket.TicketId : null;
+            LogAHelpTicketMessage(ticketId, bwoinkParams.SenderName, senderIsStaff, bwoinkParams.Message.Text);
 
             var admins = GetTargetAdmins();
 

@@ -22,8 +22,6 @@
         <misfitsTabs:WhitelistingTab />
         <!-- #Misfits Change - Staff tab (permissions management) -->
         <misfitsTabs:StaffTab />
-        <!-- #Misfits Change - Ticket stats tab (per-round ticket statistics) -->
-        <misfitsTabs:TicketStatsTab />
         <!-- #Misfits Change - LoreMaster tab (faction objective management) -->
         <misfitsTabs:LoreMasterTab />
     </TabContainer>
