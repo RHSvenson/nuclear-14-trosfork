@@ -311,6 +311,33 @@
     Leather: 50
 
 - type: latheRecipe
+  id: N14BPBoSArmorMBoSInitiateArmor
+  result: N14ClothingOuterMBoSInitiateArmor
+  category: N14BlueprintBoSArmorT1
+  completetime: 7
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Cloth: 100
+    Thread: 75
+    Steel: 75
+    Leather: 50
+
+- type: latheRecipe
+  id: N14BPBoSArmorBosScribe
+  result: N14ClothingOuterBosScribe
+  category: N14BlueprintBoSArmorT1
+  completetime: 7
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Cloth: 100
+    Thread: 75
+    Leather: 50
+
+- type: latheRecipe
   id: N14BPBoSArmorWBoSSquireArmor
   result: N14ClothingOuterWBoSSquireArmor
   category: N14BlueprintBoSArmorT2
@@ -430,38 +457,6 @@
 
 # --- BoS Tier 4 Armor (Power Armor) ---
 - type: latheRecipe
-  id: N14BPBoSArmorWBoSPaladinArmor
-  result: N14ClothingOuterWBoSPaladinArmor
-  category: N14BlueprintBoSArmorT4
-  completetime: 22
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 700
-    Cloth: 350
-    Thread: 250
-    Leather: 200
-    Circuitry: 125
-    ScrapElectronic: 75
-
-- type: latheRecipe
-  id: N14BPBoSArmorMBoSPaladinArmor
-  result: N14ClothingOuterMBoSPaladinArmor
-  category: N14BlueprintBoSArmorT4
-  completetime: 22
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 700
-    Cloth: 350
-    Thread: 250
-    Leather: 200
-    Circuitry: 125
-    ScrapElectronic: 75
-
-- type: latheRecipe
   id: N14BPBoSArmorPowerArmorT45
   result: N14ClothingOuterPowerArmorT45
   category: N14BlueprintBoSArmorT4
@@ -475,6 +470,36 @@
     Circuitry: 250
     ScrapElectronic: 200
     N14Brass: 100
+
+- type: latheRecipe
+  id: N14BPBoSArmorPowerArmorT51
+  result: N14ClothingOuterPowerArmorT51
+  category: N14BlueprintBoSArmorT4
+  completetime: 32
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Steel: 1500
+    N14Iron: 500
+    Circuitry: 275
+    ScrapElectronic: 225
+    N14Brass: 125
+
+- type: latheRecipe
+  id: N14BPBoSArmorPowerArmorT60
+  result: N14ClothingOuterPowerArmorT60
+  category: N14BlueprintBoSArmorT4
+  completetime: 35
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Steel: 1750
+    N14Iron: 600
+    Circuitry: 300
+    ScrapElectronic: 250
+    N14Brass: 150
 
 
 # =====================================================================

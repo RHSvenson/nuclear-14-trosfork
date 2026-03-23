@@ -697,6 +697,54 @@
     ScrapElectronic: 150
     N14Brass: 100
 
+- type: latheRecipe
+  id: N14BPNCRArmorRangerCombat
+  result: N14ClothingOuterRangerCombat
+  category: N14BlueprintNCRArmorT4
+  completetime: 20
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  - Rangers
+  materials:
+    Steel: 800
+    Leather: 400
+    Cloth: 300
+    Thread: 250
+    Circuitry: 75
+
+- type: latheRecipe
+  id: N14BPNCRArmorRangerElite
+  result: N14ClothingOuterRangerElite
+  category: N14BlueprintNCRArmorT4
+  completetime: 25
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  - Rangers
+  materials:
+    Steel: 900
+    Leather: 500
+    Cloth: 350
+    Thread: 275
+    Circuitry: 100
+    ScrapElectronic: 50
+
+- type: latheRecipe
+  id: N14BPNCRArmorPowerArmorT51NCR
+  result: N14ClothingOuterPowerArmorT51NCR
+  category: N14BlueprintNCRArmorT4
+  completetime: 30
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 1500
+    N14Iron: 600
+    Circuitry: 225
+    ScrapElectronic: 175
+    N14Brass: 100
+
 # =====================================================================
 # NCR AMMO RECIPES
 # =====================================================================
@@ -1556,6 +1604,21 @@
     Thread: 225
     N14Iron: 250
     N14Gold: 50
+
+- type: latheRecipe
+  id: N14BPLegionArmorHeavyCenturionArmor
+  result: N14ClothingOuterHeavyCenturionArmor
+  category: N14BlueprintLegionArmorT4
+  completetime: 22
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 600
+    Leather: 500
+    N14Iron: 300
+    Cloth: 200
+    Thread: 150
 
 # =====================================================================
 # CAESAR'S LEGION AMMO RECIPES

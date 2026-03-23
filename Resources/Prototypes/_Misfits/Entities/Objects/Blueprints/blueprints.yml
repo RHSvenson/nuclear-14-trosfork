@@ -151,9 +151,7 @@
   - type: Blueprint
     recipes:
     - N14BPNCRArmorCombatArmorMK2
-    - N14BPNCRArmorRangerCombat
-    - N14BPNCRArmorRangerElite
-    - N14BPNCRArmorPowerArmorT51NCR
+    - N14BPNCRArmorPowerArmorT45Sierra
 
 # --- NCR Ammo ---
 - type: entity
@@ -330,7 +328,6 @@
   components:
   - type: Blueprint
     recipes:
-    - N14BPLegionArmorHeavyCenturionArmor
     - N14BPLegionArmorDeanVeteranArmor
     - N14BPLegionArmorDeanPrimeArmor
 
@@ -454,8 +451,6 @@
   - type: Blueprint
     recipes:
     - N14BPBoSArmorWBoSInitiateArmor
-    - N14BPBoSArmorMBoSInitiateArmor
-    - N14BPBoSArmorBosScribe
 
 - type: entity
   parent: N14BlueprintBase
@@ -491,11 +486,7 @@
   components:
   - type: Blueprint
     recipes:
-    - N14BPBoSArmorWBoSPaladinArmor
-    - N14BPBoSArmorMBoSPaladinArmor
     - N14BPBoSArmorPowerArmorT45
-    - N14BPBoSArmorPowerArmorT51
-    - N14BPBoSArmorPowerArmorT60
 
 # --- BoS Ammo ---
 - type: entity
