@@ -1958,3 +1958,24 @@ Entries:
   id: 5666
   time: '2026-03-23T17:49:21.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/165
+- author: Cythisiax
+  changes:
+    - type: Tweak
+      message: radiolong for FotA headset encrypt
+    - type: Tweak
+      message: mentor should no longer see deadchat
+    - type: Tweak
+      message: BoS base no longer jungle (v0.1)
+    - type: Fix
+      message: NCR prisoner walls indestructible
+    - type: Add
+      message: new FoTA base above town (with spawns)
+    - type: Add
+      message: admin command setwarpid for making portals
+    - type: Add
+      message: >-
+        blueprints added to map for Dan's
+        https://github.com/Misfit-Sanctuary/nuclear-14/pull/165
+  id: 5667
+  time: '2026-03-23T19:54:58.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/162
