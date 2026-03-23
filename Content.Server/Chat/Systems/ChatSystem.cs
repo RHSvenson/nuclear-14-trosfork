@@ -11,6 +11,7 @@ using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared.Administration;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -866,10 +867,18 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     private IEnumerable<INetChannel> GetDeadChatClients()
     {
+        // Only ghosts and full admins (Admin flag) can see dead chat.
+        // Mentors with ViewNotes should NOT see dead chat.
+        var adminsOnly = _adminManager.ActiveAdmins.Where(p =>
+        {
+            var adminData = _adminManager.GetAdminData(p);
+            return adminData?.HasFlag(AdminFlags.Admin) ?? false;
+        });
+
         return Filter.Empty()
             .AddWhereAttachedEntity(HasComp<GhostComponent>)
             .Recipients
-            .Union(_adminManager.ActiveAdmins)
+            .Union(adminsOnly)
             .Select(p => p.Channel);
     }
 

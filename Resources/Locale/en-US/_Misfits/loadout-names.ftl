@@ -381,3 +381,26 @@ loadout-name-LoadoutClothingNeckCloakCowboyOld = old cowboy cloak
 loadout-name-LoadoutN14ClothingOuterWandererCoat = wanderer coat
 loadout-name-LoadoutBoSMidwestHellCat = Brotherhood Hellcat armor (Midwest)
 loadout-name-LoadoutN14ClothingOuterLegionPaladinKiller = Legion paladin killer armor
+
+# Enclave rank pin loadouts
+loadout-name-LoadoutEnclavePinPrivate = Enclave private pin
+loadout-name-LoadoutEnclavePinPFC = Enclave private first class pin
+loadout-name-LoadoutEnclavePinSpecialist = Enclave specialist pin
+loadout-name-LoadoutEnclavePinSergeant = Enclave sergeant pin
+loadout-name-LoadoutEnclavePinStaffSergeant = Enclave staff sergeant pin
+loadout-name-LoadoutEnclavePinSFC = Enclave sergeant first class pin
+loadout-name-LoadoutEnclavePinMasterSergeant = Enclave master sergeant pin
+loadout-name-LoadoutEnclavePinSecondLieutenant = Enclave second lieutenant pin
+loadout-name-LoadoutEnclavePinFirstLieutenant = Enclave first lieutenant pin
+loadout-name-LoadoutEnclavePinCaptain = Enclave captain pin
+loadout-name-LoadoutEnclavePinMajor = Enclave major pin
+loadout-name-LoadoutEnclavePinLtColonel = Enclave lieutenant colonel pin
+loadout-name-LoadoutEnclavePinColonel = Enclave colonel pin
+loadout-name-LoadoutEnclavePinGeneral = Enclave general pin
+loadout-name-LoadoutEnclavePinJuniorScientist = Enclave junior scientist pin
+loadout-name-LoadoutEnclavePinScientist = Enclave scientist pin
+loadout-name-LoadoutEnclavePinHeadScientist = Enclave head scientist pin
+
+# NCR rank pin additions
+loadout-name-LoadoutNCRPinChiefPhysicianMedic = NCR chief physician pin (Medic)
+loadout-name-LoadoutNCRPinMajorMisfits = NCR major pin

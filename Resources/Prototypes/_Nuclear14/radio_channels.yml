@@ -103,12 +103,14 @@
   longRange: true
 
 # #Misfits Add — Followers of the Apocalypse private radio channel
+# longRange: true so it works without a dedicated telecomms server on the map
 - type: radioChannel
   id: FollowersOfApocalypse
   name: chat-radio-followers
   keycode: 'f'
   frequency: 1700
   color: "#5cbf82"
+  longRange: true
 
 # Zetan
 
