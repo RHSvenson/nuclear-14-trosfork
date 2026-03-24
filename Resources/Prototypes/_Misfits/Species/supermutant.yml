@@ -25,12 +25,12 @@
   dollPrototype: N14MobSuperMutantDummy
   skinColoration: Hues
   defaultSkinTone: "#6b8e23"
-  minHeight: 1.0
-  defaultHeight: 1.0
-  maxHeight: 1.0
-  minWidth: 1.0
-  defaultWidth: 1.0
-  maxWidth: 1.0
+  minHeight: 1.5
+  defaultHeight: 1.5
+  maxHeight: 1.5
+  minWidth: 1.5
+  defaultWidth: 1.5
+  maxWidth: 1.5
   sexes:
   - Male
   - Female

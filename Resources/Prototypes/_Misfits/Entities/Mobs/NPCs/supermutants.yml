@@ -24,7 +24,7 @@
         Blunt: 25
     range: 1.8
   - type: Sprite
-    scale: 1.032, 1.091 # Misfits Tweak: match NCR mutant scale for consistent non-squished appearance.
+    scale: 1.5, 1.5 # Misfits Tweak: Super Mutants are 1.5x bigger than humans.
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -68,7 +68,7 @@
       Dead:
         Base: melee_dead
   - type: Sprite
-    scale: 1.032, 1.091 # Misfits Tweak: match NCR mutant scale for consistent non-squished appearance.
+    scale: 1.5, 1.5 # Misfits Tweak: Super Mutants are 1.5x bigger than humans.
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -124,7 +124,7 @@
       Dead:
         Base: ranged_dead
   - type: Sprite
-    scale: 1.032, 1.091 # Misfits Tweak: match NCR mutant scale for consistent non-squished appearance.
+    scale: 1.5, 1.5 # Misfits Tweak: Super Mutants are 1.5x bigger than humans.
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -168,7 +168,7 @@
       Dead:
         Base: nightkin_dead
   - type: Sprite
-    scale: 1.032, 1.091 # Misfits Tweak: match NCR mutant scale for consistent non-squished appearance.
+    scale: 1.5, 1.5 # Misfits Tweak: Super Mutants are 1.5x bigger than humans.
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -225,7 +225,7 @@
       Dead:
         Base: nightkin_ranged_dead
   - type: Sprite
-    scale: 1.032, 1.091 # Misfits Tweak: match NCR mutant scale for consistent non-squished appearance.
+    scale: 1.5, 1.5 # Misfits Tweak: Super Mutants are 1.5x bigger than humans.
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -282,7 +282,7 @@
       Dead:
         Base: nightkin_boss_dead
   - type: Sprite
-    scale: 1.032, 1.091 # Misfits Tweak: match NCR mutant scale for consistent non-squished appearance.
+    scale: 1.5, 1.5 # Misfits Tweak: Super Mutants are 1.5x bigger than humans.
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -346,7 +346,7 @@
       Dead:
         Base: base_dead
   - type: Sprite
-    scale: 1.032, 1.091 # Misfits Tweak: match NCR mutant scale for consistent non-squished appearance.
+    scale: 1.5, 1.5 # Misfits Tweak: Super Mutants are 1.5x bigger than humans.
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -382,7 +382,7 @@
       Dead:
         Base: base_dead
   - type: Sprite
-    scale: 1.032, 1.091 # Misfits Tweak: match NCR mutant scale for consistent non-squished appearance.
+    scale: 1.5, 1.5 # Misfits Tweak: Super Mutants are 1.5x bigger than humans.
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -419,7 +419,7 @@
       Dead:
         Base: ncr_mutant_dead
   - type: Sprite
-    scale: 1.032, 1.091 # Misfits Add: normalize 31x44 sprite to 32x48 rendering
+    scale: 1.5, 1.5 # Misfits Tweak: Super Mutants are 1.5x bigger than humans.
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -456,7 +456,7 @@
       Dead:
         Base: nco_mutant_dead
   - type: Sprite
-    scale: 1.032, 1.091 # Misfits Add: normalize 31x44 sprite to 32x48 rendering
+    scale: 1.5, 1.5 # Misfits Tweak: Super Mutants are 1.5x bigger than humans.
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]

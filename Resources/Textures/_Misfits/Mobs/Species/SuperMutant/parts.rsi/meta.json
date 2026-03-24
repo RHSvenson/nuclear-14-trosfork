@@ -1,26 +1,21 @@
 {
   "version": 1,
   "license": "CC-BY-NC-SA-3.0",
-  "copyright": "Taken from SS13, original authors unknown",
+  "copyright": "Pinky109 2026",
   "size": {
     "x": 32,
-    "y": 48
+    "y": 32
   },
   "states": [
     {
-      "name": "head_m",
-      "directions": 4
+      "name": "full"
     },
     {
       "name": "head_f",
       "directions": 4
     },
     {
-      "name": "torso_m",
-      "directions": 4
-    },
-    {
-      "name": "torso_f",
+      "name": "head_m",
       "directions": 4
     },
     {
@@ -28,7 +23,7 @@
       "directions": 4
     },
     {
-      "name": "r_arm",
+      "name": "l_foot",
       "directions": 4
     },
     {
@@ -36,19 +31,11 @@
       "directions": 4
     },
     {
-      "name": "r_hand",
-      "directions": 4
-    },
-    {
       "name": "l_leg",
       "directions": 4
     },
     {
-      "name": "r_leg",
-      "directions": 4
-    },
-    {
-      "name": "l_foot",
+      "name": "r_arm",
       "directions": 4
     },
     {
@@ -56,8 +43,20 @@
       "directions": 4
     },
     {
-      "name": "full",
-      "directions": 1
+      "name": "r_hand",
+      "directions": 4
+    },
+    {
+      "name": "r_leg",
+      "directions": 4
+    },
+    {
+      "name": "torso_f",
+      "directions": 4
+    },
+    {
+      "name": "torso_m",
+      "directions": 4
     }
   ]
 }
