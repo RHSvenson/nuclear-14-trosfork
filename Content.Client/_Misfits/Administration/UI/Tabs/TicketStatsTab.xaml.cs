@@ -21,8 +21,8 @@ public sealed partial class TicketStatsTab : Control
     // Ticket data from both systems, keyed by (Type, TicketId)
     private readonly Dictionary<(HelpTicketType, int), HelpTicketInfo> _tickets = new();
 
-    // Dirty flag — defers grid rebuild to next FrameUpdate to avoid
-    // "Collection was modified" exceptions during DoFrameUpdateRecursive.
+    // Dirty flag — batches incoming ticket updates until the next frame,
+    // but the actual rebuild must happen before the control tree is traversed.
     private bool _statsDirty;
 
     private BwoinkSystem? _bwoinkSys;
@@ -87,13 +87,13 @@ public sealed partial class TicketStatsTab : Control
 
     protected override void FrameUpdate(FrameEventArgs args)
     {
+        if (_statsDirty)
+        {
+            _statsDirty = false;
+            RefreshStats();
+        }
+
         base.FrameUpdate(args);
-
-        if (!_statsDirty)
-            return;
-
-        _statsDirty = false;
-        RefreshStats();
     }
 
     /// <summary>

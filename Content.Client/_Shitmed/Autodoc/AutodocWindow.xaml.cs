@@ -178,9 +178,11 @@ public sealed partial class AutodocWindow : FancyWindow
 
     protected override void FrameUpdate(FrameEventArgs args)
     {
-        base.FrameUpdate(args);
-
+        // Rebuild program buttons before the base traversal so the child collection
+        // stays stable while the UI tree is being updated for this frame.
         UpdateActive();
         UpdatePrograms();
+
+        base.FrameUpdate(args);
     }
 }
