@@ -36,7 +36,7 @@
 - type: startingGear
   id: RangerGear
   equipment:
-    head: N14ClothingHeadHatRangerHelmetDesert
+    head: N14ClothingHeadHatRangerB # Misfits Tweak - field rangers use the lighter ranger hat variant
     back: N14ClothingBackpackMilitary # Corvax-Chande
     jumpsuit: N14ClothingUniformRangerV2
     ears: N14ClothingHeadsetNCR
@@ -47,7 +47,7 @@
     pocket1: MagazineBox45-70
     pocket2: NCRfieldrangerloadoutkits
     eyes: ClothingEyesGlassesSunglasses
-    outerClothing: N14ClothingOuterRangerCombatDesert
+    outerClothing: N14ClothingOuterRangerCoat # Misfits Tweak - reserve desert combat armor for veteran-tier rangers
     id: N14IDBadgeNCRDesertRanger
   innerClothingSkirt: N14ClothingUniformRangerV1 #placeholder
   satchel: N14ClothingBackpackSatchelMilitaryFilled

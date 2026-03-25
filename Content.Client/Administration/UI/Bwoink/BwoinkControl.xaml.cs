@@ -31,6 +31,8 @@ namespace Content.Client.Administration.UI.Bwoink
         [Dependency] private readonly IUserInterfaceManager _ui = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IEntitySystemManager _entitySystem = default!; // #Misfits Add — for ghost-follow via BwoinkSystem
+        // #Misfits Add — cached reference so PopulateList can source from the full player list
+        private AdminSystem _adminSystem = default!;
         public AdminAHelpUIHandler AHelpHelper = default!;
 
         private PlayerInfo? _currentPlayer;
@@ -56,8 +58,8 @@ namespace Content.Client.Administration.UI.Bwoink
             // #Misfits Fix — When the server updates the player list (join/leave), PlayerListControl.PopulateList
             // fires automatically with all players. We subscribe here to run our ticket-filtered PopulateList
             // immediately afterward, restoring the ahelp-only filter.
-            var adminSystem = _entitySystem.GetEntitySystem<AdminSystem>();
-            adminSystem.PlayerListChanged += _ => PopulateList();
+            _adminSystem = _entitySystem.GetEntitySystem<AdminSystem>();
+            _adminSystem.PlayerListChanged += _ => PopulateList();
 
             ChannelSelector.OnSelectionChanged += sel =>
             {
@@ -451,11 +453,17 @@ namespace Content.Client.Administration.UI.Bwoink
 
         public void PopulateList()
         {
+            // #Misfits Fix — Source from AdminSystem's master player list, not ChannelSelector.PlayerInfo.
+            // ChannelSelector.PlayerInfo is overwritten with the filtered subset each time PopulateList runs,
+            // so newly-ticketed players not in the previous subset would never be found — causing the
+            // ~30-second delay before they appeared (until the next PlayerListChanged re-seeded the list).
+            var allPlayers = _adminSystem.PlayerList;
+
             // #Misfits Change — Only show users with adminhelp tickets
             var pinnedPlayers = ChannelSelector.PlayerInfo.Where(p => p.IsPinned).ToDictionary(p => p.SessionId);
 
             // Filter to only players with tickets
-            var ticketedPlayers = ChannelSelector.PlayerInfo.Where(p => _tickets.ContainsKey(p.SessionId)).ToList();
+            var ticketedPlayers = allPlayers.Where(p => _tickets.ContainsKey(p.SessionId)).ToList();
             ChannelSelector.PopulateList(ticketedPlayers);
 
             // Restore pin statuses
