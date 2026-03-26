@@ -21,7 +21,7 @@ public sealed partial class StaffTab : Control
 {
     // Window references
     private TicketLogWindow? _ticketLogWindow;
-    private AuditLogWindow? _auditLogWindow;
+    private TicketAuditLogWindow? _auditLogWindow;
 
     // Ticket data from both systems, keyed by (Type, TicketId)
     private readonly Dictionary<(HelpTicketType, int), HelpTicketInfo> _tickets = new();
@@ -61,7 +61,7 @@ public sealed partial class StaffTab : Control
             _ticketLogWindow.OpenCentered();
         };
 
-        // Audit log button — opens the cross-ticket audit window
+        // Audit log button — opens the persistent DB-backed audit log window (cross-round)
         OpenAuditLog.OnPressed += _ =>
         {
             if (_auditLogWindow is { Disposed: false })
@@ -70,8 +70,7 @@ public sealed partial class StaffTab : Control
                 return;
             }
 
-            _auditLogWindow = new AuditLogWindow();
-            _auditLogWindow.OnClose += () => _auditLogWindow = null;
+            _auditLogWindow = new TicketAuditLogWindow();
             _auditLogWindow.OpenCentered();
         };
 

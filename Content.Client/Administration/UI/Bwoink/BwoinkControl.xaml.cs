@@ -277,8 +277,16 @@ namespace Content.Client.Administration.UI.Bwoink
             bwoinkSys.OnTicketUpdated += OnTicketUpdated;
             bwoinkSys.OnTicketListReceived += OnTicketListReceived;
 
-            // #Misfits Fix — subscribe first to avoid dropping the first list response
-            // when opening AHelp as a late-joining admin.
+            // #Misfits Fix — seed local ticket cache from BwoinkSystem's cached data so the
+            // panel is populated immediately, even if the server push arrived before this
+            // control was created (late-joining admin or opened panel after tickets exist).
+            foreach (var (playerId, ticket) in bwoinkSys.CachedTickets)
+            {
+                _tickets[playerId] = ticket;
+            }
+            PopulateList();
+
+            // Also request a fresh list from the server to ensure we're in sync
             bwoinkSys.RequestTicketList();
         }
 
