@@ -26,8 +26,9 @@
     canChangeTransferAmount: false
   - type: DeleteOnSolutionEmpty
     solution: dung
-  # #Misfits Fix: Removed TimedDespawn — dung now persists indefinitely so players
-  # can collect and compost it without a 5-minute window.
+  # #Misfits Fix: Re-applied the original cleanup timer so dung does not accumulate indefinitely.
+  - type: TimedDespawn
+    lifetime: 300
 
 - type: entity
   parent: N14Dung
