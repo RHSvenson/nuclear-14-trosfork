@@ -337,30 +337,12 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
                 ("color", color)));
         }
 
-        // Show the absorption breakdown so players understand what integrity provides.
+        // Show what absorption the integrity provides.
         msg.PushNewline();
         msg.AddMarkupOrThrow(Loc.GetString("power-armor-integrity-examine-absorption-header"));
-
-        // Full-integrity tier: above the first degradation threshold (or always, if no tiers).
-        var fullThresholdPct = comp.DegradationTiers.Count > 0
-            ? (int) (comp.DegradationTiers[0].Threshold * 100)
-            : 100;
         msg.PushNewline();
-        msg.AddMarkupOrThrow(Loc.GetString("power-armor-integrity-examine-absorption-full",
-            ("threshold", fullThresholdPct),
+        msg.AddMarkupOrThrow(Loc.GetString("power-armor-integrity-examine-absorption-value",
             ("value", (int) (comp.AbsorptionRatio * 100))));
-
-        // Each degradation tier, coloured yellow → red from highest to lowest.
-        for (var i = 0; i < comp.DegradationTiers.Count; i++)
-        {
-            var tier = comp.DegradationTiers[i];
-            var tierColor = i == comp.DegradationTiers.Count - 1 ? "red" : "yellow";
-            msg.PushNewline();
-            msg.AddMarkupOrThrow(Loc.GetString("power-armor-integrity-examine-absorption-tier",
-                ("threshold", (int) (tier.Threshold * 100)),
-                ("value", (int) (tier.Absorption * 100)),
-                ("color", tierColor)));
-        }
 
         _examine.AddDetailedExamineVerb(args, comp, msg,
             Loc.GetString("power-armor-integrity-verb-text"),
