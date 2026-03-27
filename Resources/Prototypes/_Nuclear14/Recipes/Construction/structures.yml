@@ -246,7 +246,7 @@
   description: A flexible leather tent wall. Good for temporary shelter.
   icon:
     sprite: _Nuclear14/Structures/Walls/nc14/tents.rsi
-    state: leather_wall
+    state: leather_edge  # #Misfits Tweak - leather_wall state doesn't exist, leather_edge is the closest available
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false
@@ -265,7 +265,7 @@
   description: A lightweight cloth tent wall. Portable and easy to set up.
   icon:
     sprite: _Nuclear14/Structures/Walls/nc14/tents.rsi
-    state: cloth_wall
+    state: cloth_edge  # #Misfits Tweak - cloth_wall state doesn't exist, cloth_edge is the closest available
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false

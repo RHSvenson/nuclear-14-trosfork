@@ -38,6 +38,7 @@
   hide: false
 
 # #Misfits Add: Floor tile crafting recipes
+# #Misfits Tweak: Icons changed from _Nuclear14/Objects/Misc/tiles.rsi (missing) to upstream /Objects/Tiles/tile.rsi
 
 # Wood Floor Tiles
 - type: construction
@@ -48,7 +49,7 @@
   targetNode: woodtileoak
   category: construction-category-materials
   description: "Craft oak wood floor tiles from wood planks."
-  icon: { sprite: /Textures/_Nuclear14/Objects/Misc/tiles.rsi, state: wood }
+  icon: { sprite: /Textures/Objects/Tiles/tile.rsi, state: wood }
   objectType: Item
   hide: false
 
@@ -60,7 +61,7 @@
   targetNode: woodtilehouse
   category: construction-category-materials
   description: "Craft house wood floor tiles from wood planks."
-  icon: { sprite: /Textures/_Nuclear14/Objects/Misc/tiles.rsi, state: wood }
+  icon: { sprite: /Textures/Objects/Tiles/tile.rsi, state: wood }
   objectType: Item
   hide: false
 
@@ -72,7 +73,7 @@
   targetNode: woodtilemaple
   category: construction-category-materials
   description: "Craft maple wood floor tiles from wood planks."
-  icon: { sprite: /Textures/_Nuclear14/Objects/Misc/tiles.rsi, state: wood }
+  icon: { sprite: /Textures/Objects/Tiles/tile.rsi, state: wood }
   objectType: Item
   hide: false
 
@@ -85,7 +86,7 @@
   targetNode: metaltileblue
   category: construction-category-materials
   description: "Craft blue metal floor tiles from iron."
-  icon: { sprite: /Textures/_Nuclear14/Objects/Misc/tiles.rsi, state: steel }
+  icon: { sprite: /Textures/Objects/Tiles/tile.rsi, state: steel }
   objectType: Item
   hide: false
 
@@ -97,7 +98,7 @@
   targetNode: metaltilered
   category: construction-category-materials
   description: "Craft red metal floor tiles from iron."
-  icon: { sprite: /Textures/_Nuclear14/Objects/Misc/tiles.rsi, state: steel }
+  icon: { sprite: /Textures/Objects/Tiles/tile.rsi, state: steel }
   objectType: Item
   hide: false
 
@@ -109,6 +110,6 @@
   targetNode: metaltilegreen
   category: construction-category-materials
   description: "Craft green metal floor tiles from iron."
-  icon: { sprite: /Textures/_Nuclear14/Objects/Misc/tiles.rsi, state: steel }
+  icon: { sprite: /Textures/Objects/Tiles/tile.rsi, state: steel }
   objectType: Item
   hide: false

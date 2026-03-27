@@ -20,11 +20,6 @@
             jukeType: Away
             retreatDistance: 2.5
 
-        # #Misfits Add: Small delay to stabilize positioning before targeting
-        - !type:HTNPrimitiveTask
-          operator: !type:WaitOperator
-            time: 0.1
-
         - !type:HTNPrimitiveTask
           operator: !type:UtilityOperator
             proto: NearbyGunTargets
@@ -38,11 +33,6 @@
             pathfindKey: TargetPathfind
             stopOnLineOfSight: true
             rangeKey: MeleeRange
-
-        # #Misfits Add: Brief pause for aim stabilization
-        - !type:HTNPrimitiveTask
-          operator: !type:WaitOperator
-            time: 0.05
 
         - !type:HTNPrimitiveTask
           preconditions:

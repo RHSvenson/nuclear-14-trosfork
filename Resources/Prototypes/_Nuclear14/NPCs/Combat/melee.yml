@@ -27,21 +27,11 @@
             pathfindKey: TargetPathfind
             rangeKey: MeleeRange
 
-        # #Misfits Add: Small delay to let movement stabilize before juke activates
-        - !type:HTNPrimitiveTask
-          operator: !type:WaitOperator
-            time: 0.15
-
         # #Misfits Change — Use AdjacentTile juke for melee NPCs so they strafe
         # sideways (combat alive-ness) without fleeing. Away is for ranged only.
         - !type:HTNPrimitiveTask
           operator: !type:JukeOperator
             jukeType: AdjacentTile
-
-        # #Misfits Add: Brief pause between juke and attack to reduce jitter
-        - !type:HTNPrimitiveTask
-          operator: !type:WaitOperator
-            time: 0.1
 
         - !type:HTNPrimitiveTask
           operator: !type:MeleeOperator
