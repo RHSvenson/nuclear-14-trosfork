@@ -66,10 +66,11 @@
     state: rifleman
   - type: UndecidedLoadoutBackpack
     possibleSets:
+    - MBoS_KniLas_Set  #Misfits Tweak: AER-14 replaced with AER-9 (KniLas)
     - MBoS_PalLas_Set
     - MBoS_PalBal_Set
-    - MBoS_PalSni_Set
-    - MBoS_PalPla_Set
+    #- MBoS_PalSni_Set  #Misfits Remove: Bozar removed from all Paladin ranks
+    #- MBoS_PalPla_Set  #Misfits Remove: AER-14 replaced by KniLas (AER-9) above
     #Misfits Change /Add/: Paladin-tier ranks keep Wattz 2000 option.
     - Misfits_PalWattz_Set
 
@@ -200,11 +201,10 @@
     state: rifleman
   - type: UndecidedLoadoutBackpack
     possibleSets:
-    #Misfits Change /Tweak/: Replaced AER-14 (PalPla) with AER-9 (KniLas) for Head Paladin.
-    - MBoS_KniLas_Set
-    - MBoS_PalSni_Set
+    - MBoS_KniLas_Set  #Misfits Tweak: AER-9 (was AER-14 PalPla)
     - MBoS_PalLas_Set
     - MBoS_PalBal_Set
+    #- MBoS_PalSni_Set  #Misfits Remove: Bozar removed from all Paladin ranks
     #Misfits Change /Add/: Paladin-tier ranks keep Wattz 2000 option.
     - Misfits_PalWattz_Set
 
@@ -249,10 +249,11 @@
     state: rifleman
   - type: UndecidedLoadoutBackpack
     possibleSets:
+    - MBoS_KniLas_Set  #Misfits Tweak: AER-14 replaced with AER-9 (KniLas)
     - MBoS_PalLas_Set
     - MBoS_PalBal_Set
-    - MBoS_PalSni_Set
-    - MBoS_PalPla_Set
+    #- MBoS_PalSni_Set  #Misfits Remove: Bozar removed from all Paladin ranks
+    #- MBoS_PalPla_Set  #Misfits Remove: AER-14 replaced by KniLas (AER-9) above
     #Misfits Change /Add/: Paladin-tier ranks keep Wattz 2000 option.
     - Misfits_PalWattz_Set
 
