@@ -2263,3 +2263,12 @@ Entries:
   id: 5682
   time: '2026-03-28T05:39:09.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/200
+- author: Cythisiax
+  changes:
+    - type: Fix
+      message: crucial ticket & bwoinksystem adjustment
+    - type: Tweak
+      message: power armor implementation forgot with PB reduction
+  id: 5683
+  time: '2026-03-28T08:55:26.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/202
