@@ -40,7 +40,13 @@ public sealed class PowerArmorBraceSystem : EntitySystem
         SubscribeLocalEvent<PowerArmorBraceComponent, ToggleActionEvent>(OnToggleAction);
 
         // Apply extra damage resistance while braced.
-        SubscribeLocalEvent<PowerArmorBraceComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnDamageModify);
+        // Must run AFTER SharedArmorSystem (so base coefficients have applied) but BEFORE
+        // PowerArmorIntegritySystem (so the reduction hits the full damage stream, not just
+        // the 10% bleedthrough that the integrity system leaves for the player).
+        SubscribeLocalEvent<PowerArmorBraceComponent, InventoryRelayedEvent<DamageModifyEvent>>(
+            OnDamageModify,
+            after: new[] { typeof(SharedArmorSystem) },
+            before: new[] { typeof(PowerArmorIntegritySystem) });
     }
 
     private void OnMapInit(EntityUid uid, PowerArmorBraceComponent component, MapInitEvent args)

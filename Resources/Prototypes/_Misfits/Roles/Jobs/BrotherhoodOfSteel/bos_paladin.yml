@@ -64,9 +64,9 @@
     - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls
       species:
       - Human
-    - !type:CharacterDepartmentTimeRequirement # #Misfits Add: 5-hour BoS department lock — power armor is not for new recruits.
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak: Raised to 10h so Paladin remains a mid-tier BoS progression step.
       department: BrotherhoodOfSteel
-      min: 18000 # 5 hours
+      min: 36000 # 10 hours
     #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
     #  tracker: BoSMidSquire
     #  min: 72000 # 20 hours
