@@ -4,6 +4,7 @@
 // The toggle action has a 5-second useDelay so neither state can be exited immediately.
 
 using Content.Shared.Actions;
+using Content.Shared.Armor;
 using Content.Shared.Damage;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -40,7 +41,13 @@ public sealed class PowerArmorBraceSystem : EntitySystem
         SubscribeLocalEvent<PowerArmorBraceComponent, ToggleActionEvent>(OnToggleAction);
 
         // Apply extra damage resistance while braced.
-        SubscribeLocalEvent<PowerArmorBraceComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnDamageModify);
+        // Must run AFTER SharedArmorSystem (so base coefficients have applied) but BEFORE
+        // PowerArmorIntegritySystem (so the reduction hits the full damage stream, not just
+        // the 10% bleedthrough that the integrity system leaves for the player).
+        SubscribeLocalEvent<PowerArmorBraceComponent, InventoryRelayedEvent<DamageModifyEvent>>(
+            OnDamageModify,
+            after: new[] { typeof(SharedArmorSystem) },
+            before: new[] { typeof(PowerArmorIntegritySystem) });
     }
 
     private void OnMapInit(EntityUid uid, PowerArmorBraceComponent component, MapInitEvent args)

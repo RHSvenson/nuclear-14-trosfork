@@ -14,9 +14,9 @@
     - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls
       species:
       - Human
-    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak: Reduced from 50h to 10h — Senior Paladin is still gated but accessible.
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak: Raised back to 40h so Senior Paladin stays a long-term BoS leadership unlock.
       department: BrotherhoodOfSteel
-      min: 36000 # 10 hours
+      min: 144000 # 40 hours
   startingGear: BoSMidPaladinGear
   alwaysUseSpawner: true
   icon: "JobIconBosMPaladin" # Corvax-Change
