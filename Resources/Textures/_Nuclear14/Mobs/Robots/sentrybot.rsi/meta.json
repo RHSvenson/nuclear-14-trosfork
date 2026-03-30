@@ -36,6 +36,14 @@
     {
       "name": "dead",
       "directions": 4
+    },
+    {
+      "name": "on",
+      "directions": 4
+    },
+    {
+      "name": "off",
+      "directions": 4
     }
   ]
 }

@@ -119,6 +119,23 @@
     items:
     - N14BorgWeaponFlamer
 
+# Security module — provides stun baton, handcuffs, and a flashlight for Police Protectrons.
+- type: entity
+  id: N14BorgModuleSecurity
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: security cyborg module
+  description: A law-enforcement module. Provides a stun baton, handcuffs, and a security flashlight for patrol and detainment duties.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-stunbaton
+  - type: ItemBorgModule
+    items:
+    - Stunbaton
+    - Handcuffs
+    - FlashlightSeclite
+
 # Integrated laser weapon for Robobrain laser variant — eyebot-class laser.
 - type: entity
   id: N14BorgWeaponLaser

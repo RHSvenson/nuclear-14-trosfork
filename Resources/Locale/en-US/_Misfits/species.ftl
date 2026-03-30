@@ -8,6 +8,7 @@ species-name-robot-protectron-builder = Protectron (Builder)
 species-name-robot-protectron-fire = Protectron (Firefighter)
 species-name-robot-mr-gutsy = Mr. Gutsy
 species-name-robot-assaultron = Assaultron
+species-name-robot-assaultron-tesla = Assaultron (Tesla)
 species-name-robot-sentrybot = Sentry Bot
 species-name-robot-sentrybot-laser = Sentry Bot (Laser)
 species-name-robot-robobrain = Robobrain

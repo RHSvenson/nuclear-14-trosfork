@@ -1,0 +1,6 @@
+- type: speechVerb
+  id: MisfitsMegaphone
+  name: chat-speech-verb-name-megaphone
+  speechVerbStrings:
+  - chat-speech-verb-megaphone
+  fontSize: 15

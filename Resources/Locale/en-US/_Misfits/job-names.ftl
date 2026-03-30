@@ -31,8 +31,10 @@ job-name-synthetic-robobrain = Robobrain
 job-description-synthetic-robobrain = You are a pre-war military Robobrain, a cybernetic construct housing a living brain within a robotic chassis. Slower but versatile, with medical and utility capabilities — or an integrated laser if combat is your calling.
 
 # Super Mutant
-job-name-supermutant = Super Mutant
+job-name-supermutant = Supermutant
 job-description-supermutant = You are a hulking FEV-mutated humanoid, towering over normal humans. Your immense strength and endurance are matched only by your reduced intellect. Find your place in the wasteland — through force, loyalty, or surprising compassion.
+job-name-supermutant-gladiator = Supermutant Gladiator
+job-description-supermutant-gladiator = You are an arena-forged supermutant who lives for close combat and spectacle. Wear your gladiator kit proudly and prove your strength in the wasteland.
 
 # #Misfits Add — Western BoS chapter command-tier jobs (Elder + Head Scribe).
 # These keys were commented out in the Corvax locale when the Corvax west-BoS chapter

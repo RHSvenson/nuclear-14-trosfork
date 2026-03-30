@@ -1109,7 +1109,7 @@
     minAngle: -8
     maxAngle: -20
   - type: Gun
-    fireRate: 8
+    fireRate: 5 #Misfits Change — reduced from 8; RCW is rapid-cycling but not a bullet hose, 5 keeps it distinctly auto without being oppressive
     minAngle: 8
     maxAngle: 25
     angleIncrease: 4

@@ -41,6 +41,10 @@ humanoid-profile-editor-robot-model-protectron-police = Police
 humanoid-profile-editor-robot-model-protectron-builder = Builder
 humanoid-profile-editor-robot-model-protectron-fire = Firefighter
 
+# Robot model selector labels for Assaultron variants.
+humanoid-profile-editor-robot-model-assaultron-beam = Beam
+humanoid-profile-editor-robot-model-assaultron-tesla = Tesla
+
 # Robot model selector labels for Sentry Bot variants.
 humanoid-profile-editor-robot-model-sentrybot-minigun = Minigun
 humanoid-profile-editor-robot-model-sentrybot-laser = Laser Gatling

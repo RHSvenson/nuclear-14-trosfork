@@ -138,6 +138,25 @@
   naming: First # #Misfits Change
 
 - type: species
+  id: RobotAssaultronTesla
+  name: species-name-robot-assaultron-tesla
+  roundStart: true
+  order: 14 # #Misfits Add: hidden variant, used by Robot Model picker
+  whitelistRequired: true
+  restrictedCustomization: true
+  jobWhitelistUnlock: SyntheticAssaultron # shares the same job as base Assaultron
+  restrictedJobs:
+  - SyntheticAssaultron
+  sprites: RobotSprites
+  markingLimits: RobotMarkingLimits
+  prototype: N14PlayerSyntheticAssaultronTesla
+  dollPrototype: N14PlayerSyntheticAssaultronTesla
+  skinColoration: Hues
+  maleFirstNames: RobotAssaultronFirst
+  femaleFirstNames: RobotAssaultronFirst
+  naming: First
+
+- type: species
   id: RobotSentryBot
   name: species-name-robot-sentrybot
   roundStart: true
@@ -155,6 +174,14 @@
   maleFirstNames: RobotSentryBotFirst
   femaleFirstNames: RobotSentryBotFirst
   naming: First
+  # Sentry bots are 2× scale — must match the Sprite component's scale so
+  # HumanoidAppearanceSystem doesn't reset it to 1.0 on spawn.
+  minHeight: 2.0
+  defaultHeight: 2.0
+  maxHeight: 2.0
+  minWidth: 2.0
+  defaultWidth: 2.0
+  maxWidth: 2.0
 
 - type: species
   id: RobotSentryBotLaser
@@ -174,6 +201,12 @@
   maleFirstNames: RobotSentryBotFirst
   femaleFirstNames: RobotSentryBotFirst
   naming: First
+  minHeight: 2.0
+  defaultHeight: 2.0
+  maxHeight: 2.0
+  minWidth: 2.0
+  defaultWidth: 2.0
+  maxWidth: 2.0
 
 - type: species
   id: RobotRobobrain

@@ -24,3 +24,37 @@
 
 - type: playTimeTracker
   id: SuperMutant
+
+# #Misfits Add - Gladiator variant of the playable Supermutant role.
+# Spawns with an arena-themed outfit while retaining normal whitelist and species restrictions.
+- type: job
+  id: SuperMutantGladiator
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  name: job-name-supermutant-gladiator
+  description: job-description-supermutant-gladiator
+  playTimeTracker: SuperMutantGladiator
+  icon: JobIconBorg
+  supervisors: job-supervisors-supermutant
+  canBeAntag: false
+  setPreference: true
+  overrideConsoleVisibility: true
+  whitelisted: true # #Misfits Change
+  hideWithoutWhitelist: true # #Misfits Change
+  spawnLoadout: false
+  applyTraits: false
+  startingGear: SuperMutantGladiatorGear
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - SuperMutant
+
+- type: startingGear
+  id: SuperMutantGladiatorGear
+  equipment:
+    jumpsuit: ClothingSuperMutantGladiatorLoincloth
+    outerClothing: ClothingSuperMutantGladiatorArmor
+    shoes: ClothingSuperMutantGladiatorBoots
+    head: ClothingSuperMutantGladiatorHelmet
+
+- type: playTimeTracker
+  id: SuperMutantGladiator

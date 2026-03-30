@@ -106,3 +106,66 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+
+# #Misfits Add - Gladiator set for the playable Supermutant Gladiator variant.
+# Uses dedicated supermutant-fitted directional sheets so the outfit renders cleanly on species layers.
+
+# --- Gladiator Loincloth ---
+- type: entity
+  parent: UnsensoredClothingUniformBase
+  id: ClothingSuperMutantGladiatorLoincloth
+  name: supermutant gladiator loincloth
+  description: A hardened arena loincloth cut for a supermutant frame.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/gladiator_loincloth.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/gladiator_loincloth.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+# --- Gladiator Armor ---
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingSuperMutantGladiatorArmor
+  name: supermutant gladiator armor
+  description: Heavy scrap armor reinforced for pit fights and close-quarters brutality.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/gladiator_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/gladiator_armor.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+# --- Gladiator Boots ---
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingSuperMutantGladiatorBoots
+  name: supermutant gladiator boots
+  description: Arena boots built for traction and impact on broken concrete.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/gladiator_boots.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/gladiator_boots.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+# --- Gladiator Helmet ---
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingSuperMutantGladiatorHelmet
+  name: supermutant gladiator helmet
+  description: A brutal steel helm meant to survive point-blank blows in the arena.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/gladiator_helmet.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/gladiator_helmet.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable

@@ -104,6 +104,11 @@ namespace Content.Client.Lobby.UI
                 ("RobotProtectronBuilder", "humanoid-profile-editor-robot-model-protectron-builder"),
                 ("RobotProtectronFire", "humanoid-profile-editor-robot-model-protectron-fire"),
             },
+            ["RobotAssaultron"] = new[]
+            {
+                ("RobotAssaultron", "humanoid-profile-editor-robot-model-assaultron-beam"),
+                ("RobotAssaultronTesla", "humanoid-profile-editor-robot-model-assaultron-tesla"),
+            },
             ["RobotSentryBot"] = new[]
             {
                 ("RobotSentryBot", "humanoid-profile-editor-robot-model-sentrybot-minigun"),
@@ -1648,6 +1653,7 @@ namespace Content.Client.Lobby.UI
             return speciesId == "RobotProtectronPolice"
                 || speciesId == "RobotProtectronBuilder"
                 || speciesId == "RobotProtectronFire"
+                || speciesId == "RobotAssaultronTesla"
                 || speciesId == "RobotSentryBotLaser"
                 || speciesId == "RobotRobobrainLaser";
         }

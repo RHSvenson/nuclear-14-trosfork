@@ -4,6 +4,7 @@
 
 using Content.Shared.Actions;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Serialization.Manager.Attributes;
 
 namespace Content.Shared._Misfits.Robot;
@@ -41,4 +42,30 @@ public sealed partial class SentryBotChassisComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? MissileLaunchActionEntity;
+
+    // --- Missile targeting delay state ---
+
+    /// <summary>
+    /// Whether the sentry bot is currently in a targeting lock-on phase.
+    /// </summary>
+    [ViewVariables]
+    public bool IsTargeting;
+
+    /// <summary>
+    /// The coordinates the missile will be fired at once the lock-on delay expires.
+    /// </summary>
+    [ViewVariables]
+    public EntityCoordinates TargetCoords;
+
+    /// <summary>
+    /// When the targeting delay expires and the missile fires.
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan MissileLaunchTime = TimeSpan.Zero;
+
+    /// <summary>
+    /// How long (in seconds) the targeting lock-on takes before the missile fires.
+    /// </summary>
+    [DataField]
+    public float TargetingDelay = 4f;
 }

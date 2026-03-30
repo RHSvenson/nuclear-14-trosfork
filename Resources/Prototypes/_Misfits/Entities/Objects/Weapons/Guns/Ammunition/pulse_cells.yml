@@ -92,16 +92,19 @@
   - type: Battery
     maxCharge: 2375
     startingCharge: 2375
+  - type: HitscanBatteryAmmoProvider # Override parent's RedMediumLaser hitscan â€” this cell fires projectiles only
+    proto: RedMediumLaser
+    fireCost: 999999 # Effectively disabled â€” cost exceeds maxCharge so hitscan never fires
   - type: ProjectileBatteryAmmoProvider
     proto: TeslaGunBullet     # existing SS14 proto: energy_miniball.rsi tesla_projectile + chain lightning
     fireCost: 250
 
-# Green Microfusion Cell — for the Laser RCW.
+# Green Microfusion Cell ï¿½ for the Laser RCW.
 # The RCW in Fallout fires a distinctive green laser, not the standard red.
 # Same capacity as N14PowerCellHigh, carries the same tag so it loads into the RCW slot.
 - type: entity
   name: green microfusion cell
-  description: A microfusion cell tuned to emit a green-wavelength laser beam — the distinctive colour of the Rapid-Cycling Weapon. Functionally identical to a standard microfusion cell, just differently calibrated.
+  description: A microfusion cell tuned to emit a green-wavelength laser beam ï¿½ the distinctive colour of the Rapid-Cycling Weapon. Functionally identical to a standard microfusion cell, just differently calibrated.
   id: N14GreenMicrofusionCell
   suffix: Full
   parent: N14BasePowerCell
@@ -125,12 +128,12 @@
     proto: N14GreenMediumLaser
     fireCost: 50
 
-# Blue Electron Charge Pack — for the AER-14 prototype laser rifle.
+# Blue Electron Charge Pack ï¿½ for the AER-14 prototype laser rifle.
 # The AER-14 is a unique pre-war prototype; blue discharge distinguishes it
 # from standard red-laser ECP weapons and reflects its experimental nature.
 - type: entity
   name: blue electron charge pack
-  description: An experimental electron charge pack emitting a blue-spectrum beam — the signature discharge of the AER-14 prototype. Pre-war laboratory origin, considerably rarer than standard ECPs.
+  description: An experimental electron charge pack emitting a blue-spectrum beam ï¿½ the signature discharge of the AER-14 prototype. Pre-war laboratory origin, considerably rarer than standard ECPs.
   id: N14BlueElectronChargePack
   suffix: Full
   parent: N14BasePowerCell

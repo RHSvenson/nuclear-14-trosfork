@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseItem
+  id: MisfitsMegaphone
+  name: megaphone
+  description: A battered handheld megaphone that makes your voice impossible to ignore.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    state: radio
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: radio
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: Megaphone
+    speechVerbOverride: MisfitsMegaphone
+  - type: StaticPrice
+    price: 25

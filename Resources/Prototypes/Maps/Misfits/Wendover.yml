@@ -30,6 +30,7 @@
         availableJobs:
           Wastelander: [ -1, -1 ]
           SuperMutant: [ 0, 1 ] # #Misfits Change /Fix/: make the FEV Mutant role available for mid-round joins.
+          SuperMutantGladiator: [ 0, 1 ] # #Misfits Add: Gladiator variant latejoin slot.
           # WastelandScavenger: [ 3, 5 ]
           WastelandReporter: [ 1, 2 ]
           # WastelandMusician: [ 2, 3 ]

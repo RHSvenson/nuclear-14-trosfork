@@ -8,6 +8,8 @@
   - SyntheticProtectron
   - SyntheticMrGutsy
   - SyntheticAssaultron
+  - SyntheticSentryBot # #Misfits Add
+  - SyntheticRobobrain # #Misfits Add
 
 # #Misfits Change
 - type: department
@@ -17,6 +19,7 @@
   weight: -100
   roles:
   - SuperMutant
+  - SuperMutantGladiator # #Misfits Add - playable supermutant gladiator whitelist variant
 
 # #Misfits Add - Enclave department is job-whitelist-only and sorted below other special departments.
 # #Misfits Change - Expanded from 3 roles to 8 (5 military + 3 science).
