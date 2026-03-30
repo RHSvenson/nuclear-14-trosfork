@@ -24,7 +24,7 @@ public sealed partial class AggroSoundComponent : Component
     /// group do not all vocalize in sync.
     /// </summary>
     [DataField]
-    public float CooldownMin = 4f;
+    public float CooldownMin = 10f;
 
     /// <summary>
     /// Maximum seconds between aggro sound plays.

@@ -30,11 +30,9 @@ public sealed class CombatModePingSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    // Seconds a player must wait before the ping can play again after being triggered.
-    private const float PingCooldownSeconds = 3f;
-
-    // #Misfits Tweak - NPCs get a longer cooldown to avoid flooding the network with audio
-    // packets when dozens of mobs aggro simultaneously.
+    // #Misfits Tweak - Cooldown raised to 10 s for both players and NPCs to reduce audio spam
+    // during large engagements; players were previously 3 s which could flood nearby clients.
+    private const float PingCooldownSeconds = 10f;
     private const float NpcPingCooldownSeconds = 10f;
 
     // Voice range in world units — matches SharedChatSystem.VoiceRange (10).
