@@ -353,3 +353,99 @@
     capacity: 6
   - type: StaticPrice
     price: 80
+
+# #Misfits Add — Detective Special, Lucky 37, Peacekeeper
+# Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
+
+- type: entity
+  name: detective special (.357)
+  parent: N14WeaponRevolverBase
+  id: N14WeaponRevolver357Detective
+  description: A compact double-action revolver in .357 Magnum. Favoured by lawmen pre-war, this blued model fits neatly under a jacket. Short barrel cuts range but not lethality.
+  components:
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/detective.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/detective.rsi
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - N14CartridgePistol357
+        - SpeedLoader357
+    proto: N14CartridgePistol357
+    capacity: 6
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,0,1
+    - 0,0,0,1
+  - type: Gun
+    minAngle: 1
+    maxAngle: 6
+    angleIncrease: 0.5
+    angleDecay: 5
+    fireRate: 3
+    soundGunshot:
+      collection: N14RevolverMagnunGunshot
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  name: Lucky 37
+  parent: N14WeaponRevolver357Detective
+  id: N14WeaponRevolver357Lucky
+  description: A .357 revolver with a custom pearl grip and exceptional balance. It has outlasted a lot of hard years without complaint. It cycles just a hair faster than it should — like it wants to be fired.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/lucky37.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/lucky37.rsi
+  - type: Gun
+    minAngle: 0
+    maxAngle: 5
+    angleIncrease: 0.5
+    angleDecay: 6
+    fireRate: 4
+    soundGunshot:
+      collection: N14RevolverMagnunGunshot
+  - type: StaticPrice
+    price: 600
+
+- type: entity
+  name: Peacekeeper
+  parent: N14WeaponRevolverBase
+  id: N14WeaponRevolver44Peacekeeper
+  description: A beautifully maintained .44 Magnum with a custom grip and hair-trigger action. In the right hands it can be fanned for rapid fire, sacrificing precision for volume. A showman's weapon that still kills.
+  components:
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/peacekeeper.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/peacekeeper.rsi
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - N14Cartridge44Magnum
+        - SpeedLoader44
+    proto: N14Cartridge44Magnum
+    capacity: 6
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,0,1
+    - 0,0,0,1
+  - type: Gun
+    minAngle: 2
+    maxAngle: 15
+    angleIncrease: 2
+    angleDecay: 6
+    fireRate: 5
+    soundGunshot:
+      collection: N14RevolverMagnunGunshot
+  - type: StaticPrice
+    price: 500

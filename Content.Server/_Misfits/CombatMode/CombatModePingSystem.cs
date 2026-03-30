@@ -3,6 +3,8 @@
 // Cleans up stale entries for deleted entities to prevent memory leaks over long rounds.
 using Content.Server.NPC.HTN;
 using Content.Shared.CombatMode;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
@@ -90,6 +92,12 @@ public sealed class CombatModePingSystem : EntitySystem
 
     private void OnCombatModeActivated(EntityUid uid, CombatModeComponent comp, CombatModeActivatedEvent args)
     {
+        // #Misfits Fix — Async HTN plan jobs queued before death can complete after the mob dies
+        // and re-add NPCMeleeCombatComponent, which calls SetInCombatMode(true) and fires this event.
+        // Guard here so dead mobs do not emit the combat-mode ping.
+        if (TryComp<MobStateComponent>(uid, out var mobState) && mobState.CurrentState != MobState.Alive)
+            return;
+
         var isNpc = HasComp<HTNComponent>(uid);
 
         // Use a longer cooldown for NPCs to avoid saturating the network send buffer.

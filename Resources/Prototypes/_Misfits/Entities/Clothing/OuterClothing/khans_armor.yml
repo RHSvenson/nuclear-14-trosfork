@@ -1,0 +1,65 @@
+# Great Khans faction armor — ported from SS13 Big-Iron reference repo.
+# The Great Khans are a major Fallout NV raider faction absent from N14 until now.
+# Stats converted from SS13 (0-100 resistance) to SS14 coefficients: 1 - (ss13_value / 100).
+# Sprites: placeholder centurionheavyarmor.rsi until _Misfits RSIs are sourced and converted.
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsClothingOuterKhansJacket
+  name: khans jacket
+  description: Jackets popular with the Great Khans show off their skull emblem on the back, with small lead plate inserts providing some protection. Worn by rank-and-file Khan members.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansjacket.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansjacket.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.82
+        Heat: 0.87
+        Radiation: 0.72
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsClothingOuterKhansArmoredJacket
+  name: khans armored jacket
+  description: A Great Khans armored jacket with ceramic and metal inserts — more protection, same attitude. Standard issue for Khan enforcers looking to make a statement without slowing down.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansarmoredjacket.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansarmoredjacket.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.72
+        Slash: 0.72
+        Piercing: 0.82
+        Heat: 0.82
+        Radiation: 0.90
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsClothingOuterKhanbatArmor
+  name: khanbat armor
+  description: Pre-war combat armor repainted in the red and black of the Great Khans. Road warrior chic — the Khan who wears this has seen enough firefights to bother upgrading.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khanbatarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khanbatarmor.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.92
+    sprintModifier: 0.92
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.68
+        Heat: 0.83
+  - type: ExplosionResistance
+    damageCoefficient: 0.75

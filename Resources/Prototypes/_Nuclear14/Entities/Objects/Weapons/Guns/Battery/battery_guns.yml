@@ -1061,3 +1061,287 @@
     backStrength: 6
   - type: StaticPrice
     price: 400
+
+# #Misfits Add — Laser RCW, Pulse Pistol, Pulse Carbine, Pulse Rifle, Tesla Cannon
+# Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
+
+- type: entity
+  name: laser RCW
+  parent: N14BaseWeaponPowerCell
+  id: N14WeaponLaserRCW
+  description: A rapid-cycling laser weapon with the silhouette of a submachine gun. Designed for close-quarters energy weapon deployment. Inaccurate and battery-hungry, but capable of sustained continuous laser fire.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laserrcw.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laserrcw.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Power Cell
+        startingItem: N14PowerCellHigh
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PowerCellHigh
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+    - 0,1,0,1
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -8
+    maxAngle: -20
+  - type: Gun
+    fireRate: 8
+    minAngle: 8
+    maxAngle: 25
+    angleIncrease: 4
+    angleDecay: 14
+    selectedMode: Fullauto
+    availableModes:
+    - Fullauto
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 300
+
+- type: entity
+  name: pulse pistol
+  parent: N14BaseWeaponPowerCellSmall
+  id: N14WeaponPulsePistol
+  description: A compact energy weapon firing focused electromagnetic pulse bursts. Effective against robotic targets. Small power cell limits capacity but the size makes it concealable as a sidearm.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/pulsepistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/pulsepistol.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Power Cell
+        startingItem: N14PowerCellSmall
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PowerCellSmall
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,0,1
+    - 0,0,0,1
+  - type: Gun
+    fireRate: 2
+    minAngle: 1
+    maxAngle: 12
+    angleIncrease: 1
+    angleDecay: 8
+    soundGunshot:
+      collection: N14LaserPistolGunshot
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 200
+
+- type: entity
+  name: pulse carbine
+  parent: N14BaseWeaponPowerCell
+  id: N14WeaponPulseCarbine
+  description: A medium-frame pulse weapon balancing cell capacity and portability. Standard Brotherhood of Steel counter-robot doctrine arms a team member with one. Effective suppressing fire against mechanical targets.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/pulsecarbine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/pulsecarbine.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Power Cell
+        startingItem: N14PowerCellHigh
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PowerCellHigh
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+    - 0,1,0,1
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -18
+    maxAngle: -50
+  - type: Gun
+    fireRate: 2
+    minAngle: 18
+    maxAngle: 50
+    angleIncrease: 2
+    angleDecay: 12
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 350
+
+- type: entity
+  name: pulse rifle (YK42b)
+  parent: N14BaseWeaponPowerCell
+  id: N14WeaponPulseRifle
+  description: The YK42b pulse rifle — a long-barrelled electromagnetic pulse weapon designed for sustained fire against armoured and mechanical targets. Brotherhood of Steel issue, though examples have spread across the wasteland over decades of attrition.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/pulserifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/pulserifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Power Cell
+        startingItem: N14PowerCellHigh
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PowerCellHigh
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+    - 0,2,0,2
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -22
+    maxAngle: -65
+  - type: Gun
+    fireRate: 1.5
+    minAngle: 22
+    maxAngle: 65
+    angleIncrease: 2
+    angleDecay: 14
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  name: Tesla Cannon
+  parent: N14BaseWeaponPowerCell
+  id: N14WeaponTeslaCannon
+  description: A shoulder-mounted heavy energy weapon that fires arcing electrical discharge. Devastating against groups and anything mechanical. Slow to cycle, impossible to misidentify. Brotherhood of Steel heavy ordnance — not commonly seen in the field.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/teslacannon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/teslacannon.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Power Cell
+        startingItem: N14PowerCellAdvanced
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PowerCellAdvanced
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,3,1
+    - 0,2,0,2
+  - type: Wieldable
+    wieldedSpeedModifier: 0.7
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -70
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: Gun
+    fireRate: 0.5
+    minAngle: 24
+    maxAngle: 70
+    angleIncrease: 2
+    angleDecay: 14
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+  - type: FollowDistance
+    backStrength: 8
+  - type: StaticPrice
+    price: 800

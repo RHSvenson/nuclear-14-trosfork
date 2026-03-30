@@ -226,6 +226,9 @@
 - type: Tag
   id: SpeedLoader45-70
 
+- type: Tag
+  id: SpeedLoader357 # #Misfits Add — .357 Magnum speedloader tag for Detective Special / Lucky 37
+
 #MARK: Ammo tags(cartriges).
 - type: Tag
   id: N14CartridgePistol22
@@ -356,6 +359,16 @@
 
 - type: Tag
   id: N14SKSEnbloc308
+
+# #Misfits Add — tags for ported weapons: .357 ammo, PPSh-41 drum, American 180 drum
+- type: Tag
+  id: N14CartridgePistol357
+
+- type: Tag
+  id: N14MagazineSMG9mmDrum
+
+- type: Tag
+  id: N14MagazineAmerican180Drum
 
 - type: Tag
   id: N14Magazine50AMR

@@ -1,0 +1,55 @@
+# Creature-material head armor — companion pieces to creature_armor.yml.
+# Matching hoods/helms for the Deathclaw Cloak and Razorclaw Armour body armors.
+# Stats mirror their respective body armor for set consistency.
+# Sprites: converted from Big-Iron SS13 repo (icons/fallout/clothing/hats.dmi + onmob/clothes/head.dmi).
+
+- type: entity
+  parent: ClothingHeadBase
+  id: MisfitsClothingHeadDeathclawHood
+  name: deathclaw hood
+  description: A hood crafted from the same treated deathclaw hide as the matching cloak. Covers the head without fully obscuring the face. Pairs with the deathclaw cloak for a complete set.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/deathclawhood.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/deathclawhood.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.62
+        Slash: 0.62
+        Piercing: 0.72
+        Heat: 0.62
+        Radiation: 0.82
+        Caustic: 0.82
+  - type: ExplosionResistance
+    damageCoefficient: 0.62
+
+- type: entity
+  parent: ClothingHeadBase
+  id: MisfitsClothingHeadRazorclawHelm
+  name: razorclaw helm
+  description: A full helm shaped from the skull and upper hide of the razorclaw specimen. Heavy, intimidating, and effective. Provides near-complete head coverage — the deathclaw's natural armour leaves few gaps.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/razorclawhelm.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/razorclawhelm.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - FacialHair
+  - type: IdentityBlocker
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.57
+        Slash: 0.57
+        Piercing: 0.67
+        Heat: 0.52
+        Caustic: 0.72
+  - type: ExplosionResistance
+    damageCoefficient: 0.52

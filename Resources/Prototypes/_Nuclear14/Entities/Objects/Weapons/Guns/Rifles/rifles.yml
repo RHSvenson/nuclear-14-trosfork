@@ -1275,3 +1275,26 @@
             - N14Cartridge308Rifle
   - type: StaticPrice
     price: 300
+
+# #Misfits Add — Infiltrator (suppressed R91 variant)
+# Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
+
+- type: entity
+  name: Infiltrator
+  parent: N14WeaponRifle556R91
+  id: N14WeaponRifleInfiltrator
+  description: A heavily modified R91 assault rifle with an integrated suppressor and polymer furniture. No official designation — whoever built it just started calling it the Infiltrator. Runs quiet and runs hot.
+  components:
+  - type: Gun
+    fireRate: 8
+    minAngle: 3
+    maxAngle: 20
+    angleIncrease: 3
+    angleDecay: 16
+    selectedMode: Fullauto
+    availableModes:
+    - Fullauto
+    soundGunshot:
+      collection: N14RifleR91Gunshot
+  - type: StaticPrice
+    price: 500

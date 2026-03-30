@@ -1,0 +1,43 @@
+# Drum magazines for PPSh-41 and American 180, ported from Fortune13/LoneStar.
+
+# PPSh-41 35-round 9mm drum
+- type: entity
+  id: N14MagazineSMG9mmDrum
+  name: drum magazine (9mm)
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+      - N14MagazineSMG9mmDrum
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14CartridgePistol9
+    capacity: 35
+    proto: N14CartridgePistol9
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Appearance
+
+# American 180 35-round .22lr drum
+- type: entity
+  id: N14MagazineAmerican180Drum
+  name: drum magazine (.22lr)
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+      - N14MagazineAmerican180Drum
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14CartridgePistol22
+    capacity: 35
+    proto: N14CartridgePistol22
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Appearance

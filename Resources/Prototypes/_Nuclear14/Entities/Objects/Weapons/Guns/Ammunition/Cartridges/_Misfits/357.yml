@@ -1,0 +1,26 @@
+# .357 Magnum cartridge — added for Cowboy Repeater, Detective Special, Lucky 37 port.
+# Uses the same projectile as .44 Magnum (similar power class).
+
+- type: entity
+  id: N14CartridgePistol357
+  name: cartridge (.357 magnum)
+  parent: BaseCartridgePistol
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet44
+    soundEject:
+      collection: N14PistolCasingEject
+  - type: Tag
+    tags:
+      - Cartridge
+      - N14CartridgePistol357
+  - type: EmitSoundOnLand
+    sound:
+      collection: N14PistolCasingEject
+      params:
+        volume: -1
+  - type: EmitSoundOnCollide
+    sound:
+      collection: N14PistolCasingEject
+      params:
+        volume: -1

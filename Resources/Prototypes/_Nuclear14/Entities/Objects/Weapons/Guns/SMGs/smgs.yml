@@ -826,3 +826,180 @@
             - N14CartridgePistol10
   - type: StaticPrice
     price: 100
+
+# #Misfits Add — PPSh-41, M3A1 Grease Gun, American 180
+# Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
+
+- type: entity
+  name: PPSh-41
+  parent: N14WeaponSMGBase
+  id: N14WeaponSMGPPSh41
+  description: A Soviet World War II drum-fed submachine gun. Pre-war museums kept one behind glass. Now raiders carry them. Wildly inaccurate at range, devastating up close. The drum holds thirty-five rounds.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/ppsh41.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+    - 0,1,0,1
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/ppsh41.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    fireRate: 10
+    minAngle: 12
+    maxAngle: 35
+    angleIncrease: 5
+    angleDecay: 12
+    selectedMode: Fullauto
+    availableModes:
+    - Fullauto
+    soundGunshot:
+      collection: N14Pistol9mmGunshot
+  - type: GunWieldBonus
+    minAngle: -10
+    maxAngle: -25
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MagazineSMG9mmDrum
+        insertSound: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magin.ogg
+        ejectSound: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magout.ogg
+        whitelist:
+          tags:
+            - N14MagazineSMG9mmDrum
+      gun_chamber:
+        name: Chamber
+        startingItem: N14CartridgePistol9
+        priority: 1
+        whitelist:
+          tags:
+            - N14CartridgePistol9
+  - type: StaticPrice
+    price: 150
+
+- type: entity
+  name: M3A1 grease gun
+  parent: N14WeaponSMGBase
+  id: N14WeaponSMGGreaseGun
+  description: A stamped-steel .45 ACP submachine gun, designed to be produced cheaply in wartime. Unglamorous but reliable. Compatible with the same .45 box magazines as the Thompson. Nicknamed the grease gun for obvious reasons.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/greasegun.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+    - 0,1,0,1
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/greasegun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    fireRate: 6
+    minAngle: 6
+    maxAngle: 24
+    angleIncrease: 4
+    angleDecay: 14
+    selectedMode: Fullauto
+    availableModes:
+    - Fullauto
+    soundGunshot:
+      collection: N1445SMGGunshot
+  - type: GunWieldBonus
+    minAngle: -5
+    maxAngle: -14
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine45SubMachineGun
+        insertSound: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magin.ogg
+        ejectSound: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magout.ogg
+        whitelist:
+          tags:
+            - Magazine45SubMachineGun
+      gun_chamber:
+        name: Chamber
+        startingItem: N14CartridgePistol45
+        priority: 1
+        whitelist:
+          tags:
+            - N14CartridgePistol45
+  - type: StaticPrice
+    price: 120
+
+- type: entity
+  name: American 180
+  parent: N14WeaponSMGBase
+  id: N14WeaponSMGAmerican180
+  description: A pre-war .22 LR submachine gun with an integrated suppressor and a large top-loaded drum magazine. Whisper-quiet, with an almost absurd rate of fire. A full drum of .22 vanishes faster than you expect.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/american180.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+    - 0,1,0,1
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/american180.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    fireRate: 12
+    minAngle: 4
+    maxAngle: 16
+    angleIncrease: 2
+    angleDecay: 14
+    selectedMode: Fullauto
+    availableModes:
+    - Fullauto
+    soundGunshot:
+      collection: N14Pistol22lrGunshot
+  - type: GunWieldBonus
+    minAngle: -3
+    maxAngle: -12
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MagazineAmerican180Drum
+        insertSound: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magin.ogg
+        ejectSound: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magout.ogg
+        whitelist:
+          tags:
+            - N14MagazineAmerican180Drum
+      gun_chamber:
+        name: Chamber
+        startingItem: N14CartridgePistol22
+        priority: 1
+        whitelist:
+          tags:
+            - N14CartridgePistol22
+  - type: StaticPrice
+    price: 250

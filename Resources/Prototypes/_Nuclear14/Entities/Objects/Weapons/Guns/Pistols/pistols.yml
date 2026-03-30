@@ -587,3 +587,180 @@
       gun_chamber: !type:ContainerSlot
   - type: FollowDistance
     backStrength: 3
+
+# #Misfits Add — M1911, M1911 Custom, Maria, That Gun
+# Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
+
+- type: entity
+  name: M1911 pistol
+  parent: N14BaseWeaponPistol
+  id: N14WeaponPistolM1911
+  description: The classic Colt M1911, a semi-automatic pistol chambered in .45 ACP. A staple of NCR officer sidearms and wasteland gunslingers alike.
+  components:
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/m1911.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/m1911.rsi
+  - type: Gun
+    fireRate: 4
+    minAngle: 1
+    maxAngle: 10
+    angleIncrease: 1
+    angleDecay: 8
+    soundGunshot:
+      collection: N14PistolColtGunshot
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MagazinePistol45
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - N14MagazinePistol45
+      gun_chamber:
+        name: Chamber
+        startingItem: N14CartridgePistol45
+        priority: 1
+        whitelist:
+          tags:
+            - N14CartridgePistol45
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: FollowDistance
+    backStrength: 3
+  - type: StaticPrice
+    price: 70
+
+- type: entity
+  name: M1911 custom
+  parent: N14WeaponPistolM1911
+  id: N14WeaponPistolM1911Custom
+  description: A customised Colt M1911 with a match-grade barrel, adjusted trigger, and improved sights. The tight tolerances give it a noticeably sharper feel.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/m1911custom.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/m1911custom.rsi
+  - type: Gun
+    fireRate: 4
+    minAngle: 0
+    maxAngle: 6
+    angleIncrease: 1
+    angleDecay: 10
+    soundGunshot:
+      collection: N14PistolColtGunshot
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  name: Maria
+  parent: N14BaseWeaponPistol
+  id: N14WeaponPistolMaria
+  description: A pearl-handled 9mm pistol — the personal sidearm of Rose of Sharon Cassidy. Light, fast, and surprisingly deadly. Carries sentimental weight alongside its magazine.
+  components:
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/maria.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/maria.rsi
+  - type: Gun
+    fireRate: 6
+    minAngle: 0
+    maxAngle: 8
+    angleIncrease: 1
+    angleDecay: 12
+    soundGunshot:
+      collection: N14Pistol9mmGunshot
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MagazinePistol9mm
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - N14MagazinePistol9mm
+      gun_chamber:
+        name: Chamber
+        startingItem: N14CartridgePistol9
+        priority: 1
+        whitelist:
+          tags:
+            - N14CartridgePistol9
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: FollowDistance
+    backStrength: 3
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  name: That Gun
+  parent: N14WeaponRevolverBase
+  id: N14WeaponPistolThatGun
+  description: A bizarre-looking pistol modelled after a prop from a pre-war TV show, chambered in .223. Five rounds, semi-automatic, and oddly accurate. Whoever built this knew what they were doing.
+  components:
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/thatgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/thatgun.rsi
+    size: Small
+    shape:
+    - 0,0,0,1
+    - 0,0,0,1
+  - type: Gun
+    fireRate: 2
+    minAngle: 0
+    maxAngle: 6
+    angleIncrease: 1
+    angleDecay: 8
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: N14SniperVarmintGunshot
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - N14Cartridge556Rifle
+    proto: N14Cartridge556Rifle
+    capacity: 5
+  - type: StaticPrice
+    price: 350

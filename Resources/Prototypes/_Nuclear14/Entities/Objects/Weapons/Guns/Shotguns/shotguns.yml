@@ -640,3 +640,91 @@
       path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
   - type: StaticPrice
     price: 10
+
+# #Misfits Add — Trench Shotgun, Neostead 2000
+# Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
+
+- type: entity
+  name: trench shotgun
+  parent: N14WeaponShotgunBase
+  id: N14WeaponShotgunTrench
+  description: A military pump-action shotgun with a bayonet lug and slam-fire capability. Designed for close-quarters clearing. The slam-fire mode cycles fast enough to empty the tube in seconds.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/trench.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/trench.rsi
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -15
+    maxAngle: -40
+  - type: Gun
+    minAngle: 15
+    maxAngle: 60
+    angleIncrease: 5
+    angleDecay: 12
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - Fullauto
+    soundGunshot:
+      collection: N14ShotgunGunshot
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - N14ShellShotgun12
+    capacity: 5
+    proto: N14ShellShotgun12
+    soundInsert:
+      path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
+  - type: FollowDistance
+    backStrength: 4
+  - type: StaticPrice
+    price: 90
+
+- type: entity
+  name: Neostead 2000
+  parent: N14WeaponShotgunBase
+  id: N14WeaponShotgunNeostead
+  description: A Brotherhood-issue semi-automatic shotgun fed from twin underbarrel tubes holding twelve shells total. Technology well ahead of the pre-war mainstream — and very hard to find outside Brotherhood hands.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/neostead.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/neostead.rsi
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -14
+    maxAngle: -38
+  - type: Gun
+    minAngle: 14
+    maxAngle: 50
+    angleIncrease: 4
+    angleDecay: 14
+    fireRate: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: N14AutoShotgunGunshot
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - N14ShellShotgun12
+    capacity: 12
+    proto: N14ShellShotgun12
+    soundInsert:
+      path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
+  - type: FollowDistance
+    backStrength: 4
+  - type: StaticPrice
+    price: 350
