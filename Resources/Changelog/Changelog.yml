@@ -2398,3 +2398,39 @@ Entries:
   id: 5689
   time: '2026-03-29T19:11:39.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/210
+- author: Cythisiax
+  changes:
+    - type: Add
+      message: >-
+        M1Garand, and variants, Republic's Pride. Currently, all 3 Decanus will
+        have Garand baseline with Enbloc clips.
+    - type: Tweak
+      message: >-
+        Legion kits all have baseline hunting rifle to offset NCR service rifle,
+        and NCO BAR.
+    - type: Tweak
+      message: Centurion gets N14RepublicDemise Garand
+    - type: Tweak
+      message: >-
+        NCR Captain's .50 Bolt Action replaced with M1 Garand variant Republic's
+        Pride
+    - type: Fix
+      message: Goliath powerfist not being able to be worn on gloves.
+    - type: Fix
+      message: >-
+        Bitterdrink causing parser error in console, unable to use crafting menu
+        after attempting to be made.
+    - type: Fix
+      message: Grinding, ex; Broc, xander in stack of 5 will reward 50u. Not 10u.
+    - type: Tweak
+      message: compost now despawns
+  id: 5690
+  time: '2026-03-30T00:27:30.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/212
+- author: Bradysgaming
+  changes:
+    - type: Fix
+      message: The abillity for robots and glowing ghouls to spawn as NCR Prisoners
+  id: 5691
+  time: '2026-03-30T04:45:07.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/213
