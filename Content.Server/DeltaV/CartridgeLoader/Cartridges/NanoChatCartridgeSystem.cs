@@ -379,17 +379,18 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             ? senderCartridge.LoaderUid ?? sender.Owner
             : sender.Owner;
         var senderStation = _station.GetOwningStation(senderEntity);
-        var wastelandSender = senderStation == null;
 
         foreach (var recipient in foundRecipients)
         {
             // #Misfits Fix - Wasteland: no station grid exists, skip all radio/telecomm checks
             // and deliver directly to any card with a matching number (peer-to-peer).
-            if (wastelandSender)
+            // #Misfits Fix - Use HasValue guard so nullable flow analysis proves non-null UID.
+            if (!senderStation.HasValue)
             {
                 deliverableRecipients.Add(recipient);
                 continue;
             }
+            var senderStationUid = senderStation.Value;
 
             // Find any cartridges that have this card
             var cartridgeQuery = EntityQueryEnumerator<NanoChatCartridgeComponent, ActiveRadioComponent, CartridgeComponent>();
@@ -403,16 +404,17 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 var recipientEntity = receiverCartridge.LoaderUid ?? receiverUid;
                 var recipientStation = _station.GetOwningStation(recipientEntity);
 
-                // Both entities must be on a station
-                if (recipientStation == null)
+                // #Misfits Fix - Use HasValue guard so nullable flow analysis proves non-null UID.
+                if (!recipientStation.HasValue)
                     continue;
+                var recipientStationUid = recipientStation.Value;
 
                 // Must be on same map/station unless long range allowed
-                if (!channel.LongRange && recipientStation != senderStation)
+                if (!channel.LongRange && recipientStationUid != senderStationUid)
                     continue;
 
                 // Needs telecomms
-                if (!HasActiveServer(senderStation!.Value) || !HasActiveServer(recipientStation.Value))
+                if (!HasActiveServer(senderStationUid) || !HasActiveServer(recipientStationUid))
                     continue;
 
                 // Check if recipient can receive
