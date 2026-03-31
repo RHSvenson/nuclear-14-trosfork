@@ -88,7 +88,7 @@ public sealed partial class ChalkboardOrdersComponent : Component
     /// Window title shown to users when opening the board.
     /// </summary>
     [DataField]
-    public string BoardTitle = "Orders Board";
+    public string BoardTitle = "Notice Board";
 
     /// <summary>
     /// Shared draw/text annotations for the board.

@@ -37,7 +37,7 @@
     tags:
     - Wooden
   - type: ChalkboardOrders
-    boardTitle: Orders Board
+    boardTitle: Notice Board
     boardTexturePath: _Nuclear14/Structures/Wallmounts/chalkboardwall.rsi/board_clean.png
   - type: ActivatableUI
     key: enum.ChalkboardOrdersUiKey.Key
