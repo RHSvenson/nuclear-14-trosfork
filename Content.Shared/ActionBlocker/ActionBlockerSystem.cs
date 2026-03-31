@@ -193,7 +193,8 @@ namespace Content.Shared.ActionBlocker
             _container.TryGetOuterContainer(uid, Transform(uid), out var outerContainer);
 
             // If we're in a container can we attack the target.
-            if (target != null && target != outerContainer?.Owner && _container.IsEntityInContainer(uid))
+            // #Misfits Fix: removed `target != null` guard so ranged attacks (which pass no target) are also blocked.
+            if (_container.IsEntityInContainer(uid) && (target == null || target != outerContainer?.Owner))
             {
                 var containerEv = new CanAttackFromContainerEvent(uid, target);
                 RaiseLocalEvent(uid, containerEv);
