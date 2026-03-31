@@ -126,7 +126,14 @@
   - type: Clothing
     sprite: Corvax/Clothing/Bandage/bandageSerfMBOS.rsi
     slots: [ neck ]
-  - type: Unremoveable
+  - type: AccessReader
+    access:
+    - [ "CaesarLegionCenturion" ] # Centurions can always unlock/remove latejoin collars.
+    - [ "LegionBrassKey" ] # Existing Legion brass keys also unlock collars.
+  - type: Lock
+    locked: true
+    unlockTime: 2
+  - type: LegionSlaveCollar
 
 - type: entity
   parent: NCClothingCollarLegionBase

@@ -36,6 +36,15 @@
   - type: Tag
     tags:
     - Wooden
+  - type: ChalkboardOrders
+    boardTitle: Orders Board
+    boardTexturePath: _Nuclear14/Structures/Wallmounts/chalkboardwall.rsi/board_clean.png
+  - type: ActivatableUI
+    key: enum.ChalkboardOrdersUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ChalkboardOrdersUiKey.Key:
+        type: ChalkboardOrdersBoundUserInterface
 
 - type: entity
   parent: N14ChalkboardWall
