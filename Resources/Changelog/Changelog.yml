@@ -2495,3 +2495,47 @@ Entries:
   id: 5693
   time: '2026-03-31T01:40:52.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/216
+- author: cythisiax
+  changes:
+    - type: Tweak
+      message: >-
+        Removed "Legion", "Brotherhood", "NCR" from jobslots when it was
+        literally already in the department margin.
+    - type: Tweak
+      message: >-
+        Legion now have access to their front gate with an IDcard + that stupid
+        key, execpt Slave.
+    - type: Tweak
+      message: >-
+        All Legion Slave joins can have their "collar" unlocked by Legion,
+        additionally, crafted collars with a produced key.
+    - type: Tweak
+      message: >-
+        Players have been given She/Her identity pronouns to Legion Frumentarii,
+        Houndmaster and Legion Explorer. (They can play Legion as women)
+    - type: Fix
+      message: People being able to shoot while inside a crate.
+    - type: Fix
+      message: N14MobPetDogLegion now understands latin.
+    - type: Fix
+      message: >-
+        All playable robots have, BoSCode (For perk use), Robot (Talk amongst
+        themselves), English, Latin, Spanish languages.
+    - type: Add
+      message: Legion's tactical map is a "chalkboard".
+    - type: Fix
+      message: >-
+        Lathe withdraw button on some materials now take (appropriately) items
+        out of pool.
+    - type: Add
+      message: >-
+        Chalkboard that allows COs (Or anyone) put information on said
+        chalkboard for each respective faction.
+    - type: Add
+      message: >-
+        Khan, Viper, Jackal, Fiend, Gunner w/ gang identifiable sprites.
+        Currently only spawn at latejoin, and same location. (WL only, not
+        accessible at this time, just added)
+  id: 5694
+  time: '2026-03-31T18:13:06.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/217
