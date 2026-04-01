@@ -102,13 +102,13 @@
   id: Stimpak
   reactants:
     ExtractBroc:
-      amount: 2
+      amount: 1
     ExtractXander:
-      amount: 2
+      amount: 1
     Blood:
-      amount: 2
+      amount: 1
   products:
-    HealingMixture: 1
+    HealingMixture: 2
 
 - type: reaction
   id: StimpakConversion
@@ -133,7 +133,7 @@
     WastelandBlood:
       amount: 1
   products:
-    DirtyStimpak: 1
+    DirtyStimpak: 3
 
 - type: reaction
   id: DirtyStimpakConversion
