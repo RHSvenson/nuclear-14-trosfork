@@ -24,25 +24,18 @@ public sealed class AssaultronBeamChargeEmoteSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<AssaultronBeamChargeComponent, AttemptShootEvent>(OnAttemptShoot);
+        SubscribeLocalEvent<AssaultronBeamChargeComponent, AssaultronBeamPreFireCheckEvent>(OnPreFireCheck);
         SubscribeLocalEvent<AssaultronBeamChargeComponent, AssaultronChargeStartedEvent>(OnChargeStarted);
         SubscribeLocalEvent<AssaultronBeamChargeComponent, AssaultronBeamFiredEvent>(OnBeamFired);
     }
 
     /// <summary>
-    /// Blocks the shot server-side if the chassis power cell has less charge than
-    /// FireDrainCharge. The shared system handles charge-up/cooldown gating; this
-    /// handler enforces the battery-depletion condition that shared code cannot check
-    /// (BatteryComponent is server-only).
+    /// Server-side battery gate that runs after charge-up completes.
+    /// Shared code raises this check right before allowing the shot.
     /// </summary>
-    private void OnAttemptShoot(EntityUid uid, AssaultronBeamChargeComponent comp, ref AttemptShootEvent args)
+    private void OnPreFireCheck(EntityUid uid, AssaultronBeamChargeComponent comp, ref AssaultronBeamPreFireCheckEvent args)
     {
-        // Already cancelled by the shared charge/cooldown gate — nothing to add.
-        if (args.Cancelled || comp.FireDrainCharge <= 0f)
-            return;
-
-        // Still in the charge-up phase — shared system blocks the shot; skip until ready.
-        if (comp.IsCharging)
+        if (comp.FireDrainCharge <= 0f)
             return;
 
         var cellEntity = _itemSlots.GetItemOrNull(uid, comp.CellSlotId);

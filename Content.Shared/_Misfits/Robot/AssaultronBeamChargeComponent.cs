@@ -64,3 +64,10 @@ public record struct AssaultronChargeStartedEvent(string EmoteLocale);
 /// <summary>Raised directed on the Assaultron when the beam/projectile fires. Server handles emote.</summary>
 [ByRefEvent]
 public record struct AssaultronBeamFiredEvent(string EmoteLocale);
+
+/// <summary>
+/// Raised directed when charge-up has completed and the next shot is about to be allowed.
+/// Server-only systems can cancel to enforce checks that shared code cannot perform.
+/// </summary>
+[ByRefEvent]
+public record struct AssaultronBeamPreFireCheckEvent(bool Cancelled = false);

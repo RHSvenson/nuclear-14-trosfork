@@ -33,6 +33,18 @@ public sealed class SharedAssaultronBeamChargeSystem : EntitySystem
         // Charge phase complete — allow the shot through.
         if (comp.IsCharging && now >= comp.ChargeEndTime)
         {
+            var preFire = new AssaultronBeamPreFireCheckEvent();
+            RaiseLocalEvent(uid, ref preFire);
+
+            // Server-only checks (battery, etc.) can veto the shot here.
+            if (preFire.Cancelled)
+            {
+                comp.IsCharging = false;
+                comp.ReadyToFire = false;
+                args.Cancelled = true;
+                return;
+            }
+
             comp.IsCharging = false;
             comp.ReadyToFire = true;
             // Shot allowed — GunShotEvent handles cooldown and fire emote.
