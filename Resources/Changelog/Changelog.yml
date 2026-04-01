@@ -2595,3 +2595,16 @@ Entries:
   id: 5697
   time: '2026-04-01T18:27:36.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/227
+- author: Cythisiax
+  changes:
+    - type: Tweak
+      message: >-
+        barotrauma = false, so no more depressure or suffocation in areas w/ no
+        pressure.
+    - type: Tweak
+      message: >-
+        assaultron specials now consume appropriate cell percentage of their
+        controlled entity
+  id: 5698
+  time: '2026-04-01T19:46:20.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/228
