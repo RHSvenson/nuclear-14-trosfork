@@ -1,0 +1,41 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc n14-expedition-confirm-title}"
+                      Resizable="False"
+                      SetSize="700 760"
+                      MinSize="620 620">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True"
+                  Margin="16 8 16 12">
+
+        <!-- Warning title -->
+        <Label Text="{Loc n14-expedition-confirm-title}"
+               StyleClasses="LabelBig" Align="Center" Margin="0 4 0 8"/>
+        <PanelContainer StyleClasses="LowDivider" Margin="0 0 0 8"/>
+
+        <!-- Scrollable briefing text — fills available height -->
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+            <RichTextLabel Name="ConfirmWarning"
+                           HorizontalExpand="True"
+                           VerticalAlignment="Top"
+                           Margin="4 4 4 8"/>
+        </ScrollContainer>
+
+        <PanelContainer StyleClasses="LowDivider" Margin="0 8 0 0"/>
+
+        <!-- Proceed / Do Not Proceed buttons -->
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalAlignment="Center"
+                      Margin="0 12 0 0"
+                      SeparationOverride="16">
+            <Button Name="ConfirmProceedButton"
+                    Text="{Loc n14-expedition-confirm-proceed}"
+                    MinWidth="150"
+                    StyleClasses="ButtonColorGreen"/>
+            <Button Name="ConfirmCancelButton"
+                    Text="{Loc n14-expedition-confirm-cancel}"
+                    MinWidth="150"
+                    StyleClasses="ButtonColorRed"/>
+        </BoxContainer>
+
+    </BoxContainer>
+</controls:FancyWindow>

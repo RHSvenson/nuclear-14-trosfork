@@ -153,24 +153,25 @@
     factions:
     - BrotherhoodOfSteel
 
-#Misfits Change /Comment-out/: Washington BoS turrets removed — will create new prototypes.
-#- type: entity
-#  parent: N14BaseWeaponTurret
-#  id: N14WeaponTurretBrotherhoodWashingtonSecureArea
-#  suffix: BOS Washington, Hostile
-#  components:
-#  - type: NpcFactionMember
-#    factions:
-#    - BrotherhoodOfSteelSecureArea
-#
-#- type: entity
-#  parent: N14BaseWeaponTurret
-#  id: N14WeaponTurretBrotherhoodWashington
-#  suffix: BOS Washington
-#  components:
-#  - type: NpcFactionMember
-#    factions:
-#    - BrotherhoodOfSteel
+#Misfits Change: Washington BoS turrets re-enabled using consolidated BrotherhoodOfSteel faction.
+#Original used BrotherhoodOfSteelWashington/SecureArea which no longer exist.
+- type: entity
+  parent: N14BaseWeaponTurret
+  id: N14WeaponTurretBrotherhoodWashingtonSecureArea
+  suffix: BOS Washington, Hostile
+  components:
+  - type: NpcFactionMember
+    factions:
+    - BrotherhoodOfSteelSecureArea
+
+- type: entity
+  parent: N14BaseWeaponTurret
+  id: N14WeaponTurretBrotherhoodWashington
+  suffix: BOS Washington
+  components:
+  - type: NpcFactionMember
+    factions:
+    - BrotherhoodOfSteel
 
 - type: entity
   parent: N14BaseWeaponTurret

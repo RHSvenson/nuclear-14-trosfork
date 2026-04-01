@@ -32,7 +32,14 @@
   - type: Clothing
     sprite: Corvax/Clothing/Bandage/bandageNCRPrisonner.rsi
     slots: [ bandage ]
-  - type: Unremoveable
+  - type: AccessReader # #Misfits Change: NCR officers can unlock prisoner bracelets via ID card.
+    access:
+    - [ "NCRLT" ] # Lieutenants can always remove prisoner bracelets.
+    - [ "NCRRanger" ] # Rangers can also remove prisoner bracelets.
+  - type: Lock # #Misfits Change: Replaces Unremoveable — bracelet is locked on, not truly irremovable.
+    locked: true
+    unlockTime: 2
+  - type: NCRPrisonerBracelet # #Misfits Add: Enables rescue cutting and crafted-key unlock logic.
 
 - type: entity
   parent: NCClothingBrasletNCRBase

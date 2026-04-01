@@ -288,3 +288,10 @@
     state: ncrdogtag
   - type: PresetIdCard
     job: NCRWS
+
+#Misfits Add: Legacy Washington holotag ID compatibility for existing map entities.
+- type: entity
+  parent: N14IDBrotherhoodOfSteelHolotagInitiate
+  id: N14IDBrotherhoodWashingtonHolotagInitiate
+  name: initiate's holotags
+  suffix: LegacyWashington

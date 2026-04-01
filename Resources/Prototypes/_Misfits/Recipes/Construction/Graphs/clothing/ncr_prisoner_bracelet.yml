@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: NCRPrisonerBracelet
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bracelet
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+      - material: Cloth
+        amount: 2
+        doAfter: 1
+  - node: bracelet
+    entity: NCClothingBrasletNCRPrisoner

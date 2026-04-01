@@ -714,3 +714,45 @@
   - type: SpawnPoint
     job_id: Fiend
 
+#Misfits Add: Legacy Washington BoS spawnpoint aliases kept for old map compatibility.
+- type: entity
+  parent: MisfitsSpawnPointBoSHeadKnight
+  id: N14SpawnPointBoSWashingtonCommander
+  name: Brotherhood Washington Commander (legacy)
+
+- type: entity
+  parent: MisfitsSpawnPointBoSInitiate
+  id: N14SpawnPointBoSWashingtonInitiate
+  name: Brotherhood Washington Initiate (legacy)
+
+- type: entity
+  parent: MisfitsSpawnPointBoSKnight
+  id: N14SpawnPointBoSWashingtonKnight
+  name: Brotherhood Washington Knight (legacy)
+
+- type: entity
+  parent: MisfitsSpawnPointBoSPaladin
+  id: N14SpawnPointBoSWashingtonPaladin
+  name: Brotherhood Washington Paladin (legacy)
+
+- type: entity
+  parent: MisfitsSpawnPointBoSScribe
+  id: N14SpawnPointBoSWashingtonScribe
+  name: Brotherhood Washington Scribe (legacy)
+
+#Misfits Add: Legacy caravan spawnpoint aliases kept for old map compatibility.
+- type: entity
+  parent: N14SpawnPointWastelander
+  id: N14SpawnPointCaravanGuard
+  name: caravan guard (legacy)
+
+- type: entity
+  parent: N14SpawnPointWastelander
+  id: N14SpawnPointCaravanLeader
+  name: caravan leader (legacy)
+
+- type: entity
+  parent: N14SpawnPointWastelander
+  id: N14SpawnPointCaravanTrader
+  name: caravan trader (legacy)
+

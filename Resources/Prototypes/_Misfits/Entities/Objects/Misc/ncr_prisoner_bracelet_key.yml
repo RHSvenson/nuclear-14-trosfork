@@ -1,0 +1,12 @@
+- type: entity
+  parent: N14IDKeyIronEmpty
+  id: N14IDKeyNCRPrisonerBracelet
+  name: prisoner bracelet key
+  description: A stamped key used to unlock a specific NCR prisoner ankle bracelet.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/identification.rsi
+    state: iron
+  - type: IdCard
+    nameLocId: n14-id-key-name
+    fullNameLocId: n14-id-key-full-name

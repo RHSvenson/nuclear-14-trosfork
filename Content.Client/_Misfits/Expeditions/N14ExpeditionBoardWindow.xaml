@@ -1,0 +1,53 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc n14-expedition-board-title}"
+                      Resizable="False"
+                      SetSize="460 480"
+                      MinSize="400 400">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+
+        <!-- Title bar -->
+        <controls:StripeBack>
+            <PanelContainer>
+                <Label Name="TitleLabel" Text="{Loc n14-expedition-board-title}"
+                       StyleClasses="LabelBig" Align="Center"/>
+            </PanelContainer>
+        </controls:StripeBack>
+
+        <!-- Status label -->
+        <PanelContainer StyleClasses="LowDivider"/>
+        <Label Name="StatusLabel" Text="{Loc n14-expedition-select-tier}"
+               Margin="8 6" Align="Center"/>
+        <PanelContainer StyleClasses="LowDivider"/>
+
+        <!-- Difficulty tier buttons (3 columns, populated in code-behind) -->
+        <GridContainer Name="TierGrid" Columns="3"
+                       HSeparationOverride="6" VSeparationOverride="6"
+                       Margin="12 8" HorizontalAlignment="Center"/>
+
+        <!-- Selected tier details (hidden until a tier is chosen) -->
+        <BoxContainer Name="DetailsPanel" Orientation="Vertical"
+                      Margin="12 4" Visible="False">
+            <PanelContainer StyleClasses="LowDivider"/>
+            <Label Name="SelectedTierLabel" StyleClasses="LabelBig" Align="Center"/>
+            <Label Name="MapCountLabel" Align="Center" Margin="0 2"/>
+            <Label Name="DurationLabel" Align="Center"/>
+        </BoxContainer>
+
+        <!-- Spacer to push launch button to the bottom -->
+        <Control VerticalExpand="True"/>
+
+        <!-- Timer readout (shows countdown / expedition time / cooldown) -->
+        <BoxContainer Name="TimerPanel" Orientation="Vertical"
+                      Margin="12 2" Visible="False">
+            <PanelContainer StyleClasses="LowDivider"/>
+            <Label Name="TimerLabel" Align="Center" Margin="0 4"/>
+        </BoxContainer>
+
+        <!-- Launch button -->
+        <Button Name="LaunchButton" Text="{Loc n14-expedition-launch-button}"
+                Disabled="True" Margin="12 8"
+                HorizontalExpand="True"/>
+
+    </BoxContainer>
+</controls:FancyWindow>

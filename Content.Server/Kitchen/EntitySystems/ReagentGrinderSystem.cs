@@ -101,8 +101,12 @@ namespace Content.Server.Kitchen.EntitySystems
                         // so sample a single fresh unit and scale from that instead of trusting
                         // the merged stack's live solution data.
                         var unitSolution = stack.Count > 1
-                            ? GetStackUnitSolution(item, active.Program, uid) ?? solution
+                            ? GetStackUnitSolution(item, active.Program, uid)
                             : solution;
+
+                        // #Misfits Fix: If we cannot derive a per-unit sample, fall back to the
+                        // live solution so we still process at least single-count stacks.
+                        unitSolution ??= solution;
 
                         if (unitSolution.Volume <= 0)
                             continue;
@@ -375,8 +379,12 @@ namespace Content.Server.Kitchen.EntitySystems
             var sample = EntityManager.SpawnEntity(prototype, Transform(grinder).Coordinates);
             var solution = GetProgramSolution(sample, program);
 
+            // #Misfits Fix: Copy the sampled solution before deleting the temporary entity.
+            // Returning the component-owned solution directly can become stale after deletion.
+            var copied = solution is null ? null : new Solution(solution);
+
             Del(sample);
-            return solution;
+            return copied;
         }
 
         private bool CanGrind(EntityUid uid)

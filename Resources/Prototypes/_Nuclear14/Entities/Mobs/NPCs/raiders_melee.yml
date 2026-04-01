@@ -9,7 +9,7 @@
       - PsychoRaiderGear
 
 - type: entity
-  name: Fern Conscript
+  name: Gunners Conscript
   id: N14MobRaiderFernMelee
   parent: N14BaseMobRaider
   description: Professional mercenary-wannabe, holding a club and ready to dent someone's skull in.

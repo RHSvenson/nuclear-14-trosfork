@@ -1,3 +1,4 @@
+using Content.Shared._Misfits.Clothing; // #Misfits Add: needed to detect lock-based restraints
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Mind.Components;
@@ -55,7 +56,10 @@ public sealed partial class ClothingFactionAndRoleAddSystem : EntitySystem
             _npcFaction.AddFaction(user, component.Faction);
         }
 
-        AddComp<UnremoveableComponent>(uid);
+        // #Misfits Fix: Items that use Lock-based removal (slave collar, NCR bracelet) must NOT be
+        // made truly unremoveable — their LockSystem + AccessReader handle removal restrictions instead.
+        if (!HasComp<LegionSlaveCollarComponent>(uid) && !HasComp<NCRPrisonerBraceletComponent>(uid))
+            AddComp<UnremoveableComponent>(uid);
         component.IsActive = true;
     }
 

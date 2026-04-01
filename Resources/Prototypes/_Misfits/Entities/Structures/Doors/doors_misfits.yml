@@ -1,0 +1,6 @@
+#Misfits Add: Legacy caravan guard cell door alias kept for old map compatibility.
+- type: entity
+  parent: N14DoorCellMetal
+  id: N14DoorCellMetalLockedCaravanGuard
+  name: caravan guard door (legacy)
+  suffix: Legacy

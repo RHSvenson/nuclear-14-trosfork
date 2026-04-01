@@ -106,6 +106,8 @@
     - LandMineKick       # Concussion Mine (non-lethal)
     - LandMineExplosive  # Explosive Mine (~4 tile radius)
     - LandMineModular    # Modular Mine (empty casing, add payload)
+    # #Misfits Add: Expose vanilla centrifuge machine board so players can rebuild MachineCentrifuge via machine frame.
+    - CentrifugeMachineCircuitboard
 
 - type: entity
   parent: N14WorkbenchBase

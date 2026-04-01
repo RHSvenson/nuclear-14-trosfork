@@ -483,7 +483,7 @@
     maximumEntitiesSpawned: 1
 
 - type: entity
-  name: Mercenary Timed Spawner - Private
+  name: Gunners Timed Spawner - Private
   id: N14TimedSpawnerRaiderFernPrivate
   parent: N14TimedSpawnerMolerat
   components:
@@ -503,7 +503,7 @@
       maximumEntitiesSpawned: 3
 
 - type: entity
-  name: Mercenary Timed Spawner - Sergeant
+  name: Gunners Timed Spawner - Sergeant
   id: N14TimedSpawnerRaiderFernSergeant
   parent: N14TimedSpawnerMolerat
   components:
@@ -523,7 +523,7 @@
       maximumEntitiesSpawned: 3
 
 - type: entity
-  name: Mercenary Timed Spawner - Lieutenant
+  name: Gunners Timed Spawner - Lieutenant
   id: N14TimedSpawnerRaiderFern
   parent: N14TimedSpawnerMolerat
   components:
@@ -624,7 +624,7 @@
     maximumEntitiesSpawned: 3
 
 - type: entity
-  name: Fern Timed Spawner - Melee
+  name: Gunners Timed Spawner - Melee
   id: N14TimedSpawnerRaiderFernMelee
   parent: N14TimedSpawnerMolerat
   components:

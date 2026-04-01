@@ -17,6 +17,11 @@ misfits-chat-carry-drop = puts down {$carried}
 misfits-chat-carry-throw = throws {$victim}
 misfits-chat-double-grab-throw = hurls {$victim} across the room
 
+## LegionSlaveCollarSystem / NCRPrisonerBraceletSystem
+# Broadcast when a player begins cutting off a locked slave collar or prisoner bracelet.
+misfits-chat-slave-collar-removing = is removing { $target }'s slave collar.
+misfits-chat-prisoner-bracelet-removing = is removing { $target }'s ankle bracelet.
+
 ## EscapeInventorySystem / ResistLockerSystem
 # Broadcast when a carried or locked-in entity struggles.
 misfits-chat-struggle-carried = struggles against {$carrier}'s grip

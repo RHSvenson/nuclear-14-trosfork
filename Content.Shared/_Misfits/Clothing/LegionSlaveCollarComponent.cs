@@ -24,10 +24,10 @@ public sealed partial class LegionSlaveCollarComponent : Component
     public string CutToolQuality = "Cutting";
 
     /// <summary>
-    /// Time required to cut open a locked collar.
+    /// Time required to cut open a locked collar (20 seconds per design spec).
     /// </summary>
     [DataField]
-    public float CutUnlockTime = 8f;
+    public float CutUnlockTime = 20f;
 
     /// <summary>
     /// Prefix used when generating unique runtime access tags for crafted collars.

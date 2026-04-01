@@ -1,23 +1,25 @@
-// #Misfits Change: System moved to Content.Server/_Misfits/Clothing/LegionSlaveCollarSystem.cs
-// so it can access ChatSystem for emote broadcasting. Only the component stays in Shared.
-// Keeping this file to preserve history — do not delete.
-/*
+// #Misfits Change: Moved from Content.Shared so ChatSystem is accessible for emote broadcasting.
+using Content.Server.Chat.Systems;
 using Content.Shared._Misfits.Clothing;
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
+using Content.Shared.Chat;
 using Content.Shared.Construction;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Lock;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Shared._Misfits.Clothing;
+namespace Content.Server._Misfits.Clothing;
 
 /// <summary>
-/// Handles slave collar lock rules, rescue cutting, and generated key assignment.
+/// Handles slave collar lock enforcement, rescue cutting with emote broadcast,
+/// and unique key generation when a collar is crafted.
 /// </summary>
 public sealed class LegionSlaveCollarSystem : EntitySystem
 {
@@ -27,6 +29,7 @@ public sealed class LegionSlaveCollarSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     public override void Initialize()
     {
@@ -46,7 +49,7 @@ public sealed class LegionSlaveCollarSystem : EntitySystem
         if (!TryComp<LockComponent>(ent, out var lockComp) || !lockComp.Locked)
             return;
 
-        // If the remover has valid access (Centurion ID, Legion key, or generated collar key), unlock and proceed.
+        // If the remover holds valid access (Centurion ID, Legion brass key, or paired collar key), unlock and allow.
         if (_lock.TryUnlock(ent, args.Unequipee, lockComp, skipDoAfter: true))
             return;
 
@@ -61,9 +64,24 @@ public sealed class LegionSlaveCollarSystem : EntitySystem
         if (!TryComp<LockComponent>(ent, out var lockComp) || !lockComp.Locked)
             return;
 
-        // Rescue path for non-Legion: cut open the collar with a cutting tool.
-        args.Handled = _tools.UseTool(args.Used, args.User, ent, ent.Comp.CutUnlockTime, ent.Comp.CutToolQuality,
+        // Rescue path: cut open the collar with wire cutters or another cutting tool.
+        var started = _tools.UseTool(args.Used, args.User, ent, ent.Comp.CutUnlockTime, ent.Comp.CutToolQuality,
             new LegionSlaveCollarCutDoAfterEvent());
+
+        if (started)
+        {
+            // Broadcast a visible emote so bystanders know the cut is in progress.
+            var wearer = Transform(ent.Owner).ParentUid;
+            if (EntityManager.EntityExists(wearer) && wearer != args.User && HasComp<MobStateComponent>(wearer))
+            {
+                var wearerName = Identity.Entity(wearer, EntityManager);
+                _chat.TrySendInGameICMessage(args.User,
+                    Loc.GetString("misfits-chat-slave-collar-removing", ("target", wearerName)),
+                    InGameICChatType.Emote, ChatTransmitRange.Normal, ignoreActionBlocker: true);
+            }
+        }
+
+        args.Handled = started;
     }
 
     private void OnCollarCut(Entity<LegionSlaveCollarComponent> ent, ref LegionSlaveCollarCutDoAfterEvent args)
@@ -85,7 +103,7 @@ public sealed class LegionSlaveCollarSystem : EntitySystem
         if (ent.Comp.RandomKeyMin > ent.Comp.RandomKeyMax)
             return;
 
-        // Crafted collars receive a unique runtime access tag and a matching key in the crafter's hand.
+        // Stamp a unique runtime access tag onto the crafted collar and produce a matching key in the crafter's hand.
         var randomKey = _random.Next(ent.Comp.RandomKeyMin, ent.Comp.RandomKeyMax + 1);
         var accessTag = $"{ent.Comp.RandomAccessPrefix}{randomKey}";
 
@@ -106,4 +124,3 @@ public sealed class LegionSlaveCollarSystem : EntitySystem
         Dirty(ent);
     }
 }
-*/

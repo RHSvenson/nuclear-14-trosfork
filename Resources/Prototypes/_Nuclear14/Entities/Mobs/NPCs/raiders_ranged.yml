@@ -323,7 +323,7 @@
         state: inhand-right # Only part we change, the gun sprite.
 
 - type: entity
-  name: Fern Private
+  name: Gunners Private
   parent: N14BaseMobRaider
   id: N14MobFernMercPrivate
   description: Professional mercenary armed with a carbine. One might be better off avoiding him.
@@ -404,7 +404,7 @@
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
-  name: Fern Sergeant
+  name: Gunners Sergeant
   parent: N14BaseMobRaider
   id: N14MobFernMercSergeant
   description: Professional mercenary armed with a combat shotgun. This man can finish anyone off in close quarters.
@@ -485,7 +485,7 @@
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
-  name: Fern Lieutenant
+  name: Gunners Lieutenant
   parent: N14BaseMobRaider
   id: N14MobFernMercLieutenant
   description: Professional mercenary armed with an SMG. Looks like an officer, more might be around!

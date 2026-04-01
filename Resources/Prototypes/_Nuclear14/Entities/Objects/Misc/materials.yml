@@ -71,6 +71,8 @@
   # Match the dung cleanup window so rotted compost does not accumulate on the map.
   - type: TimedDespawn
     lifetime: 300
+  # Pause the despawn timer while compost is stored in a crate so storage works as expected.
+  - type: PauseTimedDespawnInEntityStorage
   - type: Material
   - type: Stack
     stackType: Compost

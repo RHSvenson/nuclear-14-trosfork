@@ -1,0 +1,11 @@
+- type: construction
+  name: NCR prisoner bracelet
+  id: NCRPrisonerBracelet
+  graph: NCRPrisonerBracelet
+  startNode: start
+  targetNode: bracelet
+  category: construction-category-clothing
+  description: A lockable ankle bracelet used by the NCR to mark and track prisoners.
+  icon: { sprite: Corvax/Clothing/Bandage/bandageNCRPrisonner.rsi, state: icon }
+  objectType: Item
+  hide: false

@@ -514,7 +514,7 @@
       - N14MobRaiderBoss
 
 - type: entity
-  name: Mercenary Spawner - Private
+  name: Gunners Spawner - Private
   id: N14SpawnMobRaiderFernPrivate
   parent: MarkerBase
   components:
@@ -529,7 +529,7 @@
       - N14MobFernMercPrivate
 
 - type: entity
-  name: Mercenary Spawner - Sergeant
+  name: Gunners Spawner - Sergeant
   id: N14SpawnMobRaiderFernSergeant
   parent: MarkerBase
   components:
@@ -544,7 +544,7 @@
       - N14MobFernMercSergeant
 
 - type: entity
-  name: Mercenary Spawner - Lieutenant
+  name: Gunners Spawner - Lieutenant
   id: N14SpawnMobRaiderFern
   parent: MarkerBase
   components:
@@ -620,7 +620,7 @@
       - N14MobRaiderPsycho
 
 - type: entity
-  name: Fern Spawner - Melee
+  name: Gunners Spawner - Melee
   id: N14SpawnMobRaiderFernMelee
   parent: MarkerBase
   components:
