@@ -2626,3 +2626,31 @@ Entries:
   id: 5700
   time: '2026-04-02T00:16:01.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/229
+- author: cythisiax
+  changes:
+    - type: Tweak
+      message: >-
+        EnergyCell consolidation > Microfusion, Heavymicrofusion >
+        Electroncharge. All Lasers use MFC, respective weapons interchange EFC,
+        and laser minigun uses HMFC. Introduced tiers (color based) in ammo
+        blueprints. Introduction to new munition types, starting with lasers,
+        soon for ballistics.
+    - type: Tweak
+      message: All plasma weapons now use > PlasmaCartridge
+    - type: Tweak
+      message: When logs are cut, no longer only produces 1 plank.
+    - type: Tweak
+      message: >-
+        All N14Wall buffed to 1000 HP, minus wood, tent, all halfwalls of
+        similar buffed to 500 HP. No more BAR destroying walls in 20 rounds.
+    - type: Tweak
+      message: >-
+        Adjust BoSMID (Paladin, Senior Scribe, Senior Knight) to 20 hours req. 8
+        hours req. in faction of prev. Rank.
+    - type: Fix
+      message: Promethine (De-ghoulification reagent) now deghoulifies
+    - type: Add
+      message: robot NPCs now drop N14MaterialCircuitry
+  id: 5701
+  time: '2026-04-02T16:02:25.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/230
