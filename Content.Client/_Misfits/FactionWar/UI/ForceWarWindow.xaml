@@ -2,9 +2,10 @@
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       Title="Force War (Admin)"
                       Resizable="False"
-                      SetSize="420 380"
-                      MinSize="400 350">
+                      SetSize="420 520"
+                      MinSize="400 480">
 
+    <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="0">
 
         <!-- ── Header ─────────────────────────────────────────────── -->
@@ -45,7 +46,27 @@
                 Margin="10 4 10 6" HorizontalExpand="True"/>
 
         <!-- ── Result ─────────────────────────────────────────────── -->
-        <RichTextLabel Name="ResultLabel" Margin="10 4 10 8" HorizontalExpand="True"/>
+        <RichTextLabel Name="ResultLabel" Margin="10 4 10 4" HorizontalExpand="True"/>
+
+        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 4"/>
+
+        <!-- ── Force Ceasefire ─────────────────────────────────────── -->
+        <Label Text="Force Ceasefire" Margin="10 4 10 2" Modulate="#5599CC"
+               StyleClasses="LabelBig"/>
+
+        <Label Text="End an active or pending war immediately."
+               Margin="10 0 10 4" Modulate="#AAAAAA" StyleClasses="LabelSubText"/>
+
+        <BoxContainer Orientation="Horizontal" Margin="10 0 10 4" SeparationOverride="8">
+            <Label Text="Active War:" VerticalAlignment="Center" MinWidth="90"/>
+            <OptionButton Name="CeasefireWarSelector" HorizontalExpand="True"/>
+        </BoxContainer>
+
+        <Button Name="ForceCeasefireButton" Text="Force Ceasefire"
+                Margin="10 2 10 6" HorizontalExpand="True" Disabled="True"/>
+
+        <RichTextLabel Name="CeasefireResultLabel" Margin="10 4 10 8" HorizontalExpand="True"/>
 
     </BoxContainer>
+    </ScrollContainer>
 </controls:FancyWindow>

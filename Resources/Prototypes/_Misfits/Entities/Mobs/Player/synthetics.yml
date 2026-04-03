@@ -32,6 +32,7 @@
     - Energy
     - SmallCaliber
     - MediumCaliber
+  - type: CanEnterCryostorage # #Misfits Add: allow player robot species to enter N14CryoBunkerLadder and despawn like MobHuman
 
 - type: entity
   parent: N14BasePlayerSynthetic

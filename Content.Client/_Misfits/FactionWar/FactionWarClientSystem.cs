@@ -8,6 +8,7 @@
 using System.Linq;
 using Content.Client._Misfits.FactionWar.UI;
 using Content.Shared._Misfits.FactionWar;
+using Content.Shared.Examine;
 using Robust.Client.Console;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -29,6 +30,8 @@ public sealed class FactionWarClientSystem : EntitySystem
     [Dependency] private readonly IEyeManager         _eyeManager     = default!;
     [Dependency] private readonly IResourceCache      _resourceCache  = default!;
     [Dependency] private readonly EntityLookupSystem  _entityLookup   = default!;
+    [Dependency] private readonly ExamineSystemShared _examine        = default!;
+    [Dependency] private readonly SharedTransformSystem _transform   = default!;
     [Dependency] private readonly IClientConsoleHost  _conHost        = default!;
     [Dependency] private readonly IUserInterfaceManager _uiManager    = default!;
 
@@ -118,6 +121,9 @@ public sealed class FactionWarClientSystem : EntitySystem
         // Refresh warjoin panel if open (pending wars may have changed phase).
         if (_warJoinWindow != null)
             RaiseNetworkEvent(new FactionWarJoinPanelRequestEvent());
+
+        // Keep force-war ceasefire dropdown current.
+        _forceWarWindow?.UpdateActiveWars(_activeWars);
     }
 
     private void OnPanelData(FactionWarPanelDataEvent msg)
@@ -191,7 +197,9 @@ public sealed class FactionWarClientSystem : EntitySystem
 
     private void OnForceWarResult(FactionWarForceResultEvent msg)
     {
+        // Show result in both sections — admin sees feedback in whichever action they used.
         _forceWarWindow?.ShowResult(msg.Success, msg.Message);
+        _forceWarWindow?.ShowCeasefireResult(msg.Success, msg.Message);
     }
 
     // ── /war client command ────────────────────────────────────────────────
@@ -287,6 +295,18 @@ public sealed class FactionWarClientSystem : EntitySystem
                 CasusBelli       = casus,
             });
         };
+
+        _forceWarWindow.OnForceCeasefire += (aggressor, target) =>
+        {
+            RaiseNetworkEvent(new FactionWarForceCeasefireRequestEvent
+            {
+                AggressorFaction = aggressor,
+                TargetFaction    = target,
+            });
+        };
+
+        // Populate the ceasefire dropdown with current wars.
+        _forceWarWindow.UpdateActiveWars(_activeWars);
     }
 
     // ── Overlay lifecycle ──────────────────────────────────────────────────
@@ -318,7 +338,9 @@ public sealed class FactionWarClientSystem : EntitySystem
             _playerManager,
             _eyeManager,
             _resourceCache,
-            _entityLookup);
+            _entityLookup,
+            _examine,
+            _transform);
 
         _overlayManager.AddOverlay(_overlay);
     }

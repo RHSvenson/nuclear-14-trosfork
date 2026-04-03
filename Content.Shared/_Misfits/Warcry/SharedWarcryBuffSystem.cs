@@ -1,5 +1,5 @@
 using Content.Shared.Movement.Systems;
-using Robust.Shared.Log;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Misfits.Warcry;
 
@@ -9,9 +9,8 @@ namespace Content.Shared._Misfits.Warcry;
 /// </summary>
 public sealed class SharedWarcryBuffSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-
-    private static readonly ISawmill Log = Logger.GetSawmill("warcry.buff");
 
     public override void Initialize()
     {
@@ -24,23 +23,30 @@ public sealed class SharedWarcryBuffSystem : EntitySystem
 
     private void OnBuffStartup(EntityUid uid, WarcryBuffComponent component, ComponentStartup args)
     {
-        Log.Info($"WarcryBuff STARTUP on {uid}: SpeedBonus={component.SpeedBonus}");
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
     }
 
     private void OnBuffRemove(EntityUid uid, WarcryBuffComponent component, ComponentRemove args)
     {
-        Log.Info($"WarcryBuff REMOVED on {uid}: SpeedBonus={component.SpeedBonus}");
         if (TerminatingOrDeleted(uid))
             return;
 
+        // Refresh speed so the modifier is removed.
+        // The handler below will skip applying the modifier because ExpiresAt <= CurTime.
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
     }
 
     private void OnBuffRefreshSpeed(EntityUid uid, WarcryBuffComponent component, RefreshMovementSpeedModifiersEvent args)
     {
+        // #Misfits Fix - During ComponentRemove the component is still registered,
+        // so this handler fires even when the buff is being removed. Check expiry
+        // to avoid re-applying the speed bonus on removal. ExpiresAt == Zero means
+        // the component was just created and the server hasn't set the expiry yet,
+        // so treat it as active.
+        if (component.ExpiresAt != TimeSpan.Zero && component.ExpiresAt <= _timing.CurTime)
+            return;
+
         var speedModifier = 1f + component.SpeedBonus;
-        Log.Debug($"WarcryBuff REFRESH on {uid}: bonus={component.SpeedBonus} → modifier={speedModifier}");
         args.ModifySpeed(speedModifier, speedModifier);
     }
 }

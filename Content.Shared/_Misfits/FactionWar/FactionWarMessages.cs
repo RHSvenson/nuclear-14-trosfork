@@ -246,3 +246,15 @@ public sealed class FactionWarForceResultEvent : EntityEventArgs
     public bool   Success = false;
     public string Message = string.Empty;
 }
+
+// ── Admin force-ceasefire network messages ─────────────────────────────────
+
+/// <summary>
+/// Client → server. Admin requests to forcibly end an active war.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class FactionWarForceCeasefireRequestEvent : EntityEventArgs
+{
+    public string AggressorFaction = string.Empty;
+    public string TargetFaction    = string.Empty;
+}

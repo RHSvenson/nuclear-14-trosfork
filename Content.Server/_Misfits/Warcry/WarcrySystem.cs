@@ -32,8 +32,6 @@ public sealed class WarcrySystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private static readonly Robust.Shared.Log.ISawmill Log = Robust.Shared.Log.Logger.GetSawmill("warcry");
-
     private readonly HashSet<EntityUid> _targets = new();
 
     public override void Initialize()
@@ -57,7 +55,6 @@ public sealed class WarcrySystem : EntitySystem
             if (buff.ExpiresAt > now)
                 continue;
 
-            Log.Info($"Buff EXPIRED on {ToPrettyString(uid)}: ExpiresAt={buff.ExpiresAt}, Now={now}");
             RemComp<WarcryBuffComponent>(uid);
         }
 
@@ -96,7 +93,6 @@ public sealed class WarcrySystem : EntitySystem
         args.Handled = true;
 
         var expiry = _timing.CurTime + component.Duration;
-        Log.Info($"Warcry activated: Duration={component.Duration}, CurTime={_timing.CurTime}, Expiry={expiry}");
         _targets.Clear();
         _targets.Add(uid);
         _lookup.GetEntitiesInRange(Transform(uid).Coordinates, component.Range, _targets);
@@ -115,7 +111,6 @@ public sealed class WarcrySystem : EntitySystem
 
             Dirty(target, buff);
             _movementSpeed.RefreshMovementSpeedModifiers(target);
-            Log.Info($"Buff applied to {ToPrettyString(target)}: SpeedBonus={buff.SpeedBonus}, ExpiresAt={buff.ExpiresAt}");
             _popup.PopupEntity(Loc.GetString(component.BuffPopup, ("user", uid)), target, target,
                 component.CautionPopup ? PopupType.SmallCaution : PopupType.Small);
             buffedAny = true;

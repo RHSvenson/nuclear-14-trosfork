@@ -5,7 +5,8 @@
   name: job-name-ranger-chief
   description: job-description-ranger-chief
   playTimeTracker: RangerChief
-  weight: 20
+  # #Misfits Tweak - Weight set to 0; rank not actively used, prevents blocking war declarations
+  weight: 0
   startingGear: RangerChiefGear
   icon: "JobIconCaptain"
   requireAdminNotify: true

@@ -5,11 +5,13 @@
 // Pattern mirrors AdminNameOverlay (Content.Client/Administration/AdminNameOverlay.cs).
 
 using System.Numerics;
+using Content.Shared.Examine;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Enums;
+using Robust.Shared.Map;
 using Robust.Shared.Maths;
 
 namespace Content.Client._Misfits.FactionWar;
@@ -26,6 +28,8 @@ internal sealed class AllyTagOverlay : Overlay
     private readonly IPlayerManager         _playerManager;
     private readonly IEyeManager            _eyeManager;
     private readonly EntityLookupSystem     _entityLookup;
+    private readonly ExamineSystemShared    _examine;
+    private readonly SharedTransformSystem  _transform;
     private readonly Font                   _font;
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
@@ -36,13 +40,17 @@ internal sealed class AllyTagOverlay : Overlay
         IPlayerManager         playerManager,
         IEyeManager            eyeManager,
         IResourceCache         resourceCache,
-        EntityLookupSystem     entityLookup)
+        EntityLookupSystem     entityLookup,
+        ExamineSystemShared    examine,
+        SharedTransformSystem  transform)
     {
         _warSystem     = warSystem;
         _entityManager = entityManager;
         _playerManager = playerManager;
         _eyeManager    = eyeManager;
         _entityLookup  = entityLookup;
+        _examine       = examine;
+        _transform     = transform;
 
         ZIndex = 195; // just below AdminNameOverlay (200) so admin tags render on top
         _font = new VectorFont(
@@ -75,6 +83,9 @@ internal sealed class AllyTagOverlay : Overlay
         if (effectiveFaction == null)
             return;
 
+        // Get local player's position for line-of-sight checks.
+        var localPos = _transform.GetMapCoordinates(localEntity.Value);
+
         var viewport = args.WorldAABB;
 
         // Iterate the server-provided dict of war-relevant entities and their side.
@@ -94,6 +105,12 @@ internal sealed class AllyTagOverlay : Overlay
 
             var aabb = _entityLookup.GetWorldAABB(uid);
             if (!aabb.Intersects(viewport))
+                continue;
+
+            // Line-of-sight check: skip entities occluded by walls.
+            var otherPos = _transform.GetMapCoordinates(uid);
+            if (!_examine.InRangeUnOccluded(localPos, otherPos, 0f,
+                    e => e == localEntity.Value || e == uid))
                 continue;
 
             // Determine ally or enemy relative to the local player's side.

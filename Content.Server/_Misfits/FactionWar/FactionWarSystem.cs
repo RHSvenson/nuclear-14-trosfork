@@ -108,6 +108,7 @@ public sealed class FactionWarSystem : EntitySystem
 
         // Admin force-war GUI.
         SubscribeNetworkEvent<FactionWarForceRequestEvent>(OnForceWarRequest);
+        SubscribeNetworkEvent<FactionWarForceCeasefireRequestEvent>(OnForceCeasefireRequest);
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         _playerManager.PlayerStatusChanged += OnPlayerStatusChanged;
@@ -337,10 +338,17 @@ public sealed class FactionWarSystem : EntitySystem
             return;
         }
 
-        if (GetJobWeight(mindId) < GetFactionTopWeight(myFactionId))
+        var myWeight  = GetJobWeight(mindId);
+        var topWeight = GetFactionTopWeight(myFactionId);
+        if (myWeight < topWeight)
         {
+            // Include rank info so the player knows who outranks them.
+            var myJob = _jobs.MindTryGetJobName(mindId);
+            var topHolder = GetFactionTopJobHolder(myFactionId);
             SendResult(player, false,
-                "Only the highest-ranking member of your faction currently online can declare war.");
+                $"Only the highest-ranking member online can declare war. " +
+                $"Your rank: {myJob} (weight {myWeight}). " +
+                $"Outranked by: {topHolder} (weight {topWeight}).");
             return;
         }
 
@@ -414,16 +422,22 @@ public sealed class FactionWarSystem : EntitySystem
             return;
         }
 
-        if (!_minds.TryGetMind(playerEntity, out var mindId, out _))
+        if (!_minds.TryGetMind(playerEntity, out var ceaseMindId, out _))
         {
             SendResult(player, false, "You have no mind entity.");
             return;
         }
 
-        if (GetJobWeight(mindId) < GetFactionTopWeight(myFactionId))
+        var ceaseMyWeight  = GetJobWeight(ceaseMindId);
+        var ceaseTopWeight = GetFactionTopWeight(myFactionId);
+        if (ceaseMyWeight < ceaseTopWeight)
         {
+            var myJob = _jobs.MindTryGetJobName(ceaseMindId);
+            var topHolder = GetFactionTopJobHolder(myFactionId);
             SendResult(player, false,
-                "Only the highest-ranking member of your faction currently online can declare a ceasefire.");
+                $"Only the highest-ranking member online can declare a ceasefire. " +
+                $"Your rank: {myJob} (weight {ceaseMyWeight}). " +
+                $"Outranked by: {topHolder} (weight {ceaseTopWeight}).");
             return;
         }
 
@@ -432,7 +446,7 @@ public sealed class FactionWarSystem : EntitySystem
         var aggressorDisplay = FactionDisplayName(war.AggressorFaction);
         var targetDisplay    = FactionDisplayName(war.TargetFaction);
         var charName         = Name(playerEntity);
-        var jobName          = _jobs.MindTryGetJobName(mindId);
+        var jobName          = _jobs.MindTryGetJobName(ceaseMindId);
 
         _chat.DispatchServerAnnouncement(
             $"CEASEFIRE\n" +
@@ -757,6 +771,51 @@ public sealed class FactionWarSystem : EntitySystem
             { Success = true, Message = $"War declared: {aggDisplay} vs {tgtDisplay} (pending 5 min)." }, player);
     }
 
+    /// <summary>
+    /// Handles the admin Force Ceasefire GUI request. Ends any active/pending war immediately.
+    /// </summary>
+    private void OnForceCeasefireRequest(FactionWarForceCeasefireRequestEvent msg, EntitySessionEventArgs args)
+    {
+        var player = args.SenderSession;
+
+        if (!_adminManager.IsAdmin(player))
+        {
+            RaiseNetworkEvent(new FactionWarForceResultEvent
+                { Success = false, Message = "You must be an admin to use this." }, player);
+            return;
+        }
+
+        var aggressorId = msg.AggressorFaction.Trim();
+        var targetId    = msg.TargetFaction.Trim();
+
+        var war = _activeWars.FirstOrDefault(w =>
+            w.AggressorFaction == aggressorId && w.TargetFaction == targetId);
+
+        if (war == null)
+        {
+            RaiseNetworkEvent(new FactionWarForceResultEvent
+                { Success = false, Message = $"No active war found between those factions." }, player);
+            return;
+        }
+
+        RemoveWar(war);
+
+        var adminName = player.Name;
+        var aggDisplay = FactionDisplayName(aggressorId);
+        var tgtDisplay = FactionDisplayName(targetId);
+
+        _chat.DispatchServerAnnouncement(
+            $"WAR ENDED BY COMMAND\n" +
+            $"The conflict between {aggDisplay} and {tgtDisplay} has been resolved.",
+            Color.LightGray);
+
+        _chat.SendAdminAnnouncement(
+            $"[FactionWar] Admin {adminName} force-ended war: {aggDisplay} vs {tgtDisplay}");
+
+        RaiseNetworkEvent(new FactionWarForceResultEvent
+            { Success = true, Message = $"War ended: {aggDisplay} vs {tgtDisplay}." }, player);
+    }
+
     // ── Round lifecycle ────────────────────────────────────────────────────
 
     private void OnRoundRestart(RoundRestartCleanupEvent _)
@@ -980,6 +1039,51 @@ public sealed class FactionWarSystem : EntitySystem
 
     private int GetJobWeight(EntityUid mindId) =>
         _jobs.MindTryGetJob(mindId, out _, out var proto) ? proto.Weight : 0;
+
+    /// <summary>
+    /// Returns the job name of the highest-weight online member of the given faction.
+    /// Used for diagnostic messages when a player is blocked from declaring war/ceasefire.
+    /// </summary>
+    private string GetFactionTopJobHolder(string factionId)
+    {
+        var factionIds = new List<string> { factionId };
+        foreach (var (raw, canonical) in FactionWarConfig.FactionAliases)
+        {
+            if (canonical == factionId)
+                factionIds.Add(raw);
+        }
+
+        var topWeight = 0;
+        var topName = "Unknown";
+        var query = EntityQueryEnumerator<NpcFactionMemberComponent, ActorComponent>();
+        while (query.MoveNext(out var entity, out _, out var actor))
+        {
+            if (actor.PlayerSession.Status != SessionStatus.InGame)
+                continue;
+
+            var isMember = false;
+            foreach (var fid in factionIds)
+            {
+                if (_npcFaction.IsMember(entity, fid))
+                {
+                    isMember = true;
+                    break;
+                }
+            }
+            if (!isMember)
+                continue;
+
+            if (!_minds.TryGetMind(entity, out var mindId, out _))
+                continue;
+            var w = GetJobWeight(mindId);
+            if (w > topWeight)
+            {
+                topWeight = w;
+                topName = _jobs.MindTryGetJobName(mindId);
+            }
+        }
+        return topName;
+    }
 
     public static string FactionDisplayName(string factionId) =>
         FactionWarConfig.FactionDisplayName(factionId);
