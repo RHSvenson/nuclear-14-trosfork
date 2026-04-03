@@ -423,9 +423,7 @@
     - N14BPBoSWeaponPlasmaRifle
     - N14BPBoSWeaponPlasmaRifleAuto
     - N14BPBoSWeaponPlasmaRifleUrban
-    - N14BPBoSWeaponLaserRifleWattz2000
     - N14BPBoSWeaponPlasmaMultiplas
-    - N14BPBoSWeaponLaserRCW
 
 - type: entity
   parent: N14BlueprintBase
@@ -436,9 +434,22 @@
   - type: Blueprint
     recipes:
     - N14BPBoSWeaponLaserRiflePrototypeAER14
+    - N14BPBoSWeaponLaserRifleWattz2000 # #Misfits Change - moved from T3 to T4
     - N14BPBoSWeaponLaserRifleWattz3000
+
+# #Misfits Change - RCW, Plasma Caster, and Laser Gatling moved to T5
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintBoSWeaponsT5
+  name: BoS Sentinel Heavy Ordnance Plans
+  description: Classified heavy weapons schematics held only by Brotherhood Sentinels. Contains designs for the deadliest energy weapons in the arsenal. Tier 5 weapons.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPBoSWeaponLaserRCW
     - N14BPBoSWeaponPlasmaCaster
     - N14BPBoSWeaponLaserGatling
+    - N14BPBoSWeaponLaserRifleWattz3000 # #Misfits Change - moved from T4 to T5
 
 # --- BoS Armor ---
 - type: entity

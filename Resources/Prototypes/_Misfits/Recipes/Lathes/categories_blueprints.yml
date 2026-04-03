@@ -118,6 +118,10 @@
   name: lathe-category-blueprint-bos-weapons-t4
 
 - type: latheCategory
+  id: N14BlueprintBoSWeaponsT5
+  name: lathe-category-blueprint-bos-weapons-t5
+
+- type: latheCategory
   id: N14BlueprintBoSArmorT1
   name: lathe-category-blueprint-bos-armor-t1
 

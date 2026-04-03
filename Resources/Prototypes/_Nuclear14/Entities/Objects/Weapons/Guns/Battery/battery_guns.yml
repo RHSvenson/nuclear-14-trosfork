@@ -892,6 +892,12 @@
     backStrength: 4
   - type: StaticPrice
     price: 300
+  # #Misfits Add - Wattz focusing optics: +5 heat damage on top of MFC, double fireCost (12 shots)
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Heat: 5
+    fireCostMultiplier: 2.0
 
 - type: entity
   name: wattz 2000 laser rifle
@@ -942,6 +948,12 @@
     backStrength: 4
   - type: StaticPrice
     price: 400
+  # #Misfits Add - Wattz focusing optics: +5 heat damage on top of MFC, double fireCost (12 shots)
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Heat: 5
+    fireCostMultiplier: 2.0
 
 #MARK: Heavy
 

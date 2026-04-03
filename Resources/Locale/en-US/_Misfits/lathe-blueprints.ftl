@@ -35,6 +35,7 @@ lathe-category-blueprint-bos-weapons-t1 = BoS Weapons - Tier 1
 lathe-category-blueprint-bos-weapons-t2 = BoS Weapons - Tier 2
 lathe-category-blueprint-bos-weapons-t3 = BoS Weapons - Tier 3
 lathe-category-blueprint-bos-weapons-t4 = BoS Weapons - Tier 4
+lathe-category-blueprint-bos-weapons-t5 = BoS Weapons - Tier 5
 lathe-category-blueprint-bos-armor-t1 = BoS Armor - Tier 1
 lathe-category-blueprint-bos-armor-t2 = BoS Armor - Tier 2
 lathe-category-blueprint-bos-armor-t3 = BoS Armor - Tier 3
