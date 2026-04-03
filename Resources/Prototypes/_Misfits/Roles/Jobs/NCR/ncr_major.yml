@@ -24,7 +24,7 @@
       min: 252000 # 70 hours
   startingGear: NCRMajorGear
   icon: "JobIconNcrLeader"
-  supervisors: job-supervisors-ncr-captain
+  supervisors: job-supervisors-ncr-major
   requireAdminNotify: true
   alwaysUseSpawner: true
   canBeAntag: false

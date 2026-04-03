@@ -29,3 +29,9 @@ job-description-gunner = You are a Gunner of the Outlaws. Bring the heavy firepo
 job-description-fiend = You are a Fiend of the Outlaws. Cause chaos, pressure the enemy line, and never let up.
 
 job-supervisors-outlaws = the Outlaws leadership
+
+# #Misfits Add - NCR Major whitelist-only command billet
+job-name-ncr-major = NCR Major
+job-description-ncr-major = You are the senior command billet of the New California Republic in this region. Your authority supersedes the Captain. Your appointment is by administrative directive — act with restraint and purpose.
+job-supervisors-ncr-major = NCR High Command
+id-card-access-level-ncr-major = NCR Major Access

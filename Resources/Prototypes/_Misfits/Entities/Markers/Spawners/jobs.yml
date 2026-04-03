@@ -363,6 +363,19 @@
       - state: slave
 
 # NCR
+# #Misfits Add - NCR Major whitelist-only billet; spawns at same location as Captain
+- type: entity
+  parent: MisfitsSpawnPointNCRCadet
+  id: MisfitsSpawnPointNCRMajor
+  name: NCR Major
+  components:
+  - type: SpawnPoint
+    job_id: NCRMajor
+  - type: Sprite
+    layers:
+      - state: green
+      - state: lt
+
 - type: entity
   parent: SpawnPointJobBase
   id: MisfitsSpawnPointNCRCadet

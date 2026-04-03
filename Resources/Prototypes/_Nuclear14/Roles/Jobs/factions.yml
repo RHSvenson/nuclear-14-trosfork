@@ -67,6 +67,8 @@
   description: department-NCR-description
   color: "#fbc02d"
   roles:
+  # Command (Admin Whitelist Only)
+  - NCRMajor             # NCR Major (whitelist)   | _Misfits/Roles/Jobs/NCR/ncr_major.yml  # #Misfits Add
   # Officers
   - NCRCaptain           # NCR Captain             | _Misfits/Roles/Jobs/NCR/ncr_captain.yml
   - NCRLT                # NCR Lieutenant          | _Misfits/Roles/Jobs/NCR/ncr_lieutenant.yml
