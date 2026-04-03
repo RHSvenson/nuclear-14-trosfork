@@ -2701,3 +2701,16 @@ Entries:
   id: 5704
   time: '2026-04-03T00:35:25.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/242
+- author: cythisiax
+  changes:
+    - type: Fix
+      message: NCR no longer weighted issue with /war declarations.
+    - type: Fix
+      message: 'During a war, ally/enemy tag is now affected by occulsion/raycast. '
+    - type: Fix
+      message: Legion & Tribal warcry application & reset after CD.
+    - type: Fix
+      message: player robots not able to bunker/cryo
+  id: 5705
+  time: '2026-04-03T14:56:21.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/243
