@@ -752,14 +752,22 @@ namespace Content.Server.Administration.Systems
             RaiseNetworkEvent(new HelpTicketListMessage(list, HelpTicketType.AdminHelp), args.SenderSession.Channel);
         }
 
-        // #Misfits Add — admin requests persistent audit log from DB (cross-round, paginated)
+        // #Misfits Change - Audit log handler: extended to support filters (name, admin, date) and admin statistics
         private async void OnAuditRequest(HelpTicketAuditRequestMessage msg, EntitySessionEventArgs args)
         {
             if (!(_adminManager.GetAdminData(args.SenderSession)?.HasFlag(AdminFlags.Adminhelp) ?? false))
                 return;
 
+            // #Misfits Change - pass all filter parameters to DB query
             var (events, total) = await _dbManager.GetHelpTicketEventsAsync(
-                msg.FilterPlayerId, msg.Limit, msg.Offset);
+                msg.FilterPlayerId,
+                msg.Limit,
+                msg.Offset,
+                msg.FilterPlayerName,
+                msg.FilterAdminName,
+                msg.FilterAdminId,
+                msg.FilterStartDate,
+                msg.FilterEndDate);
 
             var entries = events.Select(e => new HelpTicketAuditEntry
             {
@@ -774,8 +782,23 @@ namespace Content.Server.Administration.Systems
                 OccurredAt = e.OccurredAt,
             }).ToList();
 
+            // #Misfits Add - fetch admin statistics when requested
+            List<AdminStatEntry>? adminStats = null;
+            if (msg.IncludeAdminStats)
+            {
+                adminStats = await _dbManager.GetAdminStatisticsAsync(
+                    msg.FilterStartDate,
+                    msg.FilterEndDate);
+            }
+
             RaiseNetworkEvent(
-                new HelpTicketAuditResponseMessage { Entries = entries, TotalCount = total, Offset = msg.Offset },
+                new HelpTicketAuditResponseMessage
+                {
+                    Entries = entries,
+                    TotalCount = total,
+                    Offset = msg.Offset,
+                    AdminStats = adminStats, // #Misfits Add - include stats in response
+                },
                 args.SenderSession.Channel);
         }
 

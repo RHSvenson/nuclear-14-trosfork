@@ -36,22 +36,46 @@ ticket-system-quick-reply-placeholder = Type a message to send...
 # Audit Log window
 ticket-audit-log-button = Audit Log
 ticket-audit-log-window-title = Help Ticket Audit Log
-ticket-audit-log-filter-label = Filter by Player ID:
-ticket-audit-log-filter-placeholder = Paste a player GUID to filter…
-ticket-audit-log-filter-button = Filter
-ticket-audit-log-clear-button = Clear
-ticket-audit-log-prev = ← Prev
-ticket-audit-log-next = Next →
-ticket-audit-log-page = Page {$page} of {$total} ({$count} total events)
-ticket-audit-log-page-placeholder = Loading…
+
+# #Misfits Add - expanded filter panel locale keys
+ticket-audit-filter-player-label = Player (Name or ID):
+ticket-audit-filter-player-placeholder = Enter name or GUID…
+ticket-audit-filter-admin-label = Admin Name:
+ticket-audit-filter-admin-placeholder = Search by admin name…
+ticket-audit-filter-date-from = From Date:
+ticket-audit-filter-date-to = To Date:
+ticket-audit-filter-date-placeholder = YYYY-MM-DD
+ticket-audit-filter-search = Search
+ticket-audit-filter-clear = Clear Filters
+ticket-audit-filter-month-this = This Month
+ticket-audit-filter-month-last = Last Month
+
+# Tab titles
+ticket-audit-tab-events = Audit Events
+ticket-audit-tab-stats = Admin Statistics
+
+# Events list headers
+ticket-audit-header-time = Time
+ticket-audit-header-id = Ticket
+ticket-audit-header-event = Event
+ticket-audit-header-player = Player
+ticket-audit-header-admin = Admin
+
+# Pagination
+ticket-audit-pagination-prev = ← Prev
+ticket-audit-pagination-next = Next →
+ticket-audit-pagination-label = Page {$page} of {$total} ({$count} total events)
+ticket-audit-pagination-placeholder = Loading…
+
+# Statistics tab
+ticket-audit-stats-label = Admin Ticket Handling Statistics (for selected period)
+ticket-audit-stats-admin = Admin Name
+ticket-audit-stats-resolved = Resolved
+ticket-audit-stats-claimed = Claimed
+ticket-audit-stats-empty = No statistics available for the selected period.
+
+# General
 ticket-audit-log-empty = No ticket events found.
-ticket-audit-log-header-time = Time
-ticket-audit-log-header-id = Ticket
-ticket-audit-log-header-event = Event
-ticket-audit-log-header-player = Player
-ticket-audit-log-header-admin = Admin
-ticket-audit-log-header-chat = Chat
-ticket-audit-log-view-chat = View Chat
 
 # Chat history window
 ticket-chat-history-window-title = Ticket #{$id} — {$player}
@@ -65,3 +89,7 @@ ticket-audit-event-unclaimed = Unclaimed
 ticket-audit-event-resolved = Resolved
 ticket-audit-event-reopened = Reopened
 ticket-audit-event-auto-resolved = Auto-Resolved
+
+# #Misfits Add - Player search bar placeholder and open ticket count label
+ticket-search-player-placeholder = Message player...
+ticket-open-count = Open: { $count }

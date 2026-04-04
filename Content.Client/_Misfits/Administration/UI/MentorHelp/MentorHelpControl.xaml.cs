@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using Content.Client.Administration.Managers;
+using Content.Client.Administration.Systems; // #Misfits Add — for AdminSystem (PlayerListChanged)
 using Content.Client.Administration.UI.CustomControls;
 using Content.Client._Misfits.Administration.Systems; // #Misfits Add — for MentorHelpSystem ticket methods
 using Content.Client._Misfits.UserInterface.Systems.MentorHelp;
@@ -16,6 +17,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Network;
 using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects; // #Misfits Add — for IEntitySystemManager
+using Robust.Shared.Timing; // #Misfits Add — for FrameEventArgs (dirty-flag batching)
 using Robust.Shared.Utility;
 
 namespace Content.Client._Misfits.Administration.UI.MentorHelp;
@@ -30,10 +32,23 @@ public sealed partial class MentorHelpControl : Control
     [Dependency] private readonly IEntitySystemManager _entitySystem = default!; // #Misfits Add — for MentorHelpSystem ticket methods
     public AdminMentorHelpUIHandler MHelpHelper = default!;
 
+    // #Misfits Add — cached AdminSystem reference for PlayerListChanged subscription
+    private AdminSystem _adminSystem = default!;
+    // #Misfits Add — cached MentorHelpSystem reference so Dispose can unsubscribe events
+    private MentorHelpSystem _mentorSys = default!;
+
     private PlayerInfo? _currentPlayer;
 
     // #Misfits Add — local ticket state cache, keyed by player NetUserId
     private readonly Dictionary<NetUserId, HelpTicketInfo> _tickets = new();
+
+    // #Misfits Add — dirty flag for deferred PopulateList; same pattern as BwoinkControl to
+    // prevent collection-modified crashes and freeze during rapid ticket/player list updates.
+    private bool _listDirty;
+
+    // #Misfits Add — player forced into the ticket list via the search box so mentors can
+    // open a proactive mhelp channel with any player, even without an existing ticket.
+    private NetUserId? _extraVisiblePlayerId;
 
     public MentorHelpControl()
     {
@@ -46,8 +61,15 @@ public sealed partial class MentorHelpControl : Control
 
         MHelpHelper = helper;
 
+        // #Misfits Add — cache AdminSystem and MentorHelpSystem references for subscriptions
+        _adminSystem = _entitySystem.GetEntitySystem<AdminSystem>();
+        _mentorSys = _entitySystem.GetEntitySystem<MentorHelpSystem>();
+
         _adminManager.AdminStatusUpdated += UpdateButtons;
         UpdateButtons();
+
+        // #Misfits Add — re-apply ticket filter whenever the master player list changes
+        _adminSystem.PlayerListChanged += OnPlayerListChanged;
 
         ChannelSelector.OnSelectionChanged += sel =>
         {
@@ -98,8 +120,13 @@ public sealed partial class MentorHelpControl : Control
 
         ChannelSelector.Comparison = (a, b) =>
         {
-            var ach = MHelpHelper.EnsurePanel(a.SessionId);
-            var bch = MHelpHelper.EnsurePanel(b.SessionId);
+            // #Misfits Fix — use TryGetChannel instead of EnsurePanel. EnsurePanel creates
+            // new MentorHelpPanel controls and adds them to MHelpArea during the sort, which
+            // modifies the UI control tree while DoFrameUpdateRecursive is iterating it,
+            // causing "Collection was modified; enumeration operation may not execute" crash.
+            // TryGetChannel is read-only — null panels sort with zero unread / min timestamp.
+            MHelpHelper.TryGetChannel(a.SessionId, out var ach);
+            MHelpHelper.TryGetChannel(b.SessionId, out var bch);
 
             // Pinned players first
             if (a.IsPinned != b.IsPinned)
@@ -111,13 +138,13 @@ public sealed partial class MentorHelpControl : Control
             if (aHasOpenTicket != bHasOpenTicket)
                 return aHasOpenTicket ? -1 : 1;
 
-            var aUnread = ach.Unread > 0;
-            var bUnread = bch.Unread > 0;
+            var aUnread = ach is { Unread: > 0 };
+            var bUnread = bch is { Unread: > 0 };
             if (aUnread != bUnread)
                 return aUnread ? -1 : 1;
 
-            var aRecent = a.ActiveThisRound && ach.LastMessage != DateTime.MinValue;
-            var bRecent = b.ActiveThisRound && bch.LastMessage != DateTime.MinValue;
+            var aRecent = a.ActiveThisRound && (ach?.LastMessage ?? DateTime.MinValue) != DateTime.MinValue;
+            var bRecent = b.ActiveThisRound && (bch?.LastMessage ?? DateTime.MinValue) != DateTime.MinValue;
             if (aRecent != bRecent)
                 return aRecent ? -1 : 1;
 
@@ -139,7 +166,7 @@ public sealed partial class MentorHelpControl : Control
                     return a.ActiveThisRound ? -1 : 1;
             }
 
-            return bch.LastMessage.CompareTo(ach.LastMessage);
+            return (bch?.LastMessage ?? DateTime.MinValue).CompareTo(ach?.LastMessage ?? DateTime.MinValue);
         };
 
         Notes.OnPressed += _ =>
@@ -154,7 +181,8 @@ public sealed partial class MentorHelpControl : Control
         };
 
         // #Misfits Add — ticket claim/resolve button handlers
-        var mentorSys = _entitySystem.GetEntitySystem<MentorHelpSystem>();
+        // Note: use _mentorSys (field) so Dispose can unsubscribe events properly
+        var mentorSys = _mentorSys;
 
         ClaimTicket.OnPressed += _ =>
         {
@@ -194,6 +222,10 @@ public sealed partial class MentorHelpControl : Control
         mentorSys.OnTicketUpdated += OnTicketUpdated;
         mentorSys.OnTicketListReceived += OnTicketListReceived;
 
+        // #Misfits Add — wire the player search bar so mentors can open an mhelp with any
+        // connected player by typing their name, even before they send a ticket message.
+        SearchPlayerEdit.OnTextEntered += OnSearchPlayerEntered;
+
         // #Misfits Fix — subscribe first to avoid dropping the first list response
         // when opening MHelp as a late-joining mentor/admin.
         mentorSys.RequestTicketList();
@@ -201,11 +233,28 @@ public sealed partial class MentorHelpControl : Control
 
     public void OnMentorHelp(NetUserId channel)
     {
-        ChannelSelector.PopulateList();
+        // #Misfits Fix — use filtered PopulateList (not raw unfiltered base one)
+        PopulateList();
     }
 
     public void SelectChannel(NetUserId channel)
     {
+        // #Misfits Fix — flush any pending dirty-flag PopulateList so newly-ticketed players
+        // are in ChannelSelector.PlayerInfo before we try to select them.
+        if (_listDirty)
+        {
+            _listDirty = false;
+            PopulateList();
+        }
+
+        // #Misfits Add — if the player still isn't in the filtered list (e.g. first-message
+        // arriving before the ticket update is processed), force them visible via _extraVisiblePlayerId.
+        if (!ChannelSelector.PlayerInfo.Any(i => i.SessionId == channel))
+        {
+            _extraVisiblePlayerId = channel;
+            PopulateList();
+        }
+
         if (!ChannelSelector.PlayerInfo.TryFirstOrDefault(
             i => i.SessionId == channel, out var info))
             return;
@@ -216,8 +265,56 @@ public sealed partial class MentorHelpControl : Control
             ChannelSelector.StopFiltering();
         }
 
-        ChannelSelector.PopulateList();
+        PopulateList();
         ChannelSelector.PlayerListContainer.Select(data);
+    }
+
+    // #Misfits Add — re-apply ticket filter when the master player list changes so the
+    // mentor panel never accidentally shows unfiltered all-player list.
+    private void OnPlayerListChanged(List<PlayerInfo> _)
+    {
+        if (!Disposed)
+            _listDirty = true;
+    }
+
+    // #Misfits Add — deferred PopulateList batching, same as BwoinkControl.
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        if (_listDirty)
+        {
+            _listDirty = false;
+            PopulateList();
+        }
+
+        base.FrameUpdate(args);
+    }
+
+    // #Misfits Add — search bar handler: finds a player by name/username and opens an mhelp
+    // channel with them, even if they have no existing ticket.
+    private void OnSearchPlayerEntered(LineEdit.LineEditEventArgs args)
+    {
+        var text = args.Text.Trim();
+        if (string.IsNullOrEmpty(text))
+            return;
+
+        var allPlayers = _adminSystem.PlayerList;
+        var match = allPlayers.FirstOrDefault(p =>
+            p.Username.Contains(text, StringComparison.OrdinalIgnoreCase) ||
+            (!string.IsNullOrEmpty(p.CharacterName) && p.CharacterName.Contains(text, StringComparison.OrdinalIgnoreCase)));
+
+        if (match == null)
+            return; // no match — leave text so mentor can correct it
+
+        // Force this player into the visible list and open their channel
+        _extraVisiblePlayerId = match.SessionId;
+        SearchPlayerEdit.Text = string.Empty;
+
+        _listDirty = false;
+        PopulateList();
+
+        _currentPlayer = match;
+        SwitchToChannel(match.SessionId);
+        ChannelSelector.PlayerListContainer.Select(new PlayerListData(match));
     }
 
     public void UpdateButtons()
@@ -281,7 +378,9 @@ public sealed partial class MentorHelpControl : Control
         };
 
         var msg = new FormattedMessage();
-        msg.AddMarkup($"[bold]Ticket #{ticket.TicketId}[/bold] — [color={statusColor}]{statusText}[/color]");
+        // #Misfits Fix — escape status text to prevent malformed markup from names
+        // containing bracket characters (e.g. "[Mentor]") crashing the parser.
+        msg.AddMarkup($"[bold]Ticket #{ticket.TicketId}[/bold] — [color={statusColor}]{FormattedMessage.EscapeText(statusText)}[/color]");
         TicketStatusLabel.SetMessage(msg);
 
         ClaimTicket.Visible = ticket.Status == HelpTicketStatus.Open;
@@ -306,11 +405,35 @@ public sealed partial class MentorHelpControl : Control
 
     public void PopulateList()
     {
-        // #Misfits Change — Only show users with mentorhelp tickets
-        var pinnedPlayers = ChannelSelector.PlayerInfo.Where(p => p.IsPinned).ToDictionary(p => p.SessionId);
+        // #Misfits Fix — guard against events calling PopulateList on a disposed control.
+        if (Disposed)
+            return;
 
-        // Filter to only players with tickets
-        var ticketedPlayers = ChannelSelector.PlayerInfo.Where(p => _tickets.ContainsKey(p.SessionId)).ToList();
+        // #Misfits Fix — source from AdminSystem's master player list rather than
+        // ChannelSelector.PlayerInfo, which is re-overwritten with the filtered subset on each
+        // call, causing newly-ticketed players not in the previous subset to be permanently lost.
+        var allPlayers = _adminSystem.PlayerList;
+
+        // #Misfits Fix — use dictionary indexer to avoid ArgumentException crashes when
+        // duplicate SessionId entries exist in the player list (can happen during reconnect).
+        var pinnedPlayers = new Dictionary<NetUserId, PlayerInfo>();
+        foreach (var p in ChannelSelector.PlayerInfo.Where(p => p.IsPinned))
+        {
+            pinnedPlayers[p.SessionId] = p;
+        }
+
+        // Filter to only players with mentor tickets
+        var ticketedPlayers = allPlayers.Where(p => _tickets.ContainsKey(p.SessionId)).ToList();
+
+        // #Misfits Add — also include the player opened via search box (even without a ticket)
+        // so mentors can start a proactive conversation. Removed from override once ticketed.
+        if (_extraVisiblePlayerId.HasValue && !_tickets.ContainsKey(_extraVisiblePlayerId.Value))
+        {
+            var extraPlayer = allPlayers.FirstOrDefault(p => p.SessionId == _extraVisiblePlayerId.Value);
+            if (extraPlayer != null && !ticketedPlayers.Contains(extraPlayer))
+                ticketedPlayers.Add(extraPlayer);
+        }
+
         ChannelSelector.PopulateList(ticketedPlayers);
 
         foreach (var player in ChannelSelector.PlayerInfo)
@@ -321,6 +444,33 @@ public sealed partial class MentorHelpControl : Control
             }
         }
 
+        // #Misfits Add — update open ticket count label so mentors can see unclaimed count at a glance
+        var openCount = _tickets.Values.Count(t => t.Status == HelpTicketStatus.Open);
+        OpenTicketCountLabel.Text = openCount > 0
+            ? Loc.GetString("ticket-open-count", ("count", openCount))
+            : string.Empty;
+
         UpdateButtons();
+    }
+
+    // #Misfits Add — unsubscribe from all events on disposal to prevent stale handlers firing
+    // on a dead control and crashing the client (same pattern as BwoinkControl).
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+
+        if (!disposing)
+            return;
+
+        _adminManager.AdminStatusUpdated -= UpdateButtons;
+
+        if (_adminSystem != null!)
+            _adminSystem.PlayerListChanged -= OnPlayerListChanged;
+
+        if (_mentorSys != null!)
+        {
+            _mentorSys.OnTicketUpdated -= OnTicketUpdated;
+            _mentorSys.OnTicketListReceived -= OnTicketListReceived;
+        }
     }
 }

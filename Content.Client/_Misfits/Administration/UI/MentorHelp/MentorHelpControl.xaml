@@ -4,7 +4,12 @@
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls">
     <PanelContainer StyleClasses="BackgroundDark">
         <SplitContainer Orientation="Horizontal" VerticalExpand="True">
-            <cc:PlayerListControl Access="Public" Name="ChannelSelector" HorizontalExpand="True" SizeFlagsStretchRatio="1" />
+            <!-- #Misfits Add — wrap left panel so search bar can sit above the ticket list -->
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" SizeFlagsStretchRatio="1" VerticalExpand="True">
+                <!-- #Misfits Add — direct-message search: type a player name and press Enter to open an mhelp channel with them, even without an existing ticket -->
+                <LineEdit Name="SearchPlayerEdit" Access="Public" HorizontalExpand="True" PlaceHolder="{Loc 'ticket-search-player-placeholder'}" />
+                <cc:PlayerListControl Access="Public" Name="ChannelSelector" HorizontalExpand="True" VerticalExpand="True" />
+            </BoxContainer>
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" SizeFlagsStretchRatio="2">
                 <!-- #Misfits Add — Ticket status bar shown above the chat area -->
                 <BoxContainer Name="TicketStatusBar" Access="Public" Orientation="Horizontal" HorizontalExpand="True" Visible="False">
@@ -16,6 +21,8 @@
                 </BoxContainer>
                 <BoxContainer Access="Public" Name="MHelpArea" VerticalExpand="True" />
                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <!-- #Misfits Add — show count of unclaimed open mentor tickets -->
+                    <Label Name="OpenTicketCountLabel" Access="Public" VerticalAlignment="Center" Margin="2 0 8 0" />
                     <CheckBox Visible="True" Name="PlaySound" Access="Public" Text="Bwoink?" Pressed="True" />
                     <Control HorizontalExpand="True" MinWidth="5" />
                     <Button Visible="True" Name="PopOut" Access="Public" Text="Pop Out" StyleClasses="OpenBoth" HorizontalAlignment="Left" />

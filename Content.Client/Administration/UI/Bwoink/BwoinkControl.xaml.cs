@@ -53,6 +53,10 @@ namespace Content.Client.Administration.UI.Bwoink
         // flag and a single PopulateList runs on the next FrameUpdate.
         private bool _listDirty;
 
+        // #Misfits Add — player forced into the ticket list via the search box.
+        // Allows admins to open a proactive bwoink channel with any player, even without a ticket.
+        private NetUserId? _extraVisiblePlayerId;
+
         public BwoinkControl()
         {
             RobustXamlLoader.Load(this);
@@ -282,6 +286,10 @@ namespace Content.Client.Administration.UI.Bwoink
             bwoinkSys.OnTicketUpdated += OnTicketUpdated;
             bwoinkSys.OnTicketListReceived += OnTicketListReceived;
 
+            // #Misfits Add — wire the player search bar so admins can open a bwoink with any
+            // connected player by typing their name, even before they send a ticket message.
+            SearchPlayerEdit.OnTextEntered += OnSearchPlayerEntered;
+
             // #Misfits Fix — seed local ticket cache from BwoinkSystem's cached data so the
             // panel is populated immediately, even if the server push arrived before this
             // control was created (late-joining admin or opened panel after tickets exist).
@@ -353,6 +361,38 @@ namespace Content.Client.Administration.UI.Bwoink
             _listDirty = true;
         }
 
+        // #Misfits Add — search bar handler: finds a player by name/username and opens a bwoink
+        // channel with them, even if they have no existing ticket. The player is pinned into the
+        // filtered list so they remain visible until they get a ticket or admin navigates away.
+        private void OnSearchPlayerEntered(LineEdit.LineEditEventArgs args)
+        {
+            var text = args.Text.Trim();
+            if (string.IsNullOrEmpty(text))
+                return;
+
+            // Search the full player list for a case-insensitive partial match
+            var allPlayers = _adminSystem.PlayerList;
+            var match = allPlayers.FirstOrDefault(p =>
+                p.Username.Contains(text, StringComparison.OrdinalIgnoreCase) ||
+                (!string.IsNullOrEmpty(p.CharacterName) && p.CharacterName.Contains(text, StringComparison.OrdinalIgnoreCase)));
+
+            if (match == null)
+                return; // no match — do nothing (leave text so admin can correct it)
+
+            // Force this player into the visible list, open their channel
+            _extraVisiblePlayerId = match.SessionId;
+            SearchPlayerEdit.Text = string.Empty;
+
+            // Flush dirty state and repopulate so the player appears in the list immediately
+            _listDirty = false;
+            PopulateList();
+
+            // Switch to their channel and select them in the list
+            _currentPlayer = match;
+            SwitchToChannel(match.SessionId);
+            ChannelSelector.PlayerListContainer.Select(new PlayerListData(match));
+        }
+
         /// <summary>
         /// Updates the ticket status bar above the chat for the currently selected player.
         /// </summary>
@@ -416,6 +456,25 @@ namespace Content.Client.Administration.UI.Bwoink
 
         public void SelectChannel(NetUserId channel)
         {
+            // #Misfits Fix — flush any pending dirty-flag PopulateList so newly-ticketed players
+            // are in ChannelSelector.PlayerInfo before we try to select them. Without this, a
+            // ticket arriving just before SelectChannel is called would cause the player not to
+            // be found (PopulateList hadn't run yet), and the channel switch would silently abort.
+            if (_listDirty)
+            {
+                _listDirty = false;
+                PopulateList();
+            }
+
+            // #Misfits Add — if the player still isn't in the filtered list (e.g. webhook-initiated
+            // bwoink before the player has sent any message), force them visible via _extraVisiblePlayerId
+            // so the channel switch succeeds and they appear in the list.
+            if (!ChannelSelector.PlayerInfo.Any(i => i.SessionId == channel))
+            {
+                _extraVisiblePlayerId = channel;
+                PopulateList();
+            }
+
             if (!ChannelSelector.PlayerInfo.TryFirstOrDefault(
                 i => i.SessionId == channel, out var info))
                 return;
@@ -524,6 +583,17 @@ namespace Content.Client.Administration.UI.Bwoink
 
             // Filter to only players with tickets
             var ticketedPlayers = allPlayers.Where(p => _tickets.ContainsKey(p.SessionId)).ToList();
+
+            // #Misfits Add — also include the player opened via search box, even without a ticket,
+            // so the admin can proactively start a conversation. Once a ticket is created for them
+            // they'll appear naturally and the extra override is no longer needed.
+            if (_extraVisiblePlayerId.HasValue && !_tickets.ContainsKey(_extraVisiblePlayerId.Value))
+            {
+                var extraPlayer = allPlayers.FirstOrDefault(p => p.SessionId == _extraVisiblePlayerId.Value);
+                if (extraPlayer != null && !ticketedPlayers.Contains(extraPlayer))
+                    ticketedPlayers.Add(extraPlayer);
+            }
+
             ChannelSelector.PopulateList(ticketedPlayers);
 
             // Restore pin statuses
@@ -534,6 +604,13 @@ namespace Content.Client.Administration.UI.Bwoink
                     player.IsPinned = pinnedPlayer.IsPinned;
                 }
             }
+
+            // #Misfits Add — update the open ticket count label so admins can see at a glance
+            // how many tickets are unclaimed without having to scan the list.
+            var openCount = _tickets.Values.Count(t => t.Status == HelpTicketStatus.Open);
+            OpenTicketCountLabel.Text = openCount > 0
+                ? Loc.GetString("ticket-open-count", ("count", openCount))
+                : string.Empty;
 
             UpdateButtons();
         }

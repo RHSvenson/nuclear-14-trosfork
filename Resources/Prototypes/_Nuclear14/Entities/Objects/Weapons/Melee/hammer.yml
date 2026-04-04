@@ -114,7 +114,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 30
+        Blunt: 25 # #Misfits Tweak - cap wield bonus to prevent near-1-crit on Glowing Ghoul (90 crit, 1.1x modifier; max safe raw = 70)
         Piercing: 10
         Slash: 15
         Structural: 30
