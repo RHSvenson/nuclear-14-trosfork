@@ -55,6 +55,11 @@ public sealed class N14ExpeditionSystem : EntitySystem
 
     private int _expeditionSeedCounter;
 
+    // #Misfits Tweak - Throttle session-timer scanning. Warnings fire at 10-min, 5-min, 1-min, 30-sec
+    // intervals — sub-second resolution is unnecessary. Per-tick scan at 30 Hz is wasteful.
+    private float _sessionScanAccumulator;
+    private const float SessionScanInterval = 0.5f;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -94,7 +99,13 @@ public sealed class N14ExpeditionSystem : EntitySystem
         }
 
         // --- Check active expedition session timers (multi-session) ---
-        var expQuery = EntityQueryEnumerator<N14ExpeditionComponent>();
+        // #Misfits Tweak - Gate to 2 Hz; warnings fire at ≥30-second intervals so 0.5s granularity
+        // is imperceptible. Avoids scanning all expedition maps every tick.
+        _sessionScanAccumulator += frameTime;
+        if (_sessionScanAccumulator >= SessionScanInterval)
+        {
+            _sessionScanAccumulator = 0f;
+            var expQuery = EntityQueryEnumerator<N14ExpeditionComponent>();
         while (expQuery.MoveNext(out var mapUid, out var expedition))
         {
             // Check each session's timer independently
@@ -180,6 +191,7 @@ public sealed class N14ExpeditionSystem : EntitySystem
                 }
             }
         }
+        } // end if (_sessionScanAccumulator >= SessionScanInterval)
 
         // --- Process exit-zone extraction countdowns (multi-session aware) ---
         var exitQuery = EntityQueryEnumerator<N14ExpeditionExitComponent>();

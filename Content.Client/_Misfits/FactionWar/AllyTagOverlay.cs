@@ -107,9 +107,9 @@ internal sealed class AllyTagOverlay : Overlay
             if (!aabb.Intersects(viewport))
                 continue;
 
-            // Line-of-sight check: skip entities occluded by walls.
+            // Line-of-sight check: skip entities occluded by walls (capped at 50 tiles).
             var otherPos = _transform.GetMapCoordinates(uid);
-            if (!_examine.InRangeUnOccluded(localPos, otherPos, 0f,
+            if (!_examine.InRangeUnOccluded(localPos, otherPos, 50f,
                     e => e == localEntity.Value || e == uid))
                 continue;
 

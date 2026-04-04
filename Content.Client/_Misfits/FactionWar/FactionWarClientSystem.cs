@@ -197,9 +197,11 @@ public sealed class FactionWarClientSystem : EntitySystem
 
     private void OnForceWarResult(FactionWarForceResultEvent msg)
     {
-        // Show result in both sections — admin sees feedback in whichever action they used.
-        _forceWarWindow?.ShowResult(msg.Success, msg.Message);
-        _forceWarWindow?.ShowCeasefireResult(msg.Success, msg.Message);
+        // Route to the correct result label based on which action triggered this.
+        if (msg.IsCeasefire)
+            _forceWarWindow?.ShowCeasefireResult(msg.Success, msg.Message);
+        else
+            _forceWarWindow?.ShowResult(msg.Success, msg.Message);
     }
 
     // ── /war client command ────────────────────────────────────────────────

@@ -2,6 +2,7 @@
 // Allows admins to declare wars between any two factions, bypassing all cooldowns and rank checks.
 // Also allows admins to force-ceasefire any active or pending war.
 
+using System.Linq;
 using Content.Client.Message;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._Misfits.FactionWar;
@@ -32,12 +33,19 @@ public sealed partial class ForceWarWindow : FancyWindow
     // Tracks active wars for the ceasefire dropdown.
     private readonly List<FactionWarEntry> _activeWarEntries = new();
 
+    /// <summary>Whether the Force War button is in the "confirm" state (second press fires).</summary>
+    private bool _confirmWarPending;
+
+    /// <summary>Whether the Force Ceasefire button is in the "confirm" state.</summary>
+    private bool _confirmCeasefirePending;
+
     public ForceWarWindow()
     {
         RobustXamlLoader.Load(this);
 
         // Populate both declare-war selectors with all war-capable factions.
-        foreach (var factionId in FactionWarConfig.WarCapableFactions)
+        // Sort to ensure deterministic dropdown order (HashSet iteration is unordered).
+        foreach (var factionId in FactionWarConfig.WarCapableFactions.OrderBy(f => FactionWarConfig.FactionDisplayName(f)))
         {
             _factionIds.Add(factionId);
             var display = FactionWarConfig.FactionDisplayName(factionId);
@@ -50,9 +58,10 @@ public sealed partial class ForceWarWindow : FancyWindow
             TargetSelector.SelectId(1);
 
         // Commit dropdown selection when the user picks an item.
-        AggressorSelector.OnItemSelected += args => AggressorSelector.SelectId(args.Id);
-        TargetSelector.OnItemSelected    += args => TargetSelector.SelectId(args.Id);
-        CeasefireWarSelector.OnItemSelected += args => CeasefireWarSelector.SelectId(args.Id);
+        // Commit dropdown selection and reset confirm state when selection changes.
+        AggressorSelector.OnItemSelected += args => { AggressorSelector.SelectId(args.Id); ResetWarConfirm(); };
+        TargetSelector.OnItemSelected    += args => { TargetSelector.SelectId(args.Id); ResetWarConfirm(); };
+        CeasefireWarSelector.OnItemSelected += args => { CeasefireWarSelector.SelectId(args.Id); ResetCeasefireConfirm(); };
 
         ForceWarButton.OnPressed += _ => SubmitForceWar();
         ForceCeasefireButton.OnPressed += _ => SubmitForceCeasefire();
@@ -66,6 +75,11 @@ public sealed partial class ForceWarWindow : FancyWindow
     {
         _activeWarEntries.Clear();
         CeasefireWarSelector.Clear();
+        ResetCeasefireConfirm();
+
+        // Clear stale result labels when war state changes.
+        ResultLabel.SetMarkup(string.Empty);
+        CeasefireResultLabel.SetMarkup(string.Empty);
 
         foreach (var war in activeWars)
         {
@@ -111,12 +125,23 @@ public sealed partial class ForceWarWindow : FancyWindow
             return;
         }
 
-        // Use placeholder if casus belli is empty.
+        if (!_confirmWarPending)
+        {
+            // First press — switch to confirmation state.
+            _confirmWarPending = true;
+            ForceWarButton.Text = "CONFIRM - Press Again to Force War";
+            ForceWarButton.Modulate = Color.OrangeRed;
+            ShowResult(false, "Are you sure? Press the button again to force-declare war.");
+            return;
+        }
+
+        // Second press — confirmed, fire the event.
         var casus = CasusBelliEdit.Text.Trim();
         if (string.IsNullOrEmpty(casus))
             casus = "Admin-forced war (testing)";
 
         OnForceWar?.Invoke(aggressorId, targetId, casus);
+        ResetWarConfirm();
     }
 
     private void SubmitForceCeasefire()
@@ -125,7 +150,33 @@ public sealed partial class ForceWarWindow : FancyWindow
         if (idx < 0 || idx >= _activeWarEntries.Count)
             return;
 
+        if (!_confirmCeasefirePending)
+        {
+            // First press — switch to confirmation state.
+            _confirmCeasefirePending = true;
+            ForceCeasefireButton.Text = "CONFIRM - Press Again to Force Ceasefire";
+            ForceCeasefireButton.Modulate = Color.OrangeRed;
+            ShowCeasefireResult(false, "Are you sure? Press the button again to force-end this war.");
+            return;
+        }
+
+        // Second press — confirmed, fire the event.
         var war = _activeWarEntries[idx];
         OnForceCeasefire?.Invoke(war.AggressorFaction, war.TargetFaction);
+        ResetCeasefireConfirm();
+    }
+
+    private void ResetWarConfirm()
+    {
+        _confirmWarPending = false;
+        ForceWarButton.Text = "Force War";
+        ForceWarButton.Modulate = Color.White;
+    }
+
+    private void ResetCeasefireConfirm()
+    {
+        _confirmCeasefirePending = false;
+        ForceCeasefireButton.Text = "Force Ceasefire";
+        ForceCeasefireButton.Modulate = Color.White;
     }
 }

@@ -77,6 +77,18 @@ public sealed class FactionWarSystem : EntitySystem
     private static readonly TimeSpan ParticipantBroadcastInterval = TimeSpan.FromSeconds(2);
     private TimeSpan _nextParticipantBroadcast;
 
+    // #Misfits Tweak - Gate Update() to 1 Hz. The body only walks in-memory lists (_activeWars,
+    // _warActivationTimes) and delegates to BroadcastParticipants which has its own TimeSpan
+    // gate. 1 s resolution for war-phase transitions is imperceptible.
+    private float _warUpdateAccumulator;
+    private const float WarUpdateInterval = 1.0f;
+
+    /// <summary>
+    /// Sessions that currently have the /war panel open.
+    /// Panel data is only sent to these sessions on state change, avoiding O(N) broadcasts.
+    /// </summary>
+    private readonly HashSet<ICommonSession> _panelOpenSessions = new();
+
     // ── Lifecycle ──────────────────────────────────────────────────────────
 
     public override void Initialize()
@@ -126,11 +138,18 @@ public sealed class FactionWarSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        // #Misfits Tweak - 1 Hz gate; war phase transitions are seconds-scale.
+        _warUpdateAccumulator += frameTime;
+        if (_warUpdateAccumulator < WarUpdateInterval)
+            return;
+        _warUpdateAccumulator -= WarUpdateInterval;
+
+        var now = _gameTiming.CurTime;
+
         // Periodically re-broadcast the full participant dict so the client
         // overlay stays in sync as entities spawn, move, or leave.
         if (_activeWars.Count > 0)
         {
-            var now = _gameTiming.CurTime;
             if (now >= _nextParticipantBroadcast)
             {
                 _nextParticipantBroadcast = now + ParticipantBroadcastInterval;
@@ -141,7 +160,6 @@ public sealed class FactionWarSystem : EntitySystem
         if (_warActivationTimes.Count == 0)
             return;
 
-        var now2 = _gameTiming.CurTime;
         var activated = new List<FactionWarEntry>();
 
         foreach (var war in _activeWars)
@@ -153,7 +171,7 @@ public sealed class FactionWarSystem : EntitySystem
             if (!_warActivationTimes.TryGetValue(key, out var activationTime))
                 continue;
 
-            if (now2 < activationTime)
+            if (now < activationTime)
                 continue;
 
             war.Phase = WarPhase.Active;
@@ -185,6 +203,7 @@ public sealed class FactionWarSystem : EntitySystem
     private void OnPanelRequest(FactionWarOpenPanelRequestEvent msg, EntitySessionEventArgs args)
     {
         var player = args.SenderSession;
+        _panelOpenSessions.Add(player); // Track that this session has the panel open.
         SendPanelData(player);
     }
 
@@ -781,7 +800,7 @@ public sealed class FactionWarSystem : EntitySystem
         if (!_adminManager.IsAdmin(player))
         {
             RaiseNetworkEvent(new FactionWarForceResultEvent
-                { Success = false, Message = "You must be an admin to use this." }, player);
+                { Success = false, Message = "You must be an admin to use this.", IsCeasefire = true }, player);
             return;
         }
 
@@ -794,7 +813,7 @@ public sealed class FactionWarSystem : EntitySystem
         if (war == null)
         {
             RaiseNetworkEvent(new FactionWarForceResultEvent
-                { Success = false, Message = $"No active war found between those factions." }, player);
+                { Success = false, Message = $"No active war found between those factions.", IsCeasefire = true }, player);
             return;
         }
 
@@ -813,7 +832,7 @@ public sealed class FactionWarSystem : EntitySystem
             $"[FactionWar] Admin {adminName} force-ended war: {aggDisplay} vs {tgtDisplay}");
 
         RaiseNetworkEvent(new FactionWarForceResultEvent
-            { Success = true, Message = $"War ended: {aggDisplay} vs {tgtDisplay}." }, player);
+            { Success = true, Message = $"War ended: {aggDisplay} vs {tgtDisplay}.", IsCeasefire = true }, player);
     }
 
     // ── Round lifecycle ────────────────────────────────────────────────────
@@ -824,12 +843,20 @@ public sealed class FactionWarSystem : EntitySystem
         _warActivationTimes.Clear();
         _warParticipants.Clear();
         _factionWarCooldowns.Clear();
+        _panelOpenSessions.Clear();
         _nextParticipantBroadcast = TimeSpan.Zero;
         _roundStartTime = _gameTiming.CurTime;
     }
 
     private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
     {
+        // Clean up panel tracking when a player disconnects.
+        if (e.NewStatus == SessionStatus.Disconnected)
+        {
+            _panelOpenSessions.Remove(e.Session);
+            return;
+        }
+
         if (e.NewStatus != SessionStatus.InGame)
             return;
 
@@ -895,12 +922,18 @@ public sealed class FactionWarSystem : EntitySystem
             session);
     }
 
+    /// <summary>
+    /// Sends panel data only to sessions that have the /war panel open,
+    /// avoiding expensive per-player faction checks for everyone on the server.
+    /// </summary>
     private void SendPanelDataToAll()
     {
-        foreach (var session in _playerManager.Sessions)
+        // Remove stale sessions before iterating.
+        _panelOpenSessions.RemoveWhere(s => s.Status != SessionStatus.InGame);
+
+        foreach (var session in _panelOpenSessions)
         {
-            if (session.Status == SessionStatus.InGame)
-                SendPanelData(session);
+            SendPanelData(session);
         }
     }
 

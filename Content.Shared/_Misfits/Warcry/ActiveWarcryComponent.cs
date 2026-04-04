@@ -23,6 +23,6 @@ public sealed partial class ActiveWarcryComponent : Component
     /// <summary>
     /// When the overlay should stop being shown.
     /// </summary>
-    [DataField]
-    public TimeSpan ExpiresAt;
+    [DataField, AutoNetworkedField]
+    public TimeSpan ExpiresAt; // #Misfits Fix - networked for client-side timing consistency
 }

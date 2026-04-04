@@ -245,6 +245,9 @@ public sealed class FactionWarForceResultEvent : EntityEventArgs
 {
     public bool   Success = false;
     public string Message = string.Empty;
+
+    /// <summary>True when this result is for a ceasefire action, false for a declare action.</summary>
+    public bool   IsCeasefire = false;
 }
 
 // ── Admin force-ceasefire network messages ─────────────────────────────────

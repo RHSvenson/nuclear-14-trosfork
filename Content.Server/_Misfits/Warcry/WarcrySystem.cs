@@ -43,9 +43,19 @@ public sealed class WarcrySystem : EntitySystem
         SubscribeLocalEvent<WarcryComponent, PerformWarcryActionEvent>(OnWarcryAction);
     }
 
+    // #Misfits Tweak - Gate expiry checks to 0.5 Hz; buff durations are seconds-scale so
+    // 0.5 s resolution for RemComp is indistinguishable.
+    private float _warcryAccumulator;
+    private const float WarcryUpdateInterval = 0.5f;
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        _warcryAccumulator += frameTime;
+        if (_warcryAccumulator < WarcryUpdateInterval)
+            return;
+        _warcryAccumulator -= WarcryUpdateInterval;
 
         var now = _timing.CurTime;
         var query = EntityQueryEnumerator<WarcryBuffComponent>();

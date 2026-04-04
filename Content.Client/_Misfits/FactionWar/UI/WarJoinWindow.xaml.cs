@@ -91,7 +91,10 @@ public sealed partial class WarJoinWindow : FancyWindow
 
         // Auto-select first war and populate sides.
         if (pendingWars.Count > 0)
+        {
+            WarSelector.SelectId(0);
             PopulateSides(0);
+        }
 
         ClearResult();
     }
