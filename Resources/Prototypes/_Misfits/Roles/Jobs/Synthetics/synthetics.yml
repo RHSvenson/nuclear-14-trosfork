@@ -44,6 +44,8 @@
   overrideConsoleVisibility: true
   whitelisted: true # #Misfits Change
   hideWithoutWhitelist: true # #Misfits Change
+  access: # #Misfits Add - vault access for vault-assigned robot
+  - VaultDweller
   spawnLoadout: false
   applyTraits: false
   requirements: # #Misfits Change: lock to species
@@ -72,6 +74,8 @@
   overrideConsoleVisibility: true
   whitelisted: true # #Misfits Change
   hideWithoutWhitelist: true # #Misfits Change
+  access: # #Misfits Add - vault access for vault-assigned robot
+  - VaultDweller
   spawnLoadout: false
   applyTraits: false
   requirements: # #Misfits Change: lock to species
@@ -163,6 +167,8 @@
   overrideConsoleVisibility: true
   whitelisted: true
   hideWithoutWhitelist: true
+  access: # #Misfits Add - vault access for vault-assigned robot
+  - VaultDweller
   spawnLoadout: false
   applyTraits: false
   requirements:

@@ -117,9 +117,9 @@
           Gunner: [ 8, 8 ] # #Misfits Change - Outlaws split role: Gunner
           Fiend: [ 8, 8 ] # #Misfits Change - Outlaws split role: Fiend
           Followers: [ 2, 2 ]
-          SyntheticMrHandy: [ 1, 2 ]
-          SyntheticProtectron: [ 1, 2 ]
-          SyntheticMrGutsy: [ 1, 2 ]
+          SyntheticMrHandy: [ 1, 1 ] # #Misfits Tweak - 1 slot for vault-access robot
+          SyntheticProtectron: [ 1, 1 ] # #Misfits Tweak - 1 slot for vault-access robot
+          SyntheticMrGutsy: [ 1, 1 ] # #Misfits Tweak - 1 slot for vault-access robot
           SyntheticAssaultron: [ 1, 2 ]
           SyntheticSentryBot: [ 1, 2 ] # #Misfits Add: sentry bot late join slots
-          SyntheticRobobrain: [ 1, 2 ] # #Misfits Add: robobrain late join slots
+          SyntheticRobobrain: [ 1, 1 ] # #Misfits Tweak - 1 slot for vault-access robot

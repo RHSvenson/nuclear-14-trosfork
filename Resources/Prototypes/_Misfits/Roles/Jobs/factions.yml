@@ -4,12 +4,13 @@
   color: "#607d8b"
   weight: -100
   roles:
+  - SyntheticAssaultron  # combat robots — no vault access
+  - SyntheticSentryBot   # combat robots — no vault access
+  # #Misfits Change - reorder: vault-assigned robots grouped below (showBorder separator on MrHandy)
   - SyntheticMrHandy
   - SyntheticProtectron
   - SyntheticMrGutsy
-  - SyntheticAssaultron
-  - SyntheticSentryBot # #Misfits Add
-  - SyntheticRobobrain # #Misfits Add
+  - SyntheticRobobrain
 
 # #Misfits Change
 - type: department
