@@ -2763,3 +2763,21 @@ Entries:
   id: 5707
   time: '2026-04-04T04:17:59.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/246
+- author: qeviefun
+  changes:
+    - type: Fix
+      message: Made Mr. Handy not deal toxin damage in surgery
+  id: 5708
+  time: '2026-04-04T18:14:04.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/248
+- author: Bill Clinton
+  changes:
+    - type: Tweak
+      message: buffed tribal meds like bitterdrink, poultice, and powder.
+    - type: Tweak
+      message: melee tuning pass V2
+    - type: Tweak
+      message: buffed psycho with a 30% movespeed increase. It now has a use.
+  id: 5709
+  time: '2026-04-04T21:27:17.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/249
