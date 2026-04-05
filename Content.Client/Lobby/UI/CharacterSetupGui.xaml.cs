@@ -1,3 +1,4 @@
+using Content.Client._Misfits.WebView; // #Misfits Add - WebView for wiki rules
 using Content.Client.Info;
 using Content.Client.Info.PlaytimeStats;
 using Content.Client.Resources;
@@ -63,7 +64,13 @@ namespace Content.Client.Lobby.UI
             };
 
             CharEditor.AddChild(profileEditor);
-            RulesButton.OnPressed += _ => new RulesAndInfoWindow().Open();
+            // #Misfits Change - Rules button opens WebView wiki Rules page instead of legacy RulesAndInfoWindow
+            RulesButton.OnPressed += _ =>
+            {
+                var win = new MisfitsGuidebookWebWindow();
+                win.OpenUrl("https://ss14.misfitsystems.net/wiki/index.php/Rules");
+                win.OpenCentered();
+            };
 
             StatsButton.OnPressed += _ => new PlaytimeStatsWindow().OpenCentered();
         }

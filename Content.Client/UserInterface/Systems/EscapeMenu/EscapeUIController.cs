@@ -70,10 +70,11 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             _changelog.ToggleWindow();
         };
 
+        // #Misfits Change - Rules button opens WebView wiki Rules page instead of legacy RulesAndInfoWindow
         _escapeWindow.RulesButton.OnPressed += _ =>
         {
             CloseEscapeWindow();
-            _info.OpenWindow();
+            _guidebook.OpenToUrl("https://ss14.misfitsystems.net/wiki/index.php/Rules");
         };
 
         _escapeWindow.DisconnectButton.OnPressed += _ =>
@@ -94,10 +95,11 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             _console.ExecuteCommand("quit");
         };
 
-        _escapeWindow.WikiButton.OnPressed += _ =>
-        {
-            _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));
-        };
+        // #Misfits Removed - Old external wiki button hidden; in-game WebView guidebook replaces it
+        // _escapeWindow.WikiButton.OnPressed += _ =>
+        // {
+        //     _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));
+        // };
 		
 // discord-button start
 
@@ -108,13 +110,14 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
 
 // discord-button end
 
+        // #Misfits Change - Guidebook renamed to Wiki (locale key already reads "Wiki")
         _escapeWindow.GuidebookButton.OnPressed += _ =>
         {
             _guidebook.ToggleGuidebook();
         };
 
-        // Hide wiki button if we don't have a link for it.
-        _escapeWindow.WikiButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWiki) != "";
+        // #Misfits Change - Hide old Wiki button; in-game WebView guidebook replaces it
+        _escapeWindow.WikiButton.Visible = false;
 		// Hide discord button if we don't have a link for it.
         _escapeWindow.DiscordButton.Visible = _cfg.GetCVar(CCVars.InfoLinksDiscord) != ""; //discord-button
 
@@ -148,10 +151,11 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             _changelog.ToggleWindow();
         };
 
+        // #Misfits Change - Rules button opens WebView wiki Rules page instead of legacy RulesAndInfoWindow
         _escapeWindow.RulesButton.OnPressed += _ =>
         {
             CloseEscapeWindow();
-            _info.OpenWindow();
+            _guidebook.OpenToUrl("https://ss14.misfitsystems.net/wiki/index.php/Rules");
         };
 
         _escapeWindow.DisconnectButton.OnPressed += _ =>
@@ -172,18 +176,20 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             _console.ExecuteCommand("quit");
         };
 
-        _escapeWindow.WikiButton.OnPressed += _ =>
-        {
-            _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));
-        };
+        // #Misfits Removed - Old external wiki button hidden; in-game WebView guidebook replaces it
+        // _escapeWindow.WikiButton.OnPressed += _ =>
+        // {
+        //     _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));
+        // };
 
+        // #Misfits Change - Guidebook renamed to Wiki (locale key already reads "Wiki")
         _escapeWindow.GuidebookButton.OnPressed += _ =>
         {
             _guidebook.ToggleGuidebook();
         };
 
-        // Hide wiki button if we don't have a link for it.
-        _escapeWindow.WikiButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWiki) != "";
+        // #Misfits Change - Hide old Wiki button; in-game WebView guidebook replaces it
+        _escapeWindow.WikiButton.Visible = false;
 
         CommandBinds.Builder
             .Bind(EngineKeyFunctions.EscapeMenu,

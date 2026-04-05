@@ -1,13 +1,14 @@
 // #Misfits Add - Domain-locked WebView wrapper for Misfits wiki integration
 using System;
 using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controls;
 using Robust.Client.WebView;
 
 namespace Content.Client._Misfits.WebView;
 
 /// <summary>
 /// Wraps <see cref="WebViewControl"/> and locks all navigation to ss14.misfitsystems.net.
-/// No address bar or browser chrome is exposed to players.
+/// Includes a Back button for in-page navigation history.
 /// </summary>
 public sealed class MisfitsWebViewControl : Control
 {
@@ -20,6 +21,7 @@ public sealed class MisfitsWebViewControl : Control
         HorizontalExpand = true;
         VerticalExpand = true;
 
+        // Navigation toolbar with Back button
         _wv = new WebViewControl
         {
             HorizontalExpand = true,
@@ -29,7 +31,32 @@ public sealed class MisfitsWebViewControl : Control
         // Cancel all navigation to hosts outside our allowed domain
         _wv.AddBeforeBrowseHandler(OnBeforeBrowse);
 
-        AddChild(_wv);
+        // Navigation toolbar with Back button
+        var toolbar = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            SeparationOverride = 4,
+            Margin = new Thickness(0, 0, 0, 4)
+        };
+
+        var backButton = new Button
+        {
+            Text = Loc.GetString("ui-webview-back"),
+            MinWidth = 60
+        };
+        backButton.OnPressed += _ => _wv.GoBack();
+        toolbar.AddChild(backButton);
+
+        var layout = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            HorizontalExpand = true,
+            VerticalExpand = true
+        };
+        layout.AddChild(toolbar);
+        layout.AddChild(_wv);
+
+        AddChild(layout);
     }
 
     /// <summary>Navigate to a URL. Off-domain URLs are silently ignored.</summary>

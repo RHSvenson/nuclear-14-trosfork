@@ -203,6 +203,18 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
         ToggleGuidebook(guides, rootEntries, forceRoot, includeChildren, selected);
     }
 
+    // #Misfits Add - Open the WebView guidebook directly to a specific URL (e.g. wiki Rules page)
+    public void OpenToUrl(string url)
+    {
+        if (_guideWebWindow == null)
+            return;
+
+        _guideWebWindow.OpenUrl(url);
+
+        if (!_guideWebWindow.IsOpen)
+            _guideWebWindow.OpenCenteredRight();
+    }
+
     private void RecursivelyAddChildren(GuideEntry guide, Dictionary<string, GuideEntry> guides)
     {
         foreach (var childId in guide.Children)

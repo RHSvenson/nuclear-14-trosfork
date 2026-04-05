@@ -1,3 +1,6 @@
 defaultWindowTitle: "Misfits: Nuclear Wasteland"
 windowIconSet: /Textures/Logo/Misfits/icon
 splashLogo: /Textures/Logo/MisfitsNuclearWasteland.png
+# #Misfits Add - Enable CEF WebView module for in-game wiki browsing
+modules:
+  - "Robust.Client.WebView"
