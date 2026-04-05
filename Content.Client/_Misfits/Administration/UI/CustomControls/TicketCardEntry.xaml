@@ -88,7 +88,16 @@
                            HorizontalAlignment="Right" />
         </BoxContainer>
 
-        <!-- Row 3: Preview text (last message snippet) -->
+        <!-- Row 3: Claimed-by / Resolved-by info (hidden when no ticket or ticket is open) -->
+        <Label Name="ClaimedByLabel" Access="Public"
+               Visible="False"
+               FontColorOverride="#f59e0b"
+               ClipText="True"
+               HorizontalExpand="True"
+               Margin="0 1 0 0"
+               StyleClasses="LabelSmall" />
+
+        <!-- Row 4: Preview text (last message snippet) -->
         <Label Name="PreviewLabel" Access="Public"
                FontColorOverride="#454560"
                ClipText="True"

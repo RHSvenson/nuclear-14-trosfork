@@ -28,7 +28,7 @@
     sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
   - type: GrantLegionGladiatorial
     soundOnUse:
-      path: /Audio/Items/books.ogg
+      path: /Audio/Items/Handling/book_pickup.ogg
 
 - type: entity
   name: "ranger close-quarters combat handbook"
@@ -56,7 +56,7 @@
     sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
   - type: GrantRangerCombat
     soundOnUse:
-      path: /Audio/Items/books.ogg
+      path: /Audio/Items/Handling/book_pickup.ogg
 
 - type: entity
   name: "wasteland scrapper's notes"
@@ -84,7 +84,7 @@
     sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
   - type: GrantDesertSurvival
     soundOnUse:
-      path: /Audio/Items/books.ogg
+      path: /Audio/Items/Handling/book_pickup.ogg
 
 - type: entity
   name: "mojave underground fight club rulebook"
@@ -112,7 +112,7 @@
     sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
   - type: GrantWastelandStreetFighting
     soundOnUse:
-      path: /Audio/Items/books.ogg
+      path: /Audio/Items/Handling/book_pickup.ogg
 
 - type: entity
   name: "khans tribal combat codex"
@@ -140,7 +140,7 @@
     sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
   - type: GrantTribalWarrior
     soundOnUse:
-      path: /Audio/Items/books.ogg
+      path: /Audio/Items/Handling/book_pickup.ogg
 
 - type: entity
   name: "followers of the apocalypse nerve manual"
@@ -168,4 +168,4 @@
     sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
   - type: GrantShadowStrike
     soundOnUse:
-      path: /Audio/Items/books.ogg
+      path: /Audio/Items/Handling/book_pickup.ogg

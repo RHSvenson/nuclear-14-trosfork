@@ -110,6 +110,24 @@ public sealed partial class TicketCardEntry : PanelContainer
             SetBorderColorRaw(Color.FromHex("#252540"));
         }
 
+        // Row 3: Claimed-by / Resolved-by label
+        if (ticket?.Status == HelpTicketStatus.Claimed && ticket.ClaimedByName != null)
+        {
+            ClaimedByLabel.Visible = true;
+            ClaimedByLabel.Text = $"Claimed by {ticket.ClaimedByName}";
+            ClaimedByLabel.FontColorOverride = ClaimedPillText;
+        }
+        else if (ticket?.Status == HelpTicketStatus.Resolved && ticket.ResolvedByName != null)
+        {
+            ClaimedByLabel.Visible = true;
+            ClaimedByLabel.Text = $"Resolved by {ticket.ResolvedByName}";
+            ClaimedByLabel.FontColorOverride = ResolvedPillText;
+        }
+        else
+        {
+            ClaimedByLabel.Visible = false;
+        }
+
         // Row 2: Status dot
         if (info.Connected)
         {
