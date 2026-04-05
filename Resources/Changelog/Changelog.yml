@@ -2788,3 +2788,51 @@ Entries:
   id: 5710
   time: '2026-04-05T16:10:59.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/251
+- author: cythisiax
+  changes:
+    - type: Tweak
+      message: Updated WIKI https://ss14.misfitsystems.net/wiki/index.php/Main_Page
+    - type: Fix
+      message: >-
+        Optimized spent casing cleanup for large firefights, restored crit
+        suffocation/asphyxiation behind new performance CVars, and fixed several
+        player robot/synthetic prototype issues.
+    - type: Tweak
+      message: >-
+        Reworked faction war flow with faction-wide enlistment, updated
+        panels/messages, and refactored procedural underground expeditions
+        around structured vault/sewer/metro theme profiles.
+    - type: Tweak
+      message: >-
+        Refreshed faction/job loadouts, blueprints, borg modules, and related
+        battery/weapon data across the repo.
+    - type: Remove
+      message: >-
+        Removed the ally/enemy faction war overhead tag overlay for
+        immersion/spy gameplay and stripped Police Protectrons of their ranged
+        loadout.
+    - type: Add
+      message: >-
+        Full AHelp/MHelp ticket lifecycle tracking with claims/resolves/reopens,
+        history replay, audit logging, ghost-follow, toasts/logs, and card-style
+        ticket panels.
+    - type: Add
+      message: >-
+        A reusable Misfits guidebook framework with custom tags/themes plus new
+        wiki-linked pages for armor, chems, currency, faction war,
+        sustainability, Enclave, Followers, Outlaws, Super Mutants, Synthetics,
+        whitelists, and expanded core N14 docs.
+    - type: Add
+      message: >-
+        A full grab escalation and martial arts system (TESTING, reserved for
+        manuals) with staged grabs, escapes, table slams, throws, combo
+        buffering, six Fallout-themed styles, manuals, and Legion/Ranger
+        roundstart techniques. Goob inspo.
+    - type: Add
+      message: >-
+        Added major player robot/synthetic upgrades including built-in
+        flamer/plasma/cryo/head, cryostorage support, and the Frumentarii
+        black-ops kit.
+  id: 5711
+  time: '2026-04-05T21:57:52.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/252
