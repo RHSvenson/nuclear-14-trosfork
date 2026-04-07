@@ -22,7 +22,8 @@ public sealed class TerminalNotesDataStore
 
     private static readonly ResPath StoragePath = new("/terminal_notes.json");
 
-    private readonly ISawmill _sawmill = Logger.GetSawmill("terminal.notes");
+    // #Misfits Fix - Defer sawmill init to Initialize(); field initializers run before IoC is populated
+    private ISawmill _sawmill = default!;
 
     /// <summary>
     /// In-memory store: terminalId → list of notes.
@@ -42,6 +43,7 @@ public sealed class TerminalNotesDataStore
     /// </summary>
     public void Initialize()
     {
+        _sawmill = Logger.GetSawmill("terminal.notes"); // safe here — IoC is fully built
         Load();
     }
 

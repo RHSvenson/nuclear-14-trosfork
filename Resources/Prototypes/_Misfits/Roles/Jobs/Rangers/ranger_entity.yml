@@ -9,7 +9,7 @@
     - type: RandomHumanoidAppearance
       randomizeName: false
     - type: Loadout
-      prototypes: [RangerGear]
+      prototypes: [NCRFieldRangerGear]
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -28,7 +28,7 @@
     - type: RandomHumanoidAppearance
       randomizeName: false
     - type: Loadout
-      prototypes: [RangerRecruitGear]
+      prototypes: [NCRPatrolRangerGear]
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -47,7 +47,7 @@
     - type: RandomHumanoidAppearance
       randomizeName: false
     - type: Loadout
-      prototypes: [RangerVeteranGear]
+      prototypes: [NCRVeteranRangerGear]
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitaryLeader
