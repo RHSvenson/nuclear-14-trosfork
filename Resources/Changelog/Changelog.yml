@@ -2836,3 +2836,81 @@ Entries:
   id: 5711
   time: '2026-04-05T21:57:52.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/252
+- author: cythisiax
+  changes:
+    - type: Fix
+      message: >-
+        Fixed broken power armor speed penalty not applying client-side for
+        movement prediction when armor integrity hits zero.
+    - type: Tweak
+      message: >-
+        All PA buffed > 150 HP, now 60% movement reduction while integrity
+        broken; 20% of AC value goes to Mob.
+    - type: Fix
+      message: >-
+        Fixed Legion Gladiatorial and Ranger Combat training manuals not working
+        (missing UseInHand subscriptions).
+    - type: Fix
+      message: >-
+        Fixed headsets with no inserted encryption keys ignoring passive
+        listen-only channels (e.g. PBS broadcast).
+    - type: Fix
+      message: >-
+        Fixed NC trade store getting permanently locked when a player
+        disconnects or dies while browsing.
+    - type: Fix
+      message: >-
+        Fixed missing entity localization keys for machine frames, NCR prisoner
+        bracelets, and Legion slave collars causing UI errors.
+    - type: Fix
+      message: Suppressed RMC missing-RSI sprite log spam on map load.
+    - type: Fix
+      message: Pets perks not registering if selecting more than one pet perk.
+    - type: Tweak
+      message: >-
+        Re-enabled the ally/enemy faction war overhead tag overlay; spy roles
+        (Frumentarii) are now exempt and will not display a tag above their
+        head.
+    - type: Tweak
+      message: >-
+        Outlaws faction overhaul.. replaced the Jackal/Viper/Gunner/Fiend gang
+        roles with Eighties and White Legs, including new armor sets and
+        sprites.
+    - type: Tweak
+      message: >-
+        Faction job consolidation. All NCR, Caesar's Legion, Brotherhood of
+        Steel, Ranger, and Townsfolk job prototypes moved into the _Misfits
+        folder; NCR Corporal renamed to Specialist.
+    - type: Tweak
+      message: >-
+        Undecided loadout kit descriptions are now localized through FTL and
+        render as wrapped rich text in the selection window.
+    - type: Tweak
+      message: >-
+        Scope system ported from RMC-14: directional scoping with zoom cycles
+        and DoAfter delay replaces the old telescope-based N14 scope; binoculars
+        now use the new system.
+    - type: Tweak
+      message: >-
+        Cloud weather system now supports weather-linked auto start/stop and
+        networked overcast ambient light modulation by cloud opacity.
+    - type: Tweak
+      message: >-
+        All in-game guidebook/wiki buttons and keybind now open the Misfits wiki
+        in the system browser instead of the in-game guidebook window.
+    - type: Remove
+      message: >-
+        Removed all upstream SS14/DeltaV/Shitmed/Corvax guidebook XML content
+        and YAML catalogue files (~190 files); the Misfits wiki replaces them.
+    - type: Add
+      message: >-
+        Added banlistall admin command .Opens a paginated EUI panel listing all
+        active server bans and role bans globally without a player filter
+        (Postgres and SQLite).
+    - type: Add
+      message: >-
+        Added fully rewritten Admin Logs panel with collapsible category rail,
+        severity pills, and rich log rows.
+  id: 5712
+  time: '2026-04-07T03:12:48.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/254
