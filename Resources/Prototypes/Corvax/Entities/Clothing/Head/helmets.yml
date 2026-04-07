@@ -291,4 +291,49 @@
 #  - type: Sprite
 #    sprite: Corvax/Clothing/Head/Helmets/InquisitorHelmetHood.rsi
 #  - type: Clothing
+
+# #Misfits Add - Paladin-Slayer Centurion helmet: T-45d visor repurposed as centurion rank symbol.
+# Stats match palacent armor (laser-focused): melee=35→0.65, bullet=50→0.50, laser=55→Heat:0.45. From SS13 Big-Iron.
+- type: entity
+  parent: N14ClothingHeadHatCenturionHelmet
+  id: N14ClothingHeadHatPaladinSlayerCenturionHelmet
+  name: paladin-slayer centurion helmet
+  description: The once-marvelous helmet of a T-45d power armor set, repurposed by the Legion into a symbol of its might. A large plume of red horsehair crosses the top horizontally, denoting the rank of Centurion.
+  components:
+  - type: Sprite
+    sprite: Corvax/Clothing/Head/Helmets/paladinslayercenthelmet.rsi  # #Misfits Add - RSI extracted from Big-Iron DMI
+  - type: Clothing
+    sprite: Corvax/Clothing/Head/Helmets/paladinslayercenthelmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.50
+        Heat: 0.45
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+
+# #Misfits Add - Ranger-Hunter Centurion helmet: NCR ranger helmet refit for a Centurion.
+# Stats match rangercent armor (bullet/fire-focused): melee=35→0.65, bullet=60→0.40, fire=80→Heat:0.20, bio=60→Caustic:0.40. From SS13 Big-Iron.
+- type: entity
+  parent: N14ClothingHeadHatCenturionHelmet
+  id: N14ClothingHeadHatRangerHunterCenturionHelmet
+  name: ranger-hunter centurion helmet
+  description: The helmet of an NCR ranger, refit to serve as a Centurion's helmet. The Ranger insignia has been defaced and replaced with the Legion bull.
+  components:
+  - type: Sprite
+    sprite: Corvax/Clothing/Head/Helmets/rangerhuntercenthelmet.rsi  # #Misfits Add - RSI extracted from Big-Iron DMI
+  - type: Clothing
+    sprite: Corvax/Clothing/Head/Helmets/rangerhuntercenthelmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.40
+        Heat: 0.20
+        Caustic: 0.40
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
 #    sprite: Corvax/Clothing/Head/Helmets/InquisitorHelmetHood.rsi

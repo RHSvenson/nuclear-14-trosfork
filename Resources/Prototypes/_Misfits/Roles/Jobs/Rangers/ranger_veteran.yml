@@ -1,13 +1,13 @@
 - type: job
-  id: RangerVeteran
+  id: NCRVeteranRanger
   setPreference: true
   alwaysUseSpawner: true
   jobWhitelistBypassesRoleTimers: true
   name: job-name-ranger-veteran-n14
   description: job-description-ranger-veteran-n14
-  playTimeTracker: RangerVeteran
+  playTimeTracker: NCRVeteranRanger
   weight: 10
-  startingGear: RangerVeteranGear
+  startingGear: NCRVeteranRangerGear
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-ranger-veteran
   requireAdminNotify: true
@@ -25,9 +25,9 @@
   #  components:
   #    - type: GrantRangerCombat
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T7 faction timelock (40h Rangers)
       department: Rangers
-      min: 252000 # 70 hours
+      min: 144000 # 40 hours
     - !type:CharacterSpeciesRequirement # #Misfits Change - robots and super mutants cannot be Rangers
       inverted: true
       species:
@@ -46,7 +46,7 @@
       - SuperMutant
 
 - type: startingGear
-  id: RangerVeteranGear
+  id: NCRVeteranRangerGear
   equipment:
     head: N14ClothingHeadHatRangerHelmetEliteOld
     back: N14ClothingBackpackMilitary # Corvax-Change
@@ -71,4 +71,4 @@
     - N14Binoculars # #Misfits Add - Veteran Rangers spawn with binoculars for scouting
 
 - type: playTimeTracker
-  id: RangerVeteran
+  id: NCRVeteranRanger

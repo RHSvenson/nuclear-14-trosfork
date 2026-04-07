@@ -130,7 +130,7 @@
   - type: SpawnItemsOnUse
     items:
       - id: N14WeaponRifleM1GarandRepublicsDemise # #Misfits Change: Republic's Demise scoped M1C for Centurion marksman
-      - id: GarandEnbloc308
+      - id: ClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308
         amount: 4
       - id: ClothingBeltRope
       - id: SmokeGrenade
@@ -548,7 +548,7 @@
     items:
       - id: N14LegionnaireShield
       - id: N14WeaponRifleM1Garand # #Misfits Change: M1 Garand replaces hunting rifle for decanus tier
-      - id: GarandEnbloc308
+      - id: ClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308
         amount: 4
       - id: ClothingBeltRope
       - id: N14WeaponPistol45Colt # #Misfits Change: .45 revolver Legion sidearm
@@ -581,7 +581,7 @@
     items:
       - id: N14LegionnaireBuckler
       - id: N14WeaponRifleM1Garand # #Misfits Change: M1 Garand replaces hunting rifle for decanus tier
-      - id: GarandEnbloc308
+      - id: ClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308
         amount: 4
       - id: ClothingBeltRope
       - id: N14WeaponPistol45Colt # #Misfits Change: .45 revolver Legion sidearm
@@ -613,7 +613,7 @@
     items:
       - id: N14TrenchClub
       - id: N14WeaponRifleM1Garand # #Misfits Change: M1 Garand replaces hunting rifle for decanus tier
-      - id: GarandEnbloc308
+      - id: ClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308
         amount: 4
       - id: N14WeaponPistol45Colt # #Misfits Change: .45 revolver Legion sidearm (replaces tribal .44)
       - id: N14MagazinePistol45
@@ -642,7 +642,7 @@
     items:
       - id: N14LegionnaireShield
       - id: N14WeaponRifleM1Garand # #Misfits Change: M1 Garand replaces hunting rifle for decanus tier
-      - id: GarandEnbloc308
+      - id: ClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308
         amount: 4
       - id: ClothingBeltRope
       - id: N14WeaponPistol45Colt # #Misfits Change: .45 revolver Legion sidearm
@@ -676,7 +676,7 @@
   - type: SpawnItemsOnUse
     items:
       - id: N14WeaponRifleM1Garand # #Misfits Change: M1 Garand replaces hunting rifle for decanus tier
-      - id: GarandEnbloc308
+      - id: ClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308
         amount: 4
       - id: ClothingBeltRope
       - id: N14WeaponPistol45Colt # #Misfits Change: .45 revolver Legion sidearm
@@ -707,7 +707,7 @@
     items:
       - id: N14SledgeHammer
       - id: N14WeaponRifleM1Garand # #Misfits Change: M1 Garand replaces hunting rifle for decanus tier
-      - id: GarandEnbloc308
+      - id: ClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308
         amount: 4
       - id: N14WeaponPistol45Colt # #Misfits Change: .45 revolver Legion sidearm
       - id: N14MagazinePistol45
@@ -2108,6 +2108,63 @@
       - id: N14FoodTinK
         amount: 2
       - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+# #Misfits Add - Centurion armor selection kits: armor + matching helmet spawned together.
+# These three kits are the content for LegionCenturionArmorloadoutkits (pocket2 of Centurion startingGear).
+
+- type: entity
+  name: centurion-armor-standard kit
+  parent: KitBase
+  id: KitCenturionArmorStandard
+  description: "Standard centurion heavy armor and galea helmet."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterHeavyCenturionArmor
+      - id: N14ClothingHeadHatCenturionHelmet
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: centurion-armor-paladin-slayer kit
+  parent: KitBase
+  id: KitCenturionArmorPaladinSlayer
+  description: "Paladin-slayer centurion armor and matching T-45d visor helmet."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterPaladinSlayerCenturionArmor
+      - id: N14ClothingHeadHatPaladinSlayerCenturionHelmet
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: centurion-armor-ranger-hunter kit
+  parent: KitBase
+  id: KitCenturionArmorRangerHunter
+  description: "Ranger-hunter centurion armor and matching refit NCR ranger helmet."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingOuterRangerHunterCenturionArmor
+      - id: N14ClothingHeadHatRangerHunterCenturionHelmet
     sound:
       path: /Audio/Effects/unwrap.ogg
 

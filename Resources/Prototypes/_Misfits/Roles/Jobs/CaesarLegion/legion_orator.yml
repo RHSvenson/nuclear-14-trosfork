@@ -9,6 +9,9 @@
   description: job-description-caesar-legion-orator
   playTimeTracker: CaesarLegionOrator
   requirements:
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T4 faction timelock (12h Legion)
+      department: CaesarLegion
+      min: 43200 # 12 hours
     #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
     #  tracker: CaesarLegionRecruit
     #  min: 18000 # 5 hours

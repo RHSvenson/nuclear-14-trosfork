@@ -9,9 +9,9 @@
   description: job-description-caesar-legion-centurion
   playTimeTracker: CaesarLegionCenturion
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T7 faction timelock (40h Legion)
       department: CaesarLegion
-      min: 252000 # 70 hours
+      min: 144000 # 40 hours
     - !type:CharacterSpeciesRequirement
       species:
       - Human
@@ -70,18 +70,18 @@
     eyes: N14ClothingEyesGlassesWelding
     back: N14ClothingBackpackMilitary
     shoes: N14ClothingBootsCenturion
-    head: N14ClothingHeadHatCenturionHelmet
+    # #Misfits Change - head and outerClothing removed; armor kit (pocket2) now provides both helmet + armor so Centurion can choose their variant
     gloves: N14ClothingHandsGlovesCenturion
-    outerClothing: N14ClothingOuterHeavyCenturionArmor
     belt: N14Gladius
     pocket1: LegionCenturionloadoutkits
-    pocket2: N14WeaponPistol10mmPipe
+    pocket2: LegionCenturionArmorloadoutkits  # #Misfits Add - armor selection kit: Standard / Paladin-Slayer / Ranger-Hunter
     id: N14IDLegionaryMedalGold
   innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
   storage:
     back:
     - N14BoxPlasticFilledMilitaryLegion #Misfits Change /Tweak/: Legion uses tribal medicine, not stimpaks
     - N14HealingPowder
+    - N14WeaponPistol10mmPipe  # #Misfits Change - moved from pocket2 to storage; pocket2 now holds armor kit
 
 - type: playTimeTracker
   id: CaesarLegionCenturion

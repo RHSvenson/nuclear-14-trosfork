@@ -31,8 +31,8 @@
     - Tribe
   - !type:CharacterJobRequirement
     jobs:
-    - Ranger
-    - RangerVeteran
+    - NCRFieldRanger
+    - NCRVeteranRanger
     - Followers # Forge-Change
   functions:
   - !type:TraitModifyLanguages
@@ -91,9 +91,9 @@
     - TownSheriff
     - NCRCaptain
     - NCRLT
-    - RangerVeteran
-    - Ranger
-    - RangerRecruit
+    - NCRVeteranRanger
+    - NCRFieldRanger
+    - NCRPatrolRanger
     - NCRDoctor
     - NCRFirstSergeant
     - NCRStaffSergeant

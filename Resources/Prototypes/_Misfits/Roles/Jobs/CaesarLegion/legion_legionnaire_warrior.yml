@@ -8,6 +8,9 @@
   description: job-description-caesar-legion-legionnaire-warrior
   playTimeTracker: CaesarLegionLegionnaireWarrior
   requirements:
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T3 faction timelock (8h Legion)
+      department: CaesarLegion
+      min: 28800 # 8 hours
     # TEMP REMOVED - !type:CharacterDepartmentTimeRequirement
     #   department: CaesarLegion
     #   min: 54000 # 15 hours

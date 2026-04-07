@@ -37,7 +37,7 @@
             TownShopkeeper: [ 2, 2 ]
             Townsperson: [ 5, 5 ]
             NCRLT: [ 1, 1 ]
-            RangerVeteran: [ 1, 1 ] #Misfits Change - consolidated NCRRangerVeteran into RangerVeteran
+            NCRVeteranRanger: [ 1, 1 ] #Misfits Change - renamed from RangerVeteran
             NCRRanger: [ 2, 3 ]
             NCRSGT: [ 2, 3 ]
             NCRWS: [ 5, 6 ] # #Misfits Tweak - increased: absorbs Engineer (2) + Medic (1-2) slots

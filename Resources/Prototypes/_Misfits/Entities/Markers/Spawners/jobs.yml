@@ -645,17 +645,14 @@
       - state: green
       - state: medic
 
-# Synthetics
+# Synthetics — parent N14SpawnPointVaultDweller so robots use vault aesthetic and spawn in vault area  # #Misfits Change
 - type: entity
-  parent: SpawnPointJobBase
+  parent: N14SpawnPointVaultDweller  # #Misfits Change - was SpawnPointJobBase; robots spawn at Vault Dweller spots
   id: MisfitsSpawnPointSyntheticMrHandy
   name: Synthetic Mr. Handy
   components:
   - type: SpawnPoint
     job_id: SyntheticMrHandy
-  - type: Sprite
-    layers:
-      - state: green
 
 - type: entity
   parent: MisfitsSpawnPointSyntheticMrHandy
@@ -680,6 +677,22 @@
   components:
   - type: SpawnPoint
     job_id: SyntheticAssaultron
+
+- type: entity  # #Misfits Add - SentryBot spawn point was missing
+  parent: MisfitsSpawnPointSyntheticMrHandy
+  id: MisfitsSpawnPointSyntheticSentryBot
+  name: Synthetic Sentry Bot
+  components:
+  - type: SpawnPoint
+    job_id: SyntheticSentryBot
+
+- type: entity  # #Misfits Add - Robobrain spawn point was missing
+  parent: MisfitsSpawnPointSyntheticMrHandy
+  id: MisfitsSpawnPointSyntheticRobobrain
+  name: Synthetic Robobrain
+  components:
+  - type: SpawnPoint
+    job_id: SyntheticRobobrain
 
 # Outlaws
 - type: entity

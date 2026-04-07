@@ -356,7 +356,7 @@
         - NCRMajor # Misfits Add: NCRMajor was missing from shared NCR cosmetics
         - NCRMPinvestigator
         - NCRRanger
-        - RangerVeteran
+        - NCRVeteranRanger
   items:
     - N14ClothingEyesGlassesGoggles
 
@@ -383,7 +383,7 @@
         - NCRMajor # Misfits Add: NCRMajor was missing from shared NCR cosmetics
         - NCRMPinvestigator
         - NCRRanger
-        - RangerVeteran
+        - NCRVeteranRanger
   items:
     - N14ClothingHandsGlovesNCR
 
@@ -425,7 +425,7 @@
         - NCRMajor # Misfits Add: NCRMajor was missing from shared NCR cosmetics
         - NCRMPinvestigator
         - NCRRanger
-        - RangerVeteran
+        - NCRVeteranRanger
   items:
     - N14ClothingHeadHatWinterBoonie
 
@@ -452,7 +452,7 @@
         - NCRMajor # Misfits Add: NCRMajor was missing from shared NCR cosmetics
         - NCRMPinvestigator
         - NCRRanger
-        - RangerVeteran
+        - NCRVeteranRanger
   items:
     - N14ClothingHeadHatWoodBoonie
 
@@ -479,7 +479,7 @@
         - NCRMajor # Misfits Add: NCRMajor was missing from shared NCR cosmetics
         - NCRMPinvestigator
         - NCRRanger
-        - RangerVeteran
+        - NCRVeteranRanger
   items:
     - N14ClothingHeadHatDesertBoonie
 
@@ -505,7 +505,7 @@
         - NCRCaptain
         - NCRMPinvestigator
         - NCRRanger
-        - RangerVeteran
+        - NCRVeteranRanger
   items:
     - N14ClothingNeckCloakNCR
 
@@ -532,7 +532,7 @@
         - NCRMajor # Misfits Add: NCRMajor was missing from shared NCR cosmetics
         - NCRMPinvestigator
         - NCRRanger
-        - RangerVeteran
+        - NCRVeteranRanger
   items:
     - N14ClothingNeckCloakGhillie
 
@@ -559,7 +559,7 @@
         - NCRMajor # Misfits Add: NCRMajor was missing from shared NCR cosmetics
         - NCRMPinvestigator
         - NCRRanger
-        - RangerVeteran
+        - NCRVeteranRanger
   items:
     - N14ClothingNeckCloakNCRSnow
 
@@ -586,7 +586,7 @@
         - NCRMajor # Misfits Add: NCRMajor was missing from shared NCR cosmetics
         - NCRMPinvestigator
         - NCRRanger
-        - RangerVeteran
+        - NCRVeteranRanger
   items:
     - N14ClothingNeckCloakNCRWoods
 
@@ -613,7 +613,7 @@
         - NCRMajor # Misfits Add: NCRMajor was missing from shared NCR cosmetics
         - NCRMPinvestigator
         - NCRRanger
-        - RangerVeteran
+        - NCRVeteranRanger
   items:
     - N14ClothingMaskBrownBalaclava
 

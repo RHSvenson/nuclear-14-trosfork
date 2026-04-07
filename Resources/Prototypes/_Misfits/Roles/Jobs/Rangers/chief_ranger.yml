@@ -1,0 +1,76 @@
+# #Misfits Add - Chief Ranger: admin-only Rangers leadership role above Veteran Ranger.
+
+- type: job
+  id: NCRChiefRanger
+  setPreference: true
+  hideWithoutJobWhitelist: true
+  jobWhitelistBypassesRoleTimers: true # bypass faction timelocks — admin-only
+  alwaysUseSpawner: true
+  weight: 15
+  showBorder: true
+  canBeAntag: false
+  name: job-name-chief-ranger
+  description: job-description-chief-ranger
+  playTimeTracker: NCRChiefRanger
+  startingGear: NCRChiefRangerGear
+  icon: "JobIconHeadOfSecurity"
+  supervisors: job-supervisors-chief-ranger
+  requireAdminNotify: true
+  hideIfPlaytimeRequirementsNotMet: false
+  accessGroups:
+  - NCRRanger # same access as Veteran Ranger
+  requirements:
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Add - admin-only timelock (70h Rangers)
+      department: Rangers
+      min: 252000 # 70 hours — admin role
+    - !type:CharacterSpeciesRequirement # #Misfits Change - robots and super mutants cannot be Rangers
+      inverted: true
+      species:
+      - RobotMrHandy
+      - RobotProtectron
+      - RobotProtectronPolice
+      - RobotProtectronBuilder
+      - RobotProtectronFire
+      - RobotMrGutsy
+      - RobotAssaultron
+      - RobotAssaultronTesla
+      - RobotSentryBot
+      - RobotSentryBotLaser
+      - RobotRobobrain
+      - RobotRobobrainLaser
+      - SuperMutant
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Rangers
+
+- type: startingGear
+  id: NCRChiefRangerGear
+  # Fox ranger helmet and coat; rest inherited from Veteran Ranger loadout
+  equipment:
+    head: N14ClothingHeadHatRangerHelmetFox      # fox ranger helmet
+    back: N14ClothingBackpackMilitary
+    jumpsuit: N14ClothingUniformRangerV3
+    ears: N14ClothingHeadsetNCR
+    shoes: N14ClothingBootsCombatFilled
+    gloves: N14ClothingHandsGlovesCombat
+    belt: ClothingBeltRevolvervetfilled
+    mask: ClothingMaskGasRangerElite
+    pocket1: MagazineBox45-70
+    pocket2: NCRveteranrangerloadoutkits
+    eyes: ClothingEyesGlassesSunglasses
+    outerClothing: N14ClothingOuterRangerFox      # fox ranger coat
+    id: N14IDBadgeNCRDesertRangerElite
+  innerClothingSkirt: N14ClothingUniformRangerV3
+  satchel: N14ClothingBackpackSatchelMilitaryFilled
+  duffelbag: N14ClothingBackpackDuffelMilitaryFilled
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitary
+    - FlashlightSeclite
+    - N14Binoculars
+
+- type: playTimeTracker
+  id: NCRChiefRanger

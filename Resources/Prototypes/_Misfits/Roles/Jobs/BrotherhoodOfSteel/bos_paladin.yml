@@ -64,9 +64,9 @@
     - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls
       species:
       - Human
-    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak: Raised to 10h so Paladin remains a mid-tier BoS progression step.
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T4 faction timelock (12h BoS)
       department: BrotherhoodOfSteel
-      min: 36000 # 10 hours
+      min: 43200 # 12 hours
     #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
     #  tracker: BoSMidSquire
     #  min: 72000 # 20 hours

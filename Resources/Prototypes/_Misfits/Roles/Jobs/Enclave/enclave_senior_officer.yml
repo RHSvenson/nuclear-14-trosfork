@@ -17,9 +17,9 @@
       - Human
       - Ghoul
       - SuperMutant
-    - !type:CharacterDepartmentTimeRequirement
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T6 faction timelock (20h Enclave)
       department: Enclave
-      min: 144000 # 40 hours
+      min: 72000 # 20 hours
     - !type:CharacterPlaytimeRequirement
       tracker: EnclaveJuniorOfficer
       min: 36000 # 10 hours

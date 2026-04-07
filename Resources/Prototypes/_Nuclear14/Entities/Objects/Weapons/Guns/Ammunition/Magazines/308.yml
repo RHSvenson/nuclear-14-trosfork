@@ -99,34 +99,32 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
 
-# Misfits Add — M1 Garand en-bloc clip (8-round internal clip, ejects with ping on empty)
-# Ported from Fortune13/LoneStar garand308 magazine. Uses .308 ammo, distinct clip type
-# so it cannot be inserted into other .308 weapons (historical and gameplay accuracy).
-- type: entity
-  id: GarandEnbloc308
-  name: "en-bloc clip (.308)"
-  description: An 8-round en-bloc clip loaded with .308 Winchester cartridges. Load it into an M1 Garand and listen for that satisfying ping when it runs dry.
-  parent: BaseMagazine308Rifle
-  components:
-  - type: Tag
-    tags:
-      - N14GarandEnbloc308
-  - type: BallisticAmmoProvider
-    proto: N14Cartridge308Rifle
-    capacity: 8
-  - type: Sprite
-    netsync: false
-    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/garand308.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1 # #Misfits Fix: RSI only has mag-0 (empty) and mag-1 (loaded); steps:1 maps correctly
-    zeroVisible: true
-  - type: Appearance
+# #Misfits Removed - GarandEnbloc308 replaced by ClipMagazine308Rifle; all Garands now use the shared .308 clip
+#- type: entity
+#  id: GarandEnbloc308
+#  name: "en-bloc clip (.308)"
+#  description: An 8-round en-bloc clip loaded with .308 Winchester cartridges. Load it into an M1 Garand and listen for that satisfying ping when it runs dry.
+#  parent: BaseMagazine308Rifle
+#  components:
+#  - type: Tag
+#    tags:
+#      - N14GarandEnbloc308
+#  - type: BallisticAmmoProvider
+#    proto: N14Cartridge308Rifle
+#    capacity: 8
+#  - type: Sprite
+#    netsync: false
+#    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/garand308.rsi
+#    layers:
+#    - state: base
+#      map: ["enum.GunVisualLayers.Base"]
+#    - state: mag-1
+#      map: ["enum.GunVisualLayers.Mag"]
+#  - type: MagazineVisuals
+#    magState: mag
+#    steps: 1
+#    zeroVisible: true
+#  - type: Appearance
 
 # Misfits Add — SKS 10-round en-bloc clip.
 # Legion-refurbished stockpile rifle; uses a slightly larger clip than the Garand.

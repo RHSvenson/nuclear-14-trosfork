@@ -8,6 +8,9 @@
   description: job-description-caesar-legion-prime-decanus
   playTimeTracker: CaesarLegionPrimeDecanus
   requirements:
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T6 faction timelock (20h Legion)
+      department: CaesarLegion
+      min: 72000 # 20 hours
     # TEMP REMOVED - !type:CharacterDepartmentTimeRequirement
     #   department: CaesarLegion
     #   min: 162000 # 45 hours

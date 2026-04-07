@@ -235,7 +235,8 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
 
         // #Misfits Add - if the armor was already broken before being worn
         // (e.g. picking up a damaged suit), apply the speed penalty immediately.
-        if (comp.Broken)
+        // #Misfits Add - DisableServosLock: salvaged suits do not impose the broken-state speed debuff.
+        if (comp.Broken && !comp.DisableServosLock)
             EnsureComp<PowerArmorBrokenComponent>(args.Wearer);
     }
 
@@ -311,7 +312,9 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
 
             // Add speed penalty to the wearer. ComponentStartup on PowerArmorBrokenComponent
             // will call RefreshMovementSpeedModifiers automatically.
-            if (_container.TryGetContainingContainer((uid, null, null), out var brokenContainer))
+            // #Misfits Add - DisableServosLock: salvaged suits skip the servo-lock speed debuff on break.
+            if (!comp.DisableServosLock &&
+                _container.TryGetContainingContainer((uid, null, null), out var brokenContainer))
                 EnsureComp<PowerArmorBrokenComponent>(brokenContainer.Owner);
 
             Dirty(uid, comp);

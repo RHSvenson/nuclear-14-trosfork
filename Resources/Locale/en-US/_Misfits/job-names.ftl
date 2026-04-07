@@ -1,4 +1,10 @@
-# #Misfits Add - Enclave job locale (expanded 8-role hierarchy).
+# #Misfits Add - NCR Heavy Trooper job locale.
+job-name-ncr-heavy-trooper = NCR Heavy Trooper
+job-description-ncr-heavy-trooper = You are the NCR's walking artillery. Strapped into a salvaged T-45 suit and armed with an Avenger minigun, your job is simple: hold the line and lay down fire until there is nothing left standing.
+
+# #Misfits Add - Enclave job locale (expanded 8-role hierarchy). Reformer is admin-only apex role.
+job-name-enclave-reformer = The Reformer
+job-description-enclave-reformer = You are the Enclave's supreme authority on the field — its Reformer. Shape the cell's doctrine, judge its members, and determine its future. Answerable only to Eden.
 job-name-enclave-commander = Enclave Commander
 job-description-enclave-commander = Lead the Enclave cell with absolute authority, coordinate military and science branches, and ensure operational security.
 job-name-enclave-senior-officer = Enclave Senior Officer
@@ -17,6 +23,14 @@ job-name-enclave-junior-scientist = Enclave Junior Scientist
 job-description-enclave-junior-scientist = Assist senior scientists, learn Enclave protocols, and contribute to ongoing research.# Synthetics job names and descriptions (Misfits-specific)
 
 # Synthetics
+# #Misfits Add - Chief Ranger: admin-only Rangers leadership role.
+job-name-chief-ranger = Chief Ranger
+job-description-chief-ranger = You are the Rangers' supreme field commander. Coordinate veteran operations, set long-range objectives, and ensure the desert's order is upheld. Answer only to your code.
+
+# #Misfits Add - NCR Ranger Recruit: brand-new entry-level Rangers role.
+job-name-ncr-ranger-recruit = Ranger Recruit
+job-description-ncr-ranger-recruit = You are brand new to the Rangers at the Bonneville station. Follow orders, learn the ropes, and prove you have what it takes to earn your badge.
+
 job-name-synthetic-mr-handy = Mr. Handy
 job-description-synthetic-mr-handy = You are a General Atomics Mr. Handy domestic servant robot. Your three-point hover assembly keeps you mobile, and your manipulator arms and flamethrower are yours to use. Serve your masters well — or don't.
 job-name-synthetic-mr-gutsy = Mr. Gutsy

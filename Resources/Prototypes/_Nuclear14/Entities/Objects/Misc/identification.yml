@@ -430,7 +430,7 @@
     sprite: _Nuclear14/Objects/Misc/identification.rsi
     state: ranger_recruit
   - type: PresetIdCard
-    job: RangerRecruit
+    job: NCRPatrolRanger
 
 - type: entity
   parent: N14IDBadgeNCRDesertRangerRecruit
@@ -442,7 +442,7 @@
     sprite: _Nuclear14/Objects/Misc/identification.rsi
     state: ranger
   - type: PresetIdCard
-    job: Ranger #Misfits Change - was NCRRanger
+    job: NCRFieldRanger #Misfits Change - was NCRRanger
 
 - type: entity
   parent: N14IDBadgeNCRDesertRangerRecruit
@@ -454,7 +454,7 @@
     sprite: _Nuclear14/Objects/Misc/identification.rsi
     state: ranger_elite
   - type: PresetIdCard
-    job: RangerVeteran #Misfits Change - was NCRRangerVeteran
+    job: NCRVeteranRanger #Misfits Change - was NCRRangerVeteran
 
 - type: entity
   parent: N14IDBadgeNCRDesertRangerRecruit
@@ -466,7 +466,7 @@
     sprite: _Nuclear14/Objects/Misc/identification.rsi
     state: ranger_chief
   - type: PresetIdCard
-    job: RangerVeteran #Misfits Change - was NCRRangerVeteran
+    job: NCRVeteranRanger #Misfits Change - was NCRRangerVeteran
 
 #MARK: NCR Rangers
 - type: entity

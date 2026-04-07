@@ -249,6 +249,24 @@ undecided-loadout-category-corvax-centurion-vanquisher-description =
     Includes a sledgehammer, a rope belt, 3 throwing knives,
     2 healing powder, 2 K rations, and a ceramic flask.
 
+# #Misfits Add - Centurion armor selection kit locale strings (for LegionCenturionArmorloadoutkits)
+undecided-loadout-category-misfits-centurion-armor-standard-name = Centurion Armor: Standard
+undecided-loadout-category-misfits-centurion-armor-standard-description =
+    Standard centurion heavy armor assembled from captured power armor pieces,
+    paired with the traditional centurion galea helmet.
+
+undecided-loadout-category-misfits-centurion-armor-paladin-slayer-name = Centurion Armor: Paladin-Slayer
+undecided-loadout-category-misfits-centurion-armor-paladin-slayer-description =
+    Armor layered with looted Brotherhood of Steel polymer plating for energy resistance.
+    Paired with a repurposed T-45d visor helmet bearing red horsehair plume.
+    High laser/energy resistance. Weak against melee.
+
+undecided-loadout-category-misfits-centurion-armor-ranger-hunter-name = Centurion Armor: Ranger-Hunter
+undecided-loadout-category-misfits-centurion-armor-ranger-hunter-description =
+    Armor field-modified with NCR Ranger ballistic inserts and fire-retardant lining.
+    Paired with a refit NCR ranger helmet bearing the Legion bull.
+    High bullet/fire/bio resistance. Weak against energy and melee.
+
 undecided-loadout-category-corvax-venator-marksman-name = Venator Marksman
 undecided-loadout-category-corvax-venator-marksman-description =
     Includes an anti-materiel rifle, a rope belt,

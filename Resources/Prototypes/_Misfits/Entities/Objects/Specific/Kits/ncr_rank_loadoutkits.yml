@@ -233,7 +233,7 @@
       - id: ClothingBeltRevolverCaptainfilled
       - id: ClothingNeckPinNCRCaptain
       - id: N14WeaponRifleM1GarandRepublicsPride # #Misfits Change: Republic's Pride scoped M1C replaces .50 rifle
-      - id: GarandEnbloc308
+      - id: ClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308
         amount: 4
       - id: RadioHandheld
       - id: SmokeGrenade

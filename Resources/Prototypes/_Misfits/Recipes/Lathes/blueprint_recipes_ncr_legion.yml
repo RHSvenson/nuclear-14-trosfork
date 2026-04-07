@@ -1179,8 +1179,8 @@
 
 
 - type: latheRecipe
-  id: N14BPNCRAmmoGarandEnbloc308
-  result: GarandEnbloc308
+  id: N14BPNCRAmmoClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308 recipe
+  result: ClipMagazine308Rifle
   category: N14BlueprintNCRAmmoT3
   completetime: 5
   requiresBlueprint: true
@@ -2201,8 +2201,8 @@
 
 
 - type: latheRecipe
-  id: N14BPLegionAmmoGarandEnbloc308
-  result: GarandEnbloc308
+  id: N14BPLegionAmmoClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308 recipe
+  result: ClipMagazine308Rifle
   category: N14BlueprintLegionAmmoT3
   completetime: 5
   requiresBlueprint: true

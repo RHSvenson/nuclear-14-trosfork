@@ -30,7 +30,7 @@
             TownMechanic: [ 1, 1 ]
             TownShopkeeper: [ 2, 2 ]
             Townsperson: [ 4, 4 ]
-            RangerVeteran: [ 1, 1 ] #Misfits Change - consolidated NCRRangerVeteran into RangerVeteran
+            NCRVeteranRanger: [ 1, 1 ] #Misfits Change - renamed from RangerVeteran
             NCRRanger: [ 3, 3 ]
 #            CaravanLeader: [ 1, 1 ]
 #            CaravanTrader: [ 1, 1 ]

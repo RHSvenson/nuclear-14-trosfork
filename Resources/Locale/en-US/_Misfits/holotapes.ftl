@@ -508,7 +508,7 @@ holotape-quest-fusion-plans-content =
     ---
     
     ASSEMBLY NOTES
-    [Handwritten in margin, different ink]
+    (Handwritten in margin, different ink)
     
     Unit 2 is damaged. Three of the six alignment pins are bent. Do NOT force the housing
     or you will crack the lattice and render the whole assembly inert.
@@ -536,7 +536,7 @@ holotape-quest-fusion-plans-content =
     ---
     
     POST-WAR NOTE
-    [Different handwriting, date unknown]
+    (Different handwriting, date unknown)
     
     Found this file in Hangar 4 storage, sealed. The war came before they finished.
     
@@ -753,7 +753,7 @@ holotape-wanderer-009-content =
 holotape-wanderer-010-title = GENERATOR REPAIR LOG
 holotape-wanderer-010-content =
     REPAIR LOG - MAIN GENERATOR
-    [No date - calendar stopped mattering]
+    (No date - calendar stopped mattering)
     
     Attempt 4: Replaced the fuel line. Generator runs but not at full output.
     Running at maybe 60%. Lights work. Recycler works. Heating does not.
@@ -923,7 +923,7 @@ holotape-wanderer-016-content =
 # 017 - Absurdist pre-war brand jingle
 holotape-wanderer-017-title = SUNSET SARSAPARILLA - PROMO TAPE
 holotape-wanderer-017-content =
-    [Upbeat jingle music plays for several seconds, then cuts to a recorded voice]
+    (Upbeat jingle music plays for several seconds, then cuts to a recorded voice)
     
     Hi there, partner!
     
@@ -943,9 +943,9 @@ holotape-wanderer-017-content =
     
     Sunset Sarsaparilla: The Taste of the Old West!
     
-    [Jingle plays again. Then static.]
+    (Jingle plays again. Then static.)
     
-    [Handwritten note taped to the casing: Worth checking anyway - M]
+    (Handwritten note taped to the casing: Worth checking anyway - M)
 
 # 018 - Treasure hunt final clue
 holotape-wanderer-018-title = CACHE HUNT - FINAL CLUE

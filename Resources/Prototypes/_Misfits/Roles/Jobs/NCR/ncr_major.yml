@@ -9,8 +9,8 @@
   hideWithoutJobWhitelist: true   # Whitelist-only; only visible to whitelisted players
   hideIfPlaytimeRequirementsNotMet: false
   jobWhitelistBypassesRoleTimers: true
-  # #Misfits Tweak - Weight set to 0; rank not actively used, prevents blocking war declarations
-  weight: 0
+  # #Misfits Tweak - Weight 130: above Captain (120) so Major is top-ranking for war system purposes
+  weight: 130
   name: job-name-ncr-major
   description: job-description-ncr-major
   playTimeTracker: NCRMajor

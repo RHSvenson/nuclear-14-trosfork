@@ -64,6 +64,9 @@
     - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls
       species:
       - Human
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T3 faction timelock (8h BoS)
+      department: BrotherhoodOfSteel
+      min: 28800 # 8 hours
     #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
     #  tracker: BoSMidSquire
     #  min: 36000 # 10 hours

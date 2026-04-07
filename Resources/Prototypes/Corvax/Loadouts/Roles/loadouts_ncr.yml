@@ -23,7 +23,7 @@
     - NCRMajor # Misfits Add: NCRMajor was missing from NCR armor loadout
     - NCRMPinvestigator
     - NCRRanger
-    - RangerVeteran #Misfits Change - consolidated NCRRangerVeteran into RangerVeteran
+    - NCRVeteranRanger #Misfits Change - consolidated NCRRangerVeteran into RangerVeteran
   - !type:CharacterPlaytimeRequirement
     tracker: NCRSoldier
     min: 12000 # 5 hours veterancy unlock
@@ -55,7 +55,7 @@
     - NCRMajor # Misfits Add: NCRMajor was missing from NCR armor loadout
     - NCRMPinvestigator
     - NCRRanger
-    - RangerVeteran #Misfits Change - consolidated NCRRangerVeteran into RangerVeteran
+    - NCRVeteranRanger #Misfits Change - consolidated NCRRangerVeteran into RangerVeteran
   - !type:CharacterPlaytimeRequirement
     tracker: NCRSoldier
     min: 36000 # 10 hours veterancy unlock
@@ -87,7 +87,7 @@
     - NCRMajor # Misfits Add: NCRMajor was missing from NCR armor loadout
     - NCRMPinvestigator
     - NCRRanger
-    - RangerVeteran #Misfits Change - consolidated NCRRangerVeteran into RangerVeteran
+    - NCRVeteranRanger #Misfits Change - consolidated NCRRangerVeteran into RangerVeteran
   - !type:CharacterPlaytimeRequirement
     tracker: NCRSoldier
     min: 72000 # 20 hours veterancy unlock

@@ -8,9 +8,10 @@
   description: job-description-caesar-legionnaire-recruit
   playTimeTracker: CaesarLegionLegionnaireRecruit
   requirements:
+    # #Misfits Tweak - T1 (no timelock, open entry rank)
     # TEMP REMOVED - !type:CharacterDepartmentTimeRequirement
     #   department: CaesarLegion
-    #   min: 36000 # 10 hours
+    #   min: 18000 # 5 hours (was T2)
     - !type:CharacterSpeciesRequirement
       species:
       - Human

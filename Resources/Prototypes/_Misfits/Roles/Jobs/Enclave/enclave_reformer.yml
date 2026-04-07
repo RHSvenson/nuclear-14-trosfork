@@ -1,0 +1,40 @@
+# #Misfits Add - The Reformer: admin-only Enclave leadership role above Commander.
+
+- type: job
+  id: EnclaveReformer
+  setPreference: true
+  hideWithoutJobWhitelist: true
+  jobWhitelistBypassesRoleTimers: true # bypass faction timelocks — admin-only
+  weight: 130
+  showBorder: true
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-enclave-reformer
+  description: job-description-enclave-reformer
+  playTimeTracker: EnclaveReformer
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+      - SuperMutant
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Add - admin-only timelock (70h Enclave)
+      department: Enclave
+      min: 252000 # 70 hours — admin role
+  startingGear: EnclaveCommanderGear # reuse Commander gear as base
+  icon: "JobIconNcrLeader"
+  supervisors: job-supervisors-enclave-reformer
+  requireAdminNotify: true
+  hideIfPlaytimeRequirementsNotMet: false
+  alwaysUseSpawner: true
+  accessGroups:
+  - EnclaveCommand
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Enclave
+
+- type: playTimeTracker
+  id: EnclaveReformer

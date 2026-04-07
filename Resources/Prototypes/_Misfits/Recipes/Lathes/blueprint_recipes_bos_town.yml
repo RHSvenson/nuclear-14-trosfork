@@ -1737,8 +1737,8 @@
 
 
 - type: latheRecipe
-  id: N14BPTownAmmoGarandEnbloc308
-  result: GarandEnbloc308
+  id: N14BPTownAmmoClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308 recipe
+  result: ClipMagazine308Rifle
   category: N14BlueprintTownAmmoT3
   completetime: 5
   requiresBlueprint: true

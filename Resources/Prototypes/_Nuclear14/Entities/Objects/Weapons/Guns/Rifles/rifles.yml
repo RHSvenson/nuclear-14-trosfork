@@ -1044,7 +1044,7 @@
 # ============================================================
 # Misfits Add — M1 Garand family
 # Ported from Fortune13 / LoneStar / desertrose-1 (SS13).
-# All variants use the .308 en-bloc clip (GarandEnbloc308),
+# All variants use the .308 clip (ClipMagazine308Rifle),
 # and auto-eject with the iconic ping when the clip runs dry.
 # Sources:
 #   https://github.com/Cythisiax/LoneStar (base, Old Glory, Republic's Pride, SKS)
@@ -1096,13 +1096,13 @@
     slots:
       gun_magazine:
         name: En-Bloc Clip
-        startingItem: GarandEnbloc308
+        startingItem: ClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308 with shared .308 clip
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - N14GarandEnbloc308
+            - N14Clip308Rifle # #Misfits Change - replaced N14GarandEnbloc308 with shared .308 clip tag
       gun_chamber:
         name: Chamber
         startingItem: N14Cartridge308Rifle

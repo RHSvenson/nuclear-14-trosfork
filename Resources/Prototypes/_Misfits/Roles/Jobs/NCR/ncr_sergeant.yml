@@ -14,6 +14,9 @@
       species:
       - Human
       - Ghoul
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T5 faction timelock (16h NCR)
+      department: NCR
+      min: 57600 # 16 hours
     #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
     #  tracker: NCRWS
     #  min: 18000 # 5 hours

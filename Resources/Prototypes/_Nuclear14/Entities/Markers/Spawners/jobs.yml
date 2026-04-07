@@ -317,7 +317,7 @@
   name: NCR veteran ranger
   components:
   - type: SpawnPoint
-    job_id: RangerVeteran
+    job_id: NCRVeteranRanger
   - type: Sprite
     layers:
       - state: green
@@ -355,7 +355,7 @@
   name: patrol ranger
   components:
   - type: SpawnPoint
-    job_id: RangerRecruit
+    job_id: NCRPatrolRanger
   - type: Sprite
     sprite: _Nuclear14/Markers/Jobs/rangers.rsi
     layers:
@@ -368,7 +368,7 @@
   name: field ranger
   components:
   - type: SpawnPoint
-    job_id: Ranger
+    job_id: NCRFieldRanger
   - type: Sprite
     layers:
       - state: green
@@ -380,7 +380,7 @@
   name: veteran ranger
   components:
   - type: SpawnPoint
-    job_id: RangerVeteran
+    job_id: NCRVeteranRanger
   - type: Sprite
     layers:
       - state: green

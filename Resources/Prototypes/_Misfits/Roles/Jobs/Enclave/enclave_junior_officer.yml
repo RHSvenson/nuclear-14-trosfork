@@ -19,7 +19,7 @@
       - SuperMutant
     - !type:CharacterDepartmentTimeRequirement
       department: Enclave
-      min: 72000 # 20 hours
+      min: 57600 # 16 hours
     - !type:CharacterPlaytimeRequirement
       tracker: EnclaveNCO
       min: 36000 # 10 hours

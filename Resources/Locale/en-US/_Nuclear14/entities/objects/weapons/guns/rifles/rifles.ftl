@@ -18,8 +18,9 @@ ent-N14WeaponRifleM1GarandRepublicsDemise = Republic's Demise
 ent-N14WeaponRifleSKS = SKS
     .desc = An old hunting rifle taken from discovered stockpiles and refurbished in Legion workshops. The standard heavy rifle of the Legion, still rare. Semi-auto only, fed by a 10-round en-bloc clip.
 
-ent-GarandEnbloc308 = en-bloc clip (.308)
-    .desc = An 8-round en-bloc clip loaded with .308 Winchester cartridges. Load it into an M1 Garand and listen for that satisfying ping when it runs dry.
+# #Misfits Removed - GarandEnbloc308 replaced by ClipMagazine308Rifle
+# ent-GarandEnbloc308 = en-bloc clip (.308)
+#     .desc = An 8-round en-bloc clip loaded with .308 Winchester cartridges. Load it into an M1 Garand and listen for that satisfying ping when it runs dry.
 
 ent-SKSEnbloc308 = en-bloc clip (SKS, .308)
     .desc = A 10-round en-bloc clip for the SKS rifle. Standard-issue ammunition for Legion heavy riflemen in the field.

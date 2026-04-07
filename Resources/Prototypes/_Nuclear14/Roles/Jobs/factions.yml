@@ -75,7 +75,8 @@
   - NCRDoctor            # NCR Medical Doctor      | _Misfits/Roles/Jobs/NCR/ncr_doctor.yml
   # NCOs
   - NCRFirstSergeant     # NCR Sergeant First Class | _Misfits/Roles/Jobs/NCR/ncr_first_sergeant.yml
-  - NCRStaffSergeant     # NCR Staff Sergeant      | _Misfits/Roles/Jobs/NCR/ncr_staff_sergeant.yml
+  #- NCRStaffSergeant    # NCR Staff Sergeant      | _Misfits/Roles/Jobs/NCR/ncr_staff_sergeant.yml  # #Misfits Removed - replaced by NCRHeavyTrooper
+  - NCRHeavyTrooper      # NCR Heavy Trooper       | _Misfits/Roles/Jobs/NCR/ncr_heavy_trooper.yml   # #Misfits Add
   - NCRSGT               # NCR Sergeant            | _Misfits/Roles/Jobs/NCR/ncr_sergeant.yml
   # Enlisted
   - NCRWS                # NCR Specialist          | _Misfits/Roles/Jobs/NCR/ncr_specialist.yml  # #Misfits Fix - renamed from ncr_corporal.yml to match in-game role name
@@ -95,11 +96,13 @@
   id: Rangers
   description: department-Rangers-description
   color: "#3ab700"
-  roles:
-  - RangerVeteran  # Ranger Veteran  | _Misfits/Roles/Jobs/Rangers/ranger_veteran.yml  # #Misfits Fix - moved from _Nuclear14
-  - Ranger         # Ranger         | _Misfits/Roles/Jobs/Rangers/ranger.yml           # #Misfits Fix - moved from _Nuclear14
-  - RangerRecruit  # Ranger Recruit | _Misfits/Roles/Jobs/Rangers/ranger_recruit.yml   # #Misfits Fix - moved from _Nuclear14
-  - NCRRanger      # NCR Ranger     | _Misfits/Roles/Jobs/Rangers/ncr_ranger.yml       # #Misfits Add/Fix - NCR Ranger moved from _Nuclear14/NCR/republic_ranger.yml
+  roles:                                                                                                          # #Misfits Change - full Rangers ladder with NCR-prefixed IDs; NCRChiefRanger on top
+  - NCRChiefRanger   # Chief Ranger (admin-only) | _Misfits/Roles/Jobs/Rangers/chief_ranger.yml
+  - NCRVeteranRanger # Veteran Ranger            | _Misfits/Roles/Jobs/Rangers/ranger_veteran.yml
+  - NCRFieldRanger   # Field Ranger              | _Misfits/Roles/Jobs/Rangers/ranger.yml
+  - NCRPatrolRanger  # Patrol Ranger             | _Misfits/Roles/Jobs/Rangers/ranger_recruit.yml
+  - NCRRangerRecruit # Ranger Recruit            | _Misfits/Roles/Jobs/Rangers/ncr_ranger_recruit.yml
+  #- NCRRanger       # NCR Desert Ranger (whitelist-only, outside the ladder) | _Misfits/Roles/Jobs/Rangers/ncr_ranger.yml  # #Misfits Removed - separate whitelist role, not part of station ladder
 
 - type: department
   id: Tribe

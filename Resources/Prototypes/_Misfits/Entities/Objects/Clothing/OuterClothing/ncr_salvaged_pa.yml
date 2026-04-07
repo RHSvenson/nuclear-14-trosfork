@@ -1,0 +1,38 @@
+# #Misfits Add - NCR salvaged T-45 PA variant for Heavy Trooper.
+# Stripped of full servo linkage; no PA training required, no servo-lock on break.
+# Provides 35% passive mitigation (via armor coefficients alone) once integrity is depleted.
+
+- type: entity
+  parent: N14ClothingOuterPowerArmorT45NCR
+  id: N14ClothingOuterPowerArmorT45NCRSalvaged
+  name: t-45 salvaged NCR trooper armor
+  description: >-
+    A heavily-worn T-45 suit stripped of its full servo-motor assembly and
+    jury-rigged for standard infantry use. It lacks the precision training a
+    complete suit demands, but provides formidable protection and an integrated
+    minigun hard-mount while the plates hold. Once the integrity goes, expect
+    no more babysitting from the exo-frame.
+  components:
+  # No PA training required — servos stripped to basics.
+  - type: N14PowerArmor  # #Misfits Fix - component name strips 'Component' suffix per SS14 registration convention
+    requiresProficiency: false # #Misfits Add - waive training gate for this salvaged variant
+  # 250 HP integrity pool (lower than standard NCR T45 at 325).
+  - type: PowerArmorIntegrity
+    maxIntegrity: 250          # #Misfits Add - lighter salvaged plating
+    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply (35% mitigation from plates alone)
+    disableServosLock: true       # #Misfits Add - no servo-lock speed debuff when armor breaks
+  # 35% passive damage reduction from the salvaged plate at all times.
+  - type: Armor # #Misfits Add - weaker than stock NCR T45 (0.80 coeff) to reflect stripped-down state
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.65
+        Caustic: 0.75
+        Radiation: 0.65
+  # 25% speed penalty while wearing — the stripped frame is still heavy.
+  # Does NOT apply an additional debuff on break (DisableServosLock handles that).
+  - type: ClothingSpeedModifier # #Misfits Add - 25% baseline slowdown from heavy frame weight
+    walkModifier: 0.25
+    sprintModifier: 0.25

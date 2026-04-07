@@ -1,4 +1,5 @@
-# #Misfits Add - Enclave supervisor locale (expanded 8-role hierarchy).
+# #Misfits Add - Enclave supervisor locale (expanded 8-role hierarchy). Reformer is admin-only apex role.
+job-supervisors-enclave-reformer = Eden and the Enclave's founding mandate
 job-supervisors-enclave = the Enclave chain of command
 job-supervisors-enclave-commander = Enclave high command and your own judgment
 job-supervisors-enclave-senior-officer = the Enclave Commander
@@ -8,6 +9,10 @@ job-supervisors-enclave-head-scientist = the Enclave Commander and your research
 job-supervisors-enclave-scientist = the Head Scientist and officers
 job-supervisors-enclave-junior-scientist = the scientists and Head Scientist
 job-supervisors-synthetic = your programming and your own best judgement
+
+# #Misfits Add - Rangers admin-only leadership role.
+job-supervisors-chief-ranger = the Ranger code and your own judgment
+job-supervisors-ncr-ranger-recruit = the Patrol Rangers and Field Rangers above you # #Misfits Add
 job-supervisors-supermutant = your instincts and the strongest among you
 
 # #Misfits Add — New consolidated Brotherhood of Steel supervisor strings.

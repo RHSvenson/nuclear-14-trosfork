@@ -48,7 +48,7 @@
 #    strengthModifier: 2
 
 #Misfits Add — Paladin-Slayer Centurion: specialised for engaging Brotherhood of Steel forces.
-# High energy/Heat resistance from pre-war polymer layering. Stats from SS13 Big-Iron faction armor.
+# High laser/energy resistance from looted pre-war power armor polymer plating. Stats from SS13 Big-Iron (melee=35,bullet=50,laser=55,energy=35,bomb=35).
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterPaladinSlayerCenturionArmor
@@ -56,26 +56,26 @@
   description: Centurion armor salvaged and modified specifically for engaging Brotherhood of Steel forces — layered with pre-war polymer plating to resist energy weapons. The face plate has BOS cross etchings scored out with a knife.
   components:
   - type: Sprite
-    sprite: Corvax/Clothing/OuterClothing/Armor/centurionheavyarmor.rsi  # TODO: replace with paladinslayercent.rsi when sprite is sourced
+    sprite: Corvax/Clothing/OuterClothing/Armor/paladinslayercent.rsi  # #Misfits Add - RSI extracted from Big-Iron DMI
   - type: Clothing
-    sprite: Corvax/Clothing/OuterClothing/Armor/centurionheavyarmor.rsi
+    sprite: Corvax/Clothing/OuterClothing/Armor/paladinslayercent.rsi
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.68
-        Slash: 0.68
-        Piercing: 0.52
-        Heat: 0.45
+        Blunt: 0.65  # #Misfits Fix - corrected from SS13 Big-Iron melee=35
+        Slash: 0.65  # #Misfits Fix - corrected from SS13 Big-Iron melee=35
+        Piercing: 0.50  # #Misfits Fix - corrected from SS13 Big-Iron bullet=50
+        Heat: 0.45  # laser=55 dominates; consistent with prior value
   - type: ExplosionResistance
-    damageCoefficient: 0.67
+    damageCoefficient: 0.65  # #Misfits Fix - corrected from SS13 Big-Iron bomb=35
   - type: StaminaDamageResistance
     coefficient: 0.85
 
 #Misfits Add — Ranger-Hunter Centurion: specialised for engaging NCR Ranger units.
-# High Piercing/Heat resistance for ballistic and fire threats. Stats from SS13 Big-Iron faction armor.
+# High bullet/fire resistance and bio protection for anti-Ranger skirmish. Stats from SS13 Big-Iron (melee=35,bullet=60,fire=80,bio=60,bomb=35).
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterRangerHunterCenturionArmor
@@ -83,23 +83,22 @@
   description: Centurion armor field-modified to engage New California Republic Rangers — heavy ballistic inserts and fire-retardant lining fill the gaps that standard armor leaves exposed. The wearer has clearly studied NCR Ranger tactics.
   components:
   - type: Sprite
-    sprite: Corvax/Clothing/OuterClothing/Armor/centurionheavyarmor.rsi  # TODO: replace with rangerhuntercent.rsi when sprite is sourced
+    sprite: Corvax/Clothing/OuterClothing/Armor/rangerhuntercent.rsi  # #Misfits Add - RSI extracted from Big-Iron DMI
   - type: Clothing
-    sprite: Corvax/Clothing/OuterClothing/Armor/centurionheavyarmor.rsi
+    sprite: Corvax/Clothing/OuterClothing/Armor/rangerhuntercent.rsi
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.68
-        Slash: 0.68
-        Piercing: 0.42
-        Heat: 0.22
-        Radiation: 0.42
-        Caustic: 0.42
+        Blunt: 0.65  # #Misfits Fix - corrected from SS13 Big-Iron melee=35
+        Slash: 0.65  # #Misfits Fix - corrected from SS13 Big-Iron melee=35
+        Piercing: 0.40  # #Misfits Fix - corrected from SS13 Big-Iron bullet=60
+        Heat: 0.20  # fire=80 dominates; consistent with prior value
+        Caustic: 0.40  # #Misfits Fix - corrected from SS13 Big-Iron bio=60 (Radiation removed — rad=20 too low)
   - type: ExplosionResistance
-    damageCoefficient: 0.67
+    damageCoefficient: 0.65  # #Misfits Fix - corrected from SS13 Big-Iron bomb=35
   - type: StaminaDamageResistance
     coefficient: 0.85
 

@@ -21,6 +21,10 @@ public sealed class PowerArmorProficiencySystem : EntitySystem
 
     private void OnEquipAttempt(Entity<N14PowerArmorComponent> item, ref BeingEquippedAttemptEvent args)
     {
+        // #Misfits Add - salvaged/stripped variants set RequiresProficiency = false; skip the gate.
+        if (!item.Comp.RequiresProficiency)
+            return;
+
         // Check whether the character putting on the armor has the proficiency.
         if (HasComp<PowerArmorProficiencyComponent>(args.EquipTarget))
             return;

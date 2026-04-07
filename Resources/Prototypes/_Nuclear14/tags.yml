@@ -353,9 +353,9 @@
 - type: Tag
   id: N14Clip308Rifle
 
-# Misfits Add — Garand en-bloc clip tags (distinct from battle rifle clips)
-- type: Tag
-  id: N14GarandEnbloc308
+# #Misfits Removed - N14GarandEnbloc308 tag no longer needed; Garands now use N14Clip308Rifle
+#- type: Tag
+#  id: N14GarandEnbloc308
 
 - type: Tag
   id: N14SKSEnbloc308

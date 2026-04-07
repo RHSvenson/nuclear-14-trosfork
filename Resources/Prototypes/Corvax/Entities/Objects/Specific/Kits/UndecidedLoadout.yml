@@ -36,6 +36,23 @@
       enum.UndecidedLoadoutBackpackUIKey.Key:
         type: UndecidedLoadoutBackpackBoundUserInterface
 
+# #Misfits Add - Centurion armor selection kit: three armor variants for the Centurion to pick at spawn.
+# Goes in pocket2 of CaesarLegionCenturionGear. Separate from the weapon/role kit in pocket1.
+- type: entity
+  id: LegionCenturionArmorloadoutkits
+  name: kit
+  description: "please only take one."
+  parent: LegionCenturionloadoutkits
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - CenturionArmorStandardSet
+    - CenturionArmorPaladinSlayerSet
+    - CenturionArmorRangerHunterSet
+
 - type: entity
   id: LegionVenatorloadoutkits
   name: kit
@@ -464,6 +481,37 @@
     state: base
   content:
   - KitCenturionVanquisher
+
+# #Misfits Add - Centurion armor selection sets (for LegionCenturionArmorloadoutkits in pocket2).
+- type: UndecidedLoadoutBackpackSet
+  id: CenturionArmorStandardSet
+  name: undecided-loadout-category-misfits-centurion-armor-standard-name
+  description: undecided-loadout-category-misfits-centurion-armor-standard-description
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitCenturionArmorStandard
+
+- type: UndecidedLoadoutBackpackSet
+  id: CenturionArmorPaladinSlayerSet
+  name: undecided-loadout-category-misfits-centurion-armor-paladin-slayer-name
+  description: undecided-loadout-category-misfits-centurion-armor-paladin-slayer-description
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitCenturionArmorPaladinSlayer
+
+- type: UndecidedLoadoutBackpackSet
+  id: CenturionArmorRangerHunterSet
+  name: undecided-loadout-category-misfits-centurion-armor-ranger-hunter-name
+  description: undecided-loadout-category-misfits-centurion-armor-ranger-hunter-description
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitCenturionArmorRangerHunter
 
 - type: UndecidedLoadoutBackpackSet
   id: VenatorMarksmanSet

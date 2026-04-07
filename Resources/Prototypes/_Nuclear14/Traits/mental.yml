@@ -38,9 +38,9 @@
         - TownDeputy
         - NCRCaptain
         - NCRLT
-        - RangerVeteran
-        - Ranger
-        - RangerRecruit
+        - NCRVeteranRanger
+        - NCRFieldRanger
+        - NCRPatrolRanger
         - NCRDoctor
         - NCRFirstSergeant
         - NCRStaffSergeant

@@ -96,6 +96,16 @@ public sealed partial class PowerArmorIntegrityComponent : Component
     /// </summary>
     [DataField]
     public int AlertLevels = 5;
+
+    /// <summary>
+    ///     When true, the wearer does <b>not</b> receive the
+    ///     <see cref="PowerArmorBrokenComponent"/> speed debuff when integrity
+    ///     is fully depleted. Use for salvaged/non-servo-driven suits where
+    ///     broken plates simply stop absorbing damage but impose no extra movement penalty.
+    /// </summary>
+    // #Misfits Add - allows per-armor-variant control over the servo-lock mechanic
+    [DataField, AutoNetworkedField]
+    public bool DisableServosLock;
 }
 
 /// <summary>

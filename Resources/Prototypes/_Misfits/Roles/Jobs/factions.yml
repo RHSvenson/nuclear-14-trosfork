@@ -30,6 +30,7 @@
   color: "#2d5d91"
   weight: -101
   roles:
+  - EnclaveReformer      # The Reformer (admin whitelist)  | _Misfits/Roles/Jobs/Enclave/enclave_reformer.yml  # #Misfits Add
   - EnclaveCommander
   - EnclaveSeniorOfficer
   - EnclaveJuniorOfficer

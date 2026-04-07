@@ -12,6 +12,7 @@ using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
+using Content.Shared.GameTicking; // #Misfits Add — for RoundRestartCleanupEvent to clear panels between rounds
 using Content.Shared.Input;
 using JetBrains.Annotations;
 using Robust.Client.Audio;
@@ -58,8 +59,19 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
 
         SubscribeNetworkEvent<BwoinkDiscordRelayUpdated>(DiscordRelayUpdated);
         SubscribeNetworkEvent<BwoinkPlayerTypingUpdated>(PeopleTypingUpdated);
+        // #Misfits Add — clear stale panel content when a new round begins
+        SubscribeNetworkEvent<RoundRestartCleanupEvent>(OnRoundRestart);
 
         _adminManager.AdminStatusUpdated += OnAdminStatusUpdated;
+    }
+
+    // #Misfits Add — on round restart, dispose all bwoink panels so old messages
+    // from the previous round don't leak into the new round's UI.
+    private void OnRoundRestart(RoundRestartCleanupEvent ev, EntitySessionEventArgs args)
+    {
+        UIHelper?.ClearAllPanels();
+        _hasUnreadAHelp = false;
+        UnreadAHelpRead();
     }
 
 
@@ -318,6 +330,8 @@ public interface IAHelpUIHandler : IDisposable
     public void ToggleWindow();
     public void DiscordRelayChanged(bool active);
     public void PeopleTypingUpdated(BwoinkPlayerTypingUpdated args);
+    // #Misfits Add — clear stale panel content on round restart
+    public void ClearAllPanels();
     public event Action OnClose;
     public event Action OnOpen;
     public Action<NetUserId, string, bool>? SendMessageAction { get; set; }
@@ -468,6 +482,18 @@ public sealed class AdminAHelpUIHandler : IAHelpUIHandler
     }
     public bool TryGetChannel(NetUserId ch, [NotNullWhen(true)] out BwoinkPanel? bp) => _activePanelMap.TryGetValue(ch, out bp);
 
+    // #Misfits Add — clear all panel message content on round restart so stale
+    // conversations from the previous round don't leak into the new one.
+    public void ClearAllPanels()
+    {
+        foreach (var (_, panel) in _activePanelMap)
+        {
+            panel.Orphan();
+            panel.Dispose();
+        }
+        _activePanelMap.Clear();
+    }
+
     private void SelectChannel(NetUserId uid)
     {
         EnsurePanel(uid);
@@ -573,6 +599,15 @@ public sealed class UserAHelpUIHandler : IAHelpUIHandler
     }
 
     public void Dispose()
+    {
+        _window?.Dispose();
+        _window = null;
+        _chatPanel = null;
+    }
+
+    // #Misfits Add — destroy the user-side panel and window so a fresh one is created
+    // when the player next opens ahelp after a round restart.
+    public void ClearAllPanels()
     {
         _window?.Dispose();
         _window = null;

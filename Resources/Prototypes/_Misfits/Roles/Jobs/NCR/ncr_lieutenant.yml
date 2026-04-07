@@ -14,9 +14,9 @@
       species:
       - Human
       - Ghoul
-    - !type:CharacterDepartmentTimeRequirement
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T6 faction timelock (20h NCR)
       department: NCR
-      min: 198000 # 55 hours
+      min: 72000 # 20 hours
   weight: 110
   startingGear: NCRLTGear
   icon: "JobIconNcrLeader" # Corvax-Change
