@@ -1,0 +1,131 @@
+# Misfits Add - Dataset of terminal entry FTL key prefixes for random selection.
+# On MapInit, a random key prefix is picked and "-title"/"-content" suffixes are appended.
+# The server HolotapeSystem ensures no two terminals get the same entry per round.
+- type: dataset
+  id: MisfitsTerminalEntries
+  values:
+  # Pre-war (original 10)
+  - terminal-entry-weather
+  - terminal-entry-supply
+  - terminal-entry-evacuation
+  - terminal-entry-airfield
+  - terminal-entry-maintenance
+  - terminal-entry-broadcast
+  - terminal-entry-medical
+  - terminal-entry-security
+  - terminal-entry-personal
+  - terminal-entry-final
+  # Pre-war (civilian and commercial)
+  - terminal-entry-stateline
+  - terminal-entry-wendover-will
+  - terminal-entry-speedway
+  - terminal-entry-greyhound
+  - terminal-entry-diner
+  - terminal-entry-gas-station
+  - terminal-entry-motel
+  - terminal-entry-school
+  - terminal-entry-library
+  - terminal-entry-pharmacy
+  - terminal-entry-hardware
+  - terminal-entry-post-office
+  - terminal-entry-bank
+  - terminal-entry-church
+  - terminal-entry-bowling
+  - terminal-entry-newspaper
+  - terminal-entry-veterinarian
+  - terminal-entry-auto-shop
+  - terminal-entry-pawn-shop
+  - terminal-entry-barber
+  # Pre-war (Wendover AFB - military)
+  - terminal-entry-hangar4
+  - terminal-entry-col-webb
+  - terminal-entry-atc
+  - terminal-entry-munitions
+  - terminal-entry-base-clinic
+  - terminal-entry-mp-blotter
+  - terminal-entry-chaplain
+  - terminal-entry-officers-club
+  - terminal-entry-comms-encrypted
+  - terminal-entry-civil-defense
+  # Pre-war (industrial, scientific, infrastructure)
+  - terminal-entry-salt-plant
+  - terminal-entry-salt-research
+  - terminal-entry-atmospheric
+  - terminal-entry-mining
+  - terminal-entry-vault-tec-rep
+  - terminal-entry-vault14-construction
+  - terminal-entry-railroad
+  - terminal-entry-power-station
+  - terminal-entry-water-treatment
+  - terminal-entry-robco-truck
+  # Pre-war (personal, civilian)
+  - terminal-entry-teen-diary
+  - terminal-entry-old-man
+  - terminal-entry-gambler
+  - terminal-entry-honeymooners
+  - terminal-entry-trucker
+  - terminal-entry-tired-doctor
+  - terminal-entry-cop
+  - terminal-entry-mother
+  - terminal-entry-soldier-letter
+  - terminal-entry-preacher
+  # The bombs - immediate
+  - terminal-entry-911
+  - terminal-entry-shelter-manifest
+  - terminal-entry-vault14-admit
+  - terminal-entry-door-shut
+  # Early post-war
+  - terminal-entry-vault14-firstgen
+  - terminal-entry-afb-survivor
+  - terminal-entry-first-scavenger
+  - terminal-entry-mutated-wildlife
+  - terminal-entry-ghoul-journal
+  - terminal-entry-sealed-bunker
+  - terminal-entry-atom-cult
+  - terminal-entry-first-caravan
+  - terminal-entry-last-elder
+  # Mid post-war
+  - terminal-entry-raider-manifesto
+  - terminal-entry-caravan-attack
+  - terminal-entry-settlement-founding
+  - terminal-entry-bandit-toll
+  - terminal-entry-doc-barter
+  - terminal-entry-brahmin-herder
+  - terminal-entry-wandering-preacher
+  - terminal-entry-slaver-ledger
+  - terminal-entry-bounty-board
+  - terminal-entry-merc-contract
+  # Post-war (original 5)
+  - terminal-entry-postwar-trader
+  - terminal-entry-postwar-scavenger
+  - terminal-entry-postwar-settler
+  - terminal-entry-postwar-warning
+  - terminal-entry-postwar-radio
+  # Late post-war / recent
+  - terminal-entry-brotherhood-scribe
+  - terminal-entry-ncr-patrol
+  - terminal-entry-legion-scout
+  - terminal-entry-vault14-modern
+  - terminal-entry-holotape-recovery
+  - terminal-entry-relic-hunter
+  - terminal-entry-robot-encounter
+  - terminal-entry-enclave-intercept
+  - terminal-entry-zeta-protocol
+  - terminal-entry-settlement-census
+  # Weird / horror / atmospheric
+  - terminal-entry-static-only
+  - terminal-entry-recursive-loop
+  - terminal-entry-ai-madness
+  - terminal-entry-cult-terminal
+  - terminal-entry-bloodied-keys
+  - terminal-entry-voice-in-wall
+  # Light / humor / domestic
+  - terminal-entry-recipe
+  - terminal-entry-romance-draft
+  - terminal-entry-jokes
+  - terminal-entry-robot-complaint
+  - terminal-entry-office-squabble
+  # Miscellaneous
+  - terminal-entry-train-derailment
+  - terminal-entry-lost-dog
+  - terminal-entry-treasure-map

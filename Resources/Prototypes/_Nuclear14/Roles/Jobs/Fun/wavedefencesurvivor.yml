@@ -9,6 +9,11 @@
   startingGear: SurvivorGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-wastelander
+  requirements: # #Misfits Fix - restrict to organic species only
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+    - Ghoul
   special:
   - !type:AddComponentSpecial
     components:

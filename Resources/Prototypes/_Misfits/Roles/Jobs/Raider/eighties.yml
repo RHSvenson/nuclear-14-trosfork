@@ -12,6 +12,10 @@
   requirements:
   - !type:MinPlayersRequirement
     min: 0
+  - !type:CharacterSpeciesRequirement # #Misfits Fix - restrict to organic species only
+    species:
+    - Human
+    - Ghoul
   startingGear: EightiesGear
   alwaysUseSpawner: true
   icon: "JobIconEighties"

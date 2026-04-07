@@ -30,7 +30,7 @@
           description: ghost-role-information-n14pet-generic-description
           rules: ghost-role-component-default-rules
         - type: GhostRoleMobSpawner
-          prototype: N14MobBrahmin
+          prototype: N14MobPetBrahmin # #Misfits Change - use pet variant with healing/hands/regen
 
 # Mirelurk — irradiated crustacean companion, available to all roles, costs 8 perk points
 - type: trait
@@ -60,7 +60,7 @@
           description: ghost-role-information-n14pet-generic-description
           rules: ghost-role-component-default-rules
         - type: GhostRoleMobSpawner
-          prototype: N14MobChicken
+          prototype: N14MobPetRadChicken # #Misfits Change - use pet variant with healing/hands/regen
 
 # Cat — a basic cat companion, available to all roles, costs 5 perk points (NOT MobCatFloppa, NOT N14MobCatHaggis)
 - type: trait
@@ -75,7 +75,7 @@
           description: ghost-role-information-n14pet-generic-description
           rules: ghost-role-component-default-rules
         - type: GhostRoleMobSpawner
-          prototype: MobCat
+          prototype: N14MobPetCat # #Misfits Change - use pet variant with healing/hands/regen
 
 # Centaur — FEV-warped creature, SUPERMUTANT ONLY (FEVMutants department), costs 8 perk points
 # Placeholder — full implementation pending dedicated pet centaur prototype

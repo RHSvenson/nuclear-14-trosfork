@@ -51,6 +51,24 @@
   - type: ApcPowerReceiver
     powerLoad: 100
   - type: ExtensionCableReceiver
+  # #Misfits Add - Holotape reader + terminal content viewer system.
+  # Clicking opens a green-on-black terminal UI with randomized Wendover-era entries.
+  # Using a holotape on the terminal displays the holotape's content instead.
+  - type: HolotapeReader
+  - type: HolotapeData
+  - type: TerminalRandomContent
+    contentPool:
+      - MisfitsTerminalEntries
+  # #Misfits Add - Persistent player-written notes notebook on each terminal.
+  # terminalId should be overridden in child entities for unique storage per placement.
+  - type: TerminalNotebook
+    terminalId: default-terminal
+  - type: ActivatableUI
+    key: enum.HolotapeUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HolotapeUiKey.Key:
+        type: HolotapeBoundUserInterface
   - type: ActivatableUIRequiresPower
   - type: LitOnPowered
   - type: PointLight

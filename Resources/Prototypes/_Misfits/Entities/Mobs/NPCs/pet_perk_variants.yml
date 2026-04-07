@@ -1,0 +1,85 @@
+# #Misfits Add - Player-controlled pet perk variants for Brahmin, Rad Chicken, and Cat traits.
+# These extend the NPC bases (which already have the vanilla Animal body with OrganAnimalHeart)
+# and add healing, natural regen, and dragging hands for ghost-role players.
+# NOTE: Brahmin/Chicken/Cat use the vanilla SimpleMobBase chain which includes
+# Body: Animal (with OrganAnimalHeart), so stimpaks and healing powder already work.
+# What's added here: PassiveDamage (natural regen), Hands + MisfitsPetNoPickup (drag not pickup),
+# Puller (drag mechanic), and allowRevives so players can be revived by medics.
+
+# Pet Brahmin — two-headed pack animal ghost role for the N14PetBrahmin trait
+- type: entity
+  name: brahmin
+  id: N14MobPetBrahmin
+  parent: N14MobBrahmin
+  categories: [ HideSpawnMenu ]
+  description: A two-headed mutant cow, somehow your companion.
+  components:
+  - type: MobThresholds # #Misfits Add - allow revival by medics
+    allowRevives: true
+  - type: Puller # #Misfits Add - explicit puller for drag mechanic (SimpleMobBase doesn't define one)
+    needsHands: false
+  - type: Hands # #Misfits Add - allows dragging; no hand slots so no actual item holding
+  - type: MisfitsPetNoPickup # #Misfits Add - cancels PickupAttemptEvent; drag only, no item pickup
+  - type: PassiveDamage # #Misfits Add - slow natural regeneration for player-controlled pet brahmins
+    allowedStates:
+    - Alive
+    - Critical
+    damageCap: 0
+    damage:
+      groups:
+        Brute: -0.5
+        Burn: -0.5
+        Toxin: -0.5
+        Airloss: -3
+
+# Pet Rad Chicken — irradiated chicken ghost role for the N14PetRadChicken trait
+- type: entity
+  name: rad chicken
+  id: N14MobPetRadChicken
+  parent: N14MobChicken
+  categories: [ HideSpawnMenu ]
+  description: A glowing wasteland chicken, somehow your companion.
+  components:
+  - type: MobThresholds # #Misfits Add - allow revival by medics
+    allowRevives: true
+  - type: Puller # #Misfits Add - explicit puller for drag mechanic
+    needsHands: false
+  - type: Hands # #Misfits Add - allows dragging; no hand slots so no actual item holding
+  - type: MisfitsPetNoPickup # #Misfits Add - cancels PickupAttemptEvent; drag only, no item pickup
+  - type: PassiveDamage # #Misfits Add - slow natural regeneration for player-controlled pet chickens
+    allowedStates:
+    - Alive
+    - Critical
+    damageCap: 0
+    damage:
+      groups:
+        Brute: -0.5
+        Burn: -0.5
+        Toxin: -0.5
+        Airloss: -3
+
+# Pet Cat — feline companion ghost role for the N14PetCat trait
+- type: entity
+  name: cat
+  id: N14MobPetCat
+  parent: MobCat
+  categories: [ HideSpawnMenu ]
+  description: A basic wasteland cat, somehow your companion.
+  components:
+  - type: MobThresholds # #Misfits Add - allow revival by medics
+    allowRevives: true
+  - type: Puller # #Misfits Add - explicit puller for drag mechanic
+    needsHands: false
+  - type: Hands # #Misfits Add - allows dragging; no hand slots so no actual item holding
+  - type: MisfitsPetNoPickup # #Misfits Add - cancels PickupAttemptEvent; drag only, no item pickup
+  - type: PassiveDamage # #Misfits Add - slow natural regeneration for player-controlled pet cats
+    allowedStates:
+    - Alive
+    - Critical
+    damageCap: 0
+    damage:
+      groups:
+        Brute: -0.5
+        Burn: -0.5
+        Toxin: -0.5
+        Airloss: -3

@@ -1,6 +1,5 @@
 ﻿using Content.Client.Changelog;
 using Content.Client.UserInterface.Systems.EscapeMenu;
-using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.CCVar;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -32,8 +31,10 @@ namespace Content.Client.Info
 
             AddInfoButton("server-info-discord-button", CCVars.InfoLinksDiscord);
             AddInfoButton("server-info-website-button", CCVars.InfoLinksWebsite);
-            // #Misfits Change - Wiki & Guidebook access removed from lobby/round-start banner; use escape menu Wiki button instead
-            // AddInfoButton("server-info-wiki-button", CCVars.InfoLinksWiki);
+            // #Misfits Change - Keep a visible Wiki button in round-start lobby that opens the canonical Misfits wiki URL.
+            var wikiButton = new Button { Text = Loc.GetString("server-info-wiki-button") };
+            wikiButton.OnPressed += _ => uriOpener.OpenUri("https://ss14.misfitsystems.net/wiki/index.php/Main_Page");
+            buttons.AddChild(wikiButton);
             AddInfoButton("server-info-forum-button", CCVars.InfoLinksForum);
 
             // #Misfits Change - Guidebook button removed from lobby banner (use escape menu Wiki button instead)

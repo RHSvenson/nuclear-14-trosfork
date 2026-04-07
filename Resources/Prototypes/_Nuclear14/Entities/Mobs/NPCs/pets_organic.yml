@@ -12,6 +12,10 @@
     group: GenericNumber
   - type: Puller
     needsHands: false
+  - type: Hands # #Misfits Add - allows player-controlled pets to drag items; pickup blocked by MisfitsPetNoPickup
+  - type: MisfitsPetNoPickup # #Misfits Add - cancels PickupAttemptEvent so pets can drag but not pick up items
+  - type: Body # #Misfits Add - override N14Animal with N14PetAnimal to include heart (Medicine/Poison metabolizer for stimpaks and healing powder)
+    prototype: N14PetAnimal
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.75
     baseSprintSpeed : 5.5
@@ -78,7 +82,7 @@
     allowedStates:
     - Alive
     - Critical
-    damageCap: 75
+    damageCap: 0 # #Misfits Tweak - was 75; 0 disables cap so pets regen naturally in all non-dead states including Critical
     damage:
       groups:
         Brute: -0.5

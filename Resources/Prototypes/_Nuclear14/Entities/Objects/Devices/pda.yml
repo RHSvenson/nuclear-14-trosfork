@@ -61,6 +61,9 @@
         - IdCardLegion # #Misfits Change
         - IdCardEnclave # #Misfits Change
         - IdCardWastelander # #Misfits Add - allows wastelander dogtags to be inserted
+  # #Misfits Add - Pip-Boy can read holotapes when they are used on it.
+  # Opens the holotape's own UI (not the Pip-Boy's) since the PDA already has its own UserInterface.
+  - type: HolotapeReader
   - type: Geiger
     isEnabled: true
     showControl: true

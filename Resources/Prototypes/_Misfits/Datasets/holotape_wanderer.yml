@@ -1,0 +1,26 @@
+# #Misfits Add - Dataset of holotape FTL key prefixes for random wanderer holotape content.
+# The HolotapeSystem picks one prefix per holotape instance, then appends "-title" and "-content".
+# These entries represent miscellaneous wasteland recordings - survivors, travelers, and the lost.
+- type: dataset
+  id: MisfitsHolotapeWanderer
+  values:
+  - holotape-wanderer-001
+  - holotape-wanderer-002
+  - holotape-wanderer-003
+  - holotape-wanderer-004
+  - holotape-wanderer-005
+  - holotape-wanderer-006
+  - holotape-wanderer-007
+  - holotape-wanderer-008
+  - holotape-wanderer-009
+  - holotape-wanderer-010
+  - holotape-wanderer-011
+  - holotape-wanderer-012
+  - holotape-wanderer-013
+  - holotape-wanderer-014
+  - holotape-wanderer-015
+  - holotape-wanderer-016
+  - holotape-wanderer-017
+  - holotape-wanderer-018
+  - holotape-wanderer-019
+  - holotape-wanderer-020

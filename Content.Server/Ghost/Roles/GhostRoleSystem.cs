@@ -31,6 +31,9 @@ using Robust.Shared.Utility;
 using Content.Server.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Collections;
+using Robust.Shared.Configuration; // #Misfits Add - Ghost role cooldown
+using Content.Server.Chat.Managers; // #Misfits Add - Ghost role cooldown
+using Content.Shared.CCVar; // #Misfits Add - Ghost role cooldown
 
 namespace Content.Server.Ghost.Roles
 {
@@ -48,6 +51,8 @@ namespace Content.Server.Ghost.Roles
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototype = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!; // #Misfits Add - Ghost role cooldown
+        [Dependency] private readonly IChatManager _chatManager = default!; // #Misfits Add - Ghost role cooldown
 
         private uint _nextRoleIdentifier;
         private bool _needsUpdateGhostRoleCount = true;
@@ -120,6 +125,10 @@ namespace Content.Server.Ghost.Roles
         {
             if (session.AttachedEntity is not { Valid: true } attached ||
                 !EntityManager.HasComponent<GhostComponent>(attached))
+                return;
+
+            // #Misfits Add - Ghost role cooldown: block recently-dead players from browsing ghost roles.
+            if (IsOnGhostRoleCooldown(session, attached))
                 return;
 
             if (_openUis.ContainsKey(session))
@@ -452,6 +461,10 @@ namespace Content.Server.Ghost.Roles
             if (!_ghostRoles.TryGetValue(identifier, out var roleEnt))
                 return;
 
+            // #Misfits Add - Ghost role cooldown: server-side guard in case the EUI check was bypassed.
+            if (player.AttachedEntity is { } requestGhost && IsOnGhostRoleCooldown(player, requestGhost))
+                return;
+
             if (roleEnt.Comp.RaffleConfig is not null)
             {
                 JoinRaffle(player, identifier);
@@ -469,6 +482,10 @@ namespace Content.Server.Ghost.Roles
         public bool Takeover(ICommonSession player, uint identifier)
         {
             if (!_ghostRoles.TryGetValue(identifier, out var role))
+                return false;
+
+            // #Misfits Add - Ghost role cooldown: guard raffle-based takeovers as well.
+            if (player.AttachedEntity is { } takeoverGhost && IsOnGhostRoleCooldown(player, takeoverGhost))
                 return false;
 
             var ev = new TakeGhostRoleEvent(player);
@@ -508,6 +525,34 @@ namespace Content.Server.Ghost.Roles
 
             _mindSystem.SetUserId(newMind, player.UserId);
             _mindSystem.TransferTo(newMind, mob);
+        }
+
+        // #Misfits Add - Ghost role cooldown: checks if the player must wait before accessing ghost roles.
+        // Mirrors the death-time logic in GhostReturnToRoundSystem so both timers stay in sync.
+        private bool IsOnGhostRoleCooldown(ICommonSession session, EntityUid ghostUid)
+        {
+            var cooldownMinutes = _cfg.GetCVar(CCVars.GhostRespawnTime);
+            if (cooldownMinutes <= 0)
+                return false; // server has no respawn timer — no ghost role cooldown either
+
+            // Prefer mind's death time (more accurate), fall back to GhostComponent time.
+            var deathTime = EnsureComp<GhostComponent>(ghostUid).TimeOfDeath;
+            if (_mindSystem.TryGetMind(ghostUid, out _, out var mind) && mind.TimeOfDeath.HasValue)
+                deathTime = mind.TimeOfDeath.Value;
+
+            var timeUntilAllowed = TimeSpan.FromMinutes(cooldownMinutes);
+            var timePast = _timing.CurTime - deathTime;
+
+            if (timePast >= timeUntilAllowed)
+                return false; // cooldown expired — allow access
+
+            // Still in cooldown — notify the player how long they must wait.
+            var timeLeft = timeUntilAllowed - timePast;
+            var message = timeLeft.Minutes > 0
+                ? Loc.GetString("ghost-role-cooldown-minutes-left", ("time", timeLeft.Minutes))
+                : Loc.GetString("ghost-role-cooldown-seconds-left", ("time", timeLeft.Seconds));
+            _chatManager.DispatchServerMessage(session, message);
+            return true;
         }
 
         /// <summary>

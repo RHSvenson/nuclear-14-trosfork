@@ -1,0 +1,175 @@
+# Misfits Add - Wendover region lore holotapes with readable content.
+# Each holotape has a unique story tied to the Wendover, Utah wasteland setting.
+# Use on a terminal or Pip-Boy to read the green-on-black terminal viewer.
+
+# A wastelander's field journal about water sources and dangers around Wendover
+- type: entity
+  parent: N14HolotapeYellow
+  id: N14HolotapeLoreProspector
+  name: prospector's journal holotape
+  description: A dusty holotape labelled "SURVEY NOTES - WENDOVER BASIN".
+  components:
+  - type: HolotapeData
+    title: holotape-prospector-title
+    content: holotape-prospector-content
+
+# The Vault Overseer's final log before the vault door opened
+- type: entity
+  parent: N14HolotapeGreen
+  id: N14HolotapeLoreOverseer
+  name: overseer's log holotape
+  description: A green holotape with "OVERSEER - EYES ONLY" etched into the casing.
+  components:
+  - type: HolotapeData
+    title: holotape-overseer-title
+    content: holotape-overseer-content
+
+# NCR scout reconnaissance report on the Wendover corridor
+- type: entity
+  parent: N14HolotapeRed
+  id: N14HolotapeLoreNCRRecon
+  name: NCR recon report holotape
+  description: A red holotape stamped with the NCR bear insignia.
+  components:
+  - type: HolotapeData
+    title: holotape-ncr-recon-title
+    content: holotape-ncr-recon-content
+
+# Legion centurion's marching orders for the I-80 push
+- type: entity
+  parent: N14Holotape
+  id: N14HolotapeLoreLegionOrders
+  name: legion orders holotape
+  description: A black holotape wrapped in leather cord with a bull brand mark.
+  components:
+  - type: HolotapeData
+    title: holotape-legion-orders-title
+    content: holotape-legion-orders-content
+
+# Brotherhood of Steel field report on pre-war tech in the area
+- type: entity
+  parent: N14HolotapeBlue
+  id: N14HolotapeLoreBOSField
+  name: Brotherhood field notes holotape
+  description: A blue holotape with the Brotherhood of Steel gear symbol scratched into it.
+  components:
+  - type: HolotapeData
+    title: holotape-bos-field-title
+    content: holotape-bos-field-content
+
+# Enclave classified directive regarding Wendover Airfield
+- type: entity
+  parent: N14HolotapeEnclave
+  id: N14HolotapeLoreEnclaveDirective
+  name: Enclave directive holotape
+  description: A holotape with the Enclave seal. The label reads "CLASSIFIED - ALPHA CLEARANCE".
+  components:
+  - type: HolotapeData
+    title: holotape-enclave-directive-title
+    content: holotape-enclave-directive-content
+
+# A settler family's personal diary entries about surviving in the wastes
+- type: entity
+  parent: N14HolotapeYellow
+  id: N14HolotapeLoreSettlerDiary
+  name: settler's diary holotape
+  description: A worn holotape with a faded label that reads "FOR THE KIDS".
+  components:
+  - type: HolotapeData
+    title: holotape-settler-diary-title
+    content: holotape-settler-diary-content
+
+# Pre-war military memo from Wendover Airfield operations
+- type: entity
+  parent: N14HolotapeYellow
+  id: N14HolotapeLoreMilitaryMemo
+  name: military memo holotape
+  description: A holotape in a cracked plastic case stamped "USAF - WENDOVER AFB".
+  components:
+  - type: HolotapeData
+    title: holotape-military-memo-title
+    content: holotape-military-memo-content
+
+# A raider boss marking territory and warning rivals
+- type: entity
+  parent: N14Holotape
+  id: N14HolotapeLoreRaiderBoss
+  name: raider's warning holotape
+  description: A scratched-up holotape with "KEEP OUT" carved into the casing.
+  components:
+  - type: HolotapeData
+    title: holotape-raider-boss-title
+    content: holotape-raider-boss-content
+
+# A caravan trader's log of routes, prices, and dangers in the region
+- type: entity
+  parent: N14HolotapeYellow
+  id: N14HolotapeLoreCaravanLedger
+  name: caravan trader's ledger holotape
+  description: A holotape with a price tag still stuck to it. Reads "2 CAPS - FIRM".
+  components:
+  - type: HolotapeData
+    title: holotape-caravan-ledger-title
+    content: holotape-caravan-ledger-content
+
+# ─────────────────────────────────────────────────────────────────────────────
+# #Misfits Add - Generic color holotape variants with randomized wasteland content.
+# Use these entities (instead of base N14 color holotapes) when placing readable
+# holotapes on Wendover or Vault maps. Each one draws a random entry from the
+# holotape-wanderer dataset pool per round, ensuring variety across playthroughs.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Black / generic holotape with random wanderer content
+- type: entity
+  parent: N14Holotape
+  id: N14HolotapeMisfitsRandom
+  name: holotape
+  description: A scratched holotape of unknown origin. Somebody recorded something on it.
+  components:
+  - type: TerminalRandomContent
+    contentPool:
+    - MisfitsHolotapeWanderer
+
+# Blue holotape with random wanderer content
+- type: entity
+  parent: N14HolotapeBlue
+  id: N14HolotapeMisfitsRandomBlue
+  name: blue holotape
+  description: A blue holotape with no label. Whoever left it here did not expect to come back for it.
+  components:
+  - type: TerminalRandomContent
+    contentPool:
+    - MisfitsHolotapeWanderer
+
+# Green holotape with random wanderer content
+- type: entity
+  parent: N14HolotapeGreen
+  id: N14HolotapeMisfitsRandomGreen
+  name: green holotape
+  description: A green holotape. The case is cracked but the tape inside looks intact.
+  components:
+  - type: TerminalRandomContent
+    contentPool:
+    - MisfitsHolotapeWanderer
+
+# Red holotape with random wanderer content
+- type: entity
+  parent: N14HolotapeRed
+  id: N14HolotapeMisfitsRandomRed
+  name: red holotape
+  description: A red holotape with a faded handwritten label, too worn to read.
+  components:
+  - type: TerminalRandomContent
+    contentPool:
+    - MisfitsHolotapeWanderer
+
+# Yellow holotape with random wanderer content
+- type: entity
+  parent: N14HolotapeYellow
+  id: N14HolotapeMisfitsRandomYellow
+  name: yellow holotape
+  description: A yellow holotape. Someone scratched a tally of days into the casing.
+  components:
+  - type: TerminalRandomContent
+    contentPool:
+    - MisfitsHolotapeWanderer

@@ -9,6 +9,13 @@
     sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
     state: holotape_black
     scale: 0.75, 0.75
+  # #Misfits Add - Holotape reading system: stores readable content and provides viewer UI.
+  # Holotapes are NOT directly clickable; they require a reader (terminal or Pip-Boy).
+  - type: HolotapeData
+  - type: UserInterface
+    interfaces:
+      enum.HolotapeUiKey.Key:
+        type: HolotapeBoundUserInterface
 
 - type: entity
   parent: N14Holotape
@@ -25,6 +32,10 @@
   components:
   - type: Sprite
     state: holotape_enclave
+  # #Misfits Add - Multi-site Enclave assessment for the Wendover cluster
+  - type: HolotapeData
+    title: holotape-enclave-base-title
+    content: holotape-enclave-base-content
 
 - type: entity
   parent: N14Holotape
@@ -56,21 +67,41 @@
   id: N14HolotapeQuestFusionplans # BoS / Town find objective
   name: fusion plans holotape
   description: A holotape containing plans for optimising fusion reactors.
+  components:
+  # #Misfits Add - Cold fusion power plant lore: pre-war Project Fusion research notes
+  - type: HolotapeData
+    title: holotape-quest-fusion-plans-title
+    content: holotape-quest-fusion-plans-content
 
 - type: entity
   parent: N14HolotapeEnclave
   id: N14HolotapeQuestEnclaveplans # Enclave secure objective / NCR, BoS Find Objective
   name: enclave plans holotape
   description: A holotape containing plans for restoring America.
+  components:
+  # #Misfits Add - Enclave operational orders for Operation Autumn Harvest at Wendover
+  - type: HolotapeData
+    title: holotape-quest-enclave-plans-title
+    content: holotape-quest-enclave-plans-content
 
 - type: entity
   parent: N14HolotapeGreen
   id: N14HolotapeQuestGECK
   name: GECK location holotape # Vault secure objective / Enclave, NCR, BoS Find Objective
   description: A holotape containing details on remaining G.E.C.K's.
+  components:
+  # #Misfits Add - Vault-Tec GECK asset status file with cold fusion and terraforming details
+  - type: HolotapeData
+    title: holotape-quest-geck-title
+    content: holotape-quest-geck-content
 
 - type: entity
   parent: N14HolotapeRed
   id: N14HolotapeQuestNCRplans
   name: NCR plans holotape # NCR secure objective
   description: A holotape containing battle plans and base locations for the NCR.
+  components:
+  # #Misfits Add - NCR Ranger advance survey of the Bonneville sector, Nevada-Utah border
+  - type: HolotapeData
+    title: holotape-quest-ncr-plans-title
+    content: holotape-quest-ncr-plans-content

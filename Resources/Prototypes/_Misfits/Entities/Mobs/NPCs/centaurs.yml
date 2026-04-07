@@ -117,3 +117,18 @@
     - Latin
     - N14Robot
     - N14BrotherBeep
+  - type: Body # #Misfits Add - override N14Animal with N14PetAnimal to include heart (Medicine/Poison metabolizer for stimpaks/healing powder)
+    prototype: N14PetAnimal
+  - type: Hands # #Misfits Add - allows player-controlled centaur pets to drag items
+  - type: MisfitsPetNoPickup # #Misfits Add - cancels PickupAttemptEvent; drag only, no item pickup
+  - type: PassiveDamage # #Misfits Add - slow natural regeneration for player-controlled pet centaurs
+    allowedStates:
+    - Alive
+    - Critical
+    damageCap: 0
+    damage:
+      groups:
+        Brute: -0.5
+        Burn: -0.5
+        Toxin: -0.5
+        Airloss: -3

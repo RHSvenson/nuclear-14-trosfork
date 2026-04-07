@@ -31,6 +31,10 @@
   requirements:
   - !type:MinPlayersRequirement
     min: 0
+  - !type:CharacterSpeciesRequirement # #Misfits Fix - restrict to organic species only
+    species:
+    - Human
+    - Ghoul
   startingGear: KhanGear
   alwaysUseSpawner: true
   icon: "JobIconKhan"

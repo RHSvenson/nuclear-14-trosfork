@@ -64,6 +64,21 @@
     - Latin
     - N14Robot
     - N14BrotherBeep
+  - type: Body # #Misfits Add - override N14Animal with N14PetAnimal to include heart (Medicine/Poison metabolizer)
+    prototype: N14PetAnimal
+  - type: Hands # #Misfits Add - allows player-controlled mirelurk pets to drag items
+  - type: MisfitsPetNoPickup # #Misfits Add - cancels PickupAttemptEvent; drag only, no item pickup
+  - type: PassiveDamage # #Misfits Add - slow natural regeneration for player-controlled pet mirelurks
+    allowedStates:
+    - Alive
+    - Critical
+    damageCap: 0
+    damage:
+      groups:
+        Brute: -0.5
+        Burn: -0.5
+        Toxin: -0.5
+        Airloss: -3
 
 - type: entity
   name: rad mirelurk

@@ -16,7 +16,15 @@
     - RobotMrHandy
     - RobotMrGutsy
     - RobotProtectron
+    - RobotProtectronPolice # #Misfits Fix - missing variant species
+    - RobotProtectronBuilder # #Misfits Fix - missing variant species
+    - RobotProtectronFire # #Misfits Fix - missing variant species
     - RobotAssaultron
+    - RobotAssaultronTesla # #Misfits Fix - missing variant species
+    - RobotSentryBot # #Misfits Fix - missing robot chassis
+    - RobotSentryBotLaser # #Misfits Fix - missing variant species
+    - RobotRobobrain # #Misfits Fix - missing robot chassis
+    - RobotRobobrainLaser # #Misfits Fix - missing variant species
     - SuperMutant
   special:
   - !type:AddComponentSpecial

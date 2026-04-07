@@ -1,0 +1,19 @@
+# #Misfits Add - Pet animal body prototype for ghost-role pet perk companions.
+# Extends the N14Animal layout (single torso with stomach) by adding OrganAnimalHeart.
+# The heart's Metabolizer processes Medicine, Poison, and Narcotic reagent groups,
+# enabling stimpak injections and consumed healing powder to actually heal the pet.
+# Used on N14MobPetBasic (dogs/roaches/pigrats), N14MobMirelurk, and N14MobCentaur
+# which all inherit from N14MobBaseSimple and therefore use the N14Animal body,
+# which intentionally omits the heart to keep NPCs lightweight. Pet perk mobs are
+# player-controlled and need full healing support.
+
+- type: body
+  id: N14PetAnimal
+  name: "N14 pet animal"
+  root: torso
+  slots:
+    torso:
+      part: TorsoAnimal
+      organs:
+        stomach: OrganAnimalStomach  # processes Food and Drink groups
+        heart: OrganAnimalHeart      # processes Medicine, Poison, Narcotic groups
