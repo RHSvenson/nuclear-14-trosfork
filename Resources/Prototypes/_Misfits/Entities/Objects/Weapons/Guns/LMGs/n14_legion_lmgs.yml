@@ -1,0 +1,68 @@
+# #Misfits Add - M240B general-purpose machine gun for Legion Tier 3 crafting
+
+- type: entity
+  name: M240B
+  parent: BaseWeaponRifle
+  id: N14WeaponUSHMG
+  # #Misfits Add - US M240B GPMG, clone of N14WeaponHMGcanadian with Legion crafting hook
+  description: A reliable American general-purpose machine gun chambered in 7.62mm ammunition. Standard infantry support weapon used by the pre-war United States armed forces.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/canadianhmg.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/canadianhmg.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    size: Huge
+    sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/canadianhmg.rsi
+  - type: Wieldable
+    wieldedSpeedModifier: 0.8
+  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -44
+  - type: Gun
+    minAngle: 24
+    maxAngle: 60
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 6
+    soundGunshot:
+      collection: N14AutoRifleGunshot
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine762AmmoBelt
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - N14Magazine762Belt
+      gun_chamber:
+        name: Chamber
+        startingItem: N14Cartridge762Rifle
+        priority: 1
+        whitelist:
+          tags:
+            - N14Cartridge762Rifle
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: FollowDistance
+    backStrength: 6
+  - type: StaticPrice
+    price: 600

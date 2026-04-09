@@ -105,7 +105,7 @@
           CaesarLegionLegionnaireWarrior: [ 2, 2 ] # Forge-Legion
           CaesarLegionLegionnaireRecruit: [ 4, 4 ] # Forge-Legion
           CaesarLegionVexillarius: [ 1, 1 ] # Forge-Legion
-          CaesarLegionFrumentarii: [ 1, 1 ] # Forge-Legion
+          CaesarLegionFrumentarii: [ 2, 2 ] # Forge-Legion # #Misfits Tweak - raised total and initial slots from 1 to 2
           CaesarLegionPrimeDecanus: [ 1, 1 ] # Misfits-Legion
           CaesarLegionExplorer: [ 1, 2 ] # Misfits-Legion
           CaesarLegionOrator: [ 1, 1 ] # Misfits-Legion

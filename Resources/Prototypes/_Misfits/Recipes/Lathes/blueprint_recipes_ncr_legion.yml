@@ -1791,6 +1791,25 @@
     N14Iron: 12
 
 
+# #Misfits Add - M240B GPMG for Tier 3 Legion crafting
+- type: latheRecipe
+  id: N14BPLegionWeaponUSHMG
+  result: N14WeaponUSHMG
+  category: N14BlueprintLegionWeaponsT3
+  completetime: 16
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 7000
+
+    N14Iron: 20
+
+    N14Brass: 10
+
+    Leather: 5
+
+
 # --- Legion Tier 4 Weapons (Legate's elite) ---
 - type: latheRecipe
   id: N14BPLegionWeaponSuperSledgeHammer
@@ -2383,6 +2402,23 @@
     Cloth: 10
 
     N14Brass: 5
+
+
+# #Misfits Add - 7.62mm ammo belt craftable for Legion M240B (Tier 3)
+- type: latheRecipe
+  id: N14BPLegionAmmoMagazine762Belt
+  result: Magazine762AmmoBelt
+  category: N14BlueprintLegionAmmoT3
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Lead: 500
+
+    Steel: 1100
+
+    N14Gunpowder: 1000
 
 
 # --- Legion Tier 4 Ammo ---
