@@ -2914,3 +2914,42 @@ Entries:
   id: 5712
   time: '2026-04-07T03:12:48.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/254
+- author: Dpellowski
+  changes:
+    - type: Add
+      message: Added a Tribal Hunt GUI window and client system for hunt tracking.
+    - type: Add
+      message: >-
+        Added shared Tribal Hunt network UI messages/state for server-client
+        sync.
+    - type: Remove
+      message: >-
+        Removed hunt-wide text popup flow in favor of GUI-based coordination
+        updates.
+    - type: Tweak
+      message: >-
+        Tweaked Tribal Hunt server logic to push live coordinate/status/progress
+        updates to party members through UI.
+    - type: Fix
+      message: >-
+        Fixed hunt communication flow so coordinate sharing is centralized and
+        consistent for the war party.
+    - type: Add
+      message: Added initial Tribal Hunt server systems, components, and action events.
+    - type: Add
+      message: >-
+        Added legendary creature spawning, loot entities, recipes, and action
+        prototypes for the hunt loop.
+    - type: Add
+      message: Added localization entries for Tribal Hunt and Legendary Hunt messaging.
+    - type: Tweak
+      message: >-
+        Tweaked tribal role/job prototypes to integrate hunt
+        participation/actions.
+    - type: Fix
+      message: >-
+        Fixed project setup/build inclusion for the new Tribal Hunt content and
+        systems.
+  id: 5713
+  time: '2026-04-09T19:35:13.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/262
