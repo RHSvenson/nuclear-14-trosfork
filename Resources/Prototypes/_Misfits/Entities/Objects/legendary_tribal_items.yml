@@ -6,8 +6,11 @@
   parent: BaseItem
   components:
     - type: Sprite
-      sprite: Objects/Materials/sheets.rsi
-      state: leather
+      sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: leather_3
+      layers:
+        - state: leather_3
+          map: ["base"]
       color: "#FFD700"
     - type: Item
       size: Small

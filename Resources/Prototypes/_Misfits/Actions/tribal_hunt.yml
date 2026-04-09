@@ -19,3 +19,14 @@
     useDelay: 2
     icon: Interface/Actions/scream.png
     event: !type:PerformTribalOfferTrophyActionEvent
+
+- type: entity
+  id: ActionTribalToggleHuntGui
+  name: action-name-tribal-toggle-hunt-gui
+  description: action-desc-tribal-toggle-hunt-gui
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 0.5
+    icon: Interface/Actions/scream.png
+    event: !type:PerformTribalToggleHuntGuiActionEvent

@@ -11,3 +11,8 @@ public sealed partial class PerformTribalStartHuntActionEvent : InstantActionEve
 /// Raised when a tribal participant offers a trophy to the active hunt.
 /// </summary>
 public sealed partial class PerformTribalOfferTrophyActionEvent : InstantActionEvent;
+
+/// <summary>
+/// Raised when a tribal participant toggles the hunt tracker GUI.
+/// </summary>
+public sealed partial class PerformTribalToggleHuntGuiActionEvent : InstantActionEvent;

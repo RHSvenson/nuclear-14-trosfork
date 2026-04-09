@@ -15,6 +15,7 @@ public sealed class TribalHuntClientSystem : EntitySystem
     {
         base.Initialize();
         SubscribeNetworkEvent<TribalHuntUiUpdateEvent>(OnUiUpdate);
+        SubscribeNetworkEvent<TribalHuntToggleWindowEvent>(OnToggleWindow);
     }
 
     public override void Shutdown()
@@ -27,11 +28,23 @@ public sealed class TribalHuntClientSystem : EntitySystem
     private void OnUiUpdate(TribalHuntUiUpdateEvent msg)
     {
         _latestState = msg.State;
+        if (_window == null)
+            return;
+
+        _window.UpdateState(_latestState);
+    }
+
+    private void OnToggleWindow(TribalHuntToggleWindowEvent msg)
+    {
+        if (_window is { IsOpen: true })
+        {
+            _window.Close();
+            return;
+        }
+
         EnsureWindow();
         _window!.UpdateState(_latestState);
-
-        if (!_window.IsOpen)
-            _window.OpenCentered();
+        _window.OpenCentered();
     }
 
     private void EnsureWindow()
@@ -40,6 +53,12 @@ public sealed class TribalHuntClientSystem : EntitySystem
             return;
 
         _window = new TribalHuntWindow();
-        _window.OnClose += () => _window = null;
+        _window.JoinPressed += OnJoinPressed;
+        _window.OnClose += () => { };
+    }
+
+    private void OnJoinPressed()
+    {
+        RaiseNetworkEvent(new TribalHuntJoinRequestEvent());
     }
 }

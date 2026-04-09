@@ -1,44 +1,47 @@
+using System.Collections.Generic;
 using Content.Server.Actions;
-using Content.Server.Nutrition.Components;
 using Content.Shared._Misfits.TribalHunt;
-using Content.Shared._Misfits.Warcry;
-using Content.Shared.Hands.EntitySystems;
-using Robust.Shared.Map;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Movement.Components;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Roles.Jobs;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Misfits.TribalHunt;
 
 /// <summary>
-/// Cooperative tribal PvE loop: elders start timed hunts and tribe members offer food trophies to complete them.
-/// Completion grants a temporary tribe-wide speed blessing.
+/// Simple tribal hunt flow: chief starts hunt, tribe joins for 2 minutes via GUI,
+/// then a legendary Deathclaw is spawned and tracked until it is killed.
 /// </summary>
 public sealed class TribalHuntSystem : EntitySystem
 {
+    private enum TribalHuntStage : byte
+    {
+        Inactive,
+        Gathering,
+        Active,
+    }
+
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedJobSystem _jobs = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly LegendaryCreatureSpawnerSystem _legendarySpawner = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private bool _activeHunt;
-    private TimeSpan _huntExpiresAt;
-    private int _requiredOfferings;
-    private int _offeredSoFar;
-    private TimeSpan _rewardDuration;
-    private float _rewardSpeedBonus;
+    private TribalHuntStage _stage = TribalHuntStage.Inactive;
+    private TimeSpan _gatheringEndsAt;
+    private TimeSpan _huntEndsAt;
+    private TimeSpan _configuredHuntDuration;
     private EntityUid? _activeLegendaryCreature;
     private EntityUid? _activeHuntSessionId;
+    private EntityUid? _chief;
+    private string _targetDepartment = "Tribe";
+    private readonly HashSet<EntityUid> _joinedHunters = new();
     private TimeSpan _lastLocationBroadcast;
+    private TimeSpan _lastUiHeartbeat;
     private string _lastKnownCoordinates = string.Empty;
     private bool _hasKnownCoordinates;
 
@@ -52,62 +55,51 @@ public sealed class TribalHuntSystem : EntitySystem
 
         SubscribeLocalEvent<TribalHuntParticipantComponent, ComponentStartup>(OnParticipantStartup);
         SubscribeLocalEvent<TribalHuntParticipantComponent, ComponentShutdown>(OnParticipantShutdown);
-        SubscribeLocalEvent<TribalHuntParticipantComponent, PerformTribalOfferTrophyActionEvent>(OnOfferAction);
+        SubscribeLocalEvent<TribalHuntParticipantComponent, PerformTribalToggleHuntGuiActionEvent>(OnToggleHuntGuiAction);
 
         SubscribeLocalEvent<LegendaryCreatureComponent, ComponentShutdown>(OnLegendaryCreatureShutdown);
+        SubscribeNetworkEvent<TribalHuntJoinRequestEvent>(OnJoinRequest);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        if (!_activeHunt)
+        if (_stage == TribalHuntStage.Inactive)
             return;
 
-        // Check if legendary creature has been killed
-        if (_activeLegendaryCreature != null && !Exists(_activeLegendaryCreature))
+        if (_stage == TribalHuntStage.Gathering && _timing.CurTime >= _gatheringEndsAt)
         {
-            _activeLegendaryCreature = null;
-            // Creature death counts as hunt completion
-            var leader = EntityQuery<TribalHuntLeaderComponent>();
-            foreach (var leaderComp in leader)
+            BeginActiveHunt();
+            return;
+        }
+
+        if (_stage == TribalHuntStage.Active)
+        {
+            if (_activeLegendaryCreature == null || !Exists(_activeLegendaryCreature.Value))
             {
-                CompleteHunt(leaderComp.TargetDepartment);
-                break;  // Only one hunt at a time
+                EndHunt(Loc.GetString("tribal-hunt-popup-legendary-killed"));
+                return;
             }
-            return;
+
+            if (_timing.CurTime >= _huntEndsAt)
+            {
+                EndHunt(Loc.GetString("tribal-hunt-popup-failed"));
+                return;
+            }
+
+            if (_timing.CurTime >= _lastLocationBroadcast + TimeSpan.FromSeconds(5))
+            {
+                _lastLocationBroadcast = _timing.CurTime;
+                UpdateCreatureLocation();
+            }
         }
 
-        // Periodically broadcast legendary creature location (every 15 seconds)
-        if (_activeLegendaryCreature != null && _timing.CurTime >= _lastLocationBroadcast + TimeSpan.FromSeconds(15))
+        if (_timing.CurTime >= _lastUiHeartbeat + TimeSpan.FromSeconds(1))
         {
-            _lastLocationBroadcast = _timing.CurTime;
-            UpdateCreatureLocation();
+            _lastUiHeartbeat = _timing.CurTime;
+            BroadcastUiToDepartment(_targetDepartment, BuildStatusText());
         }
-
-        if (_timing.CurTime < _huntExpiresAt)
-            return;
-
-        _activeHunt = false;
-        _activeLegendaryCreature = null;
-        _hasKnownCoordinates = false;
-        _lastKnownCoordinates = string.Empty;
-        BroadcastUiToDepartment("Tribe", Loc.GetString("tribal-hunt-popup-legendary-escaped"));
-    }
-
-    private void UpdateCreatureLocation()
-    {
-        if (_activeLegendaryCreature == null || !Exists(_activeLegendaryCreature))
-            return;
-
-        var mapCoords = _transform.GetMapCoordinates(_activeLegendaryCreature.Value);
-        var position = mapCoords.Position;
-        _lastKnownCoordinates = Loc.GetString("tribal-hunt-gui-coordinate-format",
-            ("x", MathF.Round(position.X, 1)),
-            ("y", MathF.Round(position.Y, 1)));
-        _hasKnownCoordinates = true;
-
-        BroadcastUiToDepartment("Tribe", Loc.GetString("tribal-hunt-gui-status-location-updated"));
     }
 
     private void OnLeaderStartup(EntityUid uid, TribalHuntLeaderComponent component, ComponentStartup args)
@@ -122,15 +114,28 @@ public sealed class TribalHuntSystem : EntitySystem
 
     private void OnParticipantStartup(EntityUid uid, TribalHuntParticipantComponent component, ComponentStartup args)
     {
-        _actions.AddAction(uid, ref component.OfferActionEntity, component.OfferAction);
+        _actions.AddAction(uid, ref component.OpenTrackerActionEntity, component.OpenTrackerAction);
 
-        if (_activeHunt)
-            SendUiUpdate(uid, component.TargetDepartment, Loc.GetString("tribal-hunt-gui-status-hunt-active"));
+        if (_stage != TribalHuntStage.Inactive)
+            SendUiUpdate(uid, BuildStatusText());
     }
 
     private void OnParticipantShutdown(EntityUid uid, TribalHuntParticipantComponent component, ComponentShutdown args)
     {
-        _actions.RemoveAction(uid, component.OfferActionEntity);
+        _actions.RemoveAction(uid, component.OpenTrackerActionEntity);
+    }
+
+    private void OnToggleHuntGuiAction(EntityUid uid, TribalHuntParticipantComponent component, PerformTribalToggleHuntGuiActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+
+        if (!TryComp<ActorComponent>(uid, out var actor))
+            return;
+
+        RaiseNetworkEvent(new TribalHuntToggleWindowEvent(), actor.PlayerSession);
     }
 
     private void OnStartHuntAction(EntityUid uid, TribalHuntLeaderComponent component, PerformTribalStartHuntActionEvent args)
@@ -142,138 +147,129 @@ public sealed class TribalHuntSystem : EntitySystem
 
         if (!CanLeadHunt(uid, component))
         {
-            SendUiUpdateRaw(uid, Loc.GetString("tribal-hunt-popup-cannot-lead"));
+            SendUiUpdate(uid, Loc.GetString("tribal-hunt-popup-cannot-lead"));
             return;
         }
 
-        if (_activeHunt)
+        if (_stage != TribalHuntStage.Inactive)
         {
-            var remaining = (_huntExpiresAt - _timing.CurTime).TotalSeconds;
-            if (remaining < 0)
-                remaining = 0;
-
-            SendUiUpdateRaw(uid,
-                Loc.GetString("tribal-hunt-popup-already-active", ("remaining", MathF.Ceiling((float) remaining))));
+            SendUiUpdate(uid, Loc.GetString("tribal-hunt-popup-already-active"));
             return;
         }
 
-        _activeHunt = true;
-        _offeredSoFar = 0;
-        _requiredOfferings = Math.Max(1, component.RequiredOfferings);
-        _huntExpiresAt = _timing.CurTime + component.HuntDuration;
-        _rewardDuration = component.RewardDuration;
-        _rewardSpeedBonus = component.RewardSpeedBonus;
-        _activeHuntSessionId = uid;  // Use leader as session ID
-        _lastLocationBroadcast = _timing.CurTime;  // Initialize broadcast timer
+        _stage = TribalHuntStage.Gathering;
+        _targetDepartment = component.TargetDepartment;
+        _chief = uid;
+        _activeHuntSessionId = uid;
+        _joinedHunters.Clear();
+        _joinedHunters.Add(uid);
+        _gatheringEndsAt = _timing.CurTime + TimeSpan.FromMinutes(2);
+        _configuredHuntDuration = component.HuntDuration;
+        _activeLegendaryCreature = null;
+        _lastLocationBroadcast = _timing.CurTime;
+        _lastUiHeartbeat = TimeSpan.Zero;
         _lastKnownCoordinates = Loc.GetString("tribal-hunt-gui-coordinate-pending");
         _hasKnownCoordinates = false;
 
-        // Spawn legendary creature on the map
-        if (TryComp(uid, out TransformComponent? leaderXform) && leaderXform.MapID != MapId.Nullspace)
-        {
-            _activeLegendaryCreature = _legendarySpawner.TrySpawnLegendaryCreature(
-                "TribalLegendaryBeast",
-                uid,
-                leaderXform.MapID);
-
-            if (_activeLegendaryCreature != null)
-            {
-                BroadcastUiToDepartment(component.TargetDepartment,
-                    Loc.GetString("tribal-hunt-popup-legendary-started"));
-            }
-        }
-
-        BroadcastUiToDepartment(component.TargetDepartment,
-            Loc.GetString("tribal-hunt-popup-started",
-                ("leader", uid),
-                ("required", _requiredOfferings),
-                ("minutes", MathF.Ceiling((float) component.HuntDuration.TotalMinutes))));
+        BroadcastUiToDepartment(_targetDepartment, BuildStatusText());
     }
 
-    private void OnOfferAction(EntityUid uid, TribalHuntParticipantComponent component, PerformTribalOfferTrophyActionEvent args)
+    private void OnJoinRequest(TribalHuntJoinRequestEvent msg, EntitySessionEventArgs args)
     {
-        if (args.Handled)
+        if (args.SenderSession.AttachedEntity is not { } uid)
             return;
 
-        args.Handled = true;
-
-        if (!IsInDepartment(uid, component.TargetDepartment))
+        if (_stage != TribalHuntStage.Gathering)
         {
-            SendUiUpdateRaw(uid, Loc.GetString("tribal-hunt-popup-not-tribe"));
+            SendUiUpdate(uid, Loc.GetString("tribal-hunt-popup-join-closed"));
             return;
         }
 
-        if (!_activeHunt)
+        if (!IsInDepartment(uid, _targetDepartment))
         {
-            SendUiUpdateRaw(uid, Loc.GetString("tribal-hunt-popup-no-active"));
+            SendUiUpdate(uid, Loc.GetString("tribal-hunt-popup-not-tribe"));
             return;
         }
 
-        if (!TryGetHeldFood(uid, out var offering))
+        if (!_joinedHunters.Add(uid))
         {
-            SendUiUpdateRaw(uid, Loc.GetString("tribal-hunt-popup-needs-trophy"));
+            SendUiUpdate(uid, Loc.GetString("tribal-hunt-popup-already-joined"));
             return;
         }
 
-        QueueDel(offering);
-
-        _offeredSoFar++;
-        var remaining = Math.Max(0, _requiredOfferings - _offeredSoFar);
-
-        BroadcastUiToDepartment(component.TargetDepartment,
-            Loc.GetString("tribal-hunt-popup-progress",
-                ("user", uid),
-                ("remaining", remaining)));
-
-        if (_offeredSoFar < _requiredOfferings)
-            return;
-
-        CompleteHunt(component.TargetDepartment);
+        BroadcastUiToDepartment(_targetDepartment, BuildStatusText());
     }
 
-    private void CompleteHunt(string departmentId)
+    private void BeginActiveHunt()
     {
-        _activeHunt = false;
-        _hasKnownCoordinates = false;
+        if (_stage != TribalHuntStage.Gathering || _chief == null)
+        {
+            EndHunt(Loc.GetString("tribal-hunt-popup-failed"));
+            return;
+        }
+
+        if (!EntityManager.TryGetComponent(_chief.Value, out TransformComponent? chiefXform) || chiefXform == null || chiefXform.MapID == MapId.Nullspace)
+        {
+            EndHunt(Loc.GetString("tribal-hunt-popup-failed"));
+            return;
+        }
+
+        var chiefMapId = chiefXform.MapID;
+
+        _activeLegendaryCreature = _legendarySpawner.TrySpawnLegendaryCreature(
+            "TribalLegendaryBeast",
+            _activeHuntSessionId ?? _chief.Value,
+            chiefMapId);
+
+        if (_activeLegendaryCreature == null)
+        {
+            EndHunt(Loc.GetString("tribal-hunt-popup-failed"));
+            return;
+        }
+
+        _stage = TribalHuntStage.Active;
+        _huntEndsAt = _timing.CurTime + _configuredHuntDuration;
+        _lastLocationBroadcast = TimeSpan.Zero;
+        UpdateCreatureLocation();
+        BroadcastUiToDepartment(_targetDepartment, BuildStatusText());
+    }
+
+    private void UpdateCreatureLocation()
+    {
+        if (_activeLegendaryCreature == null || !Exists(_activeLegendaryCreature.Value))
+            return;
+
+        var mapCoords = _transform.GetMapCoordinates(_activeLegendaryCreature.Value);
+        var position = mapCoords.Position;
+        _lastKnownCoordinates = Loc.GetString("tribal-hunt-gui-coordinate-format",
+            ("x", MathF.Round(position.X, 1)),
+            ("y", MathF.Round(position.Y, 1)));
+        _hasKnownCoordinates = true;
+    }
+
+    private void EndHunt(string statusText)
+    {
+        var department = _targetDepartment;
+
+        _stage = TribalHuntStage.Inactive;
+        _activeLegendaryCreature = null;
+        _activeHuntSessionId = null;
+        _chief = null;
         _lastKnownCoordinates = string.Empty;
+        _hasKnownCoordinates = false;
+        _joinedHunters.Clear();
 
-        var expiry = _timing.CurTime + _rewardDuration;
-        var query = EntityQueryEnumerator<MovementSpeedModifierComponent>();
-        while (query.MoveNext(out var uid, out _))
-        {
-            if (!IsInDepartment(uid, departmentId))
-                continue;
-
-            if (_mobState.IsDead(uid))
-                continue;
-
-            var buff = EnsureComp<WarcryBuffComponent>(uid);
-            buff.SpeedBonus = Math.Max(buff.SpeedBonus, _rewardSpeedBonus);
-            if (expiry > buff.ExpiresAt)
-                buff.ExpiresAt = expiry;
-
-            Dirty(uid, buff);
-            _movementSpeed.RefreshMovementSpeedModifiers(uid);
-        }
-
-        BroadcastUiToDepartment(departmentId,
-            Loc.GetString("tribal-hunt-popup-complete",
-                ("seconds", MathF.Ceiling((float) _rewardDuration.TotalSeconds))));
+        BroadcastUiToDepartment(department, statusText);
     }
 
-    private bool TryGetHeldFood(EntityUid user, out EntityUid food)
+    private string BuildStatusText()
     {
-        foreach (var held in _hands.EnumerateHeld(user))
+        return _stage switch
         {
-            if (!HasComp<FoodComponent>(held))
-                continue;
-
-            food = held;
-            return true;
-        }
-
-        food = EntityUid.Invalid;
-        return false;
+            TribalHuntStage.Gathering => Loc.GetString("tribal-hunt-gui-status-gathering"),
+            TribalHuntStage.Active => Loc.GetString("tribal-hunt-gui-status-active"),
+            _ => Loc.GetString("tribal-hunt-gui-status-idle"),
+        };
     }
 
     private bool CanLeadHunt(EntityUid uid, TribalHuntLeaderComponent component)
@@ -307,38 +303,45 @@ public sealed class TribalHuntSystem : EntitySystem
     private void BroadcastUiToDepartment(string departmentId, string statusText)
     {
         var query = EntityQueryEnumerator<TribalHuntParticipantComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        while (query.MoveNext(out var uid, out _))
         {
             if (!IsInDepartment(uid, departmentId))
                 continue;
 
-            SendUiUpdate(uid, comp.TargetDepartment, statusText);
+            SendUiUpdate(uid, statusText);
         }
     }
 
-    private void SendUiUpdate(EntityUid uid, string departmentId, string statusText)
-    {
-        if (!IsInDepartment(uid, departmentId))
-            return;
-
-        SendUiUpdateRaw(uid, statusText);
-    }
-
-    private void SendUiUpdateRaw(EntityUid uid, string statusText)
+    private void SendUiUpdate(EntityUid uid, string statusText)
     {
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
 
-        var remaining = _activeHunt ? Math.Max(0, (int) Math.Ceiling((_huntExpiresAt - _timing.CurTime).TotalSeconds)) : 0;
+        if (_mobState.IsDead(uid))
+            return;
+
+        var remaining = _stage switch
+        {
+            TribalHuntStage.Gathering => Math.Max(0, (int) Math.Ceiling((_gatheringEndsAt - _timing.CurTime).TotalSeconds)),
+            TribalHuntStage.Active => Math.Max(0, (int) Math.Ceiling((_huntEndsAt - _timing.CurTime).TotalSeconds)),
+            _ => 0,
+        };
+
+        var isJoined = _joinedHunters.Contains(uid);
+
         var state = new TribalHuntUiState
         {
-            Active = _activeHunt,
-            Offered = _offeredSoFar,
-            Required = _requiredOfferings,
+            Active = _stage == TribalHuntStage.Active,
+            Offered = 0,
+            Required = 0,
             SecondsRemaining = remaining,
             StatusText = statusText,
-            CoordinatesKnown = _hasKnownCoordinates,
+            CoordinatesKnown = _stage == TribalHuntStage.Active && _hasKnownCoordinates,
             CoordinatesText = _lastKnownCoordinates,
+            JoinWindowOpen = _stage == TribalHuntStage.Gathering,
+            CanJoin = _stage == TribalHuntStage.Gathering && !isJoined && IsInDepartment(uid, _targetDepartment),
+            IsJoined = isJoined,
+            JoinedHunters = _joinedHunters.Count,
         };
 
         RaiseNetworkEvent(new TribalHuntUiUpdateEvent { State = state }, actor.PlayerSession);
@@ -346,7 +349,7 @@ public sealed class TribalHuntSystem : EntitySystem
 
     private void OnLegendaryCreatureShutdown(EntityUid uid, LegendaryCreatureComponent component, ComponentShutdown args)
     {
-        if (_activeLegendaryCreature == uid)
-            _activeLegendaryCreature = null;
+        if (_stage == TribalHuntStage.Active && _activeLegendaryCreature == uid)
+            EndHunt(Loc.GetString("tribal-hunt-popup-legendary-killed"));
     }
 }

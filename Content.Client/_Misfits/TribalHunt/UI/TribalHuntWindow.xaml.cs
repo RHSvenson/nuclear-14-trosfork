@@ -9,21 +9,28 @@ namespace Content.Client._Misfits.TribalHunt.UI;
 [GenerateTypedNameReferences]
 public sealed partial class TribalHuntWindow : FancyWindow
 {
+    public event Action? JoinPressed;
+
     public TribalHuntWindow()
     {
         RobustXamlLoader.Load(this);
+        JoinHuntButton.OnPressed += _ => JoinPressed?.Invoke();
     }
 
     public void UpdateState(TribalHuntUiState state)
     {
         StatusValue.Text = state.StatusText;
-        ProgressValue.Text = Loc.GetString("tribal-hunt-gui-progress-value",
-            ("offered", state.Offered),
-            ("required", state.Required));
+        JoinedValue.Text = Loc.GetString("tribal-hunt-gui-party-size-value", ("count", state.JoinedHunters));
         RemainingValue.Text = Loc.GetString("tribal-hunt-gui-remaining-value", ("seconds", state.SecondsRemaining));
 
         CoordinatesValue.Text = state.CoordinatesKnown
             ? state.CoordinatesText
             : Loc.GetString("tribal-hunt-gui-coordinate-pending");
+
+        JoinHuntButton.Visible = state.JoinWindowOpen;
+        JoinHuntButton.Disabled = !state.CanJoin;
+        JoinHuntButton.Text = state.IsJoined
+            ? Loc.GetString("tribal-hunt-gui-joined-button")
+            : Loc.GetString("tribal-hunt-gui-join-button");
     }
 }

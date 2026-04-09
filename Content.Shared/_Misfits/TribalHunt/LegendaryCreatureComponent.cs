@@ -1,5 +1,4 @@
 using Robust.Shared.GameObjects;
-
 namespace Content.Shared._Misfits.TribalHunt;
 using Robust.Shared.GameStates;
 
@@ -33,4 +32,5 @@ public sealed partial class LegendaryCreatureComponent : Component
     /// </summary>
     [DataField]
     public bool RevealLocation = true;
+
 }

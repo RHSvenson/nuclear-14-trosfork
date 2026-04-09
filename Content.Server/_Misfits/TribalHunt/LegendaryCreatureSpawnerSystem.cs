@@ -12,7 +12,9 @@ namespace Content.Server._Misfits.TribalHunt;
 /// </summary>
 public sealed partial class LegendaryCreatureSpawnerSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    private const string DeathclawPrototype = "N14MobDeathclaw";
+
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
@@ -26,31 +28,26 @@ public sealed partial class LegendaryCreatureSpawnerSystem : EntitySystem
     /// </summary>
     public EntityUid? TrySpawnLegendaryCreature(string creatureProto, EntityUid huntSessionId, MapId mapId)
     {
-        if (!_mapManager.MapExists(mapId))
-            return null;
-
-        var mapUid = _mapManager.GetMapEntityId(mapId);
+        var mapUid = _mapSystem.GetMap(mapId);
         var spawnCoords = new EntityCoordinates(mapUid, _random.NextVector2(100f, 500f));
 
-        var creature = Spawn(creatureProto, spawnCoords);
+        var creature = Spawn(DeathclawPrototype, spawnCoords);
 
-        if (TryComp<LegendaryCreatureComponent>(creature, out var legComp))
-        {
-            legComp.HuntSessionId = huntSessionId;
-            Dirty(creature, legComp);
-        }
+        var legComp = EnsureComp<LegendaryCreatureComponent>(creature);
+        legComp.HuntSessionId = huntSessionId;
+        legComp.CreatureName = "Deathclaw";
+        legComp.LeatherDropCount = 3;
+        legComp.RevealLocation = true;
+        Dirty(creature, legComp);
 
         return creature;
     }
 
     private void OnCreatureDestroyed(EntityUid uid, LegendaryCreatureComponent comp, DestructionEventArgs args)
     {
-        if (!TryComp<TransformComponent>(uid, out var xform))
-            return;
-
         for (int i = 0; i < comp.LeatherDropCount; i++)
         {
-            Spawn("TribalLegendaryLeather", xform.Coordinates);
+            SpawnNextToOrDrop("TribalLegendaryLeather", uid);
         }
     }
 }

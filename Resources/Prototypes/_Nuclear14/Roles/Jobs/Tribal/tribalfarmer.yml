@@ -41,7 +41,6 @@
         warcryMessageCount: 6
         buffPopup: warcry-popup-buffed-tribal
       - type: TribalHuntParticipant
-        offerAction: ActionTribalOfferTrophy
         targetDepartment: Tribe
   - !type:AddTraitSpecial
     traits: [ LanguageTribal ]

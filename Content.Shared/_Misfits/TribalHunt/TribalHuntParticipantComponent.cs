@@ -4,16 +4,16 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Misfits.TribalHunt;
 
 /// <summary>
-/// Grants the offering action used to progress active tribal hunts.
+/// Marks entities that can receive and interact with tribal hunt GUI updates.
 /// </summary>
 [RegisterComponent]
 public sealed partial class TribalHuntParticipantComponent : Component
 {
     [DataField]
-    public EntProtoId<InstantActionComponent> OfferAction = "ActionTribalOfferTrophy";
+    public EntProtoId<InstantActionComponent> OpenTrackerAction = "ActionTribalToggleHuntGui";
 
     [DataField]
-    public EntityUid? OfferActionEntity;
+    public EntityUid? OpenTrackerActionEntity;
 
     [DataField]
     public string TargetDepartment = "Tribe";

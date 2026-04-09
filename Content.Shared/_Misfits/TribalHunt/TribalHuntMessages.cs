@@ -15,6 +15,10 @@ public sealed class TribalHuntUiState
     public string StatusText = string.Empty;
     public string CoordinatesText = string.Empty;
     public bool CoordinatesKnown;
+    public bool JoinWindowOpen;
+    public bool CanJoin;
+    public bool IsJoined;
+    public int JoinedHunters;
 }
 
 /// <summary>
@@ -25,3 +29,15 @@ public sealed class TribalHuntUiUpdateEvent : EntityEventArgs
 {
     public TribalHuntUiState State = new();
 }
+
+/// <summary>
+/// Client -> server request to join the currently gathering tribal hunt.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class TribalHuntJoinRequestEvent : EntityEventArgs;
+
+/// <summary>
+/// Server -> client request to toggle the hunt tracker GUI.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class TribalHuntToggleWindowEvent : EntityEventArgs;
