@@ -2953,3 +2953,14 @@ Entries:
   id: 5713
   time: '2026-04-09T19:35:13.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/262
+- author: teecoding
+  changes:
+    - type: Fix
+      message: TownsPerson access can now be assigned via ID card console
+    - type: Fix
+      message: >-
+        Fixed TownieMechanic access label typo ("Town Works." -> "Town
+        Workshop")
+  id: 5714
+  time: '2026-04-09T21:55:50.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/264
