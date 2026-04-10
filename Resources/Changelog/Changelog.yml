@@ -2964,3 +2964,12 @@ Entries:
   id: 5714
   time: '2026-04-09T21:55:50.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/264
+- author: cythisiax
+  changes:
+    - type: Tweak
+      message: PA Training Perk removed > BoS natural PA training.
+    - type: Tweak
+      message: PA training moved to useable manual for future loot drops.
+  id: 5715
+  time: '2026-04-10T01:26:15.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/265
