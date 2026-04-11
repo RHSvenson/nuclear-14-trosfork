@@ -3094,3 +3094,10 @@ Entries:
   id: 5722
   time: '2026-04-11T22:41:50.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/274
+- author: Bradysgaming
+  changes:
+    - type: Tweak
+      message: Gave frumen back latin
+  id: 5723
+  time: '2026-04-11T22:42:12.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/273
