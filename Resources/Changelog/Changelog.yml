@@ -3078,3 +3078,10 @@ Entries:
   id: 5720
   time: '2026-04-11T15:28:52.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/268
+- author: qevie
+  changes:
+    - type: Tweak
+      message: Made electrolyzers and basic machine parts craftable!
+  id: 5721
+  time: '2026-04-11T15:29:22.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/272
