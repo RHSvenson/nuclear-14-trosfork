@@ -2,7 +2,6 @@
 
 using Content.Server.Medical;
 using Content.Shared._Misfits.Disease;
-using Robust.Shared.Serialization;
 
 namespace Content.Server._Misfits.Disease.Effects;
 
@@ -10,7 +9,7 @@ namespace Content.Server._Misfits.Disease.Effects;
 /// Triggers the VomitSystem on the diseased entity, causing them to vomit
 /// (hunger/thirst loss, stun, puddle creation).
 /// </summary>
-[Serializable, NetSerializable]
+
 public sealed partial class DiseaseVomit : DiseaseEffect
 {
     /// <summary>Thirst penalty from vomiting.</summary>

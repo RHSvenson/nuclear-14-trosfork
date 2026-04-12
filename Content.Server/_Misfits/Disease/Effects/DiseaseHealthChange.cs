@@ -5,7 +5,6 @@ using Content.Shared._Misfits.Disease;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Server._Misfits.Disease.Effects;
 
@@ -13,7 +12,7 @@ namespace Content.Server._Misfits.Disease.Effects;
 /// Deals damage of specified types each tick. Used for diseases that cause
 /// direct harm (radiation sickness, poison buildup, organ failure, etc.).
 /// </summary>
-[Serializable, NetSerializable]
+
 public sealed partial class DiseaseHealthChange : DiseaseEffect
 {
     /// <summary>Damage to apply per tick. Key = damage type ID, value = amount.</summary>

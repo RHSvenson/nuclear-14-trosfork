@@ -2,7 +2,6 @@
 // Spreads the disease to nearby entities if the carrier isn't wearing a mask.
 
 using Content.Shared._Misfits.Disease;
-using Robust.Shared.Serialization;
 
 namespace Content.Server._Misfits.Disease.Effects;
 
@@ -11,7 +10,7 @@ namespace Content.Server._Misfits.Disease.Effects;
 /// If the disease is airborne and the entity has no mask, nearby
 /// DiseaseCarrier entities within range may be infected.
 /// </summary>
-[Serializable, NetSerializable]
+
 public sealed partial class DiseaseSnough : DiseaseEffect
 {
     /// <summary>Emote prototype ID to trigger ("Sneeze" or "Cough").</summary>

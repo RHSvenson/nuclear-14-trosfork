@@ -3,7 +3,6 @@
 
 using Content.Shared._Misfits.Disease;
 using Content.Server.Temperature.Components;
-using Robust.Shared.Serialization;
 
 namespace Content.Server._Misfits.Disease.Cures;
 
@@ -11,7 +10,7 @@ namespace Content.Server._Misfits.Disease.Cures;
 /// Disease is cured when the entity's body temperature crosses a threshold.
 /// Can check for high temperature (fever breaking) or low temperature (cooling down).
 /// </summary>
-[Serializable, NetSerializable]
+
 public sealed partial class DiseaseBodyTemperatureCure : DiseaseCure
 {
     /// <summary>Temperature threshold in Kelvin.</summary>

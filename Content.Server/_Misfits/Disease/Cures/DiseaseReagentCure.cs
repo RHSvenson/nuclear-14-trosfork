@@ -4,7 +4,6 @@
 using Content.Shared._Misfits.Disease;
 using Content.Server.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Robust.Shared.Serialization;
 
 namespace Content.Server._Misfits.Disease.Cures;
 
@@ -12,7 +11,7 @@ namespace Content.Server._Misfits.Disease.Cures;
 /// Disease is cured when the entity has a minimum amount of a specific reagent
 /// in their bloodstream chemistry solution.
 /// </summary>
-[Serializable, NetSerializable]
+
 public sealed partial class DiseaseReagentCure : DiseaseCure
 {
     /// <summary>Reagent prototype ID to check for.</summary>

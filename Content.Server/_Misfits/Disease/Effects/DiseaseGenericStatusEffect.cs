@@ -2,7 +2,6 @@
 
 using Content.Shared._Misfits.Disease;
 using Content.Shared.StatusEffect;
-using Robust.Shared.Serialization;
 
 namespace Content.Server._Misfits.Disease.Effects;
 
@@ -10,7 +9,7 @@ namespace Content.Server._Misfits.Disease.Effects;
 /// Applies a named status effect to the diseased entity for a specified duration.
 /// Uses the existing StatusEffectsSystem infrastructure.
 /// </summary>
-[Serializable, NetSerializable]
+
 public sealed partial class DiseaseGenericStatusEffect : DiseaseEffect
 {
     /// <summary>Status effect key (e.g., "Jitter", "TemporaryBlindness", "Stutter").</summary>

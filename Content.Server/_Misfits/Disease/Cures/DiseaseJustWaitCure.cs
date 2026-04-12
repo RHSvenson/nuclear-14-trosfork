@@ -3,7 +3,6 @@
 
 using Content.Shared._Misfits.Disease;
 using Content.Shared._Misfits.Disease.Components;
-using Robust.Shared.Serialization;
 
 namespace Content.Server._Misfits.Disease.Cures;
 
@@ -11,7 +10,7 @@ namespace Content.Server._Misfits.Disease.Cures;
 /// Disease is cured automatically after enough total accumulated disease time.
 /// Represents the body naturally fighting off the illness over time.
 /// </summary>
-[Serializable, NetSerializable]
+
 public sealed partial class DiseaseJustWaitCure : DiseaseCure
 {
     /// <summary>Total seconds of disease time before natural cure kicks in.</summary>

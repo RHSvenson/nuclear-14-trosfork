@@ -1,8 +1,6 @@
 // #Misfits Add - Abstract base for disease effects.
 // Effects run per tick when their stage condition matches the carrier's current stage.
 
-using Robust.Shared.Serialization;
-
 namespace Content.Shared._Misfits.Disease;
 
 /// <summary>
@@ -10,7 +8,6 @@ namespace Content.Shared._Misfits.Disease;
 /// (damage, popups, emotes, status effects, reagent injection, etc.).
 /// </summary>
 [ImplicitDataDefinitionForInheritors]
-[Serializable, NetSerializable]
 public abstract partial class DiseaseEffect
 {
     /// <summary>Probability [0-1] that this effect fires each tick.</summary>

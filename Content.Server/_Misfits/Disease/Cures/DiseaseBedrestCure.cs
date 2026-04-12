@@ -3,7 +3,6 @@
 
 using Content.Shared._Misfits.Disease;
 using Content.Shared.Buckle.Components;
-using Robust.Shared.Serialization;
 
 namespace Content.Server._Misfits.Disease.Cures;
 
@@ -11,7 +10,7 @@ namespace Content.Server._Misfits.Disease.Cures;
 /// Disease is cured when the entity is buckled to furniture (bed rest).
 /// Represents the Fallout theme of resting to recover from illness.
 /// </summary>
-[Serializable, NetSerializable]
+
 public sealed partial class DiseaseBedrestCure : DiseaseCure
 {
     public override bool Cure(DiseaseEffectArgs args)

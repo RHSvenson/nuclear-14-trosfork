@@ -2,7 +2,6 @@
 // Defines a YAML-configurable disease with staged effects, cures, and spread behavior.
 
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager.Attributes;
 
 namespace Content.Shared._Misfits.Disease;
@@ -12,7 +11,6 @@ namespace Content.Shared._Misfits.Disease;
 /// effects (damage, status, emotes) and cures (reagent, bedrest, time, etc.).
 /// </summary>
 [Prototype("disease")]
-[Serializable, NetSerializable]
 public sealed partial class DiseasePrototype : IPrototype
 {
     [IdDataField]

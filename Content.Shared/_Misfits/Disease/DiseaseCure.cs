@@ -1,8 +1,6 @@
 // #Misfits Add - Abstract base for disease cures.
 // Cures are checked per tick. When a cure's condition is met, the disease is removed.
 
-using Robust.Shared.Serialization;
-
 namespace Content.Shared._Misfits.Disease;
 
 /// <summary>
@@ -10,7 +8,6 @@ namespace Content.Shared._Misfits.Disease;
 /// (reagent in bloodstream, bedrest, time elapsed, body temperature, etc.).
 /// </summary>
 [ImplicitDataDefinitionForInheritors]
-[Serializable, NetSerializable]
 public abstract partial class DiseaseCure
 {
     /// <summary>Which stages this cure is available during (0-indexed).</summary>

@@ -5,7 +5,6 @@ using Content.Shared._Misfits.Disease;
 using Content.Server.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
-using Robust.Shared.Serialization;
 
 namespace Content.Server._Misfits.Disease.Effects;
 
@@ -13,7 +12,7 @@ namespace Content.Server._Misfits.Disease.Effects;
 /// Injects or removes a reagent from the infected entity's bloodstream.
 /// Used for diseases that induce toxins or deplete beneficial chemicals.
 /// </summary>
-[Serializable, NetSerializable]
+
 public sealed partial class DiseaseAdjustReagent : DiseaseEffect
 {
     /// <summary>Reagent prototype ID to inject.</summary>

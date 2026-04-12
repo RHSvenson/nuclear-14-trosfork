@@ -3,7 +3,6 @@
 
 using Content.Shared._Misfits.Disease;
 using Content.Shared.Popups;
-using Robust.Shared.Serialization;
 
 namespace Content.Server._Misfits.Disease.Effects;
 
@@ -11,7 +10,7 @@ namespace Content.Server._Misfits.Disease.Effects;
 /// Shows a localized popup message to the diseased entity. Used for flavor text
 /// symptoms at various disease stages.
 /// </summary>
-[Serializable, NetSerializable]
+
 public sealed partial class DiseasePopUp : DiseaseEffect
 {
     /// <summary>Localization key for the popup message.</summary>
