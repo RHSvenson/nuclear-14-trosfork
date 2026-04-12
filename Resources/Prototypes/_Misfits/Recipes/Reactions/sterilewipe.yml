@@ -1,0 +1,28 @@
+- type: reaction
+  id: SterileWipeReaction
+  impact: Low
+  quantized: true
+  reactants:
+    Fiber:
+      amount: 10
+    Antiseptic:
+      amount: 5
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: SurgicalSterileWipe
+      
+      
+- type: reaction
+  id: SterileSprayReaction
+  impact: Low
+  quantized: true
+  reactants:
+    Oil:
+      amount: 10
+    Iron:
+      amount: 5
+    Antiseptic:
+      amount: 5
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: SurgicalSterilanSpray
