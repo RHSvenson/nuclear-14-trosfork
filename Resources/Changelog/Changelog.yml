@@ -3108,3 +3108,17 @@ Entries:
   id: 5724
   time: '2026-04-12T02:02:11.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/276
+- author: qevie
+  changes:
+    - type: Tweak
+      message: Made meatspikes craftable!
+  id: 5725
+  time: '2026-04-12T15:19:13.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/280
+- author: qevie
+  changes:
+    - type: Tweak
+      message: Made antiseptic be able to craft sterile wipes & sterile spray!
+  id: 5726
+  time: '2026-04-12T15:19:25.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/279
