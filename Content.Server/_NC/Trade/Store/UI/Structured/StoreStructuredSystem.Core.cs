@@ -893,6 +893,12 @@ public sealed partial class StoreStructuredSystem : EntitySystem
             return true;
         }
 
+        // #Misfits Fix — ContractClientData is a class without Equals override, so
+        // EqualityComparer<T>.Default used reference equality which ALWAYS failed for
+        // newly-created objects from MapContractToClient, making EqualsLast always return
+        // false, flooding the client with redundant state updates and causing the UI to
+        // rebuild infinitely on every dirty-store tick (0.25 s).
+        // Comparing key value fields instead prevents unnecessary state sends.
         private static bool ListEquals(List<ContractClientData> a, List<ContractClientData> b)
         {
             if (ReferenceEquals(a, b))
@@ -902,8 +908,23 @@ public sealed partial class StoreStructuredSystem : EntitySystem
                 return false;
 
             for (var i = 0; i < a.Count; i++)
-                if (!EqualityComparer<ContractClientData>.Default.Equals(a[i], b[i]))
+            {
+                var ca = a[i];
+                var cb = b[i];
+
+                if (ca.Id != cb.Id ||
+                    ca.Completed != cb.Completed ||
+                    ca.Progress != cb.Progress ||
+                    ca.Required != cb.Required ||
+                    ca.Locked != cb.Locked ||
+                    ca.Difficulty != cb.Difficulty ||
+                    ca.Name != cb.Name ||
+                    ca.Repeatable != cb.Repeatable ||
+                    ca.TargetItem != cb.TargetItem ||
+                    ca.Targets?.Count != cb.Targets?.Count ||
+                    ca.Rewards?.Count != cb.Rewards?.Count)
                     return false;
+            }
 
             return true;
         }

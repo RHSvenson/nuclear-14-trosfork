@@ -1,3 +1,21 @@
+# #Misfits Add - Vault-assigned robot headset: wasteland + vault comms
+- type: entity
+  parent: N14ClothingHeadsetAlt
+  id: MisfitsClothingHeadsetRobotVault
+  name: integrated vault comms module
+  description: A hardwired communications module tuned to both wasteland and Vault frequencies.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyVault
+  - type: Sprite
+    sprite: _Misfits/Clothing/Ears/Headsets/scrap.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Ears/Headsets/scrap.rsi
+
 # #Misfits Change - Wasteland scrap headset for junk pile loot drops
 - type: entity
   parent: N14ClothingHeadsetAlt

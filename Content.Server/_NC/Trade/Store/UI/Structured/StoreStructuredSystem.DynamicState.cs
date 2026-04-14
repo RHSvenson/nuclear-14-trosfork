@@ -116,9 +116,10 @@ public sealed partial class StoreStructuredSystem : EntitySystem
         }
 
         // #Misfits Add — retrieve player's unlocked tiers for locking contracts on the client
+        // #Misfits Fix — snapshot the set so the StoreDynamicState doesn't hold a mutable reference
         HashSet<string>? unlockedTiers = null;
         if (hasContractsTab && TryComp(user, out NcTierProgressComponent? tp))
-            unlockedTiers = tp.UnlockedTiers;
+            unlockedTiers = new HashSet<string>(tp.UnlockedTiers);
 
         if (hasContractsTab && comp.Contracts.Count > 0)
         {

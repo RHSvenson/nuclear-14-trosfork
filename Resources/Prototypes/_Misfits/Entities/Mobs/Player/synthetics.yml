@@ -170,8 +170,8 @@
         - BorgModuleGardening # #Misfits Add: domestic servant — gardening fits the Handy role
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCard
-      ears: # Wasteland radio for inter-robot and faction communication
-        - MisfitsClothingHeadsetWastelandScrap
+      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
+        - MisfitsClothingHeadsetRobotVault
   - type: ItemSlots
     slots:
       cell_slot:
@@ -264,8 +264,8 @@
         - BorgModuleTool     # wrench/screwdriver/welder kit for general civil service tasks
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCardRobCo # RobCo Industries Navigation
-      ears: # Wasteland radio for inter-robot and faction communication
-        - MisfitsClothingHeadsetWastelandScrap
+      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
+        - MisfitsClothingHeadsetRobotVault
   - type: ItemSlots
     slots:
       cell_slot:
@@ -359,8 +359,8 @@
         - BorgModuleGPS # #Misfits Add: military utility — navigation and scanning tools
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCard # General Atomics Navigation
-      ears: # Wasteland radio for inter-robot and faction communication
-        - MisfitsClothingHeadsetWastelandScrap
+      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
+        - MisfitsClothingHeadsetRobotVault
   - type: ItemSlots
     slots:
       cell_slot:
@@ -430,8 +430,8 @@
         - BorgModuleGPS         # navigation/patrol utility for law enforcement
       id:
         - MisfitsRobotNavCardRobCo
-      ears: # Wasteland radio for inter-robot and faction communication
-        - MisfitsClothingHeadsetWastelandScrap
+      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
+        - MisfitsClothingHeadsetRobotVault
 
 - type: entity
   parent: N14PlayerSyntheticProtectron
@@ -465,8 +465,8 @@
         - BorgModuleRCD
       id:
         - MisfitsRobotNavCardRobCo
-      ears: # Wasteland radio for inter-robot and faction communication
-        - MisfitsClothingHeadsetWastelandScrap
+      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
+        - MisfitsClothingHeadsetRobotVault
 
 - type: entity
   parent: N14PlayerSyntheticProtectron
@@ -519,8 +519,8 @@
         - N14BorgModuleCryo          # holdable cryo emitter module for field use
       id:
         - MisfitsRobotNavCardRobCo
-      ears: # Wasteland radio for inter-robot and faction communication
-        - MisfitsClothingHeadsetWastelandScrap
+      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
+        - MisfitsClothingHeadsetRobotVault
 
 - type: entity
   parent: N14BasePlayerSynthetic
@@ -985,8 +985,8 @@
         - BorgModuleTool
       id:
         - MisfitsRobotNavCardRobCo
-      ears: # Wasteland radio for inter-robot and faction communication
-        - MisfitsClothingHeadsetWastelandScrap
+      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
+        - MisfitsClothingHeadsetRobotVault
   - type: ItemSlots
     slots:
       cell_slot:
@@ -1036,5 +1036,5 @@
         - BorgModuleDiagnosis
       id:
         - MisfitsRobotNavCardRobCo
-      ears: # Wasteland radio for inter-robot and faction communication
-        - MisfitsClothingHeadsetWastelandScrap
+      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
+        - MisfitsClothingHeadsetRobotVault

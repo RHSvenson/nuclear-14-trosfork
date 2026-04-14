@@ -1,10 +1,10 @@
-using Robust.Shared.GameStates;
-
 namespace Content.Shared._Misfits.Trade;
 
 // Tracks per-player contract tier unlock progress for the current round.
 // Attached to a player entity on first interaction with any tier-enabled trade vendor.
-[RegisterComponent, NetworkedComponent]
+// #Misfits Fix - Removed [NetworkedComponent]: no [AutoGenerateComponentState] was present,
+// causing NullReferenceException in NetSerializer. Tier data is sent via StoreDynamicState instead.
+[RegisterComponent]
 public sealed partial class NcTierProgressComponent : Component
 {
     // Ordered list of all six tiers from lowest to highest.
