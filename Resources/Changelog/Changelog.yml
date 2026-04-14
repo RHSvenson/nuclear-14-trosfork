@@ -3156,3 +3156,12 @@ Entries:
   id: 5730
   time: '2026-04-14T07:54:28.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/285
+- author: qevie
+  changes:
+    - type: Add
+      message: >-
+        A new deathclaw helmet has been added for the tribal chieftain!
+        (Courtesy of Pinky109)
+  id: 5731
+  time: '2026-04-14T17:03:47.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/287
