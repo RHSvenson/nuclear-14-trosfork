@@ -57,7 +57,6 @@
     belt: ClothingBeltMilitary
   storage:
     back:
-    - NCClothingOuterBosReconArmor
     - N14BoxPlasticFilledMilitary
 
 - type: playTimeTracker
