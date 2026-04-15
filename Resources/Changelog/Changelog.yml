@@ -3156,3 +3156,47 @@ Entries:
   id: 5730
   time: '2026-04-14T07:54:28.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/285
+- author: qevie
+  changes:
+    - type: Add
+      message: >-
+        A new deathclaw helmet has been added for the tribal chieftain!
+        (Courtesy of Pinky109)
+  id: 5731
+  time: '2026-04-14T17:03:47.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/287
+- author: qevie
+  changes:
+    - type: Tweak
+      message: Actually properly gave berets to the respective roles.
+    - type: Tweak
+      message: Removed recon armor from scribes.
+  id: 5732
+  time: '2026-04-14T17:04:11.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/286
+- author: cythisiax
+  changes:
+    - type: Fix
+      message: >-
+        Robot jobs now correctly receive vault and job access on their
+        navigation cards at spawn via a new SyntheticGear starting gear
+        prototype. Vault-assigned robots now spawn with proper encryp[tion keys.
+        Can now hear vault radio.
+    - type: Fix
+      message: >-
+        Contract UI no longer floods with infinite rebuilds by using
+        field-by-field state comparison instead of reference.
+    - type: Tweak
+      message: >-
+        Disease cures updated to use Fallout-canon reagents like RadAway,
+        Antidote, Hydra, Bitterdrink, and HealingMixture.
+  id: 5733
+  time: '2026-04-14T17:17:08.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/288
+- author: qevie
+  changes:
+    - type: Fix
+      message: Promethine recipe fixed!
+  id: 5734
+  time: '2026-04-14T21:18:26.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/289

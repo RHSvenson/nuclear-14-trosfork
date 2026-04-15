@@ -65,17 +65,6 @@
     RadAway: 3
 
 - type: reaction
-  id: RadAwayPhialConversion
-  reactants:
-    RadAway:
-      amount: 30
-    Silicon:
-      amount: 10
-  effects:
-    - !type:CreateEntityReactionEffect
-      entity: N14RadAwayPhial
-
-- type: reaction
   id: RadAwayDiluted
   reactants:
     RadAway:
