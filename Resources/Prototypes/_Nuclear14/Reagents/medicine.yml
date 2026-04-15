@@ -484,7 +484,7 @@
       - !type:ChemVomit
         conditions:
         - !type:ReagentThreshold
-          min: 25
+          min: 26
 
 - type: reagent
   id: Bitterdrink

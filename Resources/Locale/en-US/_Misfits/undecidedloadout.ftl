@@ -649,7 +649,7 @@ undecided-loadout-category-misfits-ncra-staff-sergeant-line-description =
 undecided-loadout-category-misfits-ncra-first-sergeant-veteran-name = Sergeant First Class Veteran Kit
 undecided-loadout-category-misfits-ncra-first-sergeant-veteran-description =
     Includes an NCR trench coat, a loaded revolver belt,
-    a master sergeant pin, a battle rifle with 6 clips,
+    a master sergeant pin, a 5.56 carbine with 3 mags,
     a handheld radio, 2 smoke grenades, a stick of dynamite,
     a C ration MRE, a stimpak, a super stimpak,
     a RadAway blood bag, 2 gauze packs, and a flare.

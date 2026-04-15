@@ -386,7 +386,7 @@
     possibleSets:
     - TownGuard_Cere_Set
     - TownGuard_Patr_Set
-    - TownGuard_Lawb_Set
+    # - TownGuard_Lawb_Set
     - TownGuard_Brea_Set
     - TownGuard_Riot_Set
 
