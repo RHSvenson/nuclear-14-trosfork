@@ -1,5 +1,5 @@
 - type: loadout
-  id: LoadoutHeadFlatBlack
+  id: ClothingHeadHatFlatBlack
   category: Head
   cost: 2
   exclusive: true
@@ -14,7 +14,7 @@
     - ClothingHeadHatFlatBlack
 
 - type: loadout
-  id: LoadoutHeadFlatBrown
+  id: ClothingHeadHatFlatBrown
   category: Head
   cost: 2
   exclusive: true
@@ -29,7 +29,7 @@
     - ClothingHeadHatFlatBrown
 
 - type: loadout
-  id: LoadoutHeadHatFedoraBlack
+  id: ClothingHeadHatFedoraBlack
   category: Head
   cost: 2
   exclusive: true
@@ -44,7 +44,7 @@
     - ClothingHeadHatFedoraBlack
 
 - type: loadout
-  id: LoadoutHeadHatFedoraChoc
+  id: ClothingHeadHatFedoraChoc
   category: Head
   cost: 2
   exclusive: true

@@ -15,7 +15,7 @@
     - N14ClothingOuterCoatLeatherJacket
 
 - type: loadout 
-  id: N14LoadoutOuterJacketBomber
+  id: N14ClothingOuterJacketBomber
   category: Outer
   cost: 2
   requirements:
@@ -31,7 +31,7 @@
     - N14ClothingOuterJacketBomber
 
 - type: loadout 
-  id: LoadoutOuterCoatDetective
+  id: ClothingOuterCoatDetective
   category: Outer
   cost: 2
   requirements:
@@ -47,7 +47,7 @@
     - ClothingOuterCoatDetective
 
 - type: loadout 
-  id: LoadoutOuterCoatGentle
+  id: ClothingOuterCoatGentle
   category: Outer
   cost: 2
   requirements:
@@ -63,7 +63,7 @@
     - ClothingOuterCoatGentle
 
 - type: loadout 
-  id: LoadoutOuterDenimJacket
+  id: ClothingOuterDenimJacket
   category: Outer
   cost: 2
   requirements:

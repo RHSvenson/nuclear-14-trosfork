@@ -67,6 +67,9 @@ loadout-name-N14LoadoutUniformJumpskirtDressLongSleeve = long sleeve dress
 loadout-name-N14LoadoutUniformJumpskirtDressFormalRed = formal red dress
 
 # Outer clothing
+loadout-name-ClothingOuterCoatGentle = gentle coat
+loadout-name-ClothingOuterCoatDetective = detective coat
+loadout-name-N14ClothingOuterJacketBomber = bomber jacket 
 loadout-name-N14LoadoutOuterCoatLeatherDuster = leather duster
 loadout-name-N14LoadoutOuterCoatBattlecoat = battlecoat
 loadout-name-N14LoadoutOuterCoatBattlecoatTan = battlecoat (tan)
@@ -111,6 +114,10 @@ loadout-name-N14LoadoutShoesRags = rag shoes
 loadout-name-N14ClothingBootsCombat = combat boots
 
 # Head
+loadout-name-ClothingHeadHatFedoraChoc = brown fedora
+loadout-name-ClothingHeadHatFedoraBlack = black fedora  
+loadout-name-ClothingHeadHatFlatBrown = brown flat cap     
+loadout-name-ClothingHeadHatFlatBlack = black flat cap
 loadout-name-N14LoadoutHeadHatTrucker = trucker hat
 loadout-name-N14LoadoutHeadHatArmyCap = army cap
 loadout-name-N14LoadoutHeadHatBeanie = beanie

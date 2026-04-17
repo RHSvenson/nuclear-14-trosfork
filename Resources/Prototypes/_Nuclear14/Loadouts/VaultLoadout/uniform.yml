@@ -106,7 +106,7 @@
   category: Uniform
   cost: 2
   exclusive: true
-  items:
+  requirements:
     - !type:CharacterDepartmentTimeRequirement
       department: Vault 
       min: 1500  # 25 hours
@@ -115,3 +115,5 @@
     - !type:CharacterJobRequirement
       jobs:
         - VaultDweller
+  items:
+  - N14ClothingUniformJumpsuitPreWarLumberjack
