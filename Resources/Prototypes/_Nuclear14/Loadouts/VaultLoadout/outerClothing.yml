@@ -1,5 +1,5 @@
 - type: loadout # I'd like to see a biker gang or something in the Vault, so this is for that.
-  id: N14LoadoutOuterCoatLeatherJacket
+  id: N14ClothingOuterCoatLeatherJacket
   category: Outer
   cost: 2
   requirements:

@@ -67,3 +67,10 @@
       id: N14ClothingOutershaman
     - type: loadout
       id: N14ClothingOuterdrylandersimple
+    - type: loadout
+      id: N14ClothingOuterJacketBomber
+    - type: loadout
+      id: ClothingOuterCoatDetective
+    - type: loadout
+      id: ClothingOuterCoatGentle
+      
