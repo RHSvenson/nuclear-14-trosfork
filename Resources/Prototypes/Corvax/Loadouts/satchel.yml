@@ -6,10 +6,13 @@
   customName: false
   customDescription: false
   requirements:
-    - !type:CharacterDepartmentRequirement
+    - !type:CharacterJobRequirement
       inverted: true
-      departments:
-      - Vault
+      jobs:
+      - VaultDoctor
+      - Overseer
+      - VaultDweller
+      - VaultSecurity
     - !type:CharacterItemGroupRequirement
       group: N14LodaoutBags
   items:
@@ -25,10 +28,13 @@
   customName: false
   customDescription: false
   requirements:
-    - !type:CharacterDepartmentRequirement
+    - !type:CharacterJobRequirement
       inverted: true
-      departments:
-      - Vault
+      jobs:
+      - VaultDoctor
+      - Overseer
+      - VaultDweller
+      - VaultSecurity
     - !type:CharacterItemGroupRequirement
       group: N14LodaoutBags
   items:

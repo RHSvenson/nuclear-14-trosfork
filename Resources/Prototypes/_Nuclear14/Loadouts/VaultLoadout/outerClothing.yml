@@ -1,0 +1,79 @@
+- type: loadout # I'd like to see a biker gang or something in the Vault, so this is for that.
+  id: N14LoadoutOuterCoatLeatherJacket
+  category: Outer
+  cost: 2
+  requirements:
+    - !type:CharacterDepartmentTimeRequirement
+      department: Vault
+      min: 1200 # 20 hours
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterJobRequirement
+       jobs:
+       - VaultDweller
+  items:
+    - N14ClothingOuterCoatLeatherJacket
+
+- type: loadout 
+  id: N14LoadoutOuterJacketBomber
+  category: Outer
+  cost: 2
+  requirements:
+    - !type:CharacterDepartmentTimeRequirement
+      department: Vault
+      min: 900 # 15 hours
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterJobRequirement
+       jobs:
+       - VaultDweller
+  items:
+    - N14ClothingOuterJacketBomber
+
+- type: loadout 
+  id: LoadoutOuterCoatDetective
+  category: Outer
+  cost: 2
+  requirements:
+    - !type:CharacterPlaytimeRequirement
+      tracker: VaultSecurity
+      min: 1200 # 20 hours
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterJobRequirement
+       jobs:
+       - VaultSecurity
+  items:
+    - ClothingOuterCoatDetective
+
+- type: loadout 
+  id: LoadoutOuterCoatGentle
+  category: Outer
+  cost: 2
+  requirements:
+    - !type:CharacterPlaytimeRequirement
+      tracker: Overseer
+      min: 1200 # 20 hours
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterJobRequirement
+       jobs:
+       - Overseer
+  items:
+    - ClothingOuterCoatGentle
+
+- type: loadout 
+  id: LoadoutOuterDenimJacket
+  category: Outer
+  cost: 2
+  requirements:
+    - !type:CharacterPlaytimeRequirement
+      tracker: VaultDweller
+      min: 1200 # 20 hours
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterJobRequirement
+       jobs:
+       - VaultDweller
+  items:
+   - ClothingOuterDenimJacket

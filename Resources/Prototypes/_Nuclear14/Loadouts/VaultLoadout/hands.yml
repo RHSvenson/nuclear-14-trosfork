@@ -1,0 +1,15 @@
+- type: loadout
+  id: N14LoadoutHandsGlovesDriver
+  category: Hands
+  cost: 3
+  requirements:
+    - !type:CharacterDepartmentTimeRequirement
+      department: Vault 
+      min: 1500  # 25 hours
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHands
+    - !type:CharacterJobRequirement # Forge-Change
+       jobs:
+        - VaultDweller
+  items:
+    - N14ClothingHandsGlovesDriver

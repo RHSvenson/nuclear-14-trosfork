@@ -1,8 +1,8 @@
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: N14ClothingOuterBase
   id: ClothingOuterCoatBomber
   name: bomber jacket
-  description: A thick, well-worn WW2 leather bomber jacket.
+  description: A thick, well-worn pre-war leather bomber jacket.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
@@ -10,38 +10,18 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
+  parent: N14ClothingOuterBase
   id: ClothingOuterCoatDetective
   name: detective trenchcoat
-  description: A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. Wearing it makes you feel for the plight of the Tibetans.
+  description: A rugged canvas trenchcoat, perfect for solving any Vault related mysteries. 
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/detective.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/detective.rsi
-  - type: StorageFill
-    contents:
-    - id: SmokingPipeFilledTobacco
-    - id: FlippoEngravedLighter
-  - type: Armor #same as regular sec armor
-    modifiers:
-      coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70
-        Heat: 0.80
 
 - type: entity
-  parent: ClothingOuterCoatDetective
-  id: ClothingOuterCoatDetectiveLoadout
-  components:
-  - type: StorageFill
-    contents:
-    - id: SmokingPipeFilledTobacco
-    - id: FlippoLighter #Not the steal objective, only difference from normal detective trenchcoat
-
-- type: entity
-  parent: ClothingOuterStorageBase
+  parent: N14ClothingOuterBase
   id: ClothingOuterCoatGentle
   name: gentle coat
   description: A gentle coat for a gentle man, or woman.

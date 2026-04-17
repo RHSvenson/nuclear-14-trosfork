@@ -75,6 +75,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
   items:
     - N14ClothingHeadHatBandit
 
@@ -91,6 +95,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
   items:
     - N14ClothingHeadHatTribalOutcastHood
 
@@ -172,6 +180,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
   items:
     - N14ClothingTribalMuffaloskull
 
@@ -189,5 +201,9 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
   items:
     - N14ClothingTribalRadstagSkull

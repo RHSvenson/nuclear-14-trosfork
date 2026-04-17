@@ -13,6 +13,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPisoner
+     - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
    items:
      - N14ClothingNeckCloakLeather
 
@@ -31,6 +35,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPisoner
+      - !type:CharacterDepartmentRequirement
+        inverted: true
+        departments:
+        - Vault
    items:
      - N14ClothingNeckMantleLeather
 
@@ -85,6 +93,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPisoner
+      - !type:CharacterDepartmentRequirement
+        inverted: true
+        departments:
+        - Vault
    items:
      - N14ClothingNeckTribalCloak
 
@@ -103,6 +115,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPisoner
+      - !type:CharacterDepartmentRequirement
+        inverted: true
+        departments:
+        - Vault
    items:
      - N14ClothingNeckTribalCloakBr
 
@@ -121,5 +137,9 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPisoner
+      - !type:CharacterDepartmentRequirement
+        inverted: true
+        departments:
+        - Vault
    items:
      - N14ClothingNeckShawl

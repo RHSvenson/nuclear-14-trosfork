@@ -1,0 +1,59 @@
+- type: loadout
+  id: LoadoutHeadFlatBlack
+  category: Head
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      jobs:
+      - VaultDweller
+      - VaultOverseer
+  items:
+    - ClothingHeadHatFlatBlack
+
+- type: loadout
+  id: LoadoutHeadFlatBrown
+  category: Head
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      jobs:
+      - VaultDweller
+      - VaultOverseer
+  items:
+    - ClothingHeadHatFlatBrown
+
+- type: loadout
+  id: LoadoutHeadHatFedoraBlack
+  category: Head
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      jobs:
+      - VaultDweller
+      - VaultOverseer
+  items:
+    - ClothingHeadHatFedoraBlack
+
+- type: loadout
+  id: LoadoutHeadHatFedoraChoc
+  category: Head
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      jobs:
+      - VaultDweller
+      - VaultOverseer
+  items:
+    - ClothingHeadHatFedoraChoc

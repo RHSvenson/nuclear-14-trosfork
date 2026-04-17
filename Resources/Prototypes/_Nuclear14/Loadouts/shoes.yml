@@ -43,6 +43,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
   items:
     - N14ClothingShoesRags
 

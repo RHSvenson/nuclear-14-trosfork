@@ -11,6 +11,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
   items:
     - N14ClothingHandsGlovesCloth
 
@@ -43,6 +47,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
   items:
     - N14ClothingHandsGlovesFur
 
@@ -75,6 +83,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPisoner
+      - VaultDweller
+      - VaultSecurity
+      - VaultEngineer
+      - Overseer
   items:
     - N14ClothingHandsGlovesNitrile
 
@@ -91,5 +103,9 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPisoner
+      - VaultDweller
+      - VaultSecurity
+      - VaultEngineer
+      - Overseer
   items:
     - N14ClothingHandsGlovesNitrilePurple
