@@ -3316,3 +3316,10 @@ Entries:
   id: 5742
   time: '2026-04-18T17:58:38.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/300
+- author: qevie
+  changes:
+    - type: Add
+      message: Mad-Max inspired face markings! (Courtesy of Pinky109)
+  id: 5743
+  time: '2026-04-18T20:01:56.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/302
