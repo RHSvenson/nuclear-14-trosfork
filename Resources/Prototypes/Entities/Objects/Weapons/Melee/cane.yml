@@ -42,8 +42,8 @@
     attackRate: .6666
     damage:
       types:
-        Slash: 9
-        Piercing: 5
+        Slash: 40
+        Piercing: 15
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
