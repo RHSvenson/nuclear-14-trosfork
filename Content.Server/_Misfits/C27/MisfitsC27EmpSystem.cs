@@ -5,6 +5,10 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 
+// #Misfits Add - Server EMP handler for the C-27 humanoid robot species. Subscribes to
+// EmpPulseEvent on entities carrying MisfitsC27Component and applies Shock damage scaled by
+// the pulse's energy budget plus the configured stun. Server-only because EMP damage and
+// status effects are authoritative on the server.
 namespace Content.Server._Misfits.C27;
 
 // #Misfits Add - C-27 humanoid robot EMP handler. Spec: EMP pulses drain power cells AND inflict
