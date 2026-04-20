@@ -3,4 +3,4 @@
 # RMC undergarment marking categories (referenced by _RMC/Entities/Mobs/Customization/Markings/undershirt.yml and underwear.yml)
 markings-category-UndergarmentTop = Undergarment (Top)
 markings-category-UndergarmentBottom = Undergarment (Bottom)
-markings-warboypaint = Chrome-Huffin
+marking-warboypaint = Chrome-Huffin
