@@ -3404,3 +3404,32 @@ Entries:
   id: 5749
   time: '2026-04-20T21:41:08.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/307
+- author: cythisiax
+  changes:
+    - type: Add
+      message: /raid & /group
+    - type: Add
+      message: brahmin backpack slots
+    - type: Fix
+      message: Multiplas rifle now fires a burst spread. Semi auto.
+    - type: Tweak
+      message: >-
+        Major factions (NCR, Brotherhood, Legion) are now blocked from
+        individually or faction-wide enlisting into wars between other major
+        factions.
+    - type: Tweak
+      message: Wasteland pip-boy map now injects group member blips for the map.
+    - type: Tweak
+      message: >-
+        Renamed TribalHealer job to TribalShaman across all prototypes, starting
+        gear, faction lists, traits, and Wendover slot table. Shaman now starts
+        with a spirit board in their backpack.
+    - type: Tweak
+      message: C-27 starting gear migrated to UndecidedLoadoutBackpack kit.
+    - type: Add
+      message: Large cosmetic loadout expansion.
+    - type: Add
+      message: All bonfires now function as tribal smoke signal radios. Tribals only.
+  id: 5750
+  time: '2026-04-20T22:00:30.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/308
