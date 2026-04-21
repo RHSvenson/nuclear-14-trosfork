@@ -8,6 +8,8 @@ using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
+using Content.Shared.StatusEffect; // #Misfits Add - Explosion knockdown: required namespace
+using Content.Shared.Stunnable;   // #Misfits Add - Explosion knockdown: required namespace
 using Content.Shared.Tag;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -27,6 +29,7 @@ public sealed partial class ExplosionSystem
 {
     [Dependency] private readonly FlammableSystem _flammableSystem = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private readonly SharedStunSystem _stunSystem = default!; // #Misfits Add - Explosion knockdown: stun system dependency
 
     /// <summary>
     ///     Used to limit explosion processing time. See <see cref="MaxProcessingTime"/>.
@@ -495,6 +498,19 @@ public sealed partial class ExplosionSystem
                 xform,
                 _projectileQuery,
                 throwForce);
+        }
+
+        // #Misfits Add - Concussive knockdown: ragdoll mobs caught in a significant blast.
+        // Duration scales with throw force so weak blasts (landmines, tiny grenades) have no effect
+        // while grenades/dynamite knock targets down for 1-4s proportional to blast intensity.
+        // Gated on originalDamage to skip the secondary shrapnel re-throw pass.
+        if (originalDamage != null
+            && throwForce >= 15f
+            && TryComp<StatusEffectsComponent>(uid, out var statusEffects))
+        {
+            // Formula: each unit of throwForce above baseline (10) contributes 0.15s of knockdown, capped at 5s.
+            var knockdownSeconds = Math.Clamp((throwForce - 10.0) * 0.15, 0.5, 5.0);
+            _stunSystem.TryKnockdown(uid, TimeSpan.FromSeconds(knockdownSeconds), refresh: true, statusEffects);
         }
     }
 
