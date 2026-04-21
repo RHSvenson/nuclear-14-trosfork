@@ -1,0 +1,14 @@
+# #Misfits Add - Misfits-originated belt prototypes.
+# Inherits N14ClothingBeltStorageBase for standard ammo/small-item storage behaviour.
+
+- type: entity
+  parent: N14ClothingBeltStorageBase
+  id: N14ClothingBeltLeatherPouches
+  name: leather pouches belt
+  description: Worn strips of leather stitched into a makeshift belt with small pouches for carrying supplies. Common on wastelanders who can't afford military webbing.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Belt/leatherpouches.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Belt/leatherpouches.rsi
+  - type: Appearance

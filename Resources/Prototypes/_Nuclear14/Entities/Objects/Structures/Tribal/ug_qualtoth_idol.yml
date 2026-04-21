@@ -44,9 +44,9 @@
   - type: Sprite
     drawdepth: Mobs
     noRot: true
-    # N14 TODO: Replace with dedicated idol sprite once art is available.
-    sprite: _Nuclear14/Structures/Decoration/cave_decor.rsi
-    state: stalagmite1
+    # #Misfits Fix - Replaced stalagmite placeholder with dedicated Ug-Qualtoth obelisk art (MrGreen).
+    sprite: _Nuclear14/Structures/Tribal/ug_qualtoth.rsi
+    state: idol
   - type: PointLight
     enabled: true
     color: "#7B0000"

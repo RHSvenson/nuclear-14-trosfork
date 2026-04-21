@@ -1,0 +1,13 @@
+# #Misfits Add - Tribal APA helmet: X-01 helmet reskin with Ug-Qualtoth art.
+# Inherits all X-01 helmet behaviours: HUD, EyeProtection, Armor, ToggleableLight, equip sounds.
+# Only the Sprite path is overridden; the RSI provides all required state names.
+
+- type: entity
+  parent: N14ClothingHeadHelmetPowerArmorX01
+  id: N14ClothingHeadHelmetPowerArmorTribalAPA
+  name: tribal advanced power armor helmet
+  description: An X-01 helmet retrofitted with Ug-Qualtoth tribal markings. Ceremonial bones and ancient sigils coat the surface — the heads-up display still functions beneath them.
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _Misfits/Clothing/Head/PowerArmorHelmets/tribal_apa_helmet.rsi

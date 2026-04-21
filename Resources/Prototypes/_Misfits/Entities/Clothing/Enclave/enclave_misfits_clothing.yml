@@ -1,0 +1,40 @@
+# #Misfits Add - New Enclave clothing variants using submitted art.
+# These are standalone spawnable prototypes — they do NOT replace existing Enclave defaults.
+# Current Enclave job startingGear entries are unchanged.
+
+# --- Blue Enclave Uniform ---
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitEnclaveBlue
+  name: enclave uniform (blue)
+  description: A blue field-variant of the standard Enclave uniform. Worn by personnel operating in colder or more covert environments.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/enclave_uniform_blue.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/enclave_uniform_blue.rsi
+
+# --- Grey Enclave Uniform ---
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitEnclaveGrey
+  name: enclave uniform (grey)
+  description: A grey field-variant of the standard Enclave uniform. Blends better in ash-grey ruins and rocky terrain.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/enclave_uniform_grey.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/enclave_uniform_grey.rsi
+
+# --- New Enclave Combat Armor ---
+# Inherits armor/explosion stats from N14ClothingOuterEnclaveArmor parent.
+- type: entity
+  parent: N14ClothingOuterEnclaveArmor
+  id: N14ClothingOuterEnclaveCombatArmor
+  name: enclave combat armor (mk2)
+  description: An updated suit of Enclave combat armor with reinforced plating. Heavier than the standard issue but offers better protection in the field.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_combat_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_combat_armor.rsi

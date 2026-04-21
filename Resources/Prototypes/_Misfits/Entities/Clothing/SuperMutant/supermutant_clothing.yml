@@ -182,6 +182,79 @@
         Slash: 0.5
         Piercing: 0.5
 
+# #Misfits Add - Ranger armor for the playable Supermutant Ranger job variant.
+# Tagged SuperMutantWearable so only supermutants can equip it in outerClothing slot.
+- type: entity
+  parent: [ClothingOuterBase, AllowSuitStorageClothing]
+  id: ClothingSuperMutantRangerArmor
+  name: supermutant ranger armor
+  description: Heavy-duty scrap plate reinforced with raider leather, worn by the most cunning of supermutant rangers. Bulky enough to stop most small-arms fire.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/ranger_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/ranger_armor.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.85
+
+# #Misfits Add - Trooper armor for the playable Supermutant Trooper job variant.
+- type: entity
+  parent: [ClothingOuterBase, AllowSuitStorageClothing]
+  id: ClothingSuperMutantTrooperArmor
+  name: supermutant trooper armor
+  description: Thick welded plating built for a supermutant front-liner. Not elegant, but reliably stops bullets aimed at its massive wearer.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/trooper_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/trooper_armor.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.80
+
+# #Misfits Add - Extra supermutant outer outfit (outfit C) — spawnable standalone wearable.
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingSuperMutantOutfitC
+  name: supermutant battle wrap
+  description: A layered wrap of salvaged cloth and scrap-metal strips worn by supermutants heading into a fight.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/supermutant_outfit_c.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/supermutant_outfit_c.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+# #Misfits Add - Supermutant neck trinket (skull necklace) — standalone spawnable wearable.
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingSuperMutantNeckTrinket
+  name: supermutant skull necklace
+  description: A string of crushed skulls and scrap metal worn as a trophy around a supermutant's thick neck.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/supermutant_neck_trinket.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/supermutant_neck_trinket.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
 # #Misfits Add - Vault suit jumpsuit for the base playable Supermutant role.
 # Sprites by ColonelNothing (CC-BY-SA-3.0). Prevents naked spawns.
 # --- Supermutant Vault Suit ---

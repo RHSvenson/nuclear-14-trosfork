@@ -50,6 +50,12 @@ job-description-supermutant = You are a hulking FEV-mutated humanoid, towering o
 job-name-supermutant-gladiator = Supermutant Gladiator
 job-description-supermutant-gladiator = You are an arena-forged supermutant who lives for close combat and spectacle. Wear your gladiator kit proudly and prove your strength in the wasteland.
 
+# #Misfits Add - Supermutant Ranger and Trooper job locale strings.
+job-name-supermutant-ranger = Supermutant Ranger
+job-description-supermutant-ranger = You are a supermutant who has learned patience and cunning alongside brute strength. Your ranger armor marks you as one who scouts, ambushes, and survives where others do not.
+job-name-supermutant-trooper = Supermutant Trooper
+job-description-supermutant-trooper = You are the hammer — a supermutant front-liner built for direct assault. Your trooper armor can soak punishment that would shred a human, and you intend to make the most of it.
+
 # #Misfits Add (Phase G) - C-27 Humanoid Robot job locale.
 job-name-c27 = C-27 Humanoid Robot
 job-description-c27 = You are a C-27 humanoid robot — a pre-war General Atomics workshop frame retrofitted for Wasteland service. Slow but durable, immune to flash and broken glass, and self-repairing. Choose your factory paint, serve your masters, or carve your own path through the wastes.

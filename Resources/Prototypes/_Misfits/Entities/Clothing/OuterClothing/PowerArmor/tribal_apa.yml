@@ -1,0 +1,24 @@
+# #Misfits Add - Tribal APA: X-01 power armor reskin for the Ug-Qualtoth tribal faction.
+# Inherits ALL X-01 mechanics: Armor, ExplosionResistance, Reflect, PowerArmorIntegrity, ToggleableClothing.
+# Only Sprite/Clothing paths and the toggled head prototype are overridden.
+
+# --- Tribal APA Suit ---
+- type: entity
+  parent: N14ClothingOuterPowerArmorAdvanced1
+  id: N14ClothingOuterPowerArmorTribalAPA
+  name: tribal advanced power armor
+  description: A suit of X-01 power armor adorned with Ug-Qualtoth tribal markings. Ancient script and sacred bones have been grafted into the plating — its protection remains entirely undiminished by the decoration.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/tribal_apa.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/tribal_apa.rsi
+    equipDelay: 3
+    unequipDelay: 6
+  - type: ToggleableClothing
+    # Override only to point head at the tribal helmet; gloves/shoes/back unchanged from X-01
+    clothingPrototypes:
+      head: N14ClothingHeadHelmetPowerArmorTribalAPA
+      gloves: N14ClothingPAGauntletsDark
+      shoes: N14ClothingPABootsDark
+      back: N14ClothingPowerSystemsBack

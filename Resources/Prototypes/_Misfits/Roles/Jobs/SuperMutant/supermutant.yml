@@ -84,3 +84,79 @@
 
 - type: playTimeTracker
   id: SuperMutantGladiator
+
+# #Misfits Add - Ranger variant of the playable Supermutant role.
+# Spawns with ranger armor. Same whitelist/species/faction restrictions as Gladiator.
+- type: job
+  id: SuperMutantRanger
+  jobWhitelistBypassesRoleTimers: true
+  name: job-name-supermutant-ranger
+  description: job-description-supermutant-ranger
+  playTimeTracker: SuperMutantRanger
+  icon: JobIconBorg
+  supervisors: job-supervisors-supermutant
+  canBeAntag: false
+  setPreference: true
+  overrideConsoleVisibility: true
+  whitelisted: true
+  hideWithoutWhitelist: true
+  spawnLoadout: false
+  applyTraits: true
+  startingGear: SuperMutantRangerGear
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - SuperMutant
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - PlayerSuperMutant
+
+- type: startingGear
+  id: SuperMutantRangerGear
+  equipment:
+    outerClothing: ClothingSuperMutantRangerArmor
+    back: N14ClothingBackpackMilitary
+
+- type: playTimeTracker
+  id: SuperMutantRanger
+
+# #Misfits Add - Trooper variant of the playable Supermutant role.
+# Front-line heavy; spawns with trooper armor. Same restrictions as Ranger/Gladiator.
+- type: job
+  id: SuperMutantTrooper
+  jobWhitelistBypassesRoleTimers: true
+  name: job-name-supermutant-trooper
+  description: job-description-supermutant-trooper
+  playTimeTracker: SuperMutantTrooper
+  icon: JobIconBorg
+  supervisors: job-supervisors-supermutant
+  canBeAntag: false
+  setPreference: true
+  overrideConsoleVisibility: true
+  whitelisted: true
+  hideWithoutWhitelist: true
+  spawnLoadout: false
+  applyTraits: true
+  startingGear: SuperMutantTrooperGear
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - SuperMutant
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - PlayerSuperMutant
+
+- type: startingGear
+  id: SuperMutantTrooperGear
+  equipment:
+    outerClothing: ClothingSuperMutantTrooperArmor
+    back: N14ClothingBackpackMilitary
+
+- type: playTimeTracker
+  id: SuperMutantTrooper

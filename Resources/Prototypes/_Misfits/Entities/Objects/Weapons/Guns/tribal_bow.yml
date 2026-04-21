@@ -1,0 +1,13 @@
+# #Misfits Add - Tribal bow: BowImprovised reskin using submitted tribal art.
+# Inherits all BowImprovised mechanics: wield system, arrow/plunger slots, construction graph,
+# GenericVisualizer state switching, back-slot carry, and UseDelay.
+# Only the sprite RSI path is overridden.
+
+- type: entity
+  parent: BowImprovised
+  id: N14TribalBow
+  name: tribal bow
+  description: A bone-and-sinew bow crafted using pre-war tribal techniques. Crude by Wasteland standards but surprisingly effective at close range — and completely silent.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Bow/tribal_bow.rsi
