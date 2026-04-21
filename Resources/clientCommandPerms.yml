@@ -41,8 +41,9 @@
     - replay_load
     - saveconfig
     - war
-    - warjoin
-    - group # #Misfits Add - player group party system
+    - warjoin 
+    - group
+    - raid
 
 - Flags: DEBUG
   Commands:
