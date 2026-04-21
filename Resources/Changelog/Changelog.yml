@@ -3440,3 +3440,96 @@ Entries:
   id: 5751
   time: '2026-04-20T22:43:38.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/309
+- author: cythisiax
+  changes:
+    - type: Fix
+      message: >-
+        Fixed the in-game changelog window going blank when entries contained
+        certain special characters like brackets.
+    - type: Fix
+      message: >-
+        Fixed loadout and trait time requirements always showing the wrong
+        amount of playtime needed, regardless of how much time you'd actually
+        played.
+    - type: Fix
+      message: >-
+        Fixed mentors/admins reconnecting mid-round seeing a completely empty
+        MHelp chat panel.
+    - type: Fix
+      message: >-
+        Fixed loadout kit boxes not disappearing after you picked your gear,
+        allowing them to be reused indefinitely.
+    - type: Fix
+      message: >-
+        Fixed addiction withdrawal messages appearing as raw code text instead
+        of readable dialogue.
+    - type: Fix
+      message: >-
+        Fixed NCR and Brotherhood C-27 robots being unable to put on their own
+        faction armor.
+    - type: Tweak
+      message: >-
+        Explosions now knock down nearby characters. larger blasts ragdoll for
+        longer, small ones have no effect.
+    - type: Tweak
+      message: >-
+        Reduced background network traffic from faction overlay updates. No
+        visible change for players.
+    - type: Tweak
+      message: >-
+        C-27 robots are now significantly more durable with 400 base HP and full
+        radiation immunity. Armor now comes from equipped plating rather than
+        innate chassis bonuses.
+    - type: Tweak
+      message: >-
+        C-27 Medium and Heavy armor must now be crafted at an armor workbench
+        using a C-27 Armor Blueprint — it is no longer handed out at spawn.
+    - type: Tweak
+      message: >-
+        C-27 Generic, NCR, and Brotherhood are now three separate whitelisted
+        roles with their own gear and faction loadouts.
+    - type: Tweak
+      message: Renamed the Supermutant Gladiator role to Supermutant Legion Gladiator.
+    - type: Tweak
+      message: Renamed the gamemode display name to MFNW (Misfits Nuclear Wasteland).
+    - type: Tweak
+      message: >-
+        The smoke signal now shows an atmospheric message to nearby bystanders
+        who aren't in the Tribe.
+    - type: Tweak
+      message: >-
+        Picking a species with restricted jobs in the character editor now
+        auto-selects those jobs so you don't accidentally spawn as a
+        Wastelander.
+    - type: Add
+      message: >-
+        Dead characters can no longer rejoin the same round under the same name.
+        If you die, your job slot re-opens after 15 minutes and you must pick a
+        different character to return. unless you are revived, cryoed, or an
+        admin respawns you.
+    - type: Add
+      message: Enclave now has spawn points and job slots active on the Vault map.
+    - type: Add
+      message: >-
+        Added Supermutant Ranger, Trooper, NCR Ranger new whitelisted roles,
+        each with unique armor and faction loadouts.
+    - type: Add
+      message: >-
+        Added C-27 Armor Blueprints (Generic, NCR, Brotherhood) for crafting
+        medium and heavy chassis plating.
+    - type: Add
+      message: >-
+        Added new sprites and wearable Tribal APA power armor, tribal bow,
+        Powder Ganger clothing, Children of Atom banners, Enclave blue/grey
+        uniforms and a heavier combat armor variant, leather pouches belt,
+        supermutant ranger armor, trooper armor, skull necklace, and battle
+        wrap.
+    - type: Add
+      message: >-
+        The Ug-Qualtoth idol now has its own dedicated art instead of a cave
+        rock placeholder.
+    - type: Add
+      message: C-27 latejoin spawn points added to Wendover,.
+  id: 5752
+  time: '2026-04-21T21:19:24.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/310
