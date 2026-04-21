@@ -5,9 +5,9 @@
                MinHeight="130"
                SetSize="480 130">
     <BoxContainer Orientation="Vertical" Margin="8">
-        <!-- Flavor label — Autowrap so text never clips on the right edge -->
-        <Label Text="{Loc smoke-signal-window-prompt}" Margin="0 0 0 6"
-               HorizontalExpand="True" Autowrap="True" />
+         <!-- Flavor label — wider window keeps the full prompt visible without wrapping -->
+         <Label Text="{Loc smoke-signal-window-prompt}" Margin="0 0 0 6"
+             HorizontalExpand="True" />
         <!-- Message input -->
         <LineEdit Name="MessageInput"
                   PlaceHolder="{Loc smoke-signal-window-placeholder}"
