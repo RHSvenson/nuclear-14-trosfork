@@ -3533,3 +3533,10 @@ Entries:
   id: 5752
   time: '2026-04-21T21:19:24.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/310
+- author: cythisiax
+  changes:
+    - type: Fix
+      message: jobs.yml fix fast
+  id: 5753
+  time: '2026-04-21T22:17:38.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/311
