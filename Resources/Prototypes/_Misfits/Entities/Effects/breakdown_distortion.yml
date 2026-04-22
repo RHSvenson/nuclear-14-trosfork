@@ -4,7 +4,7 @@
 # entity carries no physics, audio, or gravity - only the distortion overlay.
 - type: entity
   id: MisfitsBreakdownDistortion
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Transform
   - type: SingularityDistortion
