@@ -36,7 +36,7 @@
               doAfter: 3
 
     - node: flagch
-      entity: MisfitsFlagCH
+      entity: N14FlagWallChina
       edges:
         - to: start
           steps:
@@ -111,7 +111,7 @@
               doAfter: 3
 
     - node: flagen
-      entity: N14FlagWallArizona
+      entity: N14FlagWallEnclave
       edges:
         - to: start
           steps:
@@ -223,30 +223,30 @@
               amount: 2
             - !type:DeleteEntity
 
-- type: constructionGraph
-  id: MisfitsFlagBOSE
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: flagbose
-          steps:
-            - material: Cloth
-              amount: 2
-              doAfter: 3
-
-    - node: flagbose
-      entity: N14FlagWallWashingtonBrotherhood
-      edges:
-        - to: start
-          steps:
-            - tool: Cutting
-              doAfter: 3
-          completed:
-            - !type:SpawnPrototype
-              prototype: MaterialCloth1
-              amount: 2
-            - !type:DeleteEntity
+## - type: constructionGraph
+##  id: MisfitsFlagBOSE
+##  start: start
+##  graph:
+##    - node: start
+##      edges:
+##        - to: flagbose
+##          steps:
+##            - material: Cloth
+##              amount: 2
+##              doAfter: 3
+##
+##    - node: flagbose
+##      entity: N14FlagWallWashingtonBrotherhood
+##      edges:
+##        - to: start
+##          steps:
+##            - tool: Cutting
+##              doAfter: 3
+##          completed:
+##            - !type:SpawnPrototype
+##              prototype: MaterialCloth1
+##              amount: 2
+##            - !type:DeleteEntity
 
 - type: constructionGraph
   id: MisfitsFlagCL

@@ -137,20 +137,20 @@
   objectType: Structure
   placementMode: SnapgridCenter
 
-- type: construction
-  name: East Brotherhood of Steel flag
-  id: N14FlagWallWashingtonBrotherhood
-  graph: MisfitsFlagBOSE
-  startNode: start
-  targetNode: flagbose
+#- type: construction
+#  name: East Brotherhood of Steel flag
+#  id: N14FlagWallWashingtonBrotherhood
+#  graph: MisfitsFlagBOSE
+#  startNode: start
+#  targetNode: flagbose
 # category: construction-category-decorations
-  description: A Washington Brotherhood of Steel flag.
-  hide: false
-  icon:
-    sprite: _Nuclear14/Structures/Wallmounts/walldecor3.rsi
-    state: flag_washing
-  objectType: Structure
-  placementMode: SnapgridCenter
+#  description: A Washington Brotherhood of Steel flag.
+#  hide: false
+#  icon:
+#    sprite: _Nuclear14/Structures/Wallmounts/walldecor3.rsi
+#    state: flag_washing
+#  objectType: Structure
+#  placementMode: SnapgridCenter
 
 - type: construction
   name: Colorado flag
