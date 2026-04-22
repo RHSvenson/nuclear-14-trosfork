@@ -25,7 +25,7 @@
           Quantity: 2
   - type: SliceableFood
     count: 4
-    slice: CP14FoodDoughMedium
+    slice: MisfitsFoodDoughMedium
   - type: CP14TemperatureTransformation
     entries:
     - temperatureRange: 400, 500
@@ -36,7 +36,7 @@
 
 - type: entity
   id: MisfitsFoodBread
-  parent: CP14FoodDoughLarge
+  parent: MisfitsFoodDoughLarge
   name: bread
   description: Crispy and so flavourful!
   components:
@@ -54,7 +54,7 @@
           Quantity: 2
   - type: SliceableFood
     count: 4
-    slice: CP14FoodBreadSlice
+    slice: MisfitsFoodBreadSlice
   - type: CP14TemperatureTransformation
     autoTransformOnCooked: false
     entries:
@@ -66,7 +66,7 @@
 
 - type: entity
   id: MisfitsFoodBreadSlice
-  parent: CP14FoodDoughMedium
+  parent: MisfitsFoodDoughMedium
   name: bread slice
   components:
   - type: Sprite
@@ -120,11 +120,11 @@
       transformTo: CP14FoodBreadBun
   - type: Tag
     tags:
-    - CP14Dough
+    - MisfitsDough
 
 - type: entity
   id: MisfitsFoodBreadBun
-  parent: CP14FoodDoughMedium
+  parent: MisfitsFoodDoughMedium
   name: bread bun
   description: it's like regular bread, only smaller and funnier.
   components:
@@ -154,11 +154,11 @@
       transformTo: CP14Ash1
   - type: Tag
     tags:
-    - CP14Dough
+    - MisfitsDough
 
 - type: entity
   id: MisfitsFoodBreadBunBottom
-  parent: CP14FoodDoughMedium
+  parent: MisfitsFoodDoughMedium
   name: botton bread bun
   description: It's like regular bread, only smaller and funnier. And cut in half.
   components:
@@ -168,7 +168,7 @@
     - state: bun_cooked_slice_bottom
     - map: ["foodSequenceLayers"]
   - type: FoodSequenceStartPoint
-    key: CP14Sandwich
+    key: MisfitsSandwich
     maxLayers: 5
     startPosition: 0, 0
     offset: 0, 0.07
@@ -192,14 +192,14 @@
     autoTransformOnCooked: false
     entries:
     - temperatureRange: 400, 500
-      transformTo: CP14Ash1
+      transformTo: Ash
   - type: Tag
     tags:
-    - CP14Dough
+    - MisfitsDough
 
 - type: entity
   id: MisfitsFoodBreadBunTop
-  parent: CP14FoodDoughMedium
+  parent: MisfitsFoodDoughMedium
   name: top bread bun
   description: It's like regular bread, only smaller and funnier. And cut in half.
   components:
@@ -217,19 +217,19 @@
           Quantity: 0.25
   - type: FoodSequenceElement
     entries:
-      CP14Sandwich: CP14BunTopSandwich
+      MisfitsSandwich: MisfitsBunTopSandwich
   - type: CP14TemperatureTransformation
     autoTransformOnCooked: false
     entries:
     - temperatureRange: 400, 500
-      transformTo: CP14Ash1
+      transformTo: Ash
   - type: Tag
     tags:
-    - CP14Dough
+    - MisfitsDough
 
 - type: entity
-  id: CP14FoodDoughMediumFlat
-  parent: CP14FoodDoughMedium
+  id: MisfitsFoodDoughMediumFlat
+  parent: MisfitsFoodDoughMedium
   name: rolled dough
   components:
   - type: Item
@@ -249,7 +249,7 @@
     autoTransformOnCooked: false
     entries:
     - temperatureRange: 400, 500
-      transformTo: CP14Ash1 #TODO: лаваш?
+      transformTo: Ash
   - type: Tag
     tags:
-    - CP14Dough
+    - MisfitsDough

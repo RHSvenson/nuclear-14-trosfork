@@ -1,0 +1,99 @@
+# Bun bottom
+
+- type: foodSequenceElement
+  id: MisfitsBunTopSandwich
+  final: true
+  sprites:
+  - sprite: _CP14/Objects/Consumable/Food/dough.rsi
+    state: bun_cooked_slice_top
+  tags:
+  - Bun
+
+# Meat
+
+- type: foodSequenceElement
+  id: MisfitsCutletSandwich
+  sprites:
+  - sprite: _CP14/Objects/Consumable/Food/meat.rsi
+    state: cutlet
+  tags:
+  - Cutlet
+  - MisfitsMeat
+
+- type: foodSequenceElement
+  id: MisfitsCutletCookedSandwich
+  sprites:
+  - sprite: _CP14/Objects/Consumable/Food/meat.rsi
+    state: cutlet_cooked
+  tags:
+  - Cooked
+  - Cutlet
+  - MisfitsMeat
+
+# Cheese
+
+- type: foodSequenceElement
+  id: MisfitsCheeseSandwich
+  name: food-sequence-content-cheese
+  sprites:
+  - sprite: _CP14/Objects/Consumable/Food/cheese.rsi
+    state: cheese_slice
+  tags:
+  - Cheese
+
+# Cabbage
+
+- type: foodSequenceElement
+  id: MisfitsCabbageSandwich
+  name: food-sequence-content-cabbage
+  sprites:
+  - sprite: _CP14/Objects/Flora/Farm/cabbage.rsi
+    state: slice1
+  tags:
+  - Vegetable
+
+# Tato
+
+- type: foodSequenceElement
+  id: MisfitsTatoSandwich
+  name: food-sequence-content-tomato
+  sprites:
+  - sprite: _CP14/Objects/Flora/Farm/tomatoes.rsi
+    state: slice1
+  tags:
+  - Fruit
+  - Vegetable
+
+# Apple
+
+- type: foodSequenceElement
+  id: MisfitsAppleSandwich
+  name: food-sequence-content-apple
+  sprites:
+  - sprite: _CP14/Objects/Flora/Farm/apple.rsi
+    state: slice1
+  tags:
+  - Fruit
+
+# Pepper
+
+- type: foodSequenceElement
+  id: MisfitsPepperSandwich
+  name: cp14-food-sequence-content-pepper
+  sprites:
+  - sprite: _CP14/Objects/Flora/Farm/pepper.rsi
+    state: slice1
+  tags:
+  - Vegetable
+
+# Onion
+
+- type: foodSequenceElement
+  id: MisfitsOnionSandwich
+  name: food-sequence-content-onion
+  sprites:
+  - sprite: _CP14/Objects/Flora/Farm/onion.rsi
+    state: slice1
+  tags:
+  - Vegetable
+  - Slice
