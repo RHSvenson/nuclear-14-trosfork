@@ -1,0 +1,116 @@
+﻿- type: CP14CookingRecipe
+  id: InedibleSoup
+  foodType: Soup
+  foodData:
+    name: misfits-soup-recipe-trash-name
+    desc: misfits-soup-recipe-trash-desc
+    visuals:
+    - sprite: _CP14/Objects/Consumable/Food/Soups/misc.rsi
+      state: trash
+    requirements:
+    - !type:AlwaysMet
+
+# 2 requirements
+
+- type: CP14CookingRecipe
+  id: MeatSoup
+  foodType: Soup
+  foodData:
+    name: misfits-soup-recipe-meat-name
+    desc: misfits-soup-recipe-meat-desc
+    visuals:
+    - sprite: _CP14/Objects/Consumable/Food/Soups/misc.rsi
+      state: meat
+    requirements:
+    - !type:ReagentRequired
+      amount: 20
+      reagents:
+      - Water
+    - !type:TagRequired
+      tags:
+      - MisfitsMeat
+
+- type: CP14CookingRecipe
+  id: CheeseSoup
+  foodType: Soup
+  foodData:
+    name: misfits-soup-recipe-cheese-name
+    desc: misfits-soup-recipe-cheese-desc
+    visuals:
+    - sprite: _CP14/Objects/Consumable/Food/Soups/misc.rsi
+      state: cheese
+    requirements:
+    - !type:ReagentRequired
+      amount: 20
+      reagents:
+      - Water
+    - !type:TagRequired
+      tags:
+      - MisfitsCheese
+
+- type: CP14CookingRecipe
+  id: VegetableSoup
+  foodType: Soup
+  foodData:
+    name: misfits-soup-recipe-vegetable-name
+    desc: misfits-soup-recipe-vegetable-desc
+    visuals:
+    - sprite: _CP14/Objects/Consumable/Food/Soups/misc.rsi
+      state: veg_stew
+    requirements:
+    - !type:ReagentRequired
+      amount: 20
+      reagents:
+      - Water
+    - !type:TagRequired
+      tags:
+      - MisfitsSalad
+      - MisfitsVegetable
+    - !type:TagBlocked
+      tags:
+      - MisfitsMeat
+
+# 3 Requirements
+
+- type: CP14CookingRecipe
+  id: MeatCheeseSoup
+  foodType: Soup
+  foodData:
+    name: misfits-soup-recipe-meat-cheest-name
+    desc: misfits-soup-recipe-meat-cheese-desc
+    visuals:
+    - sprite: _CP14/Objects/Consumable/Food/Soups/misc.rsi
+      state: meat2
+  requirements:
+  - !type:ReagentRequired
+    amount: 20
+    reagents:
+    - Water
+  - !type:TagRequired
+    tags:
+    - MisfitsMeat
+  - !type:TagRequired
+    tags:
+    - MisfitsCheese
+
+- type: CP14CookingRecipe
+  id: MeatSaladSoup
+  foodType: Soup
+  foodData:
+    name: misfits-soup-recipe-meat-salad-name
+    desc: misfits-soup-recipe-meat-salad-desc
+    visuals:
+    - sprite: _CP14/Objects/Consumable/Food/Soups/misc.rsi
+      state: meat_salad
+  requirements:
+  - !type:ReagentRequired
+    amount: 20
+    reagents:
+    - Water
+  - !type:TagRequired
+    tags:
+    - MisfitsMeat
+  - !type:TagRequired
+    tags:
+    - MisfitsSalad
+    - MisfitsVegetable

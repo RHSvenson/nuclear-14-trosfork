@@ -76,12 +76,15 @@
   - type: SliceableFood
     count: 3
     slice: N14FoodMeatBrahminCutlet
-  - type: Construction
-    graph: MeatSteakBrahmin
-    node: start
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatBrahminCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   name: raw bighorner steak
@@ -94,12 +97,15 @@
   - type: SliceableFood
     count: 3
     slice: N14FoodMeatBighornerCutlet
-  - type: Construction
-    graph: MeatSteakBighorner
-    node: start
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatBighornerCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 #Misfits Change /Add/: Keep disabled fish recipes in the N14 namespace without duplicating upstream fish meat behavior.
 - type: entity
@@ -117,12 +123,15 @@
   - type: SliceableFood
     count: 3
     slice: N14FoodMeatRadstagCutlet
-  - type: Construction
-    graph: MeatSteakRadstag
-    node: start
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatRadstagCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   parent: N14FoodMeatBrahmin
@@ -135,12 +144,15 @@
   - type: SliceableFood
     count: 3
     slice: N14FoodMeatRadhogCutlet
-  - type: Construction
-    graph: MeatSteakRadhog
-    node: start
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatRadhogCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   parent: N14FoodMeatBrahmin
@@ -150,12 +162,15 @@
   components:
   - type: Sprite
     state: morsels
-  - type: Construction
-    graph: MeatSteakPigrat
-    node: start
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 10
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatPigratCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   name: raw Yao Guai meat
@@ -174,12 +189,15 @@
   - type: SliceableFood
     count: 3
     slice: N14FoodMeatYaoguaiCutlet
-  - type: Construction
-    graph: MeatSteakYaoguai
-    node: start
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatYaoguaiCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   name: raw mutant plant meat # for spore plants etc
@@ -213,12 +231,15 @@
   - type: SliceableFood
     count: 3
     slice: N14FoodMeatRadscorpionCutlet
-  - type: Construction
-    graph: MeatSteakRadscorpion
-    node: start
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 10
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatRadscorpionCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   name: raw radscorpion leg
@@ -230,12 +251,15 @@
     sprite: Objects/Consumable/Food/meat.rsi
     layers:
     - state: spiderleg
-  - type: Construction
-    graph: MeatRadscorpionLeg
-    node: start
-    defaultTarget: MeatCooked
   - type: StaticPrice # Forge-Change
     price: 1
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatRadscorpionLegBoiled
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   name: raw radchicken meat
@@ -250,12 +274,15 @@
     sprite: Objects/Consumable/Food/meat.rsi
     layers:
     - state: bird
-  - type: Construction
-    graph: MeatSteakRadchicken
-    node: start
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatRadchickenCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   name: raw gecko meat
@@ -265,12 +292,15 @@
   components:
   - type: Sprite
     state: silvergeckomeat
-  - type: Construction
-    graph: MeatSteakGecko
-    node: start
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 3
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatGeckoCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   name: raw fire gecko meat
@@ -280,12 +310,15 @@
   components:
   - type: Sprite
     state: icegeckomeat
-  - type: Construction
-    graph: MeatSteakGeckoFire
-    node: start
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 15
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatGeckoCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   name: raw golden gecko meat
@@ -295,12 +328,15 @@
   components:
   - type: Sprite
     state: goldengeckomeat
-  - type: Construction
-    graph: MeatSteakGeckoGolden
-    node: start
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 10
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatGeckoCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   name: raw iguana
@@ -311,12 +347,15 @@
   - type: Sprite
     sprite: _Nuclear14/Mobs/Animals/iguana.rsi
     state: iguanaonstick
-  - type: Construction
-    graph: MeatIguana
-    node: start
-    defaultTarget: MeatCooked
   - type: StaticPrice # Forge-Change
     price: 1
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatIguanaCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   name: raw squirrel bits
@@ -327,12 +366,15 @@
   - type: Sprite
     sprite: _Nuclear14/Objects/Consumable/Food/meat.rsi
     state: morsels
-  - type: Construction
-    graph: MeatMorsels
-    node: start
-    defaultTarget: MeatCooked
   - type: StaticPrice # Forge-Change
     price: 1
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatSquirrelCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   name: raw radroach fillet
@@ -342,12 +384,15 @@
   components:
   - type: Sprite
     state: radroachfillet
-  - type: Construction
-    graph: MeatRadroach
-    node: start
-    defaultTarget: MeatCooked
   - type: StaticPrice # Forge-Change
     price: 1
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatRadroachFilletCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   name: raw mirelurk claw
@@ -363,12 +408,15 @@
         reagents:
         - ReagentId: N14UncookedAnimalProteinsRad
           Quantity: 5
-  - type: Construction
-    graph: MeatMirelurkClaw
-    node: start
-    defaultTarget: MeatCooked
   - type: StaticPrice # Forge-Change
     price: 20
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatMirelurkClawCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 - type: entity
   name: raw radlurk claw
@@ -384,12 +432,15 @@
         reagents:
         - ReagentId: N14UncookedAnimalProteinsRad
           Quantity: 5
-  - type: Construction
-    graph: MeatRadlurkClaw
-    node: start
-    defaultTarget: MeatCooked
   - type: StaticPrice # Forge-Change
     price: 30
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatRadlurkClawCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
 
 # Cooked
 - type: entity
@@ -404,10 +455,14 @@
   - type: Sprite
     sprite: _Nuclear14/Objects/Consumable/Food/meat.rsi
     state: morsels_roasted
-  - type: Construction # Corvax-Change
-    graph: FoodMeatRad
-    node: MeatCooked
-    defaultTarget: MeatCooked
+  - type: CP14TemperatureTransformation
+    autoTransformOnCooked: false
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: Ash
+  - type: Tag
+    tags:
+    - MisfitsMeat
   - type: SolutionContainerManager
     solutions:
       food:
@@ -475,10 +530,6 @@
   - type: SliceableFood
     count: 3
     slice: N14FoodMeatBighornerCutletCooked
-  - type: Construction
-    graph: MeatSteakBighorner
-    node: SteakCooked
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -505,10 +556,6 @@
   - type: SliceableFood
     count: 3
     slice: N14FoodMeatRadstagCutletCooked
-  - type: Construction
-    graph: MeatSteakRadstag
-    node: SteakCooked
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -534,10 +581,6 @@
   - type: SliceableFood
     count: 3
     slice: N14FoodMeatRadhogCutletCooked
-  - type: Construction
-    graph: MeatSteakRadhog
-    node: SteakCooked
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -560,10 +603,6 @@
           Quantity: 6
         # - ReagentId: N14RadParticleFood
           # Quantity: 0
-  - type: Construction
-    graph: MeatSteakPigrat
-    node: SteakCooked
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -590,10 +629,6 @@
   - type: SliceableFood
     count: 3
     slice: N14FoodMeatYaoguaiCutletCooked
-  - type: Construction
-    graph: MeatSteakYaoguai
-    node: SteakCooked
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -620,10 +655,6 @@
   - type: SliceableFood
     count: 3
     slice: N14FoodMeatRadscorpionCutletCooked
-  - type: Construction
-    graph: MeatSteakRadscorpion
-    node: SteakCooked
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -651,10 +682,6 @@
   - type: SliceableFood
     count: 3
     slice: N14FoodMeatRadchickenCutletCooked
-  - type: Construction
-    graph: MeatSteakRadchicken
-    node: SteakCooked
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -678,10 +705,6 @@
           Quantity: 6
         # - ReagentId: N14RadParticleFood
           # Quantity: 0
-  - type: Construction
-    graph: MeatSteakGecko
-    node: SteakCooked
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -705,10 +728,6 @@
           Quantity: 6
         # - ReagentId: N14RadParticleFood
           # Quantity: 0
-  - type: Construction
-    graph: MeatSteakGeckoFire
-    node: SteakCooked
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -732,10 +751,6 @@
           Quantity: 6
         - ReagentId: N14RadParticleFood
           Quantity: 3 #golden geckos are normally radioactive and they're not common right now. Later we should add a special meal made of them! ^^
-  - type: Construction
-    graph: MeatSteakGeckoGolden
-    node: SteakCooked
-    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -758,10 +773,6 @@
           Quantity: 3
         - ReagentId: N14RadParticleFood
           Quantity: 1
-  - type: Construction
-    graph: MeatIguana
-    node: MeatCooked
-    defaultTarget: MeatCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -783,10 +794,6 @@
           Quantity: 2
         - ReagentId: N14RadParticleFood
           Quantity: 1
-  - type: Construction
-    graph: MeatMorsels
-    node: MeatCooked
-    defaultTarget: MeatCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -809,10 +816,6 @@
           Quantity: 2
         - ReagentId: N14RadParticleFood
           Quantity: 1 #not VERY radioactive but definitely not good for you. A desperation / poverty food?
-  - type: Construction
-    graph: MeatRadroach
-    node: MeatCooked
-    defaultTarget: MeatCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -861,10 +864,6 @@
           Quantity: 2
         - ReagentId: N14RadParticleFood
           Quantity: 4
-  - type: Construction
-    graph: MeatRadlurkClaw
-    node: MeatCooked
-    defaultTarget: MeatCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -888,10 +887,6 @@
           Quantity: 5
         - ReagentId: Protein
           Quantity: 5
-  - type: Construction
-    graph: MeatRadscorpionLeg
-    node: MeatCooked
-    defaultTarget: MeatCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -928,10 +923,13 @@
     rotAfter: 900
     # don't want meat giving off ammonia only bodies
     molsPerSecondPerUnitMass: 0
-  - type: Construction
-    graph: MeatRadCutlet
-    node: start
-    defaultTarget: CutletCooked
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatRadCutletCooked
+  - type: Tag
+    tags:
+    - MisfitsMeatSlice
 
 - type: entity
   name: raw brahmin cutlet
@@ -944,10 +942,13 @@
     - state: cutlet
     - state: cutlet-alpha
       color: brown
-  - type: Construction
-    graph: MeatBrahminCutlet
-    node: start
-    defaultTarget: CutletCooked
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatBrahminCutletCooked
+  - type: Tag
+    tags:
+    - MisfitsMeatSlice
 
 - type: entity
   name: raw bighorner cutlet
@@ -960,10 +961,13 @@
     - state: cutlet
     - state: cutlet-alpha
       color: brown
-  - type: Construction
-    graph: MeatBighornerCutlet
-    node: start
-    defaultTarget: CutletCooked
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatBighornerCutletCooked
+  - type: Tag
+    tags:
+    - MisfitsMeatSlice
 
 - type: entity
   name: raw radstag cutlet
@@ -976,10 +980,13 @@
     - state: cutlet
     - state: cutlet-alpha
       color: brown
-  - type: Construction
-    graph: MeatRadstagCutlet
-    node: start
-    defaultTarget: CutletCooked
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatRadstagCutletCooked
+  - type: Tag
+    tags:
+    - MisfitsMeatSlice
 
 - type: entity
   name: raw radhog cutlet
@@ -992,10 +999,13 @@
     - state: cutlet
     - state: cutlet-alpha
       color: brown
-  - type: Construction
-    graph: MeatRadhogCutlet
-    node: start
-    defaultTarget: CutletCooked
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatRadhogCutletCooked
+  - type: Tag
+    tags:
+    - MisfitsMeatSlice
 
 - type: entity
   name: raw yao-guai cutlet
@@ -1008,10 +1018,13 @@
     - state: cutlet
     - state: cutlet-alpha
       color: brown
-  - type: Construction
-    graph: MeatYaoguaiCutlet
-    node: start
-    defaultTarget: CutletCooked
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatYaoguaiCutletCooked
+  - type: Tag
+    tags:
+    - MisfitsMeatSlice
 
 - type: entity
   name: raw radchicken cutlet
@@ -1022,10 +1035,13 @@
   - type: Sprite
     state: cutlet
     color: white
-  - type: Construction
-    graph: MeatRadchickenCutlet
-    node: start
-    defaultTarget: CutletCooked
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatRadchickenCutletCooked
+  - type: Tag
+    tags:
+    - MisfitsMeatSlice
 
 - type: entity
   name: raw radscorpion cutlet
@@ -1039,10 +1055,13 @@
       color: black
     - state: cutlet-alpha
       color: red
-  - type: Construction
-    graph: MeatRadscorpionCutlet
-    node: start
-    defaultTarget: CutletCooked
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: N14FoodMeatRadscorpionCutletCooked
+  - type: Tag
+    tags:
+    - MisfitsMeatSlice
 
 # Cooked
 - type: entity
@@ -1068,10 +1087,14 @@
           Quantity: 2
         # - ReagentId: N14RadParticleFood
           # Quantity: 0 #Ditto, changing these values to 0 seemed like the best bet for if we want to revert this later. Formerly 3 rads.
-  - type: Construction
-    graph: MeatRadCutlet
-    node: CutletCooked
-    defaultTarget: CutletCooked
+  - type: CP14TemperatureTransformation
+    autoTransformOnCooked: false
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: Ash
+  - type: Tag
+    tags:
+    - MisfitsMeatSlice
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -1086,10 +1109,6 @@
     - state: cutlet-cooked
     - state: cutlet-alpha
       color: brown
-  - type: Construction
-    graph: MeatBrahminCutlet
-    node: CutletCooked
-    defaultTarget: CutletCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -1104,10 +1123,6 @@
     - state: cutlet-cooked
     - state: cutlet-alpha
       color: brown
-  - type: Construction
-    graph: MeatBighornerCutlet
-    node: CutletCooked
-    defaultTarget: CutletCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -1122,10 +1137,6 @@
     - state: cutlet-cooked
     - state: cutlet-alpha
       color: brown
-  - type: Construction
-    graph: MeatRadstagCutlet
-    node: CutletCooked
-    defaultTarget: CutletCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -1140,10 +1151,6 @@
     - state: cutlet-cooked
     - state: cutlet-alpha
       color: brown
-  - type: Construction
-    graph: MeatRadhogCutlet
-    node: CutletCooked
-    defaultTarget: CutletCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -1158,10 +1165,6 @@
     - state: cutlet-cooked
     - state: cutlet-alpha
       color: brown
-  - type: Construction
-    graph: MeatYaoguaiCutlet
-    node: CutletCooked
-    defaultTarget: CutletCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -1174,10 +1177,6 @@
   - type: Sprite
     state: cutlet-cooked
     color: white
-  - type: Construction
-    graph: MeatRadchickenCutlet
-    node: CutletCooked
-    defaultTarget: CutletCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
@@ -1193,10 +1192,6 @@
       color: black
     - state: cutlet-alpha
       color: red
-  - type: Construction
-    graph: MeatRadscorpionCutlet
-    node: CutletCooked
-    defaultTarget: CutletCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 
