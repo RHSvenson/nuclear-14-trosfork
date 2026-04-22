@@ -3540,3 +3540,52 @@ Entries:
   id: 5753
   time: '2026-04-21T22:17:38.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/311
+- author: cythisiax
+  changes:
+    - type: Fix
+      message: >-
+        Defib & Salts no longer force chara revive even after hitting [NO].
+        Consent is needed for revive.
+    - type: Fix
+      message: 'C-27 suitslots function. '
+    - type: Fix
+      message: >-
+        C-27 robots being ignored by all hostile NPCs (raiders, ghouls, feral
+        creatures).
+    - type: Fix
+      message: C-27 robots displaying as "old person" when examined without an ID card.
+    - type: Fix
+      message: >-
+        Fixed the smoke signal bonfire closing its window immediately when you
+        clicked it.
+    - type: Fix
+      message: >-
+        Reverted NPC reaction speed to a safer default to reduce server load at
+        high population. 
+    - type: Tweak
+      message: POM now has CPR trait
+    - type: Tweak
+      message: >-
+        Loadout items from chara. cust screen now fall back to backpack >
+        loadoutbox if equipment full.
+    - type: Tweak
+      message: >-
+        Added a "Logs" button to the admin AHelp panel that opens the admin log
+        filtered to that player.
+    - type: Tweak
+      message: >-
+        Added a server config option to fully disable the disease system.
+        Disabled now since no diseases exist in-game yet.
+    - type: Tweak
+      message: >-
+        Ghost role slot count updates are now batched to at most once per second
+        instead of spamming on every change.
+    - type: Tweak
+      message: >-
+        Reduced background server memory overhead across several high-traffic
+        systems including PipBoy, wasteland map, faction war.
+    - type: Add
+      message: M60 magazine to T4 Legion BP
+  id: 5754
+  time: '2026-04-22T03:44:32.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/312
