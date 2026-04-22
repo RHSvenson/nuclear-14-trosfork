@@ -1,0 +1,24 @@
+- type: constructionGraph
+  id: MisfitsFlagUS
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: flagus
+          steps:
+            - material: Cloth
+              amount: 5
+              doAfter: 10
+
+    - node: flagus
+      entity: N14FlagWallUS
+      edges:
+        - to: start
+          steps:
+            - tool: Cutting
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 5
+            - !type:DeleteEntity

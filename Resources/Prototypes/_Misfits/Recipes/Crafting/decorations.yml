@@ -1,0 +1,18 @@
+#Misfits Add: Construction prototype for FLAGS!!!
+# Uses cloth as the primary obtainable material
+
+# Flags
+- type: construction
+  name: US flag
+  id: N14FlagWallUS
+  graph: MisfitsFlagUS
+  startNode: start
+  targetNode: flagus
+# category: construction-category-medical
+  description: A flag of the United States.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
+    state: flag_us
+  objectType: Structure
+  placementMode: SnapgridCenter
