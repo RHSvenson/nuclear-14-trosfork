@@ -297,3 +297,62 @@
               prototype: MaterialCloth1
               amount: 2
             - !type:DeleteEntity
+
+- type: constructionGraph
+  id: MisfitsFlagSmallCoA
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: flagbcoas
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 3
+
+    - node: flagbcoas
+      entity: MisfitsBannerChildrenOfAtom
+      edges:
+        - to: start
+          steps:
+            - tool: Cutting
+              doAfter: 3
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+            - !type:DeleteEntity
+
+- type: constructionGraph
+  id: MisfitsFlagCoA
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: flagcoa
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 3
+            - material: Cloth
+              amount: 5
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+
+    - node: flagcoa
+      entity: MisfitsDecorationFlagChildrenOfAtom
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank1
+              amount: 3
+            - !type:GivePrototype
+              prototype: MaterialCloth1
+              amount: 3
+            - !type:DeleteEntity {}

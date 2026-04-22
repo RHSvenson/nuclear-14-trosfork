@@ -162,6 +162,7 @@
   description: A flag for the state of Colorado.
   hide: false
   icon:
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
     state: flag_colorado
   objectType: Structure
   placementMode: SnapgridCenter
@@ -173,9 +174,40 @@
   startNode: start
   targetNode: flagde
 # category: construction-category-decorations
-  description: A flag for the state of Denver.
+  description: A flag for the capital of Colorado.
   hide: false
   icon:
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
     state: flag_denver
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Children of Atom flag
+  id: MisfitsBannerChildrenOfAtom
+  graph: MisfitsFlagSmallCoA
+  startNode: start
+  targetNode: flagbcoas
+# category: construction-category-decorations
+  description: A banner bearing the sacred symbol of the Children of Atom. It radiates faint warmth to true believers.
+  hide: false
+  icon:
+    sprite: _Misfits/Structures/Decoration/coa_banner_small.rsi
+    state: banner
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Children of Atom flag
+  id: MisfitsDecorationFlagChildrenOfAtom
+  graph: MisfitsFlagCoA
+  startNode: start
+  targetNode: flagcoa
+# category: construction-category-decorations
+  description: A tall flag bearing the symbol of the Children of Atom. It flutters solemnly in glow-tainted breezes.
+  hide: false
+  icon:
+    sprite: _Misfits/Structures/Decoration/coa_banner_big.rsi
+    state: banner
   objectType: Structure
   placementMode: SnapgridCenter
