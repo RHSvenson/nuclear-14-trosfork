@@ -13,6 +13,25 @@
 # 2 requirements
 
 - type: CP14CookingRecipe
+  id: BlamcoMacAndCheese
+  foodtype: Soup
+  foodData:
+    name: misfits-soup-recipe-blamco-name
+    desc: misfits-soup-recipe-blamco-desc
+    visuals:
+    - sprite: _CP14/Objects/Consumable/Food/Soups/misc.rsi
+      state: cheese
+    requirements:
+    - !type:ReagentRequired
+      amount: 10
+      reagents:
+      - MisfitsBlamcoMacAndCheese
+    - !type:ReagentRequired
+      amount: 10
+      reagents:
+      - Water
+
+- type: CP14CookingRecipe
   id: MeatSoup
   foodType: Soup
   foodData:
@@ -114,3 +133,26 @@
     tags:
     - MisfitsSalad
     - MisfitsVegetable
+
+- type: CP14CookingRecipe
+  id: CookCookFiendStew
+  foodType: Soup
+  foodData:
+    name: misfits-soup-recipe-cook-cook-name
+    desc: misfits-soup-recipe-cook-cook-desc
+    visuals:
+    - sprite: _CP14/Objects/Consumable/Food/Soups/misc.rsi
+      state: meat
+    requirements:
+    - !type:ReagentRequired
+      amount: 20
+      reagents:
+      - Beer
+    - !type:TagRequired
+      tags:
+      - MisfitsBrahmin
+      - MisfitsChili
+      - MisfitsVegetable
+    - !type:TagBlocked
+      tags:
+      - MisfitsMeatSlice

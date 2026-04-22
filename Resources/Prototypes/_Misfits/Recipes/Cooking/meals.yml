@@ -1,0 +1,27 @@
+﻿- type: CP14CookingRecipe
+  id: InedibleMeal
+  foodType: Meal
+  foodData:
+    name: misfits-meal-recipe-trash-name
+    desc: misfits-meal-recipe-trash-desc
+    visuals:
+    - sprite: _CP14/Objects/Consumable/Food/Meals/misc.rsi
+      state: trash
+  requirements:
+  - !type:AlwaysMet
+
+- type: CP14CookingRecipe
+  id: DesertSalad
+  foodType: Meal
+  foodData:
+    name: misfits-meal-recipe-desert-salad-name
+    desc: misfits-meal-recipe-desert-salad-desc
+    visuals:
+    - sprite: Objects/Consumable/Food/bowl.rsi
+      state: caesar
+  requirements:
+  - !type:TagRequired
+    tags:
+    - MisfitsCactus
+    - MisfitsMeat
+    - MisfitsNuts

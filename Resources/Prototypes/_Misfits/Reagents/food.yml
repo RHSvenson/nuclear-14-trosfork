@@ -1,0 +1,17 @@
+﻿- type: reagent
+  id: MisfitsBlamcoMacAndCheese
+  name: reagent-name-blamco
+  group: Foods
+  desc: reagent-desc-blamco
+  physicalDesc: reagent-physical-desc-macaroni
+  flavor: cheesy
+  color: yellow
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateThirst
+        factor: -0.2 # Freeze-dried; dry af
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.5

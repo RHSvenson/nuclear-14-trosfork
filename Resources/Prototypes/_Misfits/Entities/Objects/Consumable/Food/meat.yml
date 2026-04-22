@@ -1,0 +1,246 @@
+﻿# Base
+- type: entity
+  parent: FoodInjectableBase
+  id: MisfitsFoodMeatBase
+  abstract: true
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meaty
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2.5
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 1
+        - ReagentId: Fat
+          Quantity: 2
+  - type: Temperature
+    currentTemperature: 290
+  - type: InternalTemperature
+    thickness: 0.02
+    area: 0.02 # arbitrary number that sounds right for a slab of meat
+  - type: Tag
+    tags:
+    - MisfitsMeat
+
+- type: entity
+  id: MisfitsFoodMeatSliceBase
+  parent: MisfitsFoodMeatBase
+  abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 0.75
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 0.33
+        - ReagentId: Fat
+          Quantity: 0.75
+  - type: InternalTemperature
+    thickness: 0.006
+    area: 0.006 # 1\3 of meat value
+  - type: Tag
+    tags:
+    - MisfitsMeatSlice
+
+# Brahmin
+
+- type: entity
+  name: raw brahmin steak
+  parent: MisfitsFoodMeatBase
+  id: MisfitsFoodMeatBrahmin
+  description: A beefy steak
+  components:
+  - type: Sprite
+    scale: 0.75, 0.75
+    sprite: _Nuclear14/Objects/Consumable/Food/meat.rsi
+    state: brahminmeat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 4
+        - ReagentId: Fat
+          Quantity: 14
+  - type: SliceableFood
+    count: 4
+    slice: MisfitsFoodMeatBrahminSlice
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: MisfitsFoodMeatBrahminCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
+    - MisfitsBrahmin
+
+- type: entity
+  id: MisfitsFoodMeatBrahminCooked
+  parent: MisfitsFoodMeatBrahmin
+  name: cooked brahmin steak
+  components:
+  - type: Sprite
+    state: brahminmeat_roasted
+  - type: SliceableFood
+    count: 4
+    slice: MisfitsFoodMeatBrahminCookedSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 24
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: Fat
+          Quantity: 8
+  - type: CP14TemperatureTransformation
+    autoTransformOnCooked: false
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: Ash
+  - type: Tag
+    tags:
+    - MisfitsMeat
+    - MisfitsBrahmin
+
+- type: entity
+  id: MisfitsFoodMeatBrahminSlice
+  parent: MisfitsFoodMeatSliceBase
+  name: raw brahmin slice
+  description: Beefy slices
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    layers:
+    - state: cutlet
+    - state: cutlet-alpha
+      color: brown
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 1.5
+        - ReagentId: Fat
+          Quantity: 2
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: MisfitsFoodMeatBrahminCookedSlice
+  - type: Tag
+    tags:
+    - MisfitsMeat
+    - MisfitsBrahmin
+    - MisfitsMeatSlice
+
+- type: entity
+  id: MisfitsFoodMeatBrahminCookedSlice
+  parent: MisfitsFoodMeatBrahminSlice
+  name: cooked brahmin slices
+  components:
+  - type: Sprite
+    layers:
+    - state: cutlet-cooked
+    - state: cutlet-alpha
+      color: brown
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 1.5
+        - ReagentId: Fat
+          Quantity: 2
+  - type: CP14TemperatureTransformation
+    autoTransformOnCooked: false
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: Ash
+  - type: Tag
+    tags:
+    - MisfitsMeat
+    - MisfitsBrahmin
+    - MisfitsMeatSlice
+
+- type: entity
+  name: uncooked brahmin wellington
+  parent: MisfitsFoodMeatBrahmin
+  id: MisfitsFoodMeatBrahminWellington
+  description: Rumored to have been invented in New Vegas itself, you swear you can hear someone complain that it's freaking raw.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - cheesy
+    - meaty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 66
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 4
+        - ReagentId: Fat
+          Quantity: 14
+        - ReagentId: Egg
+          Quantity: 12
+        - ReagentId: MisfitsBlamcoMacAndCheese
+          Quanitty: 30
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: MisfitsFoodMeatBrahminWellingtonCooked
+  - type: Tag
+    tags:
+    - MisfitsMeat
+    - MisfitsBrahmin
+
+- type: entity
+  name: brahmin wellington
+  parents: MisfitsFoodMeatBrahminWellington
+  id: MisfitsFoodMeatBrahminWellingtonCooked
+  description: Rumored to have been invented in New Vegas itself, in the Ultra-Luxe no less!
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 66
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Protein
+          Quantity: 16
+        - ReagentId: Fat
+          Quantity: 10
+        - ReagentId: EggCooked
+          Quantity: 10
+  - type: CP14TemperatureTransformation
+    entries:
+    - temperatureRange: 400, 500
+      transformTo: Ash
+  - type: Tag
+    tags:
+    - MisfitsMeat
+    - MisfitsBrahmin

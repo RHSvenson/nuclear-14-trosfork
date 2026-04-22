@@ -1,0 +1,34 @@
+﻿- type: entity
+  parent: ReagentPacketBase
+  id: MisfitsContainerPreWarFoodBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Food/pre-war.rsi
+  - type: Item
+    sprite: _Nuclear14/Objects/Consumable/Food/pre-war.rsi
+    heldPrefix: packet
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+
+- type: entity
+  name: BlamCo Mac & Cheese
+  parent: MisfitsContainerPreWarFoodBase
+  id: MisfitsContainerBlamco
+  description: Dried and preserved macaroni, with even drier and more preserved white cheese sauce. Disgusting without rehydrating first.
+  components:
+  - type: Sprite
+    state: blamco
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsBlamcoMacAndCheese
+          Quantity: 30
+
