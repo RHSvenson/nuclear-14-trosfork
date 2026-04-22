@@ -3616,3 +3616,10 @@ Entries:
   id: 5755
   time: '2026-04-22T15:40:24.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/315
+- author: n44
+  changes:
+    - type: Tweak
+      message: reduced M60's spread
+  id: 5756
+  time: '2026-04-22T17:55:17.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/313
