@@ -36,6 +36,8 @@ public sealed partial class RaidRequestAdminControl : Control
 
         ApproveButton.OnPressed += _ => Decide(true);
         DenyButton.OnPressed    += _ => Decide(false);
+        // #Misfits Add - End Raid sends an explicit end-message; no comment required.
+        EndRaidButton.OnPressed += _ => EndRaid();
 
         // Push subscribe + render whatever the system already cached so we don't sit blank
         // until a server update arrives.
@@ -83,10 +85,14 @@ public sealed partial class RaidRequestAdminControl : Control
             : Loc.GetString("raid-request-no-pending");
 
         // Filter the list view.
+        // #Misfits Tweak - "Decided" now includes Active and Concluded so admins can review live and ended raids alongside denied ones.
         var filtered = _filter switch
         {
             FilterMode.Pending => _all.Where(e => e.Status == RaidRequestStatus.Pending),
-            FilterMode.Decided => _all.Where(e => e.Status is RaidRequestStatus.Approved or RaidRequestStatus.Denied),
+            FilterMode.Decided => _all.Where(e => e.Status is RaidRequestStatus.Approved
+                                                            or RaidRequestStatus.Active
+                                                            or RaidRequestStatus.Denied
+                                                            or RaidRequestStatus.Concluded),
             _                  => _all.AsEnumerable(),
         };
 
@@ -188,6 +194,14 @@ public sealed partial class RaidRequestAdminControl : Control
                 body += $"\n[bold]Remarks:[/bold] {FormattedMessage.EscapeText(entry.AdminComment)}";
         }
 
+        // #Misfits Add - Show conclusion metadata for ended raids (manual or auto-expiry).
+        if (entry.Status == RaidRequestStatus.Concluded)
+        {
+            body += $"\n\n[bold]Concluded by:[/bold] {FormattedMessage.EscapeText(entry.ConcludedByAdmin ?? "(unknown)")}";
+            if (entry.ConcludedAtUtc is { } ct)
+                body += $" at {ct.ToLocalTime():HH:mm:ss}";
+        }
+
         DetailsBody.SetMarkup(body);
 
         // Show the action form only for pending requests.
@@ -195,6 +209,9 @@ public sealed partial class RaidRequestAdminControl : Control
         CommentLabel.Visible      = pending;
         CommentEdit.Visible       = pending;
         DecisionButtonRow.Visible = pending;
+        // #Misfits Add - End Raid button is only meaningful for currently-Approved raids.
+        EndRaidRow.Visible        = entry.Status == RaidRequestStatus.Approved
+                                 || entry.Status == RaidRequestStatus.Active;
         if (!pending)
             CommentEdit.Text = string.Empty;
 
@@ -215,12 +232,22 @@ public sealed partial class RaidRequestAdminControl : Control
         _system.SendDecision(id, approve, comment);
     }
 
+    // #Misfits Add - Manual end-raid; no comment required since the raid was already approved.
+    private void EndRaid()
+    {
+        if (_selectedId is not { } id)
+            return;
+        _system.SendEndRaid(id);
+    }
+
     private static (Color color, string name) StatusVisuals(RaidRequestStatus status) => status switch
     {
         RaidRequestStatus.Pending   => (Color.FromHex("#FFAA00"), "PENDING"),
-        RaidRequestStatus.Approved  => (Color.FromHex("#32CD32"), "APPROVED"),
+        RaidRequestStatus.Approved  => (Color.FromHex("#A8E060"), "APPROVED — PREP"), // #Misfits Tweak - 5-min prep before raid goes live.
+        RaidRequestStatus.Active    => (Color.FromHex("#3CFF40"), "ACTIVE"), // #Misfits Add - overlay live, 15-min engagement window.
         RaidRequestStatus.Denied    => (Color.FromHex("#FF4040"), "DENIED"),
         RaidRequestStatus.Unclaimed => (Color.FromHex("#888888"), "UNCLAIMED"),
+        RaidRequestStatus.Concluded => (Color.FromHex("#7B68EE"), "CONCLUDED"), // #Misfits Add - slate blue distinguishes ended raids.
         _                           => (Color.White,              status.ToString()),
     };
 }

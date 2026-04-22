@@ -24,6 +24,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Maths;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Misfits.RaidRequest;
 
@@ -35,6 +36,7 @@ public sealed class RaidRequestSystem : EntitySystem
     [Dependency] private readonly MindSystem       _minds         = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction    = default!;
     [Dependency] private readonly IPlayerManager   _playerManager = default!;
+    [Dependency] private readonly IGameTiming      _gameTiming    = default!;
 
     /// <summary>All requests this round, keyed by sequential id.</summary>
     private readonly Dictionary<int, RaidRequestEntry> _requests = new();
@@ -42,6 +44,32 @@ public sealed class RaidRequestSystem : EntitySystem
 
     /// <summary>Admin sessions currently watching the Raid Requests tab. Updates pushed only to these.</summary>
     private readonly HashSet<ICommonSession> _subscribedAdmins = new();
+
+    // #Misfits Add - Per-raid auto-expiry deadline. Approved faction-tier raids end automatically
+    // 15 minutes after approval so the [ALLY]/[ENEMY] overlay tags don't linger forever.
+    // Mirrors FactionWarSystem._warAutoEndTimes (TimeSpan-based deadline, not a float accumulator).
+    private readonly Dictionary<int, TimeSpan> _raidAutoEndTimes = new();
+
+    // #Misfits Add - Activation deadline for Approved (prep-phase) raids. When CurTime >= value,
+    // the raid flips Approved → Active, the overlay turns on, and the auto-end timer starts.
+    // Mirrors FactionWarSystem._warActivationTimes.
+    private readonly Dictionary<int, TimeSpan> _raidActivationTimes = new();
+
+    // #Misfits Add - Pending peer-approval prompts. Maps request id → the target faction
+    // leader's UserId so we can reject impersonators when the popup decision returns.
+    private readonly Dictionary<int, NetUserId> _pendingPeerPrompts = new();
+
+    // #Misfits Add - Reused scratch buffer for auto-expiry sweep, mirrors FactionWarSystem pattern.
+    private readonly List<RaidRequestEntry> _expiredRaidsScratch = new();
+
+    // #Misfits Add - Reused scratch buffer for prep → active transition sweep.
+    private readonly List<RaidRequestEntry> _activatedRaidsScratch = new();
+
+    /// <summary>How long an Approved raid stays active before auto-conclude wipes the overlay.</summary>
+    private static readonly TimeSpan RaidAutoEndDuration = TimeSpan.FromMinutes(15);
+
+    /// <summary>5-minute prep period between Approved decision and Active overlay activation.</summary>
+    private static readonly TimeSpan RaidPrepDuration = TimeSpan.FromMinutes(5);
 
     // #Misfits Tweak - Safety resync: re-sends participant dict every 30 s to catch mid-round
     // entity spawns. All real state changes call BroadcastParticipants() directly; the old
@@ -61,6 +89,10 @@ public sealed class RaidRequestSystem : EntitySystem
         SubscribeNetworkEvent<RaidRequestSubmitMsg>(OnSubmit);
         SubscribeNetworkEvent<RaidRequestAdminSubscribeMsg>(OnAdminSubscribe);
         SubscribeNetworkEvent<RaidRequestDecisionMsg>(OnAdminDecision);
+        // #Misfits Add - Admin manual end (mirrors decision flow).
+        SubscribeNetworkEvent<RaidRequestEndMsg>(OnAdminEndRaid);
+        // #Misfits Add - Target faction leader's peer-approval response.
+        SubscribeNetworkEvent<RaidRequestPeerDecisionMsg>(OnPeerDecision);
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
 
@@ -83,6 +115,46 @@ public sealed class RaidRequestSystem : EntitySystem
         if (_updateAccumulator < UpdateInterval)
             return;
         _updateAccumulator -= UpdateInterval;
+
+        // #Misfits Add - Prep → Active sweep: flip approved raids whose 5-min prep ran out.
+        // Mirrors FactionWarSystem.Update's pending-war activation sweep.
+        if (_raidActivationTimes.Count > 0)
+        {
+            var now = _gameTiming.CurTime;
+            var activated = _activatedRaidsScratch;
+            activated.Clear();
+
+            foreach (var (id, activateAt) in _raidActivationTimes)
+            {
+                if (now < activateAt)
+                    continue;
+                if (_requests.TryGetValue(id, out var entry) && entry.Status == RaidRequestStatus.Approved)
+                    activated.Add(entry);
+            }
+
+            foreach (var entry in activated)
+                ActivateRaid(entry);
+        }
+
+        // #Misfits Add - Auto-expiry sweep: conclude any active raid that has hit its 15-minute deadline.
+        // Mirrors FactionWarSystem's _warAutoEndTimes pattern (TimeSpan deadline + reused scratch list).
+        if (_raidAutoEndTimes.Count > 0)
+        {
+            var now = _gameTiming.CurTime;
+            var expired = _expiredRaidsScratch;
+            expired.Clear();
+
+            foreach (var (id, endTime) in _raidAutoEndTimes)
+            {
+                if (now < endTime)
+                    continue;
+                if (_requests.TryGetValue(id, out var entry) && entry.Status == RaidRequestStatus.Active)
+                    expired.Add(entry);
+            }
+
+            foreach (var entry in expired)
+                ConcludeRaid(entry, "Auto-Expiry");
+        }
 
         if (!HasAnyApprovedFactionTierRaid())
         {
@@ -125,6 +197,11 @@ public sealed class RaidRequestSystem : EntitySystem
         _requests.Clear();
         _nextId = 1;
         _subscribedAdmins.Clear();
+        // #Misfits Add - Drop auto-expiry deadlines so they don't fire next round.
+        _raidAutoEndTimes.Clear();
+        // #Misfits Add - Clear prep activation timers and outstanding peer prompts too.
+        _raidActivationTimes.Clear();
+        _pendingPeerPrompts.Clear();
 
         // Push an empty participant dict so any client overlay caches from the previous round are wiped.
         BroadcastParticipants();
@@ -326,6 +403,13 @@ public sealed class RaidRequestSystem : EntitySystem
             : $"{RaidRequestConfig.FactionDisplayName(canonicalFaction)} (via {entry.RequesterCharacterName})";
         _chat.SendAdminAnnouncement(
             $"[RaidRequest #{entry.Id}] {who} → {RaidRequestConfig.FactionDisplayName(targetFaction)}: \"{reason}\"");
+
+        // #Misfits Add - Faction-tier raids also prompt the highest-ranking online member of the
+        // TARGET faction. They can YES/NO directly, bypassing admin review while still publishing
+        // into the same RaidRequest history. If nobody qualifies (e.g. nobody online), request stays
+        // Pending and admins decide via the bwoink tab.
+        if (!isIndividual)
+            TrySendPeerPrompt(entry);
     }
 
     // ── Admin: subscribe ───────────────────────────────────────────────────
@@ -372,32 +456,227 @@ public sealed class RaidRequestSystem : EntitySystem
         }
         if (comment.Length > 1024) comment = comment[..1024];
 
-        entry.Status        = msg.Approve ? RaidRequestStatus.Approved : RaidRequestStatus.Denied;
-        entry.AdminUserName = session.Name;
+        // #Misfits Tweak - Delegate to shared helper so peer-approval and admin paths apply
+        // identical side-effects (timer, broadcast, announcement, admin-tab push).
+        ApplyDecision(entry, msg.Approve, session.Name, comment);
+
+        SendDecisionResult(session, msg.RequestId, true,
+            entry.Status == RaidRequestStatus.Approved ? "Raid approved (5-minute prep)." : "Raid denied.");
+    }
+
+    /// <summary>
+    /// #Misfits Add - Shared decision side-effects, used by both admin Approve/Deny and the
+    /// target-faction leader's peer-approval path. Sets status + audit metadata, schedules the
+    /// 5-minute prep activation (on Approve), pushes the entry update to admin tabs, broadcasts
+    /// the decision announcement to affected factions, and records a permanent admin-channel line.
+    /// Note: the [ALLY]/[ENEMY] overlay is NOT activated here \u2014 that happens in <see cref="ActivateRaid"/>
+    /// once the prep timer elapses.
+    /// </summary>
+    private void ApplyDecision(RaidRequestEntry entry, bool approve, string decidedByName, string comment)
+    {
+        entry.Status        = approve ? RaidRequestStatus.Approved : RaidRequestStatus.Denied;
+        entry.AdminUserName = decidedByName;
         entry.AdminComment  = comment;
         entry.DecidedAtUtc  = DateTime.UtcNow;
 
-        SendDecisionResult(session, msg.RequestId, true,
-            entry.Status == RaidRequestStatus.Approved ? "Raid approved." : "Raid denied.");
+        // Whichever path decided first wins; any pending peer-approval popup must be invalidated
+        // so a late click from the target leader gets a clean rejection rather than double-firing.
+        _pendingPeerPrompts.Remove(entry.Id);
 
-        // Sync admin tab for everyone watching it.
+        // Faction-tier approvals enter a 5-minute prep window before the overlay turns on.
+        // Individual (Wastelander) approvals never drive the overlay, so no timers needed for them.
+        if (approve && !entry.IsIndividual)
+        {
+            _raidActivationTimes[entry.Id] = _gameTiming.CurTime + RaidPrepDuration;
+
+            // Server-wide chat heads-up so both factions can see the prep clock running.
+            _chat.DispatchServerAnnouncement(
+                $"INCOMING RAID — {RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)} → " +
+                $"{RaidRequestConfig.FactionDisplayName(entry.TargetFaction)}.\n" +
+                $"Raid may begin in 5 minutes. Prepare accordingly.",
+                Color.OrangeRed);
+        }
+
         BroadcastEntryToAdmins(entry);
-
-        // Notify affected players: requester (or whole faction if faction-tier) + target faction.
         BroadcastDecisionAnnouncement(entry);
 
-        // #Misfits Add - Refresh the overlay-participants dict immediately so the [ALLY]/[ENEMY]
-        // tags appear (on approve) or vanish (on deny flipping the only approved raid away)
-        // without waiting for the next 2-second tick.
-        BroadcastParticipants();
-
         // Permanent admin-channel record.
-        var verb = entry.Status == RaidRequestStatus.Approved ? "APPROVED" : "DENIED";
+        var verb = approve ? "APPROVED" : "DENIED";
         _chat.SendAdminAnnouncement(
-            $"[RaidRequest #{entry.Id}] {session.Name} {verb}: " +
+            $"[RaidRequest #{entry.Id}] {decidedByName} {verb}: " +
             $"{RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)} → " +
             $"{RaidRequestConfig.FactionDisplayName(entry.TargetFaction)}. Remarks: {comment}");
     }
+
+    /// <summary>
+    /// #Misfits Add - Promotes an Approved raid to Active when the 5-minute prep elapses.
+    /// Starts the 15-minute auto-conclude timer, turns the [ALLY]/[ENEMY] overlay on, and
+    /// announces start to the server. Mirrors FactionWarSystem's Pending\u2192Active transition.
+    /// </summary>
+    private void ActivateRaid(RaidRequestEntry entry)
+    {
+        entry.Status = RaidRequestStatus.Active;
+
+        _raidActivationTimes.Remove(entry.Id);
+        _raidAutoEndTimes[entry.Id] = _gameTiming.CurTime + RaidAutoEndDuration;
+
+        BroadcastEntryToAdmins(entry);
+        // Overlay-participants dict now includes this raid's factions \u2014 [ALLY]/[ENEMY] tags appear.
+        BroadcastParticipants();
+
+        _chat.DispatchServerAnnouncement(
+            $"RAID HAS BEGUN — {RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)} vs " +
+            $"{RaidRequestConfig.FactionDisplayName(entry.TargetFaction)}.\n" +
+            $"Engagement window: 15 minutes.",
+            Color.Red);
+
+        _chat.SendAdminAnnouncement(
+            $"[RaidRequest #{entry.Id}] ACTIVE: " +
+            $"{RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)} \u2192 " +
+            $"{RaidRequestConfig.FactionDisplayName(entry.TargetFaction)}.");
+    }
+
+    // ── Admin: end an approved raid (manual conclude) ──────────────────────
+    // #Misfits Add - Mirrors OnAdminDecision; only valid against Approved raids.
+    private void OnAdminEndRaid(RaidRequestEndMsg msg, EntitySessionEventArgs args)
+    {
+        var session = args.SenderSession;
+        if (!_adminManager.IsAdmin(session))
+        {
+            SendEndResult(session, msg.RequestId, false, "Admin permission required.");
+            return;
+        }
+
+        if (!_requests.TryGetValue(msg.RequestId, out var entry))
+        {
+            SendEndResult(session, msg.RequestId, false, "Request not found (round may have ended).");
+            return;
+        }
+
+        if (entry.Status != RaidRequestStatus.Approved && entry.Status != RaidRequestStatus.Active)
+        {
+            SendEndResult(session, msg.RequestId, false,
+                $"Only Approved or Active raids can be ended (current status: {entry.Status}).");
+            return;
+        }
+
+        ConcludeRaid(entry, session.Name);
+        SendEndResult(session, msg.RequestId, true, "Raid concluded.");
+    }
+
+    // ── Peer-faction approval (target leader bypasses admin) ───────────────
+
+    /// <summary>
+    /// #Misfits Add - Locates the highest-ranking online member of the target faction and sends
+    /// them a peer-approval popup. No-op when no eligible leader is online; the request then
+    /// remains Pending for admin review.
+    /// </summary>
+    private void TrySendPeerPrompt(RaidRequestEntry entry)
+    {
+        ICommonSession? topSession = null;
+        var topWeight = 0;
+
+        foreach (var session in EnumerateFactionMembers(entry.TargetFaction))
+        {
+            if (session.AttachedEntity is not { } ent)
+                continue;
+            if (!_minds.TryGetMind(ent, out var mindId, out _))
+                continue;
+
+            var w = GetJobWeight(mindId);
+            if (w <= 0 || w <= topWeight)
+                continue;
+
+            topWeight = w;
+            topSession = session;
+        }
+
+        if (topSession == null)
+            return;
+
+        _pendingPeerPrompts[entry.Id] = topSession.UserId;
+        RaiseNetworkEvent(new RaidRequestPeerPromptMsg { Entry = entry }, topSession);
+    }
+
+    private void OnPeerDecision(RaidRequestPeerDecisionMsg msg, EntitySessionEventArgs args)
+    {
+        var session = args.SenderSession;
+
+        if (!_requests.TryGetValue(msg.RequestId, out var entry))
+        {
+            SendPeerResult(session, msg.RequestId, false, "Request not found (round may have ended).");
+            return;
+        }
+
+        // Whoever decided first wins; reject late peer decisions cleanly.
+        if (entry.Status != RaidRequestStatus.Pending)
+        {
+            _pendingPeerPrompts.Remove(entry.Id);
+            SendPeerResult(session, msg.RequestId, false,
+                $"This request has already been decided ({entry.Status}).");
+            return;
+        }
+
+        // Verify the responder is the same target leader we sent the prompt to. Blocks any
+        // attempt by a different client to spoof the decision message.
+        if (!_pendingPeerPrompts.TryGetValue(msg.RequestId, out var expectedUserId)
+            || expectedUserId != session.UserId)
+        {
+            SendPeerResult(session, msg.RequestId, false,
+                "You are not authorized to decide this request.");
+            return;
+        }
+
+        var comment = (msg.Comment ?? string.Empty).Trim();
+        if (comment.Length > 1024) comment = comment[..1024];
+        if (string.IsNullOrWhiteSpace(comment))
+            comment = msg.Approve ? "(no comment)" : "(no reason given)";
+
+        var charName = session.AttachedEntity is { } responderEnt
+            ? Name(responderEnt)
+            : session.Name;
+        var decidedByName = $"{charName} (Target Faction Leader)";
+
+        ApplyDecision(entry, msg.Approve, decidedByName, comment);
+        SendPeerResult(session, msg.RequestId, true, msg.Approve ? "Raid approved." : "Raid denied.");
+    }
+
+    private void SendPeerResult(ICommonSession session, int requestId, bool success, string message) =>
+        RaiseNetworkEvent(
+            new RaidRequestPeerDecisionResultMsg { RequestId = requestId, Success = success, Message = message },
+            session);
+
+    /// <summary>
+    /// #Misfits Add - Concludes an approved raid: sets status, clears the auto-expiry deadline,
+    /// rebroadcasts the overlay-participants dict (so [ALLY]/[ENEMY] tags vanish if no other
+    /// approved raids remain), pushes the entry update to subscribed admin UIs, and announces
+    /// the conclusion to admins. Used by both the manual end-raid path and the auto-expiry sweep.
+    /// </summary>
+    private void ConcludeRaid(RaidRequestEntry entry, string concludedBy)
+    {
+        entry.Status           = RaidRequestStatus.Concluded;
+        entry.ConcludedAtUtc   = DateTime.UtcNow;
+        entry.ConcludedByAdmin = concludedBy;
+
+        _raidAutoEndTimes.Remove(entry.Id);
+        // Also drop any pending prep-activation so a still-Approved raid won't auto-flip after end.
+        _raidActivationTimes.Remove(entry.Id);
+        // And invalidate any outstanding peer-approval popup for this raid.
+        _pendingPeerPrompts.Remove(entry.Id);
+
+        BroadcastEntryToAdmins(entry);
+        BroadcastParticipants();
+
+        _chat.SendAdminAnnouncement(
+            $"[RaidRequest #{entry.Id}] CONCLUDED ({concludedBy}): " +
+            $"{RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)} → " +
+            $"{RaidRequestConfig.FactionDisplayName(entry.TargetFaction)}.");
+    }
+
+    private void SendEndResult(ICommonSession session, int requestId, bool success, string message) =>
+        RaiseNetworkEvent(
+            new RaidRequestEndResultMsg { RequestId = requestId, Success = success, Message = message },
+            session);
 
     // ── Decision broadcast ────────────────────────────────────────────────
 
@@ -648,15 +927,15 @@ public sealed class RaidRequestSystem : EntitySystem
     // ── Overlay participants ──────────────────────────────────────────────
 
     /// <summary>
-    /// True if at least one approved faction-tier raid is currently on the books.
-    /// Individual (Wastelander) raids are excluded from the overlay so a lone
-    /// requester can't put a whole faction on visual alert.
+    /// True if at least one Active faction-tier raid is currently on the books.
+    /// Approved (prep) raids do NOT count — the overlay only fires once a raid is Active.
+    /// Individual (Wastelander) raids are excluded from the overlay entirely.
     /// </summary>
     private bool HasAnyApprovedFactionTierRaid()
     {
         foreach (var entry in _requests.Values)
         {
-            if (entry.Status == RaidRequestStatus.Approved && !entry.IsIndividual)
+            if (entry.Status == RaidRequestStatus.Active && !entry.IsIndividual)
                 return true;
         }
         return false;
@@ -676,7 +955,7 @@ public sealed class RaidRequestSystem : EntitySystem
         var raidFactions = new HashSet<string>();
         foreach (var entry in _requests.Values)
         {
-            if (entry.Status != RaidRequestStatus.Approved || entry.IsIndividual)
+            if (entry.Status != RaidRequestStatus.Active || entry.IsIndividual)
                 continue;
             raidFactions.Add(entry.RequesterFaction);
             raidFactions.Add(entry.TargetFaction);

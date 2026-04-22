@@ -89,12 +89,16 @@ public enum RaidRequestStatus : byte
 {
     /// <summary>Submitted, awaiting admin decision.</summary>
     Pending,
-    /// <summary>Admin approved the raid.</summary>
+    /// <summary>Decision made: yes. 5-minute prep period; overlay tags NOT yet shown.</summary>
     Approved,
     /// <summary>Admin denied the raid.</summary>
     Denied,
     /// <summary>Round ended without an admin decision; flipped from Pending on cleanup.</summary>
     Unclaimed,
+    /// <summary>Approved raid was concluded — either manually by an admin or by the 15-minute auto-expiry. Overlay tags removed.</summary>
+    Concluded,
+    /// <summary>Prep period elapsed; raid is live, [ALLY]/[ENEMY] overlay tags drawn, 15-minute auto-conclude timer running.</summary>
+    Active,
 }
 
 /// <summary>
@@ -135,6 +139,11 @@ public sealed class RaidRequestEntry
     public string? AdminUserName;
     public string? AdminComment;
     public DateTime? DecidedAtUtc;
+
+    // Conclusion metadata (populated when an Approved raid is ended manually or by auto-expiry)
+    public DateTime? ConcludedAtUtc;
+    /// <summary>Admin who ended the raid, or "Auto-Expiry" when the 15-minute timer ran out.</summary>
+    public string? ConcludedByAdmin;
 }
 
 // ── Network messages: requester ↔ server ──────────────────────────────────
@@ -220,6 +229,53 @@ public sealed class RaidRequestDecisionMsg : EntityEventArgs
 /// <summary>Server → admin: result of a decision attempt (e.g. validation failure).</summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestDecisionResultMsg : EntityEventArgs
+{
+    public int    RequestId;
+    public bool   Success;
+    public string Message = string.Empty;
+}
+
+/// <summary>Client → server: admin manually ends an approved raid (clears [ALLY]/[ENEMY] tags).</summary>
+[Serializable, NetSerializable]
+public sealed class RaidRequestEndMsg : EntityEventArgs
+{
+    public int RequestId;
+}
+
+/// <summary>Server → admin: result of an end-raid attempt. Reuses the decision-result UI path.</summary>
+[Serializable, NetSerializable]
+public sealed class RaidRequestEndResultMsg : EntityEventArgs
+{
+    public int    RequestId;
+    public bool   Success;
+    public string Message = string.Empty;
+}
+
+// ── Peer-faction approval (target leader bypasses admin) ──────────────────
+
+/// <summary>
+/// Server → highest-ranking online member of the TARGET faction when a faction-tier raid is
+/// submitted. Carries the full entry so the popup window can render context. If no eligible
+/// leader is online this is never sent and the request stays Pending for admin review.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class RaidRequestPeerPromptMsg : EntityEventArgs
+{
+    public RaidRequestEntry Entry = new();
+}
+
+/// <summary>Client → server: target faction leader’s YES/NO with optional remark.</summary>
+[Serializable, NetSerializable]
+public sealed class RaidRequestPeerDecisionMsg : EntityEventArgs
+{
+    public int    RequestId;
+    public bool   Approve;
+    public string Comment = string.Empty;
+}
+
+/// <summary>Server → leader: result feedback for the popup (e.g. “already decided”).</summary>
+[Serializable, NetSerializable]
+public sealed class RaidRequestPeerDecisionResultMsg : EntityEventArgs
 {
     public int    RequestId;
     public bool   Success;

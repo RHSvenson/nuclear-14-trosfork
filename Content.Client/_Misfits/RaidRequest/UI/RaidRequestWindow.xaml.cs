@@ -151,9 +151,11 @@ public sealed partial class RaidRequestWindow : FancyWindow
         var statusColor = req.Status switch
         {
             RaidRequestStatus.Pending   => "#FFAA00",
-            RaidRequestStatus.Approved  => "#32CD32",
+            RaidRequestStatus.Approved  => "#A8E060", // #Misfits Tweak - prep phase (5-min countdown to Active).
+            RaidRequestStatus.Active    => "#3CFF40", // #Misfits Add - overlay live; engagement window open.
             RaidRequestStatus.Denied    => "#FF4040",
             RaidRequestStatus.Unclaimed => "#888888",
+            RaidRequestStatus.Concluded => "#7B68EE", // #Misfits Add - matches admin panel slate-blue.
             _                           => "#FFFFFF",
         };
         var box = new BoxContainer

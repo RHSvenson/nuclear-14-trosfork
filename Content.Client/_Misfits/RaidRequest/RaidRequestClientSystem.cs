@@ -20,6 +20,10 @@ public sealed class RaidRequestClientSystem : EntitySystem
 
     private RaidRequestWindow? _window;
 
+    // #Misfits Add - Peer-approval popup. At most one is open at a time; if the server fires
+    // a second prompt before the first is decided, we replace the contents in place.
+    private RaidRequestPeerDecisionWindow? _peerWindow;
+
     /// <summary>Latest admin snapshot. Mirrored into <see cref="RaidRequestAdminControl"/> when present.</summary>
     public IReadOnlyList<RaidRequestEntry> AdminRequests => _adminRequests;
     private List<RaidRequestEntry> _adminRequests = new();
@@ -43,9 +47,14 @@ public sealed class RaidRequestClientSystem : EntitySystem
         SubscribeNetworkEvent<RaidRequestAdminListMsg>(OnAdminList);
         SubscribeNetworkEvent<RaidRequestAdminUpdateMsg>(OnAdminUpdate);
         SubscribeNetworkEvent<RaidRequestDecisionResultMsg>(OnDecisionResult);
+        // #Misfits Add - End-raid result reuses the existing decision-result UI lane.
+        SubscribeNetworkEvent<RaidRequestEndResultMsg>(OnEndResult);
         SubscribeNetworkEvent<RaidRequestDecisionAnnouncementMsg>(OnDecisionAnnouncement);
         // #Misfits Add - Overlay participants stream (drives AllyTagOverlay).
         SubscribeNetworkEvent<RaidRequestParticipantsUpdatedMsg>(OnParticipantsUpdated);
+        // #Misfits Add - Peer-approval popup for target faction leader.
+        SubscribeNetworkEvent<RaidRequestPeerPromptMsg>(OnPeerPrompt);
+        SubscribeNetworkEvent<RaidRequestPeerDecisionResultMsg>(OnPeerDecisionResult);
 
         _conHost.RegisterCommand(
             "raid",
@@ -59,6 +68,8 @@ public sealed class RaidRequestClientSystem : EntitySystem
         base.Shutdown();
         _window?.Close();
         _window = null;
+        _peerWindow?.Close();
+        _peerWindow = null;
     }
 
     // ── /raid console command ─────────────────────────────────────────────
@@ -132,6 +143,12 @@ public sealed class RaidRequestClientSystem : EntitySystem
         AdminControl?.ShowDecisionResult(msg.RequestId, msg.Success, msg.Message);
     }
 
+    // #Misfits Add - End-raid result; reuses the same status label as approve/deny.
+    private void OnEndResult(RaidRequestEndResultMsg msg)
+    {
+        AdminControl?.ShowDecisionResult(msg.RequestId, msg.Success, msg.Message);
+    }
+
     /// <summary>Subscribed by <see cref="RaidRequestAdminControl"/> to send approve/deny.</summary>
     public void SendDecision(int requestId, bool approve, string comment)
     {
@@ -141,6 +158,48 @@ public sealed class RaidRequestClientSystem : EntitySystem
             Approve   = approve,
             Comment   = comment,
         });
+    }
+
+    // #Misfits Add - Admin pressed "End Raid" on an Approved request.
+    public void SendEndRaid(int requestId)
+    {
+        RaiseNetworkEvent(new RaidRequestEndMsg { RequestId = requestId });
+    }
+
+    // ── Peer-approval popup ───────────────────────────────────
+
+    private void OnPeerPrompt(RaidRequestPeerPromptMsg msg)
+    {
+        if (_peerWindow == null || _peerWindow.Disposed)
+        {
+            _peerWindow = new RaidRequestPeerDecisionWindow();
+            _peerWindow.OnDecided += (approve, comment) =>
+            {
+                if (_peerWindow == null)
+                    return;
+                RaiseNetworkEvent(new RaidRequestPeerDecisionMsg
+                {
+                    RequestId = _peerWindow.RequestId,
+                    Approve   = approve,
+                    Comment   = comment ?? string.Empty,
+                });
+            };
+            _peerWindow.OnClose += () => _peerWindow = null;
+        }
+
+        _peerWindow.Populate(msg.Entry);
+        _peerWindow.OpenCentered();
+    }
+
+    private void OnPeerDecisionResult(RaidRequestPeerDecisionResultMsg msg)
+    {
+        if (_peerWindow == null || _peerWindow.Disposed || _peerWindow.RequestId != msg.RequestId)
+            return;
+
+        if (msg.Success)
+            _peerWindow.Close();
+        else
+            _peerWindow.ShowFailure(msg.Message);
     }
 
     /// <summary>Subscribed by <see cref="RaidRequestAdminControl"/> on first open.</summary>

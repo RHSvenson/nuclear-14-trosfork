@@ -35,6 +35,7 @@ raid-request-admin-comment-label = Remarks (sent to faction):
 raid-request-admin-comment-placeholder = Required. This message is delivered to every notified player.
 raid-request-approve-button = Approve
 raid-request-deny-button = Deny
+raid-request-end-button = End Raid
 raid-request-comment-required = A comment is required before approving or denying.
 raid-request-pending-count = { $count } pending raid request(s)
 raid-request-no-pending = No pending raid requests.
@@ -43,3 +44,15 @@ raid-request-no-pending = No pending raid requests.
 raid-request-popup-approved = Raid APPROVED: { $from } → { $to }
 raid-request-popup-denied = Raid DENIED: { $from } → { $to }
 raid-request-popup-target-warning = Incoming raid threat APPROVED against { $faction }!
+
+# #Misfits Add - Peer-faction approval popup (target faction leader bypass).
+raid-request-peer-window-title = Raid Threat — Decide
+raid-request-peer-header = Incoming raid request from { $faction } against { $target }.
+raid-request-peer-from-label = From:
+raid-request-peer-location-label = Stated location:
+raid-request-peer-location-unset = (not specified)
+raid-request-peer-reason-label = Reason / plan:
+raid-request-peer-comment-label = Your remarks (sent to the requester's faction):
+raid-request-peer-comment-placeholder = Optional. Will be shown verbatim to the other faction.
+raid-request-peer-approve-button = Allow Raid
+raid-request-peer-deny-button = Refuse

@@ -91,6 +91,15 @@
                                         HorizontalExpand="True" />
                             </BoxContainer>
 
+                            <!-- #Misfits Add - End Raid row, visible only for Approved entries.
+                                 Concludes the raid and clears [ALLY]/[ENEMY] overlay tags. -->
+                            <BoxContainer Name="EndRaidRow" Orientation="Horizontal"
+                                          HorizontalExpand="True" SeparationOverride="6"
+                                          Visible="False">
+                                <Button Name="EndRaidButton" Text="{Loc raid-request-end-button}"
+                                        HorizontalExpand="True" />
+                            </BoxContainer>
+
                             <RichTextLabel Name="DecisionResultLabel" HorizontalExpand="True" />
                         </BoxContainer>
                     </ScrollContainer>
