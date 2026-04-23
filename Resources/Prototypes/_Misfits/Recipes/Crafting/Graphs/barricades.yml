@@ -24,7 +24,7 @@
               doAfter: 3
           completed:
             - !type:SpawnPrototype
-              prototype: MaterialSheetSteel1
+              prototype: SheetSteel1
               amount: 7
             - !type:DeleteEntity 
 
@@ -51,7 +51,7 @@
               doAfter: 6
           completed:
             - !type:SpawnPrototype
-              prototype: MaterialSheetSteel1
+              prototype: SheetSteel1
               amount: 4
             - !type:DeleteEntity 
 
@@ -78,7 +78,7 @@
               doAfter: 6
           completed:
             - !type:SpawnPrototype
-              prototype: MaterialSheetSteel1
+              prototype: SheetSteel1
               amount: 8
             - !type:DeleteEntity 
 
