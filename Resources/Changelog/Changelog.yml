@@ -3762,3 +3762,12 @@ Entries:
   id: 5763
   time: '2026-04-23T22:52:31.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/322
+- author: Trosling
+  changes:
+    - type: Add
+      message: Added 12 gauge beanbag shells
+    - type: Add
+      message: Added kits for the Priestess of Mars
+  id: 5764
+  time: '2026-04-23T22:53:13.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/323
