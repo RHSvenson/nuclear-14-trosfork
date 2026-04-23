@@ -3698,3 +3698,10 @@ Entries:
   id: 5759
   time: '2026-04-23T01:05:25.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/319
+- author: Trosling
+  changes:
+    - type: Add
+      message: Added Tree of Mars to Legion camp
+  id: 5760
+  time: '2026-04-23T01:06:07.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/318
