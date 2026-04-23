@@ -1,0 +1,59 @@
+- type: construction
+  name: tank trap
+  id: N14BarricadeTanktrap
+  graph: BarricadeTanktrap
+  startNode: start
+  targetNode: Tanktrap
+# category: construction-category-decorations
+  description: A metal fabricated spike for blocking vehicles.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/barricades.rsi
+    state: iron_barricade
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: razorwire barricade
+  id: N14BarricadeRazorwire
+  graph: BarricadeRazorwire
+  startNode: start
+  targetNode: Razorwire
+# category: construction-category-decorations
+  description: A razorwire fortification.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/barricades.rsi
+    state: barbedwire_single
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: metal barricade
+  id: N14BarricadeMetal
+  graph: BarricadeMetal
+  startNode: start
+  targetNode: Metal
+# category: construction-category-decorations
+  description: A metal fortification.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/ms13_barricades.rsi
+    state: black
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: concrete barrier
+  id: N14DecorConcreteBarrier
+  graph: BarricadeConcrete
+  startNode: start
+  targetNode: Concrete
+# category: construction-category-decorations
+  description: A concrete barrier for stopping traffic.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/barriers.rsi
+    state: concrete_barrier
+  objectType: Structure
+  placementMode: SnapgridCenter

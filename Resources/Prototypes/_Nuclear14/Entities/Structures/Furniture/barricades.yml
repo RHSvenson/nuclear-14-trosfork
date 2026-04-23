@@ -49,6 +49,9 @@
     netsync: false
     state: iron_barricade
     snapCardinals: true
+  - type: Construction
+    graph: BarricadeTanktrap
+    node: Tanktrap
   - type: Damageable
     damageModifierSet: Metallic
     damageContainer: Inorganic
@@ -85,6 +88,9 @@
     sprite: _Nuclear14/Structures/Furniture/barricades.rsi
     netsync: false
     state: iron_barricadeA
+  - type: Construction
+    graph: BarricadeTanktrap
+    node: Tanktrap
 
 - type: entity
   parent: BaseStructure
@@ -96,6 +102,9 @@
     sprite: _Nuclear14/Structures/Furniture/barricades.rsi
     netsync: false
     state: barbedwire_single
+  - type: Construction
+    graph: BarricadeRazorwire
+    node: Razorwire
   - type: Damageable
     damageModifierSet: Metallic
     damageContainer: Inorganic
@@ -161,6 +170,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/ms13_barricades.rsi
     state: black
+  - type: Construction
+    graph: BarricadeMetal
+    node: Metal
   - type: Damageable
     damageModifierSet: Metallic
     damageContainer: Inorganic
@@ -202,16 +214,22 @@
   components:
   - type: Sprite
     state: green
+  - type: Construction
+    graph: BarricadeMetalGreen
+    node:  Green
 
 - type: entity
   parent: N14BarricadeSandbagSingle # Corvax-Change
   id: N14DecorConcreteBarrier
   name: concrete barrier
-  description: an old concrete barrier for stopping traffic.
+  description: A concrete barrier for stopping traffic.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/barriers.rsi
     state: concrete_barrier
+  - type: Construction
+    graph: BarricadeConcrete
+    node: Concrete
   - type: Fixtures # Corvax-Change
     fixtures:
       fix1:
@@ -246,7 +264,7 @@
   parent: N14DecorConcreteBarrier
   id: N14DecorConcreteBarrierStriped
   name: concrete barrier
-  description: an old concrete barrier for stopping traffic.
+  description: An old concrete barrier for stopping traffic.
   components:
   - type: Sprite
     layers:
@@ -262,7 +280,7 @@
   parent: N14DecorConcreteBarrier
   id: N14DecorRoadBarrier
   name: road barrier
-  description: an old wooden barrier for stopping traffic.
+  description: An old wooden barrier for stopping traffic.
   components:
   - type: Sprite
     state: road_barrier
