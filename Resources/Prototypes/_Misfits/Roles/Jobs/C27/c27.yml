@@ -17,6 +17,7 @@
   # Robots/FEVMutants (-100) and Enclave (-101) between CaesarLegion (-99) and
   # C27Unit, matching the visual margin/spacing of the other special departments.
   weight: -102
+  uiCategory: Whitelist
   roles:
   - C27       # #Misfits Change - was the only role; now joined by C27NCR / C27BoS below.
   - C27NCR    # #Misfits Add - NCR variant role
