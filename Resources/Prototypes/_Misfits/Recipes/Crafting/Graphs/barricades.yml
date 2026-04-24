@@ -90,7 +90,7 @@
       edges:
         - to: ConcreteBarrier
           steps:
-            - material: Concrete
+            - material: N14Concrete
               amount: 8
               doAfter: 6
           completed:
@@ -107,4 +107,58 @@
             - !type:SpawnPrototype
               prototype: N14MaterialCement1
               amount: 5
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
+
+- type: constructionGraph
+  id: BarricadeMetalGreen
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: Green
+          steps:
+            - material: Steel
+              amount: 8
+              doAfter: 6
+          completed:
+            - !type:SnapToGrid
+
+    - node: Green
+      entity: N14BarricadeMetalGreen
+      edges:
+        - to: start
+          steps:
+            - tool: Welding
+              doAfter: 6
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 8
+            - !type:DeleteEntity
+
+- type: constructionGraph
+  id: BarricadeConcrete
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: Concrete
+          steps:
+            - material: N14Concrete
+              amount: 8
+              doAfter: 6
+          completed:
+            - !type:SnapToGrid
+
+    - node: Concrete
+      entity: N14DecorConcreteBarrier
+      edges:
+        - to: start
+          steps:
+            - tool: Cutting
+              doAfter: 3
+          completed:
+            - !type:SpawnPrototype
+              prototype: N14MaterialCement1
+              amount: 5
+            - !type:DeleteEntity
