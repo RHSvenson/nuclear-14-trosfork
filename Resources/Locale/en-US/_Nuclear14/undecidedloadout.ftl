@@ -317,7 +317,7 @@ undecided-loadout-category-mbos-pal-bal-description =
 undecided-loadout-category-mbos-pal-sni-name = Advanced Laser Kit
 undecided-loadout-category-mbos-pal-sni-description =
     A cache containing belongings of a Brotherhood chapter member.
-    Includes 1 AER-12, 3 microfusion cells,
+    Includes 1 AER-9, 3 microfusion cells,
     1 12.7mm pistol, 2 12.7mm pistol magazines, 1 roll of gauze,
     1 stimpak, and 1 K ration MRE.
 
