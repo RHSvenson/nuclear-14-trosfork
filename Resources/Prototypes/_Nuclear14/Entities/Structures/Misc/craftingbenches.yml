@@ -400,11 +400,11 @@
           - PillCanister
   - type: SolutionContainerManager
     solutions:
-      buffer: { }
+      buffer:
+        maxVol: 150 # #Misfits Tweak - cap buffer at 150u to prevent super-chem stacking
       pillBuffer: { }
   - type: DumpableSolution
     solution: buffer
-    unlimited: true
 
 - type: entity
   parent: BaseStructure
