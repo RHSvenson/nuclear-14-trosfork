@@ -1,0 +1,368 @@
+#Misfits Add: Construction prototype for FLAGS!!!
+# Uses cloth as the primary obtainable material
+
+# Flags
+- type: construction
+  name: US flag
+  id: N14FlagWallUS
+  graph: MisfitsFlagUS
+  startNode: start
+  targetNode: flagus
+# category: construction-category-decorations
+  description: A flag of the United States.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
+    state: flag_us
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Chinese flag
+  id: N14FlagWallChina
+  graph: MisfitsFlagCH
+  startNode: start
+  targetNode: flagch
+# category: construction-category-decorations
+  description: A Chinese flag.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
+    state: flag_china
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: California flag
+  id: N14FlagWallCalifornia
+  graph: MisfitsFlagCI
+  startNode: start
+  targetNode: flagci
+# category: construction-category-decorations
+  description: A flag of California.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
+    state: flag_cali
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Arizona flag
+  id: N14FlagWallArizona
+  graph: MisfitsFlagAZ
+  startNode: start
+  targetNode: flagaz
+# category: construction-category-decorations
+  description: A flag of Arizona.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
+    state: flag_arizona
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Enclave flag
+  id: N14FlagWallEnclave
+  graph: MisfitsFlagEN
+  startNode: start
+  targetNode: flagen
+# category: construction-category-decorations
+  description: An Enclave flag.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
+    state: flag_enclave
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: NCR flag
+  id: N14FlagWallNCR
+  graph: MisfitsFlagNCR
+  startNode: start
+  targetNode: flagncr
+# category: construction-category-decorations
+  description: An NCR flag.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
+    state: flag_ncr
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Legion flag
+  id: N14FlagWallLegion
+  graph: MisfitsFlagLE
+  startNode: start
+  targetNode: flagle
+# category: construction-category-decorations
+  description: A Legion flag.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
+    state: flag_legion
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Rangers flag
+  id: N14FlagWallRangers
+  graph: MisfitsFlagRG
+  startNode: start
+  targetNode: flagrg
+# category: construction-category-decorations
+  description: A Rangers flag.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
+    state: flag_rangers
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Brotherhood of Steel flag
+  id: N14FlagWallWesternBrotherhood
+  graph: MisfitsFlagBOSW
+  startNode: start
+  targetNode: flagbosw
+# category: construction-category-decorations
+  description: A Brotherhood of Steel flag.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor2.rsi
+    state: flag_midwest
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+#- type: construction
+#  name: Washington Brotherhood of Steel flag
+#  id: N14FlagWallWashingtonBrotherhood
+#  graph: MisfitsFlagBOSE
+#  startNode: start
+#  targetNode: flagbose
+# category: construction-category-decorations
+#  description: A Washington Brotherhood of Steel flag.
+#  hide: false
+#  icon:
+#    sprite: _Nuclear14/Structures/Wallmounts/walldecor3.rsi
+#    state: flag_washing
+#  objectType: Structure
+#  placementMode: SnapgridCenter
+
+- type: construction
+  name: Colorado flag
+  id: N14FlagWallColorado
+  graph: MisfitsFlagCL
+  startNode: start
+  targetNode: flagcl
+# category: construction-category-decorations
+  description: A flag for the state of Colorado.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
+    state: flag_colorado
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Denver flag
+  id: N14FlagWallDenver
+  graph: MisfitsFlagDE
+  startNode: start
+  targetNode: flagde
+# category: construction-category-decorations
+  description: A flag for the capital of Colorado.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
+    state: flag_denver
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Children of Atom flag
+  id: MisfitsBannerChildrenOfAtom
+  graph: MisfitsFlagSmallCoA
+  startNode: start
+  targetNode: flagbcoas
+# category: construction-category-decorations
+  description: A banner bearing the sacred symbol of the Children of Atom. It radiates faint warmth to true believers.
+  hide: false
+  icon:
+    sprite: _Misfits/Structures/Decoration/coa_banner_small.rsi
+    state: banner
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Bazaar flag
+  id: NCFlagWallBazaar
+  graph: DecorationFlagBazaar
+  startNode: start
+  targetNode: FlagBazaar
+  description: You notice something interesting with this bird...
+#  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: Corvax/Structures/Wallmount/flag.rsi
+    state: flag_bazar
+
+- type: construction
+  name: Brahmin flag
+  id: NCFlagWallTown
+  graph: DecorationFlagTown
+  startNode: start
+  targetNode: FlagTown
+  description: The brahmin on this flag doesn't look very alive...
+#  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: Corvax/Structures/Wallmount/flag.rsi
+    state: flag_town
+
+- type: construction
+  name: Mexico flag
+  id: NCFlagWallMexico
+  graph: DecorationFlagMexico
+  startNode: start
+  targetNode: FlagMexico
+  description: Avocados from Mexico!
+#  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: Corvax/Structures/Wallmount/flag.rsi
+    state: flag_mex
+
+# Banners aka big flags
+
+- type: construction
+  name: Children of Atom flag
+  id: MisfitsDecorationFlagChildrenOfAtom
+  graph: MisfitsFlagCoA
+  startNode: start
+  targetNode: flagcoa
+# category: construction-category-decorations
+  description: A tall flag bearing the symbol of the Children of Atom. It flutters solemnly in glow-tainted breezes.
+  hide: false
+  icon:
+    sprite: _Misfits/Structures/Decoration/coa_banner_big.rsi
+    state: banner
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Oasis flag
+  id: N14DecorationFlagOasis
+  graph: DecorationFlagOasis
+  startNode: start
+  targetNode: FlagOasis
+# category: construction-category-decorations
+  description: A flag depicting a stylised pink flower on a green background. It's the symbol of the town of Oasis.  
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
+    state: oasisflag
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+#- type: construction
+#  name: Washington Brotherhood of Steel flag
+#  id: N14DecorationFlagBrotherhoodWashington
+#  graph: DecorationFlagBrotherhoodWashington
+#  startNode: start
+#  targetNode: FlagBrotherhoodWashington
+# category: construction-category-decorations
+#  description: A red and black flag with a sword surrounded in gears and wings.
+#  hide: false
+#  icon:
+#    sprite: _Nuclear14/Structures/Decoration/flags.rsi
+#    state: wbosflag
+#  objectType: Structure
+#  placementMode: SnapgridCenter
+
+- type: construction
+  name: Enclave flag
+  id: N14DecorationFlagEnclave
+  graph: DecorationFlagEnclave
+  startNode: start
+  targetNode: FlagEnclave
+# category: construction-category-decorations
+  description: An Enclave flag atop a bearer.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
+    state: enclaveflag
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: High Valley Hills flag
+  id: N14DecorationFlagHighvalleyhills
+  graph: DecorationFlagHighvalleyhills
+  startNode: start
+  targetNode: FlagHighvalleyhills
+# category: construction-category-decorations
+  description: A flag with two white stripes, blue border and a red centre with a white Vault-Tec logo, turned on its side and stretched out.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
+    state: hvhflag
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Vault-Tec City Coalition flag
+  id: N14DecorationFlagVaultTecCityCoalition
+  graph: DecorationFlagVaultTecCityCoalition
+  startNode: start
+  targetNode: FlagVaultTecCityCoalition
+# category: construction-category-decorations
+  description: A Vault-Tec City Coalition flag atop a bearer.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
+    state: vtccflag
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Khans flag
+  id: N14DecorationFlagKhans
+  graph: DecorationFlagKhans
+  startNode: start
+  targetNode: FlagKhans
+# category: construction-category-decorations
+  description: A flag worn and weathered from a long cherished history. A decorated smiling skull smiles mockingly upon those who challenge it.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
+    state: khanflag
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: Church flag
+  id: N14DecorationFlagChurch
+  graph: DecorationFlagChurch
+  startNode: start
+  targetNode: FlagChurch
+# category: construction-category-decorations
+  description: A blood red flag featuring a symbol associated with nuclear radiation.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
+    state: cotc
+  objectType: Structure
+  placementMode: SnapgridCenter

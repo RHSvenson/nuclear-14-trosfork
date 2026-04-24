@@ -57,3 +57,417 @@
 
     - node: TableWoodSettler
       entity: N14TableWoodSettler
+
+- type: constructionGraph
+  id: N14WoodTableRecipes
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: TableDeskSchoolDamaged
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+
+        - to: TableWoodEnd
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+
+        - to: TableWoodSquare
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+
+        - to: TableDeskWood
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 3
+
+        - to: TableDeskWoodSmall
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+
+        - to: TableWoodStand
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 3
+              doAfter: 2
+        
+        - to: TableWoodenSquareWide
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 2
+
+        - to: TableWoodenOvalWide
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+
+        - to: TableWoodLow
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+
+        - to: TableWoodCabledrum
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+
+        - to: TableCounterCraft
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 3
+              doAfter: 2
+
+        - to: TableCounterCraftBend
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 2
+        
+        - to: TableCounterCraftIntersect
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 2
+
+        - to: TableCounterCraftCross
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 6
+              doAfter: 2
+
+    - node: TableDeskSchoolDamaged
+      entity: N14TableDeskSchoolDamaged
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 5
+
+    - node: TableWoodEnd
+      entity: N14TableWoodEnd
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+
+    - node: TableWoodSquare
+      entity: N14TableWoodSquare
+      edges:
+        - to: TableWoodRound
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+
+    - node: TableWoodRound
+      entity: N14TableWoodRound
+      edges:
+        - to: TableWoodSquare
+          steps:
+            - tool: Prying
+              doAfter: 5
+        
+        - to: TableCasinoDice
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+  
+    - node: TableWoodLow
+      entity: N14TableWoodLow
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+
+    - node: TableCasinoDice
+      entity: N14TableCasinoDice
+      edges:
+        - to: TableWoodRound
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+          
+        - to: TableWoodRound
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialCloth
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Cutting
+              doAfter: 3
+
+    - node: TableWoodStand
+      entity: N14TableWoodStand
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank
+              amount: 3
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+
+    - node: TableWoodCabledrum
+      entity: N14TableWoodCabledrum
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+
+    - node: TableDeskWood
+      entity: N14TableDeskWood
+      edges:
+        - to: TableDeskWood2
+          completed:
+            - !type:SnapToGrid
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+
+    - node: TableDeskWood2
+      entity: N14TableDeskWood2
+      edges:
+        - to: TableDeskWood
+          steps:
+            - tool: Prying
+              doAfter: 5
+
+    - node: TableDeskWoodSmall
+      entity: N14TableDeskWoodSmall
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank
+              amount: 1
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 5
+
+    - node: TableWoodenSquareWide
+      entity: N14TableWoodenSquareWide
+      edges:
+        - to: TableCasinoPool
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+
+    - node: TableCasinoCards
+      entity: N14TableCasinoCards
+      edges:
+        - to: TableCasinoPool
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - tool: Prying
+              doAfter: 3
+
+    - node: TableCasinoPool
+      entity: N14TableCasinoPool
+      edges:
+        - to: TableCasinoCards
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - tool: Screwing
+              doAfter: 3
+
+        - to: TableWoodenSquareWide
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialCloth
+              amount: 2
+          steps:
+            - tool: Cutting
+              doAfter: 4
+
+    - node: TableWoodenOvalWide
+      entity: N14TableWoodenOvalWide
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+
+    - node: TableCounterCraft
+      entity: N14TableCounterCraft
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank
+              amount: 3
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+
+    - node: TableCounterCraftBend
+      entity: N14TableCounterCraftBend
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank
+              amount: 3
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+
+    - node: TableCounterCraftIntersect
+      entity: N14TableCounterCraftIntersect
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank
+              amount: 3
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+
+    - node: TableCounterCraftCross
+      entity: N14TableCounterCraftCross
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialWoodPlank
+              amount: 3
+            - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5

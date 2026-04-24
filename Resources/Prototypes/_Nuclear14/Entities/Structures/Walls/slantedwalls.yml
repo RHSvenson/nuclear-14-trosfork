@@ -541,7 +541,7 @@
 - type: entity
   parent: BaseWallIndestructible
   id: N14WallIndustrialRustSlantedIndestructible
-  name: industrial rust wall
+  name: rusty industrial wall
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Walls/ms13/slanted/rustindustrial.rsi
@@ -554,13 +554,13 @@
 - type: entity
   parent: [ N14WallIndustrialRustSlantedIndestructible, N14BaseWallSlantedMetal ]
   id: N14WallIndustrialRustSlanted
-  name: industrial rust wall
+  name: rusty industrial wall
   suffix: slanted
 
 - type: entity
   parent: BaseWallIndestructible
   id: N14WallMetalRustSlantedIndestructible
-  name: metal rust wall
+  name: rusty metal wall
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Walls/ms13/slanted/rustmetal.rsi
@@ -573,13 +573,13 @@
 - type: entity
   parent: [ N14WallMetalRustSlantedIndestructible, N14BaseWallSlantedMetal ]
   id: N14WallMetalRustSlantedSlanted
-  name: metal rust wall
+  name: rusty metal wall
   suffix: slanted
 
 - type: entity
   parent: BaseWallIndestructible
   id: N14WallReinfMetalRustSlantedIndestructible
-  name: reinforced metal rust wall
+  name: rusty reinforced metal wall
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Walls/ms13/slanted/rustreinfmetal.rsi
@@ -592,13 +592,13 @@
 - type: entity
   parent: [ N14WallReinfMetalRustSlantedIndestructible, N14BaseWallSlantedMetal ]
   id: N14WallReinfMetalRustSlanted
-  name: reinforced metal rust wall
+  name: rusty reinforced metal wall
   suffix: slanted
 
 - type: entity
   parent: BaseWallIndestructible
   id: N14WallVaultRustSlantedIndestructible
-  name: vault rust wall
+  name: rusty vault wall
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Walls/ms13/slanted/rustvault.rsi
@@ -611,13 +611,13 @@
 - type: entity
   parent: [ N14WallVaultRustSlantedIndestructible, N14BaseWallSlantedMetalStrong ]
   id: N14WallVaultRustSlanted
-  name: vault rust wall
+  name: rusty vault wall
   suffix: slanted
 
 - type: entity
   parent: BaseWallIndestructible
   id: N14WallVaultVentsRustSlantedIndestructible
-  name: vault vents rust wall
+  name: rusty vault vents wall
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Walls/ms13/slanted/rustvaultvent.rsi
@@ -630,7 +630,7 @@
 - type: entity
   parent: [ N14WallVaultVentsRustSlantedIndestructible, N14BaseWallSlantedMetal ]
   id: N14WallVaultVentsRustSlanted
-  name: vault vents rust wall
+  name: rusty vault vents wall
   suffix: slanted
 
 - type: entity
@@ -649,13 +649,17 @@
 - type: entity
   parent: [ N14WallScrapSlantedIndestructible, N14BaseWallSlantedMetalWeak ]
   id: N14WallScrapSlanted
-  name: scrap wall
+  name: sheet metal wall
   suffix: slanted
+  components:
+  - type: Construction  
+    graph: N14ScrapWall
+    node: SheetScrapWall
 
 - type: entity
   parent: BaseWallIndestructible
   id: N14WallScrapBlueSlantedIndestructible
-  name: blue scrap wall
+  name: blue sheet metal wall
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Walls/ms13/slanted/scrapblue.rsi
@@ -668,7 +672,7 @@
 - type: entity
   parent: [ N14WallScrapBlueSlantedIndestructible, N14BaseWallSlantedMetalWeak ]
   id: N14WallScrapBlueSlanted
-  name: blue scrap wall
+  name: blue sheet metal wall
   suffix: slanted
   components:
   - type: Construction
@@ -678,7 +682,7 @@
 - type: entity
   parent: BaseWallIndestructible
   id: N14WallScrapRedSlantedIndestructible
-  name: red scrap wall
+  name: red sheet metal wall
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Walls/ms13/slanted/scrapred.rsi
@@ -691,7 +695,7 @@
 - type: entity
   parent: [ N14WallScrapRedSlantedIndestructible, N14BaseWallSlantedMetalWeak ]
   id: N14WallScrapRedSlanted
-  name: red scrap wall
+  name: red sheet metal wall
   suffix: slanted
   components:
   - type: Construction
@@ -701,7 +705,7 @@
 - type: entity
   parent: BaseWallIndestructible
   id: N14WallScrapWhiteSlantedIndestructible
-  name: white scrap wall
+  name: white sheet metal wall
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Walls/ms13/slanted/scrapwhite.rsi
@@ -714,8 +718,12 @@
 - type: entity
   parent: [ N14WallScrapWhiteSlantedIndestructible, N14BaseWallSlantedMetalWeak ]
   id: N14WallScrapWhiteSlanted
-  name: white scrap wall
+  name: white sheet metal wall
   suffix: slanted
+  components:
+  - type: Construction
+    graph: N14ScrapWall
+    node: WhiteScrapWall
 
 - type: entity
   parent: BaseWallIndestructible
@@ -739,7 +747,7 @@
 - type: entity
   parent: BaseWallIndestructible
   id: N14WallSidingSlantedIndestructible
-  name: siding wall
+  name: brick wall
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Walls/ms13/slanted/siding.rsi
@@ -752,13 +760,13 @@
 - type: entity
   parent: [ N14WallSidingSlantedIndestructible, N14BaseWallSlantedWood ]
   id: N14WallSidingSlanted
-  name: siding wall
+  name: brick wall
   suffix: slanted
 
 - type: entity
   parent: BaseWallIndestructible
   id: N14WallSidingBlueSlantedIndestructible
-  name: blue siding wall
+  name: blue brick wall
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Walls/ms13/slanted/sidingblue.rsi
@@ -771,13 +779,13 @@
 - type: entity
   parent: [ N14WallSidingBlueSlantedIndestructible, N14BaseWallSlantedWood ]
   id: N14WallSidingBlueSlanted
-  name: blue siding wall
+  name: blue brick wall
   suffix: slanted
 
 - type: entity
   parent: BaseWallIndestructible
   id: N14WallSidingRedSlantedIndestructible
-  name: red siding wall
+  name: red brick wall
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Walls/ms13/slanted/sidingred.rsi
@@ -790,13 +798,13 @@
 - type: entity
   parent: [ N14WallSidingRedSlantedIndestructible, N14BaseWallSlantedWood ]
   id: N14WallSidingRedSlanted
-  name: red siding wall
+  name: red brick wall
   suffix: slanted
 
 - type: entity
   parent: BaseWallIndestructible
   id: N14WallSidingGreenSlantedIndestructible
-  name: green siding wall
+  name: green brick wall
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Walls/ms13/slanted/sidinggreen.rsi
@@ -809,7 +817,7 @@
 - type: entity
   parent: [ N14WallSidingGreenSlantedIndestructible, N14BaseWallSlantedWood ]
   id: N14WallSidingGreenSlanted
-  name: green siding wall
+  name: green brick wall
   suffix: slanted
 
 - type: entity

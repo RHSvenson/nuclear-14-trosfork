@@ -1,0 +1,341 @@
+- type: construction
+  name: damaged school desk
+  id: N14TableDeskSchoolDamaged
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableDeskSchoolDamaged
+  category: construction-category-furniture
+  description: A wooden desk for studying at. Looks worse for wear.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/schooldesk.rsi
+    state: desk_2
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: wooden end table
+  id: N14TableWoodEnd
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableWoodEnd
+  category: construction-category-furniture
+  description: A wooden end table.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: table_wood_end
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: wooden round table
+  id: N14TableWoodRound
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableWoodRound
+  category: construction-category-furniture
+  description: A wooden round table.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: table_wood_round
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: wooden table
+  id: N14TableWoodSquare
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableWoodSquare
+  category: construction-category-furniture
+  description: A wooden square table.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: table_wood_square
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: low wooden table
+  id: N14TableWoodLow
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableWoodLow
+  category: construction-category-furniture
+  description: A low wooden square table.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: table_wood_low
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: wooden stand
+  id: N14TableWoodStand
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableWoodStand
+  category: construction-category-furniture
+  description: A wooden stand table.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: table_wood_stand
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: cable drum
+  id: N14TableWoodCabledrum
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableWoodCabledrum
+  category: construction-category-furniture
+  description: A convenient table.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: cable_reel
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: wooden desk
+  id: N14TableDeskWood
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableDeskWood
+  category: construction-category-furniture
+  description: A wooden desk for working at.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/desks.rsi
+    state: desk_wood
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: wooden desk
+  id: N14TableDeskWood2
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableDeskWood2
+  category: construction-category-furniture
+  description: A wooden desk for working at.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: desk_wood
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: small wooden desk
+  id: N14TableDeskWoodSmall
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableDeskWoodSmall
+  category: construction-category-furniture
+  description: A small wooden desk for working at.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: desk_wood_small
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: cards table
+  id: N14TableCasinoCards
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableCasinoCards
+  category: construction-category-furniture
+  description: A fancy table for playing cards at.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: table_cards
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: pool table
+  id: N14TableCasinoPool
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableCasinoPool
+  category: construction-category-furniture
+  description: A fancy table for playing pool at.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: table_pool
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: wide oval table
+  id: N14TableWoodenOvalWide
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableWoodenOvalWide
+  category: construction-category-furniture
+  description: An oval table made from wood.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: table_wood_wide_oval
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: wide square table
+  id: N14TableWoodenSquareWide
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableWoodenSquareWide
+  category: construction-category-furniture
+  description: A wide square table made from wood.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: table_wood_wide_square
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: wooden counter
+  id: N14TableCounterCraft
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableCounterCraft
+  category: construction-category-furniture
+  description: This counter looks like scrap.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: craft_counter
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: wooden counter corner
+  id: N14TableCounterCraftBend
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableCounterCraftBend
+  category: construction-category-furniture
+  description: A craft counter corner piece.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: craft_counter_bend
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: three-way intersecting wooden counter
+  id: N14TableCounterCraftIntersect
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableCounterCraftIntersect
+  category: construction-category-furniture
+  description: A craft counter intersect piece.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: craft_counter_intersect
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: four-way intersecting wooden counter
+  id: N14TableCounterCraftCross
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableCounterCraftCross
+  category: construction-category-furniture
+  description: A craft counter cross piece.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: craft_counter_cross
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: dice table
+  id: N14TableCasinoDice
+  graph: N14WoodTableRecipes
+  startNode: start
+  targetNode: TableCasinoDice
+  category: construction-category-furniture
+  description: A table for playing dice games.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: dice_dirty
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
