@@ -29,4 +29,21 @@
   - type: Warhorn
     sound: /Audio/_Misfits/Items/Warhorn/WarHorn02.ogg
     range: 45
-    volume: 3
+    volume: 1
+
+- type: entity
+  parent: BaseWarhorn
+  id: WarhornBrahmin
+  name: Brahmin Warhorn
+  description: Hollowed out Brahmin horn, used by tribals for signalling during war time
+  components:
+  - type: Sprite
+    sprite: /Textures/_Misfits/Objects/Warhorns/brahminhorn.rsi
+    state: icon
+  - type: Item
+    sprite: /Textures/_Misfits/Objects/Warhorns/brahminhorn.rsi
+    size: Normal
+  - type: Warhorn
+    sound: /Audio/_Misfits/Items/Warhorn/WarHorn01.ogg
+    range: 45
+    volume: 1
