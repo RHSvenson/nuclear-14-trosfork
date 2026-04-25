@@ -100,13 +100,16 @@
 - type: entity
   parent: N14TableDeskSchool
   id: N14TableDeskSchoolDamaged
-  name: school desk
+  name: old school desk
   suffix: damaged
   description: A wooden desk for studying at. Looks worse for wear.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/schooldesk.rsi
     state: desk_2
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableDeskSchoolDamaged
 
 - type: entity
   parent: N14TableDeskSchool
@@ -128,21 +131,27 @@
         - TableMask
         layer:
         - TableLayer
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableWoodEnd
 
 - type: entity
   parent: N14TableWoodSquare
   id: N14TableWoodRound
-  name: wooden table
+  name: round wooden table
   description: A wooden round table.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
     state: table_wood_round
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableWoodRound
 
 - type: entity
   parent: N14TableDeskSchool
   id: N14TableWoodSquare
-  name: wooden table
+  name: square wooden table
   description: A wooden square table.
   components:
   - type: Sprite
@@ -159,44 +168,61 @@
         - TableMask
         layer:
         - TableLayer
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableWoodSquare
 
 - type: entity
   parent: N14TableWoodSquare
   id: N14TableWoodLow
-  name: wooden table
+  name: low wooden table
   description: A low wooden square table.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
     state: table_wood_low
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableWoodLow
 
 - type: entity
   parent: N14TableWoodSquare
   id: N14TableWoodStand
+  name: short wooden table
+  description: A small wooden table.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
     state: table_wood_stand
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableWoodStand
 
 - type: entity
   parent: N14TableWoodSquare
   id: N14TableWoodCabledrum
   name: cable drum
-  description: A convenient table.
+  description: A wooden cable drum, has some cracks in it.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
     state: cable_reel
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableWoodCabledrum
 
 - type: entity
   parent: N14TableWoodSquare
   id: N14TableCasinoDice
-  name: dice table
+  name: round dice table
   description: A table for playing dice games.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
     state: dice_clean
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableCasinoDice
 
 - type: entity
   parent: N14TableCasinoDice
@@ -206,6 +232,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
     state: dice_dirty
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableCasinoDice
 
 #64x64 tables
 - type: entity
@@ -268,6 +297,9 @@
         - TableMask
         layer:
         - TableLayer
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableDeskWood
 
 - type: entity
   parent: N14TableDeskWood
@@ -277,6 +309,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
     state: desk_wood
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableDeskWood2
 
 - type: entity
   parent: N14TableDeskSchool
@@ -286,16 +321,22 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
     state: desk_wood_small
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableDeskWoodSmall
 
 - type: entity
   parent: N14TableDeskWood
   id: N14TableCasinoCards
-  name: cards table
+  name: card table
   description: A fancy table for playing cards at.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
     state: table_cards
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableCasinoCards
 
 - type: entity
   parent: N14TableCasinoCards
@@ -306,26 +347,35 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
     state: table_pool
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableCasinoPool
 
 - type: entity
   parent: N14TableCasinoCards
   id: N14TableWoodenOvalWide
-  name: wooden table
+  name: oval wooden table
   description: An oval table made from wood.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
     state: table_wood_wide_oval
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableWoodenOvalWide
 
 - type: entity
   parent: N14TableCasinoCards
   id: N14TableWoodenSquareWide
-  name: wooden table
+  name: rectangular wooden table
   description: A wide square table made from wood.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
     state: table_wood_wide_square
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableWoodenSquareWide
 
 - type: entity
   parent: N14TableDeskMetal # Corvax-Change
@@ -384,6 +434,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: craft_counter
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableCounterCraft
 
 - type: entity
   parent: N14TableCounter
@@ -393,6 +446,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: craft_counter_bend
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableCounterCraftBend
 
 - type: entity
   parent: N14TableCounter
@@ -402,6 +458,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: craft_counter_intersect
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableCounterCraftIntersect
 
 - type: entity
   parent: N14TableCounter
@@ -411,6 +470,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
     state: craft_counter_cross
+  - type: Construction
+    graph: N14WoodTableRecipes
+    node: TableCounterCraftCross
 
 - type: entity
   parent: N14FreeTableBase

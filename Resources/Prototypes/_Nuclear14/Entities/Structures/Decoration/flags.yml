@@ -94,6 +94,7 @@
   description: A flag with a two headed bear, the symbol of the New California Republic.
   components:
   - type: Sprite
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
     state: ncrflag
   - type: Construction # Forge-Change
     graph: DecorationFlagNCR
@@ -106,7 +107,11 @@
   description: A flag depicting a stylised pink flower on a green background. It's the symbol of the town of Oasis.
   components:
   - type: Sprite
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
     state: oasisflag
+  - type: Construction
+    graph: DecorationFlagOasis
+    node: FlagOasis
 
 - type: entity
   parent: N14DecorationFlagFlammable
@@ -117,6 +122,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/flags2.rsi
     state: wbosflag
+  - type: Construction
+    graph: DecorationFlagBrotherhoodWashington
+    node: FlagBrotherhoodWashington
 
 - type: entity
   parent: N14DecorationFlagFlammable
@@ -153,6 +161,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/flags.rsi
     state: enclaveflag
+  - type: Construction
+    graph: DecorationFlagEnclave
+    node: FlagEnclave
 
 - type: entity
   parent: N14DecorationFlagFlammable
@@ -184,21 +195,27 @@
   parent: N14DecorationFlagFlammable
   id: N14DecorationFlagHighvalleyhills
   name: High Valley Hills flag
-  description: A flag with two white stripes, blue border and a red centre with a white Vault-Tec logo, turned on its side and stretched out
+  description: A flag with two white stripes, blue border and a red centre with a white Vault-Tec logo, turned on its side and stretched out.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/flags.rsi
     state: hvhflag
+  - type: Construction
+    graph: DecorationFlagHighvalleyhills
+    node: FlagHighvalleyhills
 
 - type: entity
   parent: N14DecorationFlagFlammable
   id: N14DecorationFlagVaultTecCityCoalition
   name:  Vault-Tec City Coalition flag
-  description: An Vault-Tec City Coalition flag atop a bearer.
+  description: A Vault-Tec City Coalition flag atop a bearer.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/flags.rsi
     state: vtccflag
+  - type: Construction
+    graph: DecorationFlagVaultTecCityCoalition
+    node: FlagVaultTecCityCoalition
 
 - type: entity
   parent: N14DecorationFlagFlammable
@@ -222,6 +239,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/flags.rsi
     state: khanflag
+  - type: Construction
+    graph: DecorationFlagKhans
+    node: FlagKhans
 
 - type: entity
   parent: N14DecorationFlagFlammable
@@ -232,3 +252,6 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/flags.rsi
     state: cotc
+  - type: Construction
+    graph: DecorationFlagChurch
+    node: FlagChurch

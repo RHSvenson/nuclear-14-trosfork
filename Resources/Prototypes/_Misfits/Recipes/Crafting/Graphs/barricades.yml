@@ -1,0 +1,164 @@
+#Misfits barricade construction graphs
+
+- type: constructionGraph
+  id: BarricadeTanktrap
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: Tanktrap
+          steps:
+            - material: Steel
+              amount: 7
+              doAfter: 6
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+
+    - node: Tanktrap
+      entity: N14BarricadeTanktrap
+      edges:
+        - to: start
+          steps:
+            - tool: Welding
+              doAfter: 3
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 7
+            - !type:DeleteEntity 
+
+- type: constructionGraph
+  id: BarricadeRazorwire
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: Razorwire
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+          completed:
+            - !type:SnapToGrid
+
+    - node: Razorwire
+      entity: N14BarricadeRazorwire
+      edges:
+        - to: start
+          steps:
+            - tool: Cutting
+              doAfter: 6
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity 
+
+- type: constructionGraph
+  id: BarricadeMetal
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: Metal
+          steps:
+            - material: Steel
+              amount: 8
+              doAfter: 6
+          completed:
+            - !type:SnapToGrid
+
+    - node: Metal
+      entity: N14BarricadeMetal
+      edges:
+        - to: start
+          steps:
+            - tool: Welding
+              doAfter: 6
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 8
+            - !type:DeleteEntity 
+
+- type: constructionGraph
+  id: DecorConcreteBarrier
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ConcreteBarrier
+          steps:
+            - material: N14Concrete
+              amount: 8
+              doAfter: 6
+          completed:
+            - !type:SnapToGrid
+
+    - node: ConcreteBarrier
+      entity: N14BarricadeConcreteBarrier
+      edges:
+        - to: start
+          steps:
+            - tool: Cutting
+              doAfter: 3
+          completed:
+            - !type:SpawnPrototype
+              prototype: N14MaterialCement1
+              amount: 5
+            - !type:DeleteEntity
+
+- type: constructionGraph
+  id: BarricadeMetalGreen
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: Green
+          steps:
+            - material: Steel
+              amount: 8
+              doAfter: 6
+          completed:
+            - !type:SnapToGrid
+
+    - node: Green
+      entity: N14BarricadeMetalGreen
+      edges:
+        - to: start
+          steps:
+            - tool: Welding
+              doAfter: 6
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 8
+            - !type:DeleteEntity
+
+- type: constructionGraph
+  id: BarricadeConcrete
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: Concrete
+          steps:
+            - material: N14Concrete
+              amount: 8
+              doAfter: 6
+          completed:
+            - !type:SnapToGrid
+
+    - node: Concrete
+      entity: N14DecorConcreteBarrier
+      edges:
+        - to: start
+          steps:
+            - tool: Cutting
+              doAfter: 3
+          completed:
+            - !type:SpawnPrototype
+              prototype: N14MaterialCement1
+              amount: 5
+            - !type:DeleteEntity

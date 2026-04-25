@@ -16,10 +16,8 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
-  canRotate: false
+  canRotate: true
   hide: false
-  conditions:
-    - !type:TileNotBlocked
 
 # Construction graph defining the build steps
 - type: constructionGraph
@@ -31,7 +29,7 @@
         - to: sandbag
           steps:
             - material: N14Sand
-              amount: 5
+              amount: 2
               doAfter: 2
             - material: Thread
               amount: 2

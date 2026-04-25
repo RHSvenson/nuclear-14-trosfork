@@ -4,14 +4,17 @@
 
 # --- Small COA Banner ---
 - type: entity
-  parent: BannerBase
+  parent: N14SignBase
   id: MisfitsBannerChildrenOfAtom
-  name: Children of Atom banner
-  description: A banner bearing the sacred symbol of the Children of Atom — the divine mushroom cloud rendered in faded cloth. It radiates faint warmth to true believers.
+  name: Children of Atom Flag
+  description: A banner bearing the sacred symbol of the Children of Atom. It radiates faint warmth to true believers.
   components:
   - type: Sprite
     sprite: _Misfits/Structures/Decoration/coa_banner_small.rsi
     state: banner
+  - type: Construction
+    graph: MisfitsFlagSmallCoA
+    node: flagcoas
 
 # --- Large COA Flag ---
 - type: entity
@@ -23,3 +26,6 @@
   - type: Sprite
     sprite: _Misfits/Structures/Decoration/coa_banner_big.rsi
     state: banner
+  - type: Construction
+    graph: MisfitsFlagCoA
+    node: flagcoa

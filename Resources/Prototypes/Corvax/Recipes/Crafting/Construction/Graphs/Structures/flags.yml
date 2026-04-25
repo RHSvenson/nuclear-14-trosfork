@@ -20,10 +20,10 @@
             - tool: Prying
               doAfter: 3
           completed:
-            - !type:GivePrototype
+            - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 3
-            - !type:DeleteEntity {}
+              amount: 5
+            - !type:DeleteEntity 
 
 - type: constructionGraph
   id: DecorationFlagNCR
@@ -48,15 +48,15 @@
         - to: start
           steps:
             - tool: Prying
-              doAfter: 5
+              doAfter: 3
           completed:
-            - !type:GivePrototype
+            - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 3
-            - !type:GivePrototype
+              amount: 5
+            - !type:SpawnPrototype
               prototype: MaterialCloth1
-              amount: 3
-            - !type:DeleteEntity {}
+              amount: 5
+            - !type:DeleteEntity 
 
 - type: constructionGraph
   id: DecorationFlagYuma
@@ -81,15 +81,15 @@
         - to: start
           steps:
             - tool: Prying
-              doAfter: 5
+              doAfter: 3
           completed:
-            - !type:GivePrototype
+            - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 3
-            - !type:GivePrototype
+              amount: 5
+            - !type:SpawnPrototype
               prototype: MaterialCloth1
-              amount: 3
-            - !type:DeleteEntity {}
+              amount: 5
+            - !type:DeleteEntity 
 
 - type: constructionGraph
   id: DecorationFlagBrotherhoodMidwest
@@ -114,15 +114,15 @@
         - to: start
           steps:
             - tool: Prying
-              doAfter: 5
+              doAfter: 3
           completed:
-            - !type:GivePrototype
+            - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 3
-            - !type:GivePrototype
+              amount: 5
+            - !type:SpawnPrototype
               prototype: MaterialCloth1
-              amount: 3
-            - !type:DeleteEntity {}
+              amount: 5
+            - !type:DeleteEntity 
 
 - type: constructionGraph
   id: DecorationFlagLocust
@@ -147,15 +147,15 @@
         - to: start
           steps:
             - tool: Prying
-              doAfter: 5
+              doAfter: 3
           completed:
-            - !type:GivePrototype
+            - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 3
-            - !type:GivePrototype
+              amount: 5
+            - !type:SpawnPrototype
               prototype: MaterialCloth1
-              amount: 3
-            - !type:DeleteEntity {}
+              amount: 5
+            - !type:DeleteEntity 
 
 - type: constructionGraph
   id: DecorationFlagGunner
@@ -180,15 +180,15 @@
         - to: start
           steps:
             - tool: Prying
-              doAfter: 5
+              doAfter: 3
           completed:
-            - !type:GivePrototype
+            - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 3
-            - !type:GivePrototype
+              amount: 5
+            - !type:SpawnPrototype
               prototype: MaterialCloth1
-              amount: 3
-            - !type:DeleteEntity {}
+              amount: 5
+            - !type:DeleteEntity 
 
 - type: constructionGraph
   id: DecorationFlagFollowers
@@ -213,15 +213,15 @@
         - to: start
           steps:
             - tool: Prying
-              doAfter: 5
+              doAfter: 3
           completed:
-            - !type:GivePrototype
+            - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 3
-            - !type:GivePrototype
+              amount: 5
+            - !type:SpawnPrototype
               prototype: MaterialCloth1
-              amount: 3
-            - !type:DeleteEntity {}
+              amount: 5
+            - !type:DeleteEntity 
 
 - type: constructionGraph
   id: DecorationFlagLegion
@@ -246,12 +246,12 @@
         - to: start
           steps:
             - tool: Prying
-              doAfter: 5
+              doAfter: 3
           completed:
-            - !type:GivePrototype
+            - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
-              amount: 3
-            - !type:GivePrototype
+              amount: 5
+            - !type:SpawnPrototype
               prototype: MaterialCloth1
-              amount: 3
-            - !type:DeleteEntity {}
+              amount: 5
+            - !type:DeleteEntity 
