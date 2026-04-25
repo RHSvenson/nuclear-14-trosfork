@@ -394,3 +394,15 @@ Scripts/wiki_sync/export/Weapons/RangedWeapons/SmallGuns/index.wiki
 Scripts/wiki_sync/export/Weapons/WeaponsOther/index.wiki
 .github/instructions/
 .gitignore
+memories/repo/misfits-conventions.md
+memories/repo/ai-workflow.md
+memories/README.md
+memories/debugging.md
+build_verify_diag.txt
+AGENTS.md
+.dotnet/10.0.107.toolpath.sentinel
+.dotnet/10.0.107.dotnetFirstUseSentinel
+.dotnet/10.0.107.aspNetCertificateSentinel
+.dotnet/.dotnet/10.0.107.toolpath.sentinel
+.dotnet/.dotnet/10.0.107.dotnetFirstUseSentinel
+.dotnet/.dotnet/10.0.107.aspNetCertificateSentinel
