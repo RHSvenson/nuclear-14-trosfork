@@ -1,0 +1,15 @@
+﻿- type: entity
+  parent: BaseItem
+  id: BaseWarhorn
+  description: A warhorn, for signalling armies.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/bikehorn.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Fun/bikehorn.rsi
+    size: Tiny
+  - type: Warhorn
+    sound: /Audio/_Misfits/Items/Warhorn/WarHorn02.ogg
+    range: 45
+    volume: 3
