@@ -13,3 +13,20 @@
     sound: /Audio/_Misfits/Items/Warhorn/WarHorn02.ogg
     range: 45
     volume: 3
+
+- type: entity
+  parent: BaseWarhorn
+  id: WarhornCornus
+  name: cornus
+  description: A large signalling trumpet in the style of the ancient Roman cornus
+  components:
+  - type: Sprite
+    sprite: /Textures/_Misfits/Objects/Warhorns/cornus.rsi
+    state: icon
+  - type: Item
+    sprite: /Textures/_Misfits/Objects/Warhorns/cornus.rsi
+    size: Normal
+  - type: Warhorn
+    sound: /Audio/_Misfits/Items/Warhorn/WarHorn02.ogg
+    range: 45
+    volume: 3
