@@ -1,4 +1,3 @@
-using System;
 using Content.Shared._Misfits.Warhorn.Components;
 using Content.Shared.Interaction.Events;
 using Robust.Shared.Audio;
